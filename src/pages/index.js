@@ -1,3 +1,3 @@
-import LoginPage from "./login-page/LoginPage"
-
-export { LoginPage }
+import "./login-page/LoginPage"
+import "./home-page/HomePage"
+import "./profile-page/ProfilePage"

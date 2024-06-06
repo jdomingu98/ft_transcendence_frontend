@@ -1,15 +1,15 @@
 import WebComponent, { Component } from "#WebComponent"
-import css from './LoginPage.css?inline'
+import css from './HomePage.css?inline'
 
 export default Component({
-  tagName: 'login-page',
+  // tagName: 'login-page',
   styleCSS: css
 },
-class LoginPage extends WebComponent {
+class HomePage extends WebComponent {
   render() {
     return `
     <div>
-        <div class="si">Login works!</div>
+      <div class="si">Homepage works!</div>
     </div>
     `
   }
