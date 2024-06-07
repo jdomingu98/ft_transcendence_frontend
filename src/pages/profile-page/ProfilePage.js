@@ -59,7 +59,7 @@ class ProfilePage extends WebComponent
         `
         :`${error
           ? `<div style="color: red">${error}</div>` 
-          : `<div class="si">Profile of ${user.name} works!</div>`}`}
+          : `<div class="bg-primary">Profile of ${user.name} works!</div>`}`}
       
       
     </div>

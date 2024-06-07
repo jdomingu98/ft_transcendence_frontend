@@ -1,0 +1,9 @@
+:root{
+    --white:#ffffff;
+}
+
+.landing{
+    width: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(56deg, rgba(0,0,0,1) 0%, rgba(0,2,53,1) 0%);
+}

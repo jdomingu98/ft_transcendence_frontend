@@ -1,0 +1,37 @@
+.card {
+    background-color: #13124F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    width: 92%;
+    padding: 20px;
+    height: 90%; /* Asegúrate de que todas las tarjetas tengan la misma altura */
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.card-img-top {
+    position: relative;
+    overflow: hidden;
+    width: 115px; 
+    height: 115px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px; /* Ajusta según sea necesario */
+}
+
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+

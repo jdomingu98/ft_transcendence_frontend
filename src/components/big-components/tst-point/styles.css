@@ -1,0 +1,10 @@
+.custom-image-left {
+    margin-left: -71px;
+}
+@media (max-width: 992px) {
+    .custom-image-left {
+        margin-left: 0;
+    }
+}
+
+
