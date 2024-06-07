@@ -1,11 +1,10 @@
 import WebComponent, { Router } from '#WebComponent'
 import './pages'
 import '/src/bootstrap.scss'
+import style from './styles.css?inline'
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline'
 
-WebComponent.defineGlobalCSS([
-  style, bootstrap
-])
+WebComponent.defineGlobalCSS([style, bootstrap])
 
 const routes = [
   { path: '/', component: 'login-page' },
