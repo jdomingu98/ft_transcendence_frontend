@@ -1,6 +1,6 @@
 import WebComponent, { Router } from '#WebComponent'
 import './pages'
-import style from '../styles.css?inline'
+import '/src/bootstrap.scss'
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline'
 
 WebComponent.defineGlobalCSS([
