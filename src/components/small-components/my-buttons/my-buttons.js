@@ -24,7 +24,7 @@ class TrBtn extends WebComponent
 export const BgBtn = Component(
 {
     tagName: "bg-btn",
-    stylesURL: "My-Components/small-components/my-buttons/styles.css"
+    styleCSS: css
 },
   
 class BgBtn extends WebComponent
@@ -43,7 +43,7 @@ class BgBtn extends WebComponent
 export const LgBtn = Component(
 {
     tagName: "lg-btn",
-    stylesURL: "My-Components/small-components/my-buttons/styles.css"
+    styleCSS: css
 },
     
 class LgBtn extends WebComponent

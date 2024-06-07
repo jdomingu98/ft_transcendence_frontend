@@ -23,7 +23,7 @@ class MainTittle extends WebComponent
 export const BigTittle = Component(
 {
     tagName: "big-tittle",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+        styleCSS: css
 },
         
 class BigTittle extends WebComponent
@@ -38,7 +38,7 @@ class BigTittle extends WebComponent
 export const PgraphText = Component(
 {
     tagName: "pgraph-text",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+        styleCSS: css
 },
         
 class PgraphText extends WebComponent
@@ -53,7 +53,7 @@ class PgraphText extends WebComponent
 export const SmallTittle = Component(
 {
     tagName: "small-tittle",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class SmallTittle extends WebComponent
@@ -68,7 +68,7 @@ class SmallTittle extends WebComponent
 export const CardTittle = Component(
 {
     tagName: "card-tittle",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class CardTittle extends WebComponent
@@ -83,7 +83,7 @@ class CardTittle extends WebComponent
 export const CardText = Component(
 {
     tagName: "card-text",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class CardText extends WebComponent
@@ -100,7 +100,7 @@ class CardText extends WebComponent
 export const BigCardText = Component(
 {
     tagName: "big-card-text",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class BigCardText extends WebComponent
@@ -115,7 +115,7 @@ class BigCardText extends WebComponent
 export const FooterTittle = Component(
 {
     tagName: "footer-tittle",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class FooterTittle extends WebComponent
@@ -130,7 +130,7 @@ class FooterTittle extends WebComponent
 export const FooterText = Component(
 {
     tagName: "footer-text",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
+    styleCSS: css
 },
         
 class FooterText extends WebComponent

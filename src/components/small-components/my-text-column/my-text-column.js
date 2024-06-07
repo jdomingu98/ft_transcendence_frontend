@@ -6,7 +6,6 @@ import { FooterText, FooterTittle } from "../my-texts/my-texts.js";
 export const TextColumn = Component(
 {
     tagName: "text-column",
-    stylesURL: "My-Components/small-components/my-texts/styles.css"
 },
     
 class TextColumn extends WebComponent

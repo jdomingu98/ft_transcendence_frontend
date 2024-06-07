@@ -15,10 +15,11 @@ class LandingPage extends WebComponent
     render(){
         return `
         <div class="landing">
-            <div class="container">    
-                <start-point style="padding-top: 6rem; position: relative;">
+        <div class="container">    
+                <light-point num="1"></light-point>
+                <nav-point style="padding-top: 6rem; position: relative;">
                     <light-point num="1"></light-point>
-                </start-point>
+                </nav-point>
 
                 <tst-point
                     src="/src/img/laptop.png"

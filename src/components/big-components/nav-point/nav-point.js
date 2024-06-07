@@ -7,16 +7,15 @@ import {LightPoint } from "../../small-components/my-lights/my-lights.js";
 
 export default Component(
 {
-    tagName: "start-point",
+    tagName: "nav-point",
 },
 
-class StartPoint extends WebComponent 
+class NavPoint extends WebComponent 
 {
     render() {
         const style = this.getAttribute('style') || '';
 
         return `
-        <light-point num="1"></light-point>
         <nav class="row d-flex flex-sm-row flex-md-row flex-lg-row flex-xl-row flex-xxl-row align-items-center" style="${style}">
             <div class="col-12 col-lg-5 p-0 mb-lg-0 mb-5">
                 <main-tittle> Transcendence </main-tittle>

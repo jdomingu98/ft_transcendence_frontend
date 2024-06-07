@@ -23,7 +23,7 @@ class MediaImg extends WebComponent
 export const CardImg = Component(
 {
     tagName: "card-img",
-    stylesURL: "My-Components/small-components/my-imgs/styles.css"
+    styleCSS: css
 },
     
 class CardImg extends WebComponent

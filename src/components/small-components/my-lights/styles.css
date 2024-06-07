@@ -1,7 +1,7 @@
 .light1{
     position: absolute;
-    top: -60vh;
-    left: -15vw;
+    top: -60%;
+    left: -5%;
     width: 1000px;
     height:1000px;
     background: radial-gradient(circle, rgba(152, 166, 243, 0.845) 0%, rgba(255, 255, 255, 0) 65%);

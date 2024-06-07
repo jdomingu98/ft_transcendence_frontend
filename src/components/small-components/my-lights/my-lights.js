@@ -14,7 +14,7 @@ class LightPoint extends WebComponent
 {
     render(){
         const num = this.getAttribute("num") || "";
-        return `<div class="light${num}"></div>`
+        return `<div class="light${num}">HOLAAAAA</div>`
     }
 }
 );

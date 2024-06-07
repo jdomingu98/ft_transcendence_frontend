@@ -34,11 +34,11 @@ class CardPoint extends WebComponent
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="./img/cmorales.jpg" tittle="cmorales" text="Front-end developer"></small-card>
+                    <small-card src="src/img/cmorales.jpg" tittle="cmorales" text="Front-end developer"></small-card>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="./img/jdomingu.png" tittle="jdomingu" text="UX/UI <br> Designer" text2="Fullstack Developer"></small-card>
+                    <small-card src="src/img/jdomingu.png" tittle="jdomingu" text="UX/UI <br> Designer" text2="Fullstack Developer"></small-card>
                 </div> 
 
             </div-cards>
