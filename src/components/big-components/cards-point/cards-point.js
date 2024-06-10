@@ -14,7 +14,6 @@ export default Component(
 
 class CardPoint extends WebComponent
 {
-    //PREGUNTAR ALE PQ EL DIV NO LO PUEDO PASAR
     render() {
         return `
         <section class="row justify-content-center align-items-center" style="margin-top: 8rem;">
@@ -26,19 +25,19 @@ class CardPoint extends WebComponent
 
             <div-cards class=" row d-flex justify-content-center px-0" > 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="src/img/aruzafa-.jpg" tittle="aruzafa-" text="Project Manager" text2="Fullstack Developer""></small-card>
+                    <small-card src="src/img/people/aruzafa-.jpg" tittle="aruzafa-" text="Project Manager" text2="Fullstack Developer""></small-card>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="src/img/atrujill.jpg" tittle="atrujill" text="Back-end developer"></small-card>
+                    <small-card src="src/img/people/atrujill.jpg" tittle="atrujill" text="Back-end developer"></small-card>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="src/img/cmorales.jpg" tittle="cmorales" text="Front-end developer"></small-card>
+                    <small-card src="src/img/people/cmorales.jpg" tittle="cmorales" text="Front-end developer"></small-card>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="src/img/jdomingu.png" tittle="jdomingu" text="UX/UI <br> Designer" text2="Fullstack Developer"></small-card>
+                    <small-card src="src/img/people/jdomingu.png" tittle="jdomingu" text="UX/UI <br> Designer" text2="Fullstack Developer"></small-card>
                 </div> 
 
             </div-cards>
