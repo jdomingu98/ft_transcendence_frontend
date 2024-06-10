@@ -1,33 +1,30 @@
 .light1{
     position: absolute;
-    top: -60%;
+    top: -15%;
     left: -5%;
     width: 1000px;
     height:1000px;
     background: radial-gradient(circle, rgba(152, 166, 243, 0.845) 0%, rgba(255, 255, 255, 0) 65%);
-    z-index: -1;
 }
 
 .light2 {
     position: absolute;
+    top: 40%;
+    left: 70%;
     width: 1000px;
     height:1000px;
     background: radial-gradient(circle, rgba(118, 204, 214, 0.896) 0%, rgba(255, 255, 255, 0) 70%);
-    top: 40%;
-    left: 70%;
-    z-index: -1;
 }
 
 
 /*Echar un ojo el responsive*/
 .light3 {
     position: absolute;
+    top: 70%;
+    left: -35%;
     width: 1000px;
     height: 1000px;
     background: radial-gradient(circle, rgb(118, 204, 214) 0%, rgba(255, 255, 255, 0) 70%);
-    top: 180%;
-    left: -35%;
-    z-index: -1;
 } 
 
 
