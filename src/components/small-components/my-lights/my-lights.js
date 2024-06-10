@@ -12,9 +12,9 @@ export const LightPoint = Component(
     
 class LightPoint extends WebComponent
 {
-    render(){
+    render() {
         const num = this.getAttribute("num") || "";
-        return `<div class="light${num}">HOLAAAAA</div>`
+        return `<div class="light${num}"></div>`
     }
 }
 );
