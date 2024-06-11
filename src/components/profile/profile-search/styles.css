@@ -1,0 +1,34 @@
+.navbar{
+    margin-top: 3rem;
+}
+.input-group{
+    width: 90%;
+}
+
+
+.form-control{
+    background-color: #13124F;
+    border-color: #ABD9D9;
+    border-left: 0;
+
+}
+
+.form-control::placeholder{
+    color: #ffff;
+    font-size: 1.2rem;
+}
+
+.form-control:focus{
+    background-color: #13124F;
+    box-shadow: none;
+    border-color: #ABD9D9;
+    font-size: 1.2rem;
+    color: #ffff;
+}
+
+.input-group-text{
+    background-color: #13124F;
+    border-color: #ABD9D9;
+    border-right: 0;
+    padding-right: 0;
+}

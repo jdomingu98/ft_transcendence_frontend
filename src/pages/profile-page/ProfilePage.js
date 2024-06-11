@@ -1,6 +1,11 @@
 import WebComponent, { Component } from "#WebComponent";
+import css from './ProfilePage.css?inline'
 
-const fakeDatabase = {
+import "/src/components/app/app-lateral-nav/app-lateral-nav.js"
+import "/src/components/profile"
+
+
+/* const fakeDatabase = {
   users: [
     { id: 1, name: 'Toto' },
     { id: 2, name: 'Titi' },
@@ -62,6 +67,35 @@ class ProfilePage extends WebComponent
           : `<div class="bg-primary">Profile of ${user.name} works!</div>`}`}
       
       
+    </div>
+    `
+  }
+})
+ */
+
+
+
+export default Component({
+  tagName: 'profile-page',
+  styleCSS: css
+},
+class ProfilePage extends WebComponent
+{
+  render() {
+
+    return `
+    <div class="container-fluid profile">
+        <div class="row">
+            <div class="col-2 d-flex flex-column align-items-center justify-content-center" style="background-color: #13124F;">
+                <lateral-nav></lateral-nav>
+            </div>
+            <div class="col-10">
+                <div class="container">
+                    <profile-search></profile-search>
+                    <profile-card></profile-card>
+                </div>
+            </div>
+        </div>
     </div>
     `
   }
