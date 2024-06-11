@@ -3,7 +3,6 @@
 import css from "./small-card.css?inline";
 
 import { Component, WebComponent } from "#WebComponent"
-import { CardImg } from "../../../common/my-imgs/my-imgs.js";
 
 export const SmallCard = Component(
 {
