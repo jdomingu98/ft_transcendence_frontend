@@ -1,4 +1,4 @@
-.light1{
+.light1 {
     position: absolute;
     top: -15%;
     left: -5%;
@@ -17,7 +17,7 @@
 }
 
 
-/*Echar un ojo el responsive*/
+/* Echar un ojo el responsive */
 .light3 {
     position: absolute;
     top: 70%;

@@ -1,15 +1,15 @@
 "use strict";
 
-import css from "./styles.css?inline";
+import css from "./landing-lights.css?inline";
 
 import { Component, WebComponent } from "#WebComponent"
 
-export const LightPoint = Component(
+export default Component(
 {
     tagName: "light-point",
     styleCSS: css
 },
-    
+
 class LightPoint extends WebComponent
 {
     render() {
