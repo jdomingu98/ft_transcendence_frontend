@@ -1,8 +1,10 @@
 "use strict";
 
 import { Component, WebComponent } from "#WebComponent"
-import { TrBtn, BgBtn, LgBtn } from "../common/my-buttons/my-buttons.js"
-import { BigTittle, MainTittle } from "../common/my-texts/my-texts.js"
+import { ClearBtn } from "../common/my-buttons/clear-btn/clear-btn.js"
+import { BgBtn } from "../common/my-buttons/bg-btn/bg-btn.js"
+import { LangBtn } from "../common/my-buttons/lang-btn/lang-btn.js"
+import { MainTittle } from "../common/my-texts/main-tittle/main-tittle.js"
 
 export default Component(
 {
@@ -20,12 +22,12 @@ class LandingNav extends WebComponent
                 <main-tittle> Transcendence </main-tittle>
             </div>
             <div class="col-12 col-lg-7 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-sm-0 gap-4">
-                <tr-btn>Play a game</tr-btn>
-                <tr-btn>Tourneys</tr-btn>
+                <clear-btn>Play a game</clear-btn>
+                <clear-btn>Tourneys</clear-btn>
                 <bg-btn style="height:50px;width:150px;">Log in</bg-btn>
             </div>
             <div class="col-12 d-flex justify-content-end mt-5">
-                <lg-btn>English</lg-btn>
+                <lang-btn>English</lang-btn>
             </div>
         </nav>
         `;

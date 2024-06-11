@@ -17,9 +17,6 @@
     width: 115px; 
     height: 115px; 
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: -80px; /* Ajusta según sea necesario */
 }
 

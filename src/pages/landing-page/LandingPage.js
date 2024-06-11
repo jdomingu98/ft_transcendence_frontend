@@ -1,9 +1,9 @@
 import WebComponent, { Component } from "#WebComponent"
 
 import "/src/components/landing"
-
 import "/src/components/landing/landing-lights/landing-lights"
-import "/src/components/app/app-footer"
+import "/src/components/app/app-footer/app-footer.js"
+
 import css from "./LandingPage.css?inline"
 
 export default Component(
@@ -42,7 +42,7 @@ class LandingPage extends WebComponent
                     alt="mobile">
                     <bg-btn style="width: 330px;">REGISTER NOW</bg-btn>
                 </landing-section>
-                <developer-list></developer-list>
+                <landing-dev-list></landing-dev-list>
                 <landing-card></landing-card>
                 <app-footer></app-footer>
             </div>

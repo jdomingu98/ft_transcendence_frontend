@@ -2,11 +2,9 @@
 
 
 import { Component, WebComponent } from "#WebComponent"
-import {TrBtn, BgBtn, LgBtn} from "../common/my-buttons/my-buttons.js"
-import {BigTittle,SmallTittle,PgraphText, BigCardText} from "../common/my-texts/my-texts.js"
-import { SmallCard } from "../landing/developer-list/my-cards/small-card.js";
-import { TextColumn } from "../common/my-text-column/my-text-column.js";
-import { FooterInput } from "../common/my-inputs/my-inputs.js";
+import { BgBtn } from "../../common/my-buttons/bg-btn/bg-btn.js"
+import { TextColumn } from "../../common/my-text-column/my-text-column.js";
+import { FooterInput } from "./footer-input/footer-input.js";
 
 export default Component(
 {
@@ -32,7 +30,7 @@ class AppFooter extends WebComponent
                 </div>
 
                 <div class="col-12 col-lg-4 px-5 px-lg-0 d-flex flex-column align-items-center align-items-lg-start mt-5 mt-lg-0">
-                    <footer-tittle>Contact with us</footer-tittle>
+                    <h5 class="text-light text-lg-start fw-bold">Contact with us</h5>
                     <footer-input class="w-100 mt-2"></footer-input>
                     <bg-btn class="footer-btn mt-3 w-100">SUBMIT</bg-btn>
                 </div>

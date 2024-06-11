@@ -1,10 +1,8 @@
 "use strict";
 
 import { Component, WebComponent } from "#WebComponent"
-
-import {TrBtn, BgBtn, LgBtn} from "../common/my-buttons/my-buttons.js"
-import {BigTittle,SmallTittle,PgraphText, BigCardText} from "../common/my-texts/my-texts.js"
-import { SmallCard } from "./developer-list/my-cards/small-card.js";
+import { BgBtn } from "../common/my-buttons/bg-btn/bg-btn.js"
+import { BigTittle } from "../common/my-texts/big-tittle/big-tittle.js"
 
 export default Component(
 {
@@ -27,7 +25,7 @@ class LandingCard extends WebComponent
             <div class="col">
                 <div class="bg-card text-center d-flex">
                     <div class="card-body d-flex justify-content-center align-items-center flex-column gap-5">
-                        <big-card-text>READY TO SHOW <br> WHAT ARE YOU MADE OF?</big-card-text>
+                        <h4 style="color: #0000000;">READY TO SHOW <br> WHAT ARE YOU MADE OF?</h4>
                         <big-tittle>Be Part Of This <br>Community</big-tittle>
                         <bg-btn class="black" style="font-size:1.2rem; height:80px">GET STARTED</bg-btn>
                     </div>

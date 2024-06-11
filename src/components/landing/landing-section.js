@@ -1,8 +1,9 @@
 "use strict";
 
 import { Component, WebComponent } from "#WebComponent"
-import {TrBtn, BgBtn, LgBtn} from "../common/my-buttons/my-buttons.js"
-import {BigTittle,SmallTittle,PgraphText} from "../common/my-texts/my-texts.js"
+import { BgBtn } from "../common/my-buttons/bg-btn/bg-btn.js"
+import { SmallTittle} from "../common/my-texts/small-tittle/small-tittle.js"
+import { BigTittle } from "../common/my-texts/big-tittle/big-tittle.js"
 
 
 export default Component(
@@ -25,7 +26,7 @@ export default Component(
 class LandingSection extends WebComponent
 {
     render() {
-        const source = this.getAttribute("src") || "";
+        const src = this.getAttribute("src") || "";
         const imagenLeft = (this.getAttribute("imagenLeft") || false) === 'true';
         const alt = this.getAttribute("alt") || ""
         const smallTittle = this.getAttribute("smallTittle")
@@ -36,13 +37,13 @@ class LandingSection extends WebComponent
         <section class="row" style="margin-top: 7rem;">
         ${ imagenLeft ?
             `<div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-start px-0 order-lg-0 order-1 custom-image-left">
-                <img src="${source}" alt="${alt}"></img>
+                <img src="${src}" alt="${alt}"></img>
             </div>` : ''}
         
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center  ${imagenLeft ? 'align-items-center align-items-lg-end align-items-xl-start' : 'align-items-lg-start'} px-0 text-center text-lg-start">
         ${ smallTittle ? `<small-tittle>${smallTittle}</small-tittle>` : '' }
             ${ bigTittle ? `<big-tittle class="${imagenLeft ? 'text-center text-lg-end text-xl-start' : 'text-center text-lg-start'}">${bigTittle}</big-tittle>` : ''}
-            ${ p ? `<pgraph-text>${p}</pgraph-text>` : ''}
+            ${ p ? `<p class="mt-3 text-light">${p}</p>` : ''}
             <div class="d-flex pt-3 gap-3 justify-content-center ${imagenLeft ? 'justify-content-lg-end' : 'justify-content-lg-start'}">
                 ${this.innerHTML}
             </div>
@@ -50,7 +51,7 @@ class LandingSection extends WebComponent
     
         ${ !imagenLeft ?
             `<div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end p-0">
-                <img src="${source}" alt="${alt}"></img>
+                <img src="${src}" alt="${alt}"></img>
             </div>`: ''}
     </section>`
     }
