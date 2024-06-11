@@ -73,7 +73,7 @@ export const CardTittle = Component(
         
 class CardTittle extends WebComponent
 {   
-    render(){
+    render() {
         const text = this.innerHTML || "";
         return `<h5 class="card-tittle text-light fw-bold mb-4">${text}</h5>`
     }

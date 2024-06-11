@@ -1,23 +1,26 @@
 "use strict";
 
-import css from "./styles.css?inline";
-
 import { Component, WebComponent } from "#WebComponent"
 
-import {TrBtn, BgBtn, LgBtn} from "../../small-components/my-buttons/my-buttons.js"
-import {BigTittle,SmallTittle,PgraphText, BigCardText} from "../../small-components/my-texts/my-texts.js"
-import { MediaImg } from "../../small-components/my-imgs/my-imgs.js";
-import { SmallCard } from "../../small-components/my-cards/my-cards.js";
+import {TrBtn, BgBtn, LgBtn} from "../common/my-buttons/my-buttons.js"
+import {BigTittle,SmallTittle,PgraphText, BigCardText} from "../common/my-texts/my-texts.js"
+import { SmallCard } from "./developer-list/my-cards/small-card.js";
 
 export default Component(
 {
-    tagName: "big-card-point",
-    styleCSS: css
+    tagName: "landing-card",
+    styleCSS: `
+        .bg-card{
+            background: rgb(171,217,217);
+            background: linear-gradient(315deg, rgb(141, 223, 223) 0%, rgba(81,81,198,1) 100%);
+            border-radius: 1.5rem; 
+            height: 30rem;
+        }
+    `
 },
 
-class BigCardPoint extends WebComponent
+class LandingCard extends WebComponent
 {
-    //PREGUNTAR ALE PQ EL DIV NO LO PUEDO PASAR
     render() {
         return `
         <section class="row" style="margin-top: 7rem;">

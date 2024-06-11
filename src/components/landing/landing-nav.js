@@ -1,16 +1,15 @@
 "use strict";
 
 import { Component, WebComponent } from "#WebComponent"
-import {TrBtn, BgBtn, LgBtn} from "../../small-components/my-buttons/my-buttons.js"
-import {BigTittle,MainTittle} from "../../small-components/my-texts/my-texts.js"
-import {LightPoint } from "../../small-components/my-lights/my-lights.js";
+import { TrBtn, BgBtn, LgBtn } from "../common/my-buttons/my-buttons.js"
+import { BigTittle, MainTittle } from "../common/my-texts/my-texts.js"
 
 export default Component(
 {
-    tagName: "nav-point",
+    tagName: "landing-nav",
 },
 
-class NavPoint extends WebComponent 
+class LandingNav extends WebComponent 
 {
     render() {
         const style = this.getAttribute('style') || '';

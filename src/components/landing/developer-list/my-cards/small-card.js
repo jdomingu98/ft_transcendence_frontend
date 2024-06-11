@@ -1,9 +1,8 @@
 "use strict";
 
-import css from "./styles.css?inline";
+import css from "./small-card.css?inline";
 
 import { Component, WebComponent } from "#WebComponent"
-import { CardImg } from "../my-imgs/my-imgs.js";
 
 export const SmallCard = Component(
 {
