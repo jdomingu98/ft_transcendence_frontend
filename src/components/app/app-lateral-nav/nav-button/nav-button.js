@@ -12,7 +12,11 @@ export const NavButton = Component(
             align-items: center;
             justify-content: center;
             min-width: 200px;
-        }    
+        }
+        .symbol {
+            width: 44px;
+            margin-bottom: 10px;
+        }
     `
 },
 

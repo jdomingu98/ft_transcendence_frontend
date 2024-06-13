@@ -1,37 +1,8 @@
-.banner {
-    width: 100%;
-    height: 220px; /* Ajusta la altura del banner según lo necesites */
-    background-color: #ffcc00; /* Color de fondo del banner */
-    background-size: cover;
-    background-position: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.img-banner {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    width: 100%;
+.card{
     height: 100%;
-    object-fit: cover;
+    position:relative;
+    background-color: #13124F;
 }
 
-.perfil {
-    position: absolute;
-    top: 23%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20vw;
-    aspect-ratio: 1 / 1; /* Mantiene una proporción de 1:1 para asegurar que sea un círculo */
-    min-width: 150px;
-    max-width: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-}
 
-.img-perfil {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
+

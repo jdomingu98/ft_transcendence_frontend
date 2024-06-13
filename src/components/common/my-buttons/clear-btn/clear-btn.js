@@ -12,6 +12,7 @@ export const ClearBtn = Component(
             background: transparent;
             z-index: 1;
             text-transform: uppercase;
+            min-width: 156px;
         }
     `
 },
@@ -20,7 +21,8 @@ class ClearBtn extends WebComponent
 {
     render(){
         const text = this.innerHTML || "Click me";
-        return `<button class="btn tr-btn">${text}</button>`
+        const bootstrap = this.getAttribute("bootstrap") || "";
+        return `<button class="btn tr-btn ${bootstrap}">${text}</button>`
     }
 }
 );

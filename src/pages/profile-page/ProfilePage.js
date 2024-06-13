@@ -86,11 +86,11 @@ class ProfilePage extends WebComponent
     return `
     <div class="container-fluid profile">
         <div class="row">
-            <div class="col-2 d-flex flex-column align-items-center justify-content-center" style="background-color: #13124F;">
+            <div class="col-2 d-flex flex-column align-items-center justify-content-start" style="background-color: #13124F;">
                 <lateral-nav></lateral-nav>
             </div>
             <div class="col-10">
-                <div class="container">
+                <div class="container"">
                     <profile-search></profile-search>
                     <profile-card></profile-card>
                 </div>

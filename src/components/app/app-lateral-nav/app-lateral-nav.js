@@ -9,7 +9,7 @@ export default Component(
     tagName: "lateral-nav",
     styleCSS: `
         .symbol {
-            width: 44px;
+            width: 50px;
             margin-bottom: 10px;
         }
     `
@@ -20,7 +20,7 @@ class LateralNav extends WebComponent
     render() {
 
         return `
-            <div class="d-flex flex-column align-items-center justify-content-start gap-0" style="margin-bottom: 5rem; margin-top: 3rem;">
+            <div class="d-flex flex-column align-items-center justify-content-start gap-0" style="margin-bottom: 5rem; margin-top: 5rem;">
                 <img src="/src/img/icons/logo.png" alt="logo" class="symbol">
                 <main-tittle bootstrap="d-none d-lg-block">Transcendence</main-tittle>
             </div>
