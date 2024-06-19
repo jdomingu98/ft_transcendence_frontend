@@ -1,5 +1,5 @@
 .tittle{
-    color: #ffff;
+    color: white;
     font-weight: bold;
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -7,7 +7,7 @@
 
 .big-tittle{
     padding-bottom: 1rem;
-    color: #ffff;;
+    color: white;
     font-size: 4rem;
     line-height: 0.9;
 }

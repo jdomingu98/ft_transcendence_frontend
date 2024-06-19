@@ -1,10 +1,5 @@
-/* /* :host => shadow root
-:host{
-    --white:#ffffff;
-}  */
-
 .tr-btn{
-    color: var(--white);
+    color: white;
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
@@ -18,7 +13,7 @@
     width: 230px;
     height: 70px; 
     background-color: #8D8DDA;
-    color: var(--white);
+    color: white;
     font-weight: bold;
     border-radius: 10rem;
     display: flex;
@@ -35,7 +30,7 @@
 }
 
 .black{
-    background-color: #000000;
+    background-color: black;
 }
 
 
