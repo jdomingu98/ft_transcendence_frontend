@@ -5,7 +5,7 @@ import css from "./styles.css?inline";
 
 import { Component, WebComponent } from "#WebComponent"
 
-import { FooterText, FooterTittle } from "../my-texts/my-texts.js";
+import { FooterText, FooterTitle } from "../my-texts/my-texts.js";
 
 export const FooterInput = Component(
 {

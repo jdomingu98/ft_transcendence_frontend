@@ -5,32 +5,32 @@ import css from "./styles.css?inline";
 import { Component, WebComponent } from "#WebComponent"
 
 
-export const MainTittle = Component(
+export const MainTitle = Component(
 {
-    tagName: "main-tittle",
+    tagName: "main-title",
     styleCSS: css
 },
     
-class MainTittle extends WebComponent
+class MainTitle extends WebComponent
 {   
     render(){
         const text = this.innerHTML || "";
-        return `<h3 class="tittle text-center text-lg-start">${text}</h3>`
+        return `<h3 class="title text-center text-lg-start">${text}</h3>`
     }
 }
 );
 
-export const BigTittle = Component(
+export const BigTitle = Component(
 {
-    tagName: "big-tittle",
+    tagName: "big-title",
         styleCSS: css
 },
         
-class BigTittle extends WebComponent
+class BigTitle extends WebComponent
 {   
     render(){
         const text = this.innerHTML || "";
-        return `<h1 class="mt-4 big-tittle">${text}</h1>`
+        return `<h1 class="mt-4 big-title">${text}</h1>`
     }
 }
 );
@@ -50,13 +50,13 @@ class PgraphText extends WebComponent
 }
 );
 
-export const SmallTittle = Component(
+export const SmallTitle = Component(
 {
-    tagName: "small-tittle",
+    tagName: "small-title",
     styleCSS: css
 },
         
-class SmallTittle extends WebComponent
+class SmallTitle extends WebComponent
 {   
     render(){
         const text = this.innerHTML || "";
@@ -65,17 +65,17 @@ class SmallTittle extends WebComponent
 }
 );
 
-export const CardTittle = Component(
+export const CardTitle = Component(
 {
-    tagName: "card-tittle",
+    tagName: "card-title",
     styleCSS: css
 },
         
-class CardTittle extends WebComponent
+class CardTitle extends WebComponent
 {   
     render() {
         const text = this.innerHTML || "";
-        return `<h5 class="card-tittle text-light fw-bold mb-4">${text}</h5>`
+        return `<h5 class="card-title text-light fw-bold mb-4">${text}</h5>`
     }
 }
 );
@@ -112,13 +112,13 @@ class BigCardText extends WebComponent
 }
 );
 
-export const FooterTittle = Component(
+export const FooterTitle = Component(
 {
-    tagName: "footer-tittle",
+    tagName: "footer-title",
     styleCSS: css
 },
         
-class FooterTittle extends WebComponent
+class FooterTitle extends WebComponent
 {   
     render(){
         const text = this.innerHTML || "";

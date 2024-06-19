@@ -14,7 +14,7 @@ class SmallCard extends WebComponent
 {   
     render() {
         const src = this.getAttribute("src") || "No img found";
-        const tittle = this.getAttribute("tittle") || "";
+        const title = this.getAttribute("title") || "";
         const text = this.getAttribute("text") || "";
         const text2 = this.getAttribute("text2") || "";
         return `
@@ -23,7 +23,7 @@ class SmallCard extends WebComponent
                     <card-img src="${src}"></card-img>
                 </div>
                 <div class="card-body">
-                    <card-tittle>${tittle}</card-tittle>
+                    <card-title>${title}</card-title>
                     <card-text>${text}</card-text>
                     ${ text2 ? `<card-text style="margin-top:5px;">${text2}</card-text>` : ''};
                 </div>

@@ -2,7 +2,7 @@
 
 import { Component, WebComponent } from "#WebComponent"
 import {TrBtn, BgBtn, LgBtn} from "../common/my-buttons/my-buttons.js"
-import {BigTittle,SmallTittle,PgraphText} from "../common/my-texts/my-texts.js"
+import {BigTitle,SmallTitle,PgraphText} from "../common/my-texts/my-texts.js"
 
 
 export default Component(
@@ -28,8 +28,8 @@ class LandingSection extends WebComponent
         const source = this.getAttribute("src") || "";
         const imagenLeft = (this.getAttribute("imagenLeft") || false) === 'true';
         const alt = this.getAttribute("alt") || ""
-        const smallTittle = this.getAttribute("smallTittle")
-        const bigTittle = this.getAttribute("bigTittle")
+        const smallTitle = this.getAttribute("smallTitle")
+        const bigTitle = this.getAttribute("bigTitle")
         const p = this.getAttribute("p")
 
         return `
@@ -40,8 +40,8 @@ class LandingSection extends WebComponent
             </div>` : ''}
         
         <div class="col-12 col-lg-6 d-flex flex-column justify-content-center  ${imagenLeft ? 'align-items-center align-items-lg-end align-items-xl-start' : 'align-items-lg-start'} px-0 text-center text-lg-start">
-        ${ smallTittle ? `<small-tittle>${smallTittle}</small-tittle>` : '' }
-            ${ bigTittle ? `<big-tittle class="${imagenLeft ? 'text-center text-lg-end text-xl-start' : 'text-center text-lg-start'}">${bigTittle}</big-tittle>` : ''}
+        ${ smallTitle ? `<small-title>${smallTitle}</small-title>` : '' }
+            ${ bigTitle ? `<big-title class="${imagenLeft ? 'text-center text-lg-end text-xl-start' : 'text-center text-lg-start'}">${bigTitle}</big-title>` : ''}
             ${ p ? `<pgraph-text>${p}</pgraph-text>` : ''}
             <div class="d-flex pt-3 gap-3 justify-content-center ${imagenLeft ? 'justify-content-lg-end' : 'justify-content-lg-start'}">
                 ${this.innerHTML}
