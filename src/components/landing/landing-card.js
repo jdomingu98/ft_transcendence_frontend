@@ -12,7 +12,7 @@ export default Component(
     styleCSS: `
         .bg-card{
             background: rgb(171,217,217);
-            background: linear-gradient(315deg, rgb(141, 223, 223) 0%, rgba(81,81,198,1) 100%);
+            background: linear-gradient(315deg, #ABD9D9 0%, #5151C6 100%);
             border-radius: 1.5rem; 
             height: 30rem;
         }
