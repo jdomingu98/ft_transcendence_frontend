@@ -1,0 +1,26 @@
+
+.bg-btn {
+    align-items: center;
+    background-color: #8D8DDA;
+    border-radius: 10rem;
+    box-sizing: border-box; 
+    color: white;
+    display: flex;
+    font-weight: bold;
+    height: 70px;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    width: 230px;
+}
+
+.no-color{
+    background-color: transparent;
+    border: 1px solid #ABD9D9;
+}
+
+.footer-btn{
+    background-color: #ABD9D9;
+    height: 55px; 
+    color: #000000;
+}

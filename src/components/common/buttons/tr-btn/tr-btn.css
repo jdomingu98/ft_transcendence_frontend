@@ -1,0 +1,10 @@
+
+.tr-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 1;
+}

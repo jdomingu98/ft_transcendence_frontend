@@ -1,0 +1,18 @@
+.form-control{
+    background-color: #13124F;
+    border: none;
+}
+
+.form-control::placeholder{
+    color: rgb(161, 157, 157);
+}
+
+.bg-form{
+    align-items: start;
+    display: flex;
+    padding-bottom: 5rem;
+}
+
+.bg-form::placeholder{
+    text-align: start;
+}

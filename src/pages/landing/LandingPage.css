@@ -1,0 +1,31 @@
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-color: #000235;
+}
+
+
+.lights {
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+}
+
+.top-light {
+    top: -15%;
+    left: 0%;
+    background: radial-gradient(circle, rgba(152, 166, 243, 0.845) 0%, rgba(255, 255, 255, 0) 65%);
+}
+
+.middle-light {
+    top: 14%;
+    left: 72%;
+    background: radial-gradient(circle, rgba(118, 204, 214, 0.896) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.bottom-light {
+    top: 44%;
+    left: -30%;
+    background: radial-gradient(circle, rgb(118, 204, 214) 0%, rgba(255, 255, 255, 0) 70%);
+} 
