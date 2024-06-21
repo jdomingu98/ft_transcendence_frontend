@@ -16,6 +16,7 @@
     "bootstrap": "5.3.3"
   },
   "imports": {
-    "#WebComponent": "./lib/WebComponent/index.js"
+    "#WebComponent": "./lib/WebComponent/index.js",
+    "#common": "./src/components/common"
   }
 }
