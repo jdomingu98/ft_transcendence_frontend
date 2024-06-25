@@ -1,21 +1,39 @@
 
-.bg {
-    width: 100%;
+.landing {
+    width: 100vw;
     height: 100%;
     background-color: #000235;
+    color: white;
+    font-family: Outfit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div {
+    padding: 0;
 }
 
+.landing-container {
+    margin: auto;
+    width: 80vw;
+    height:fit-content;
+}
 
 .lights {
     position: absolute;
-    width: 1000px;
-    height: 1000px;
+    width: 680px;
+    height: 680px;
+    overflow: hidden;
+    border-radius: 50%;
+    filter: blur(306px);
+    z-index: 0;
 }
 
 .top-light {
-    top: -15%;
-    left: 0%;
-    background: radial-gradient(circle, rgba(152, 166, 243, 0.845) 0%, rgba(255, 255, 255, 0) 65%);
+    top: -340px;
+    left: 150px;
+    background-color: #8D8DDA;
 }
 
 .middle-light {
@@ -28,4 +46,10 @@
     top: 44%;
     left: -30%;
     background: radial-gradient(circle, rgb(118, 204, 214) 0%, rgba(255, 255, 255, 0) 70%);
-} 
+}
+
+.landing-page {
+    background-color: red;
+    width: 34vw;
+    height: 100vh;
+}
