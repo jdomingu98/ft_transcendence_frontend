@@ -1,6 +1,8 @@
-import { BgBtn, LgBtn, TrBtn } from './buttons/index.js';
-import { SmallCard } from './cards/index.js';
-import { FooterInput } from './inputs/index.js';
+import { BgBtn, TrBtn, PrimaryButton, SecondaryButton } from './buttons';
+import { SmallCard } from './cards';
+import { FooterInput } from './inputs';
+import LanguageSelector from './selects/language-selector.js';
+
 import  {
             BigCardText,
             BigTitle, 
@@ -13,11 +15,14 @@ import  {
             SmallTitle, 
             TextColumn
         } from './texts/index.js';
+//import {LanguageSelector} from './language-selector/index.js';
 
 export {
     BgBtn,
-    LgBtn,
     TrBtn,
+    PrimaryButton,
+    SecondaryButton,
+    LanguageSelector,
     SmallCard,
     FooterInput,
     BigCardText,

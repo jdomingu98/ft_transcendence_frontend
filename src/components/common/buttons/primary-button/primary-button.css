@@ -1,0 +1,12 @@
+
+#primary {
+    text-transform: uppercase;
+    color: white;
+    font-family: Outfit;
+    border-radius: 83px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    line-height: 28px;
+    border: 1px solid transparent;
+}

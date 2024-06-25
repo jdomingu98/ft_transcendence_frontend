@@ -1,0 +1,13 @@
+#language {
+    background-color: transparent;
+    border: 1px solid #ABD9D9;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-family: Roboto;
+    appearance: none;
+}
+
+select.form-select option {
+    background-color: #8D8DDA;
+}
