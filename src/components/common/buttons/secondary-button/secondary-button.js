@@ -2,6 +2,8 @@ import { Component, WebComponent } from '#WebComponent';
 
 import css from './secondary-button.css?inline';
 
+import { SubHeaderText } from '#common';
+
 import { BUTTON_DEFAULT_MSG, BUTTON_DEFAULT_SECONDARY_COLOR } from '/src/const/index.js';
 
 export default Component ({
@@ -21,7 +23,7 @@ class SecondaryButton extends WebComponent {
                 class="btn btn-secondary"
                 style="width: ${width}; height: ${height}; border: 1px solid ${color};"
             >
-                ${buttonText}
+                <sub-header-text>${buttonText}<sub-header-text>
             </button>
         `;
     }

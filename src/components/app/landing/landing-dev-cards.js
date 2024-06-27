@@ -2,7 +2,7 @@
 
 import { Component, WebComponent } from '#WebComponent'
 
-import { BigTitle, SmallTitle, SmallCard } from '#common';
+import { SubHeaderText, H2Text, DevCard } from '#common';
 
 export default Component ({
     tagName: 'landing-dev-cards'
@@ -11,54 +11,51 @@ export default Component ({
 class LandingDevCards extends WebComponent {
     init() {
         this.state = {
-            devs: [{
+            devsInfo: [{
                 src: 'src/resources/devs/aruzafa-.jpg',
-                name: 'ARUZAFA-',
-                job: 'PROJECT MANAGER',
-                desc: 'FULLSTACK DEVELOPER',
+                name: 'aruzafa-',
+                firstRole: 'project manager',
+                secondRole: 'fullstack developer',
             }, {
                 src: 'src/resources/devs/atrujill.jpg',
-                name: 'ATRUJILL',
-                job: 'BACKEND DEVELOPER',
-                desc: '',
+                name: 'atrujill',
+                firstRole: 'backend developer',
+                secondRole: '',
             }, {
                 src: 'src/resources/devs/cmorales.jpg',
-                name: 'CMORALES',
-                job: 'FRONTEND DEVELOPER',
-                desc: '',
+                name: 'cmorales',
+                firstRole: 'frontend developer',
+                secondRole: '',
             }, {
                 src: 'src/resources/devs/jdomingu.png',
-                name: 'JDOMINGU',
-                job: 'UX/UI DESIGNER',
-                desc: 'FULLSTACK DEVELOPER',
+                name: 'jdomingu',
+                firstRole: 'ux/ui designer',
+                secondRole: 'fullstack developer',
             }]
         };
     }
 
     developersToHTML() {
-        return this.state.devs.map( dev => 
+        return this.state.devsInfo.map( dev => 
             `
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
-                    <small-card src="${dev.src}" title="${dev.name}" text="${dev.job}" text2="${dev.desc}"></small-card>
+                    <dev-card src="${dev.src}" devName="${dev.name}" firstRole="${dev.firstRole}" secondRole="${dev.secondRole}"></dev-card>
                 </div>
             `).join('');
     }
 
     render() {
         return `
-            <section class="row justify-content-center align-items-center" style="margin-top: 8rem;">
-
-                <div class="col-12  d-flex flex-column justify-content-center align-items-center text-center">
-                    <small-title>MEET THE TEAM</small-title>
-                    <big-title>The Minds Behind <br> The Code</big-title>
+            <aside class="row" style="margin-top: 7rem;">
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
+                    <sub-header-text color="#ABD9D9">meet the team</sub-header-text>
+                    <h2-text>the minds behind <br> the code</h2-text>
                 </div>
 
-                <!-- div-cards ?? -->
-                <div class="row d-flex justify-content-center px-0" > 
+                <div class="row d-flex px-0" > 
                     ${this.developersToHTML()}
                 </div>
-    
-            </section>
+            </aside>
         `;
     }
 });

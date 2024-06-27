@@ -17,6 +17,7 @@
   },
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
-    "#common": "./src/components/common"
+    "#common": "./src/components/common",
+    "#svg": "./src/components/svg"
   }
 }

@@ -1,5 +1,5 @@
-import SmallCard from './small-card/small-card.js';
+import DevCard from './dev-card/dev-card.js';
 
 export {
-    SmallCard
+    DevCard
 };

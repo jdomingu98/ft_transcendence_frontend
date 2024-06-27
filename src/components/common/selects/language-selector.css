@@ -5,7 +5,8 @@
     color: white;
     font-size: 14px;
     font-family: Roboto;
-    appearance: none;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 select.form-select option {

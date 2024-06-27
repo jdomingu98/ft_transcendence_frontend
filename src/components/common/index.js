@@ -1,38 +1,27 @@
-import { BgBtn, TrBtn, PrimaryButton, SecondaryButton } from './buttons';
-import { SmallCard } from './cards';
-import { FooterInput } from './inputs';
+import { PrimaryButton, SecondaryButton } from './buttons';
+import { DevCard } from './cards';
 import LanguageSelector from './selects/language-selector.js';
+import ProfileImg from './profile-img/profile-img.js';
 
 import  {
-            BigCardText,
-            BigTitle, 
-            CardText, 
-            CardTitle, 
-            FooterText, 
-            FooterTitle, 
-            MainTitle, 
-            ParagraphText, 
-            SmallTitle, 
-            TextColumn
+            H1Text,
+            H2Text,
+            SubHeaderText,
+            BodyText,
+            CardBodyText, 
+            CardTitleText
         } from './texts/index.js';
-//import {LanguageSelector} from './language-selector/index.js';
 
 export {
-    BgBtn,
-    TrBtn,
+    H1Text,
+    H2Text,
+    SubHeaderText,
+    BodyText,
     PrimaryButton,
     SecondaryButton,
     LanguageSelector,
-    SmallCard,
-    FooterInput,
-    BigCardText,
-    BigTitle,
-    CardText,
-    CardTitle,
-    FooterText,
-    FooterTitle,
-    MainTitle,
-    ParagraphText,
-    SmallTitle,
-    TextColumn
+    DevCard,
+    ProfileImg,
+    CardBodyText,
+    CardTitleText
 };

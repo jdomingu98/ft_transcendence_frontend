@@ -1,7 +1,7 @@
 
 /** CSS Global Variables */
 
-:root {
+* {
   --app-primary-bg-color: #000235;
   --app-secondary-bg-color: #12134F;
   --app-primary-color: #8D8DDA;

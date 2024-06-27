@@ -17,8 +17,8 @@ class LandingNavBar extends WebComponent {
         return `
             <nav id="navbar" class="d-flex align-items-center justify-content-space-between">
                 <span class="col-4 web-name"> Transcendence </span>
-                <a class="col-2" rel="noreferer" href="/game">Play a game</a>
-                <a class="col-2" rel="noreferer" href="/tourneys">Tourneys</a>
+                <a class="col-2" rel="noreferrer" href="/game">Play a game</a>
+                <a class="col-2" rel="noreferrer" href="/tourneys">Tournaments</a>
                 <language-selector class="col-2" w="130px" h="35px"></language-selector>
                 <primary-button w="165px" h="45px">Log In</primary-button>
             </nav>

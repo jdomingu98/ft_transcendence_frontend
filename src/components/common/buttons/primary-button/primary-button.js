@@ -2,6 +2,8 @@ import { Component, WebComponent } from '#WebComponent';
 
 import css from './primary-button.css?inline';
 
+import { SubHeaderText } from '#common';
+
 import { BUTTON_DEFAULT_MSG, BUTTON_DEFAULT_PRIMARY_COLOR } from '/src/const/index.js';
 
 export default Component ({
@@ -19,10 +21,10 @@ class PrimaryButton extends WebComponent {
         return `
             <button
                 id="primary"
-                class="btn btn-primary"
+                class="btn btn-primary align-items-center"
                 style="width:${width}; height:${height}; background-color: ${color};"
             >
-                ${buttonText}
+                <sub-heeader-text>${buttonText}</sub-header-text>
             </button>
         `;
     }

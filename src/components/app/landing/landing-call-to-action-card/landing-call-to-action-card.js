@@ -4,7 +4,7 @@ import { Component, WebComponent } from '#WebComponent'
 
 import css from './landing-call-to-action-card.css?inline';
 
-import {BgBtn, BigTitle, BigCardText} from "#common"
+import { SubHeaderText, H2Text, PrimaryButton } from "#common"
 
 export default Component ({
     tagName: "landing-call-to-action-card",
@@ -18,9 +18,9 @@ class LandingCallToActionCard extends WebComponent {
                 <div class="col">
                     <div class="bg-card text-center d-flex">
                         <div class="card-body d-flex justify-content-center align-items-center flex-column gap-5">
-                            <big-card-text>READY TO SHOW <br> WHAT ARE YOU MADE OF?</big-card-text>
-                            <big-title>Be Part Of This <br>Community</big-title>
-                            <bg-btn style="background-color:black; font-size:1.2rem; height:80px">GET STARTED</bg-btn>
+                            <sub-header-text color="black">ready to show <br> what are you made of?</sub-header-text>
+                            <h2-text>Be part of this <br>community</h2-text>
+                            <primary-button color="black" w="259px" h="89px">get started</primary-button>
                         </div>
                     </div>
                 </div>

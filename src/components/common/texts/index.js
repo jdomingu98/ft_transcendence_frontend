@@ -1,23 +1,15 @@
-import BigCardText from './big-card-text.js';
-import BigTitle from './big-title/big-title.js';
-import CardText from './card-text.js';
-import CardTitle from './card-title.js';
-import FooterText from './footer-text.js';
-import FooterTitle from './footer-title.js';
-import MainTitle from './main-title/main-title.js';
-import ParagraphText from './paragraph-text.js';
-import SmallTitle from './small-title.js';
-import TextColumn from './text-column.js';
+import CardBodyText from './card-body-text/card-body-text.js';
+import CardTitleText from './card-title-text/card-title-text.js';
+import H1Text from './h1-text/h1-text.js';
+import H2Text from './h2-text/h2-text.js';
+import SubHeaderText from './sub-header-text/sub-header-text.js';
+import BodyText from './body-text/body-text.js';
 
 export {
-    BigCardText,
-    BigTitle,
-    CardText,
-    CardTitle,
-    FooterText,
-    FooterTitle,
-    MainTitle,
-    ParagraphText,
-    SmallTitle,
-    TextColumn
+    H1Text,
+    H2Text,
+    SubHeaderText,
+    BodyText,
+    CardBodyText,
+    CardTitleText
 };

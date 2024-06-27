@@ -6,13 +6,13 @@ import  {
             LandingCallToActionCard,
             LandingDevCards,
             LandingFooter, 
-            LandingInfoSection, 
+            LandingTopInfoSection,
+            LandingMiddleInfoSection,
+            LandingBottomInfoSection,
             LandingNavBar
         } from '/src/components/app/landing';
 
-import { LandingLightPoint } from '/src/components/svg';
-
-import { BgBtn } from '#common';
+import { PrimaryButton, SecondaryButton } from '#common';
 
 export default Component ({
     tagName: 'landing-page',
@@ -25,28 +25,31 @@ class LandingPage extends WebComponent {
             <div class="landing">
                 <div class="landing-container d-flex row">
                     <div class="col-12 p-0 lights top-light"></div>
-                    <!--<div class="lights middle-light" style="overflow:hidden;"></div>
-                    <div class="lights bottom-light" style="overflow:hidden;"></div>-->
+                    <div class="col-12 p-0 lights middle-light"></div>
+                    <div class="col-12 p-0 lights bottom-light"></div>
+
                     <landing-navbar class="col-12 p-0"></landing-navbar>
 
-                    <landing-info-section imagenLeft="false" bigTitle="Play PVP <br> Pong For Free"
-                        p="Play against your friends in local mode or <br>organize local tournamets up to 32 players"
-                        alt="laptop">
-                        <bg-btn>TRY LOCAL MODE</bg-btn>
-                        <bg-btn class="no-color">CREATE A <br> TOURNAMENT</bg-btn>
-                    </landing-info-section>
+                    <landing-top-info-section
+                        class="col-12 p-0"
+                        title="play pvp pong for free"
+                        desc="Play against your friends in local mode or organize local tournamets up to 32 players"
+                    >
+                    </landing-top-info-section>
 
-                    <landing-info-section imagenLeft="true" smallTitle="SOCIAL MEDIA" bigTitle="Discover People<br>And Become Friends"
-                        p="Send friend requests and chat with people you <br> play with from all over the world"
-                        alt="stats">
-                        <bg-btn style="width: 330px;">MEET NEW PEOPLE</bg-btn>
-                    </landing-info-section>
+                    <landing-middle-info-section
+                        subHeader="social media"
+                        title="discover people and become friends"
+                        desc="Send friend requests and chat with people you play with from all over the world"
+                    >
+                    </landing-middle-info-section>
 
-                    <landing-info-section imagenLeft="false" smallTitle="COMPETE WORLDWIDE" bigTitle="Be The Top Player On <br>The Leaderboard"
-                        p="Compete in online games and gain points <br> Become the best player of Pong in the world"
-                        alt="mobile">
-                        <bg-btn style="width: 330px;">REGISTER NOW</bg-btn>
-                    </landing-info-section>
+                    <landing-bottom-info-section
+                        subHeader="compete worldwide"
+                        title="be the top player on the leaderboard"
+                        desc="Compete in online games and gain points.<br>Become the best Pong player in the world"
+                    >
+                    </landing-bottom-info-section>
 
                     <landing-dev-cards></landing-dev-cards>
 
@@ -54,6 +57,7 @@ class LandingPage extends WebComponent {
 
                     <landing-footer></landing-footer>
                 </div>
+                <div id="footer-gradient" class="col-12"></div>
             </div>
         `;
     }
