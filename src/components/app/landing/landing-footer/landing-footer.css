@@ -1,6 +1,6 @@
 #footer-text {
     margin-top: 7rem;
-    font-family: Roboto;
+    font-family: var(--app-secondary-text-font);
     text-transform: capitalize;
     font-size: 14px;
 }

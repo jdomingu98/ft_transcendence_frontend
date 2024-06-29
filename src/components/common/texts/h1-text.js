@@ -1,10 +1,7 @@
 import { Component, WebComponent } from '#WebComponent';
 
-import css from './h1-text.css?inline';
-
 export default Component ({
-    tagName: "h1-text",
-    styleCSS: css
+    tagName: "h1-text"
 },
 
 class H1Text extends WebComponent {
@@ -13,8 +10,8 @@ class H1Text extends WebComponent {
 
         return `
             <h1
-                id="h1-text"
-                class="text-align-center"
+                class="text-capitalize fw-bold"
+                style="font-size: 80px;"
             >
                 ${content}
             </h1>

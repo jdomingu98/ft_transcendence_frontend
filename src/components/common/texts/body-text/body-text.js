@@ -12,12 +12,7 @@ class BodyText extends WebComponent {
         const content = this.innerHTML || '';
 
         return `
-            <p
-                id="body-text"
-                class="text-align-center"
-            >
-                ${content}
-            </p>
+            <p id="body-text">${content}</p>
         `;
     }
 });

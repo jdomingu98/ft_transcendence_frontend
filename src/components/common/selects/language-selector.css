@@ -1,14 +1,10 @@
 #language {
-    background-color: transparent;
-    border: 1px solid #ABD9D9;
-    border-radius: 5px;
-    color: white;
+    border-color: var(--app-secondary-color) !important;
     font-size: 14px;
-    font-family: Roboto;
-    margin: 0 auto;
+    font-family: var(--app-secondary-text-font);
     cursor: pointer;
 }
 
 select.form-select option {
-    background-color: #8D8DDA;
+    background-color: var(--app-primary-color);
 }

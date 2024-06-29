@@ -26,7 +26,7 @@ class LandingMiddleInfoSection extends WebComponent {
                 </div>
                 <div class="col col-1"></div>
                 <div class="col col-6">
-                    <sub-header-text color="#ABD9D9">${subHeader}</sub-header-text>
+                    <sub-header-text color="var(--app-secondary-color)">${subHeader}</sub-header-text>
                     <h2-text>${title}</h2-text>
                     <div class="mt-3 col-8">
                         <body-text>${desc}</body-text>

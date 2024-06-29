@@ -21,7 +21,7 @@ class LandingBottomInfoSection extends WebComponent {
         return `
             <section id="bottom-section" class="d-flex col align-items-center">
                 <div class="col col-7">
-                    <sub-header-text color="#ABD9D9">${subHeader}</sub-header-text>
+                    <sub-header-text color="var(--app-secondary-color)">${subHeader}</sub-header-text>
                     <h2-text>${title}</h2-text>
                     <div class="mt-3 col-9">
                         <body-text>${desc}</body-text>

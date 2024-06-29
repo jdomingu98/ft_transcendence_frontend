@@ -48,7 +48,7 @@ class LandingDevCards extends WebComponent {
         return `
             <aside class="row" style="margin-top: 7rem;">
                 <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
-                    <sub-header-text color="#ABD9D9">meet the team</sub-header-text>
+                    <sub-header-text color="var(--app-secondary-color)">meet the team</sub-header-text>
                     <h2-text>the minds behind <br> the code</h2-text>
                 </div>
 

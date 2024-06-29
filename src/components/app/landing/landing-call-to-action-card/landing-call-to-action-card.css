@@ -1,5 +1,5 @@
 .bg-card{
-    background: linear-gradient(315deg, #ABD9D9 0%, #5151C6 100%);
+    background: var(--app-landing-footer-gradient);
     border-radius: 30px; 
     height: 30rem;
 }

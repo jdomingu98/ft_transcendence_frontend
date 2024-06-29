@@ -8,7 +8,7 @@
     font-size: 24px;
     font-weight: bold;
     color: white;
-    font-family: Outfit;
+    font-family: var(--app-primary-text-font);
 }
 
 a {
@@ -16,7 +16,7 @@ a {
     text-decoration: none;
     color: white;
     font-size: 20px;
-    font-family: Outfit;
+    font-family: var(--app-primary-text-font);
     font-weight: bold;
     z-index: 1;
     text-align: center;

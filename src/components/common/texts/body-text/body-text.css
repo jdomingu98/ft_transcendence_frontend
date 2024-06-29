@@ -1,6 +1,5 @@
 #body-text {
-    font-family: Roboto;
+    font-family: var(--app-secondary-text-font);
     font-size: 18px;
-    line-height: 27px;
     letter-spacing: 1px;
 }

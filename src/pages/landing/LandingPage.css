@@ -6,9 +6,9 @@
 .landing {
     width: 100%;
     height: 100%;
-    background-color: #000235;
+    background-color: var(--app-primary-bg-color);
     color: white;
-    font-family: Outfit;
+    font-family: var(--app-primary-text-font);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +20,7 @@
 .landing-container {
     margin: auto;
     width: 80vw;
-    height:fit-content;
+    height: fit-content;
 
 }
 
@@ -36,19 +36,19 @@
 .top-light {
     top: -330px;
     left: 55px;
-    background-color: #8D8DDA;
+    background-color: var(--app-primary-color);
 }
 
 .middle-light {
     top: 540px;
     left: 1140px;
-    background: #ABD9D9;
+    background: var(--app-secondary-color);
 }
 
 .bottom-light {
     top: 1770px;
     left: -390px;
-    background: #ABD9D9;
+    background: var(--app-secondary-color);
 }
 
 .landing-page {
@@ -58,7 +58,7 @@
 }
 
 #footer-gradient {
-    background: linear-gradient(225deg, #ABD9D9 0%, #5151C6 100%);
+    background: var(--app-landing-footer-gradient);
     width:100%;
     height: 10px;
     margin-top:1rem;

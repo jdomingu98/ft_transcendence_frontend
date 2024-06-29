@@ -1,10 +1,7 @@
 import { Component, WebComponent } from '#WebComponent';
 
-import css from './h2-text.css?inline';
-
 export default Component ({
-    tagName: "h2-text",
-    styleCSS: css
+    tagName: "h2-text"
 },
 
 class H2Text extends WebComponent {
@@ -12,7 +9,12 @@ class H2Text extends WebComponent {
         const content = this.innerHTML || '';
 
         return `
-            <h2 id="h2-text">${content}</h2>
+            <h2 
+                class="text-capitalize fw-bold"
+                style="font-size: 55px;"
+            >
+                    ${content}
+            </h2>
         `;
     }
 });
