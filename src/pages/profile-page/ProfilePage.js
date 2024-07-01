@@ -40,14 +40,13 @@ class ProfilePage extends WebComponent
     mockFetch(`/${id}`)
       .then(res => res.json())
       .then(data =>this.setState({ user: data }))
-      .catch(err => this.setState({ error: "User not found" }))
+      .catch(() => this.setState({ error: "User not found" }))
       .finally(() => this.setState({ loading: false }))
   }
 
   render() {
-    const { id } = this.router.params
+    // const { id } = this.router.params
     const { user, error, loading } = this.state
-
 
     return `
     <div>
