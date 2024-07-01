@@ -8,13 +8,18 @@ on:
 
 jobs:
   eslint:
+    strategy:
+      matrix:
+        node-version: ['22.x']
     name: Run eslint scanning
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install and run ESLint
-        run: |
-          npm ci
-          npm run lint
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
