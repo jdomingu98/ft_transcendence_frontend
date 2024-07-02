@@ -2,15 +2,11 @@
 
 import { Component, WebComponent } from '#WebComponent';
 
+import { PrimaryButton, SecondaryButton, H1Text, BodyText } from '#common';
 import { LandingLaptop } from '#svg';
 
-import {PrimaryButton, SecondaryButton, H1Text, BodyText } from '#common';
-
-import css from './landing-top-info-section.css?inline';
-
 export default Component ({
-    tagName: 'landing-top-info-section',
-    styleCSS: css
+    tagName: 'landing-top-info-section'
 },
 
 class LandingTopInfoSection extends WebComponent {
@@ -19,7 +15,7 @@ class LandingTopInfoSection extends WebComponent {
         const desc = this.getAttribute('desc');
 
         return `
-            <section class="d-flex col justify-content-center align-items-center" style="margin-top: 7rem;">
+            <section class="d-flex col justify-content-center align-items-center my-5">
                 <div class="col col-6">
                     <h1-text>${title}</h1-text>
                     <div class="mt-3 col-7">

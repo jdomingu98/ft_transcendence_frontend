@@ -17,7 +17,7 @@ class CardBodyText extends WebComponent {
         return `
             <p
                 id="card-body-text"
-                class="text-center fw-medium px-4"
+                class="text-center fw-medium px-2"
                 style="color: ${color}"
             >
                     ${content}

@@ -46,13 +46,13 @@ class LandingDevCards extends WebComponent {
 
     render() {
         return `
-            <aside class="row" style="margin-top: 7rem;">
+            <aside class="my-5">
                 <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
                     <sub-header-text color="var(--app-secondary-color)">meet the team</sub-header-text>
                     <h2-text>the minds behind <br> the code</h2-text>
                 </div>
 
-                <div class="row d-flex px-0" > 
+                <div class="col-12 d-flex"> 
                     ${this.developersToHTML()}
                 </div>
             </aside>

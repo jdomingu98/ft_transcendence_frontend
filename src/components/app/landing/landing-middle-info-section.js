@@ -2,35 +2,32 @@
 
 import { Component, WebComponent } from '#WebComponent';
 
-import css from './landing-bottom-info-section.css?inline';
-
 import { H2Text, SubHeaderText, BodyText, PrimaryButton } from '#common';
-import { LandingMobile } from '#svg';
+import { LandingMailbox } from '#svg';
 
 export default Component ({
-    tagName: 'landing-bottom-info-section',
-    styleCSS: css
+    tagName: 'landing-middle-info-section'
 },
 
-class LandingBottomInfoSection extends WebComponent {
+class LandingMiddleInfoSection extends WebComponent {
     render() {
         const subHeader = this.getAttribute('subHeader');
         const title = this.getAttribute('title');
         const desc = this.getAttribute('desc');
 
         return `
-            <section id="bottom-section" class="d-flex col align-items-center">
-                <div class="col col-7">
+            <section class="d-flex col align-items-center my-5 gap-5">
+                <div class="col col-6">
+                    <landing-mailbox></landing-mailbox>
+                </div>
+                <div class="col col-6">
                     <sub-header-text color="var(--app-secondary-color)">${subHeader}</sub-header-text>
                     <h2-text>${title}</h2-text>
-                    <div class="mt-3 col-9">
+                    <div class="my-4 col-8">
                         <body-text>${desc}</body-text>
                     </div>
-                    <div class="mt-4">
-                        <primary-button w="345px" h="80px">Register now</primary-button>
-                    </div>
+                    <primary-button w="346px" h="76px">Meet new people</primary-button>
                 </div>
-                <landing-mobile></landing-mobile>
             </section>
         `;
     }
