@@ -1,16 +1,17 @@
-import WebComponent, { Router } from '#WebComponent'
-import './pages'
-import style from '../styles.css?inline'
-import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline'
+import WebComponent, { Router } from '#WebComponent';
 
-WebComponent.defineGlobalCSS([
-  style, bootstrap
-])
+import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline';
+import style from './styles.css?inline';
+
+import '/src/bootstrap.scss';
+import './pages';
+
+WebComponent.defineGlobalCSS([style, bootstrap]);
 
 const routes = [
-  { path: '/', component: 'login-page' },
+  { path: '/', component: 'landing-page' },
   { path: '/home', component: 'home-page'},
-  { path: '/profile/:id', component: 'profile-page'}
-]
+  { path: '/profile/:id', component: 'profile-page'},
+];
 
-Router.initRouter(routes)
+Router.initRouter(routes);

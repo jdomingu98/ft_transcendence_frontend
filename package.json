@@ -9,12 +9,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "sass": "^1.77.4",
     "vite": "^5.2.0"
   },
   "dependencies": {
     "bootstrap": "5.3.3"
   },
   "imports": {
-    "#WebComponent": "./lib/WebComponent/index.js"
+    "#WebComponent": "./lib/WebComponent/index.js",
+    "#common": "./src/components/common",
+    "#svg": "./src/components/svg"
   }
 }
