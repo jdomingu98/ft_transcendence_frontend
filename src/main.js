@@ -10,7 +10,7 @@ WebComponent.defineGlobalCSS([style, bootstrap]);
 
 const routes = [
   { path: '/', component: 'landing-page' },
-  { path: '/home', component: 'home-page'},
+  { path: '/home', component: 'profile-page'},
   { path: '/profile/:id', component: 'profile-page'},
 ];
 
