@@ -1,0 +1,43 @@
+.stat-tittle{
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+.stat-number {
+    font-size: 3.5rem;
+    color: white; /* Color del texto principal */
+    -webkit-text-stroke: 2px black; /* Borde de 2px de grosor de color negro */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.stat-number-circle{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 130px; 
+    border-radius: 50%;
+    border: 15px solid #8DDAB5;
+    color: var(--white);
+    background-color: #000235; 
+}
+
+.red{
+    color: #DA8D8D;
+}
+
+.green{
+    color: #8DDAB5;
+}
+
+.blue{
+    color: #8DBEDA;
+}
+
+.stat-big-number{
+    margin-top: 1.5rem;
+    font-size: 5rem;
+}
