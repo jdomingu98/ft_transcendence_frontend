@@ -1,12 +1,12 @@
 "use strict";
 
 import { Component, WebComponent } from "#WebComponent"
-import { MainTittle } from "../../common/my-texts/main-tittle/main-tittle.js"
+
 import { NavButton } from "./nav-button/nav-button.js"
 
 export default Component(
 {
-    tagName: "lateral-nav",
+    tagName: 'sidebar',
     styleCSS: `
         .symbol {
             width: 50px;
