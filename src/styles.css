@@ -1,0 +1,60 @@
+
+/** CSS Global Variables */
+
+:host {
+  --app-primary-bg-color: #000235;
+  --app-secondary-bg-color: #12134F;
+  --app-primary-color: #8D8DDA;
+  --app-secondary-color: #ABD9D9;
+  --app-green-color: #8DDAB5;
+  --app-red-color: #DA8D8D;
+  --app-blue-color: #8DBEDA;
+  --app-secondary-gradient-color: #5151C6;
+  --app-landing-footer-gradient: linear-gradient(315deg, var(--app-secondary-color) 0%, var(--app-secondary-gradient-color) 100%);
+  --app-primary-text-font: 'Outfit';
+  --app-secondary-text-font: 'Roboto';
+  --absent-status-color: #DAB78D;
+  --disconnected-status-color: #D9D9D9;
+}
+
+/** CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+img, video, svg {
+  height: auto;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * , *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
+}
