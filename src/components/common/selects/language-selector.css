@@ -1,0 +1,10 @@
+#language {
+    border-color: var(--app-secondary-color) !important;
+    font-size: 14px;
+    font-family: var(--app-secondary-text-font);
+    cursor: pointer;
+}
+
+select.form-select option {
+    background-color: var(--app-primary-color);
+}
