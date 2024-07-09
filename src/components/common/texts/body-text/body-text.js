@@ -1,9 +1,9 @@
 import { Component, WebComponent } from '#WebComponent';
-
 import css from './body-text.css?inline';
 
+
 export default Component ({
-    tagName: "body-text",
+    tagName: 'body-text',
     styleCSS: css
 },
 

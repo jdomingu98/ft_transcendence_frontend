@@ -1,9 +1,6 @@
-"use strict";
-
+import '#svg';
 import { Component, WebComponent } from '#WebComponent';
 
-import { PrimaryButton, SecondaryButton, H1Text, BodyText } from '#common';
-import { LandingLaptop } from '#svg';
 
 export default Component ({
     tagName: 'landing-top-info-section'
