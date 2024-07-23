@@ -1,8 +1,5 @@
-"use strict";
-
 import { Component, WebComponent } from '#WebComponent';
 
-import { SubHeaderText, H2Text, PrimaryButton } from '#common';
 
 export default Component ({
     tagName: 'landing-call-to-action-card'

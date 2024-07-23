@@ -1,9 +1,6 @@
-"use strict";
-
+import '#svg';
 import { Component, WebComponent } from '#WebComponent';
 
-import { H2Text, SubHeaderText, BodyText, PrimaryButton } from '#common';
-import { LandingMobile } from '#svg';
 
 export default Component ({
     tagName: 'landing-bottom-info-section'

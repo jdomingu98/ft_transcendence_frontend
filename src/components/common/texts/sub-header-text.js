@@ -1,7 +1,8 @@
 import { Component, WebComponent } from '#WebComponent';
 
+
 export default Component ({
-    tagName: "sub-header-text",
+    tagName: 'sub-header-text',
 },
 
 class SubHeaderText extends WebComponent {

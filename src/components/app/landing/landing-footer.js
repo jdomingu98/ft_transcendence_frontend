@@ -1,6 +1,5 @@
-"use strict";
-
 import { Component, WebComponent } from '#WebComponent';
+
 
 export default Component ({
     tagName: 'landing-footer'
