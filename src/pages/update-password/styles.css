@@ -1,0 +1,122 @@
+/* @font-face {
+    font-family: 'fontello';
+    src: url('./font/fontello.eot?88942371');
+    src: url('./font/fontello.eot?88942371#iefix') format('embedded-opentype'),
+        url('./font/fontello.woff2?88942371') format('woff2'),
+        url('./font/fontello.woff?88942371') format('woff'),
+        url('./font/fontello.ttf?88942371') format('truetype'),
+        url('./font/fontello.svg?88942371#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    input[type="password"] {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    font-variant: normal;
+    text-transform: none;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    letter-spacing: 2px;
+    Preguntar
+}
+ */
+.parent{
+    margin: auto;
+    height: 100vh;
+    background-color: var(--app-primary-bg-color);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.card{
+    background: #13124F; 
+    border-radius: 30px;
+    height: 80%; 
+    width:50%
+}
+
+.title{
+    font-size:3.8rem; 
+    color:#ffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.sub-title{
+    font-size:3.5rem; 
+    color:#ABD9D9;
+    font-weight: bold;
+    margin-bottom: 5rem;
+    min-width: 500px;
+}
+
+.form-group{
+    position: relative;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+
+}
+
+.form-group label{
+    position: absolute;
+    top: -35px;
+    left: 0;
+    color: #ABD9D9;
+    min-width: 210px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.form-group input{
+    background-color: transparent;
+    border: 1px solid #ABD9D9;
+    border-radius: 10px;
+    margin-bottom: 1.8rem;
+    padding: 0.5rem 2rem;
+    color: grey;
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+
+@media (max-width: 868px) {
+    .card {
+        height: 80%;
+        width: 80%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .sub-title {
+        font-size: 2rem;
+        margin-bottom: 6rem;
+    }
+
+    .form-group{
+        margin-bottom: 2rem;
+    }
+
+    .form-group label {
+        top: -30px;
+        font-size: 0.8rem;
+    }
+
+    .form-group input {
+        padding: 0.5rem 2rem;
+    }
+}
+
