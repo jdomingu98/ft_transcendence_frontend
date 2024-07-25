@@ -1,10 +1,9 @@
+import '/src/bootstrap.scss';
+import './pages';
 import WebComponent, { Router } from '#WebComponent';
-
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline';
 import style from './styles.css?inline';
 
-import '/src/bootstrap.scss';
-import './pages';
 
 WebComponent.defineGlobalCSS([style, bootstrap]);
 

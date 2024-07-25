@@ -1,6 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
-
 import css from './Home.css?inline';
+
 
 export default Component ({
     tagName: 'home',

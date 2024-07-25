@@ -1,8 +1,7 @@
 import { Component, WebComponent } from '#WebComponent';
-
+import { DEFAULT_IMG_DIMENSION, DEFAULT_PROFILE_IMG_PATH } from '/src/const/index.js';
 import css from './profile-img.css?inline';
 
-import { DEFAULT_PROFILE_IMG_PATH, DEFAULT_IMG_DIMENSION } from '/src/const/index.js';
 
 export default Component ({
     tagName: 'profile-img',

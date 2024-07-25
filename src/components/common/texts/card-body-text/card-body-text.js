@@ -1,15 +1,13 @@
-"use strict";
-
+import { Component, WebComponent } from '#WebComponent';
 import css from './card-body-text.css?inline';
 
-import { Component, WebComponent } from '#WebComponent'
 
 export default Component ({
     tagName: 'card-body-text',
     styleCSS: css
 },
-        
-class CardBodyText extends WebComponent {   
+
+class CardBodyText extends WebComponent {
     render() {
         const content = this.innerHTML;
         const color = this.getAttribute('color') || 'white';
