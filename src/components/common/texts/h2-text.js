@@ -1,7 +1,8 @@
 import { Component, WebComponent } from '#WebComponent';
 
+
 export default Component ({
-    tagName: "h2-text"
+    tagName: 'h2-text'
 },
 
 class H2Text extends WebComponent {

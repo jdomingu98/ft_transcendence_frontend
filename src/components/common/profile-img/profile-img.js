@@ -1,8 +1,7 @@
 import { Component, WebComponent } from '#WebComponent';
-
+import { DEFAULT_IMG_DIMENSION, DEFAULT_PROFILE_IMG } from '/src/const/index.js';
 import css from './profile-img.css?inline';
 
-import { DEFAULT_PROFILE_IMG_PATH, DEFAULT_IMG_DIMENSION } from '/src/const/index.js';
 
 export default Component ({
     tagName: 'profile-img',
@@ -11,7 +10,7 @@ export default Component ({
 
 class ProfileImg extends WebComponent {
     render() {
-        const src = this.getAttribute('src') || DEFAULT_PROFILE_IMG_PATH;
+        const src = this.getAttribute('src') || DEFAULT_PROFILE_IMG;
         const width = this.getAttribute('w') || DEFAULT_IMG_DIMENSION;
         const height = this.getAttribute('h') || DEFAULT_IMG_DIMENSION;
 

@@ -1,15 +1,19 @@
 {
   "name": "ft_transcendence",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "lint": "eslint src",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "sass": "^1.77.4",
+    "@eslint/js": "^9.6.0",
+    "eslint": "^9.6.0",
+    "globals": "^15.7.0",
     "vite": "^5.2.0"
   },
   "dependencies": {

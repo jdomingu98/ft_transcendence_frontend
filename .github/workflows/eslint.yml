@@ -1,0 +1,32 @@
+name: ESLint
+
+on:
+  push:
+    branches: [ "master", "betta" ]
+  pull_request:
+    branches: [ "master", "betta" ]
+
+jobs:
+  eslint:
+    strategy:
+      matrix:
+        node-version: ['22.x']
+    name: Run eslint scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - run: pnpm install
+      - run: pnpm run lint

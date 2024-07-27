@@ -1,8 +1,5 @@
-"use strict";
+import { Component, WebComponent } from '#WebComponent';
 
-import { Component, WebComponent } from '#WebComponent'
-
-import { SubHeaderText, H2Text, DevCard } from '#common';
 
 export default Component ({
     tagName: 'landing-dev-cards'
@@ -36,7 +33,7 @@ class LandingDevCards extends WebComponent {
     }
 
     developersToHTML() {
-        return this.state.devsInfo.map( dev => 
+        return this.state.devsInfo.map( dev =>
             `
                 <div class="col-12 col-md-6 col-lg-3 d-flex px-0 my-5 justify-content-center">
                     <dev-card src="${dev.src}" devName="${dev.name}" firstRole="${dev.firstRole}" secondRole="${dev.secondRole}"></dev-card>
