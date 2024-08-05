@@ -9,10 +9,10 @@ import './pages';
 WebComponent.defineGlobalCSS([style, bootstrap]);
 
 const routes = [
-  { path: '/', component: 'landing-page' },
-  { path: '/update-password', component: 'update-password' },
-  { path: '/home', component: 'home-page'},
-  { path: '/profile/:id', component: 'profile-page'},
+    { path: '/', component: 'landing-page' },
+    { path: '/update-password', component: 'update-password' },
+    { path: '/home', component: 'home-page'},
+    { path: '/profile/:id', component: 'profile-page'},
 ];
 
 Router.initRouter(routes);
