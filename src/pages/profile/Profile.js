@@ -1,5 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
 
+
 const fakeDatabase = {
     users: [
         { id: 1, name: 'Toto' },
@@ -10,8 +11,8 @@ const fakeDatabase = {
 
 const mockFetch = url => {
     return new Promise( (resolve, reject) => {
-        const id = url.split('/').pop()
-        const user = fakeDatabase.users.find(user => user.id === parseInt(id))
+        const id = url.split('/').pop();
+        const user = fakeDatabase.users.find(user => user.id === parseInt(id));
 
         // simulate delay
         setTimeout(() => {
@@ -36,29 +37,27 @@ class ProfilePage extends WebComponent {
             error: null,
             loading: true
         };
-        
+
         mockFetch(`/${id}`)
             .then( res => res.json())
             .then( data =>this.setState({ user: data }))
-            .catch( err => this.setState({ error: "User not found" }))
+            .catch(() => this.setState({ error: 'User not found' }))
             .finally( () => this.setState({ loading: false }));
     }
 
     render() {
-        const { id } = this.router.params;
+        // const { id } = this.router.params;
         const { user, error, loading } = this.state;
-
+        /* eslint-disable indent */
         return `
             <div>
-                ${loading   ?
-                `
+                ${loading ? `
                     <div class="spinner-grow text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                `           :
-                `
+                ` : `
                     ${error
-                        ? `<div style="color: red">${error}</div>` 
+                        ? `<div style="color: red">${error}</div>`
                         : `<div class="bg-primary">Profile of ${user.name} works!</div>`
                     }
                 `}
