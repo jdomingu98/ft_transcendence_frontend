@@ -2,9 +2,6 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './UpdatePassword.css?inline';
 
-import { SubHeaderText, H1Text } from '#common';
-
-
 export default Component ({
     tagName: 'update-password',
     styleCSS: css
