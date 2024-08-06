@@ -1,5 +1,5 @@
-import { Component, WebComponent } from '#WebComponent';
 import { DEFAULT_IMG_DIMENSION, DEFAULT_PROFILE_IMG } from '/src/const/index.js';
+import WebComponent, { Component } from '#WebComponent';
 import css from './profile-img.css?inline';
 
 
