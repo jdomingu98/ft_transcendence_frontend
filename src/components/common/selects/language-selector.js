@@ -1,4 +1,4 @@
-import { Component, WebComponent } from '#WebComponent';
+import WebComponent, { Component } from '#WebComponent';
 import { DEFAULT_DIMENSION_VALUE } from '/src/const/index.js';
 import css from './language-selector.css?inline';
 

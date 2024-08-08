@@ -3,7 +3,7 @@ import css from './Home.css?inline';
 
 
 export default Component ({
-    tagName: 'home',
+    tagName: 'home-page',
     styleCSS: css
 },
 
