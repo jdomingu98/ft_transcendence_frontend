@@ -14,7 +14,6 @@ const routes = [
     { path: '/', component: 'landing-page' },
     { path: '/home', component: 'home-page'},
     { path: '/profile/:id', component: 'profile-page'},
-    { path: '/modal', component: 'modal-1'},
 ];
 
-Router.initRouter(routes);
+Router.initRouter(routes); 

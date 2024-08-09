@@ -3,7 +3,18 @@ import { Component, WebComponent } from '#WebComponent';
 
 
 export default Component ({
-    tagName: 'primary-button'
+    tagName: 'primary-button',
+    styleCSS: `
+
+        @media (max-width: 1050px) {
+            .modal{
+                background-color: red !important;
+                width: 20% !important;
+                height: 30% !important;
+            }
+        }
+      `
+    
 },
 
 class PrimaryButton extends WebComponent {
@@ -12,10 +23,12 @@ class PrimaryButton extends WebComponent {
         const height = this.getAttribute('h') || DEFAULT_DIMENSION_VALUE;
         const color = this.getAttribute('color') || BUTTON_DEFAULT_PRIMARY_COLOR;
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
+        const bootstrap = this.getAttribute('bootstrap') || '';
+        const modal = this.getAttribute('pp') || '';
 
         return `
             <button
-                class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill"
+                class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill ${bootstrap} "
                 style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em; font-size: 16px;"
             >
                 <sub-header-text>${buttonText}</sub-header-text>

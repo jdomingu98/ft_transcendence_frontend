@@ -1,11 +1,22 @@
 import { Component, WebComponent } from '#WebComponent';
 
-
 export default Component ({
     tagName: 'landing-navbar'
 },
 
 class LandingNavBar extends WebComponent {
+    bind() {
+
+        this.subscribe("#modal", "click", () => {
+            const modal = this._getDOM().querySelector("#myModal");
+            if (modal){
+                modal._getDOM().querySelector('.overlay').classList.remove('hidden');
+                modal._getDOM().querySelector('.modal-form').classList.remove('hidden');
+                modal.scrollIntoView();
+            }
+        
+        })
+    } 
     render() {
         return `
             <nav
@@ -34,8 +45,9 @@ class LandingNavBar extends WebComponent {
                     Tournaments
                 </a>
                 <language-selector class="col-2" w="130px" h="35px"></language-selector>
-                <primary-button w="165px" h="45px">Log In</primary-button>
+                <primary-button id="modal" w="165px" h="45px">Log In</primary-button>
             </nav>
+            <modal-1 id="myModal"></modal-1>
         `;
     }
 });

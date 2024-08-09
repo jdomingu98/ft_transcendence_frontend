@@ -10,14 +10,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "sass": "^1.77.4",
     "@eslint/js": "^9.6.0",
     "eslint": "^9.6.0",
     "globals": "^15.7.0",
+    "sass": "^1.77.4",
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "bootstrap": "5.3.3"
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
