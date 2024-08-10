@@ -4,8 +4,8 @@ import {
     CardTitleText,
     H1Text,
     H2Text,
-    SubHeaderText,
     ModalH1Text,
+    SubHeaderText,
 } from './texts/index.js';
 
 import { PrimaryButton, SecondaryButton } from './buttons';

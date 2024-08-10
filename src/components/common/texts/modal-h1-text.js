@@ -33,7 +33,7 @@ class ModalH1Text extends WebComponent {
     render() {
         const content = this.innerHTML || '';
         const color = this.getAttribute('color') || '#FFFFFF';
-        const uppercase = this.getAttribute('uppercase') || 'false'
+        const uppercase = this.getAttribute('uppercase') || 'false';
         const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
         const bootstrap = this.getAttribute('bootstrap') || '';
         return `
