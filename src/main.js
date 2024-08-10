@@ -1,6 +1,5 @@
 import '/src/bootstrap.scss';
 import './pages';
-import '#common';
 import '#WebComponent/components';
 import '#common';
 
