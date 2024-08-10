@@ -5,6 +5,7 @@ import {
     H1Text,
     H2Text,
     SubHeaderText,
+    ModalH1Text,
 } from './texts/index.js';
 
 import { PrimaryButton, SecondaryButton } from './buttons';
@@ -23,5 +24,6 @@ export {
     DevCard,
     ProfileImg,
     CardBodyText,
-    CardTitleText
+    CardTitleText,
+    ModalH1Text,
 };

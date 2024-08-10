@@ -3,6 +3,8 @@ import './pages';
 import WebComponent, { Router } from '#WebComponent';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline';
 import style from './styles.css?inline';
+import '#common';
+
 
 
 WebComponent.defineGlobalCSS([style, bootstrap]);
