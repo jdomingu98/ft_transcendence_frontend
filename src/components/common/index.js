@@ -4,6 +4,7 @@ import {
     CardTitleText,
     H1Text,
     H2Text,
+    ModalH1Text,
     SubHeaderText,
 } from './texts/index.js';
 
@@ -23,5 +24,6 @@ export {
     DevCard,
     ProfileImg,
     CardBodyText,
-    CardTitleText
+    CardTitleText,
+    ModalH1Text,
 };
