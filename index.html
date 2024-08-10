@@ -22,6 +22,15 @@
         <title>Pongcendence</title>
     </head>
     <body>
-        <main id="app"></main>
+        <app-router
+            [routes]="[
+                { path: '/', component: 'landing-page' },
+                { path: '/home', component: 'home-page'},
+                { path: '/update-password', component: 'update-password' },
+                { path: '/profile/:id', component: 'profile-page'},
+                { path: '/app', component: 'profile-test'},
+            ]">
+
+        </app-router>
     </body>
 </html>
