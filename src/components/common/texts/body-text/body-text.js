@@ -1,4 +1,4 @@
-import { Component, WebComponent } from '#WebComponent';
+import WebComponent, { Component } from '#WebComponent';
 import css from './body-text.css?inline';
 
 
