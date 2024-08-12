@@ -6,7 +6,7 @@ export default Component ({
     styleCSS: `
         h1{
             font-size: 55px; 
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 3s ease-in-out;
             text-align: center;
             min-width: 500px;
         }
@@ -33,7 +33,7 @@ class ModalH1Text extends WebComponent {
     render() {
         const content = this.innerHTML || '';
         const color = this.getAttribute('color') || '#FFFFFF';
-        const uppercase = this.getAttribute('uperppercase') || 'false'
+        const uppercase = this.getAttribute('uperppercase') || 'false';
         const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
 
         return `

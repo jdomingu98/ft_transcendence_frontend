@@ -13,8 +13,16 @@ export default Component ({
                 height: 30% !important;
             }
         }
-      `
-    
+
+        .animation{
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `
 },
 
 class PrimaryButton extends WebComponent {
@@ -24,11 +32,12 @@ class PrimaryButton extends WebComponent {
         const color = this.getAttribute('color') || BUTTON_DEFAULT_PRIMARY_COLOR;
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
         const bootstrap = this.getAttribute('bootstrap') || '';
-        const modal = this.getAttribute('pp') || '';
+        const ani = this.getAttribute('animation') || false;
+        const animation = ani === 'true'? 'animation' : '';
 
         return `
             <button
-                class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill ${bootstrap} "
+                class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill ${bootstrap} ${animation}"
                 style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em; font-size: 16px;"
             >
                 <sub-header-text>${buttonText}</sub-header-text>

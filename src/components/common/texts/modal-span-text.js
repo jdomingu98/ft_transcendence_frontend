@@ -9,7 +9,11 @@ export default Component ({
             opacity: 70%;
             font-size: 20px;
             opacity: 70%;
-            animation: expandFromCenter 1s ease-in-out;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         @media (max-width: 1000px) {
             .text{

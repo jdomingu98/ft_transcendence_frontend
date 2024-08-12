@@ -5,7 +5,7 @@ import LandingFooter from './landing-footer.js';
 import LandingMiddleInfoSection from './landing-middle-info-section.js';
 import LandingNavBar from './landing-navbar.js';
 import LandingTopInfoSection from './landing-top-info-section.js';
-import Modal1 from './landing-modal/modal.js';
+import ModalPasswordAssitance from './landing-modal/modal-password-assitance.js';
 
 export {
     LandingCallToActionCard,
@@ -15,5 +15,5 @@ export {
     LandingMiddleInfoSection,
     LandingBottomInfoSection,
     LandingNavBar,
-    Modal1,
+    ModalPasswordAssitance,
 };
