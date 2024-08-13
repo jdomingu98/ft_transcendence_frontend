@@ -5,8 +5,8 @@ import '#common';
 
 import WebComponent from '#WebComponent';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline';
+import bootstrapIcons from 'bootstrap-icons/font/bootstrap-icons.min.css?inline';
 import style from './styles.css?inline';
 
 
-
-WebComponent.defineGlobalCSS([style, bootstrap]);
+WebComponent.defineGlobalCSS([style, bootstrap, bootstrapIcons]);
