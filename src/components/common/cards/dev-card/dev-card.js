@@ -1,17 +1,13 @@
-"use strict";
-
-import { Component, WebComponent } from '#WebComponent';
-
-import { ProfileImg, CardTitleText, CardBodyText } from '#common';
-
+import WebComponent, { Component } from '#WebComponent';
 import css from './dev-card.css?inline';
+
 
 export default Component ({
     tagName: 'dev-card',
     styleCSS: css
 },
 
-class DevCard extends WebComponent {   
+class DevCard extends WebComponent {
     render() {
         const src = this.getAttribute('src');
         const devName = this.getAttribute('devName');
@@ -34,7 +30,7 @@ class DevCard extends WebComponent {
                         style="height: 90%;"
                     >
                         <card-body-text>${firstRole}</card-body-text>
-                        ${!secondRole   ? '' :`<card-body-text>${secondRole}</card-body-text>`}
+                        ${!secondRole ? '' :`<card-body-text>${secondRole}</card-body-text>`}
                     </div>
                 </div>
             </div>

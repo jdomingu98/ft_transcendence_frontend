@@ -1,8 +1,5 @@
-"use strict";
+import WebComponent, { Component } from '#WebComponent';
 
-import { Component, WebComponent } from '#WebComponent';
-
-import { PrimaryButton, SecondaryButton, LanguageSelector } from '#common';
 
 export default Component ({
     tagName: 'landing-navbar'

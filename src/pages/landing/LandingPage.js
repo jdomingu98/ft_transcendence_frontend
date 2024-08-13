@@ -1,20 +1,9 @@
+import '/src/components/app/landing';
 import WebComponent, { Component } from '#WebComponent';
-
 import css from './LandingPage.css?inline';
 
-import  {   
-            LandingCallToActionCard,
-            LandingDevCards,
-            LandingFooter, 
-            LandingTopInfoSection,
-            LandingMiddleInfoSection,
-            LandingBottomInfoSection,
-            LandingNavBar
-        } from '/src/components/app/landing';
 
-import { PrimaryButton, SecondaryButton } from '#common';
-
-export default Component ({
+export default Component({
     tagName: 'landing-page',
     styleCSS: css
 },

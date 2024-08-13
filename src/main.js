@@ -1,17 +1,12 @@
-import WebComponent, { Router } from '#WebComponent';
+import '/src/bootstrap.scss';
+import './pages';
+import '#WebComponent/components';
+import '#common';
 
+import WebComponent from '#WebComponent';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline';
 import style from './styles.css?inline';
 
-import '/src/bootstrap.scss';
-import './pages';
+
 
 WebComponent.defineGlobalCSS([style, bootstrap]);
-
-const routes = [
-  { path: '/', component: 'landing-page' },
-  { path: '/home', component: 'profile-page'},
-  { path: '/profile/:id', component: 'profile-page'},
-];
-
-Router.initRouter(routes);

@@ -1,4 +1,4 @@
-# ft_trascendence_frontend
+# ft_transcendence_frontend
 
 ## Node version
 Node 22.2.0

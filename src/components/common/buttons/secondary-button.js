@@ -1,8 +1,6 @@
-import { Component, WebComponent } from '#WebComponent';
+import { BUTTON_DEFAULT_MSG, BUTTON_DEFAULT_SECONDARY_COLOR, DEFAULT_DIMENSION_VALUE } from '/src/const/index.js';
+import WebComponent, { Component } from '#WebComponent';
 
-import { SubHeaderText } from '#common';
-
-import { BUTTON_DEFAULT_MSG, BUTTON_DEFAULT_SECONDARY_COLOR,  DEFAULT_DIMENSION_VALUE } from '/src/const/index.js';
 
 export default Component ({
     tagName: 'secondary-button'
@@ -10,8 +8,8 @@ export default Component ({
 
 class SecondaryButton extends WebComponent {
     render() {
-        const width = this.getAttribute('w') ||  DEFAULT_DIMENSION_VALUE;
-        const height = this.getAttribute('h') ||  DEFAULT_DIMENSION_VALUE;
+        const width = this.getAttribute('w') || DEFAULT_DIMENSION_VALUE;
+        const height = this.getAttribute('h') || DEFAULT_DIMENSION_VALUE;
         const color = this.getAttribute('color') || BUTTON_DEFAULT_SECONDARY_COLOR;
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
         return `

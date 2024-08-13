@@ -1,9 +1,6 @@
-"use strict";
+import '#svg';
+import WebComponent, { Component } from '#WebComponent';
 
-import { Component, WebComponent } from '#WebComponent';
-
-import { H2Text, SubHeaderText, BodyText, PrimaryButton } from '#common';
-import { LandingMailbox } from '#svg';
 
 export default Component ({
     tagName: 'landing-middle-info-section'
