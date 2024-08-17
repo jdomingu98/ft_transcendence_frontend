@@ -81,10 +81,9 @@
 }
 
 div.content {
+    background-color: var(--app-primary-bg-color);
     margin-left: 300px;
     padding: 20px;
-    height: 100vh;
-    border: 1px solid red;
 }
 
 /* Modificaciones para hacerlo responsive */
