@@ -1,0 +1,26 @@
+
+.searchbar {
+    font-family: Roboto;
+    width: 80%;
+}
+
+.form-control, .form-control:focus {
+    background-color: #13124F;
+    border-color: #ABD9D9;
+}
+
+.form-control::placeholder, .form-control:focus {
+    color: white;
+}
+
+.form-control::placeholder {
+    font-style: italic;
+}
+
+.form-control:focus {
+    font-size: 1.2rem;
+}
+
+.form-control:hover {
+    color: white;
+}

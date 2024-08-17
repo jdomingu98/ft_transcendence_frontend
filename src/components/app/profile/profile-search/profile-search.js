@@ -1,22 +1,22 @@
-import WebComponent, { Component } from "#WebComponent";
+import WebComponent, { Component } from '#WebComponent';
 
-import css from "./styles.css?inline";
+import css from './profile-search.css?inline';
 
-export default Component({
-    tagName: "profile-search",
+export default Component ({
+    tagName: 'profile-search',
     styleCSS: css
 },
-class ProfileSearch extends WebComponent
-{
-render() {
 
-    return `
-    <nav class=" d-flex justify-content-center navbar p-0">
-        <div class="input-group">
-            <span class="input-group-text"><img src="/src/img/icons/search.png" style="width: 30px; height: 30px;"/></span>
-            <input type="text" class="form-control" placeholder="Search Users.." aria-label="Search Users..">
-        </div>
-    </nav>
-    `
-}
-})
+class ProfileSearch extends WebComponent {
+
+    render() {
+        return `
+            <div class="mt-4">
+                <div class="position-relative my-0 mx-auto searchbar">
+                    <i class="bi bi-search position-absolute top-50 translate-middle-y" style="left: 15px; color: white"></i>
+                    <input type="search" class="form-control form-control-lg ps-5" placeholder="Search users.." aria-label="Search users...">
+                </div>
+            </div>
+        `;
+    }
+});
