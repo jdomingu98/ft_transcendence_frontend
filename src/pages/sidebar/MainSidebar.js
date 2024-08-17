@@ -2,6 +2,8 @@ import WebComponent, { Component, Router } from '#WebComponent';
 
 import css from './MainSidebar.css?inline';
 
+import { DEFAULT_SIDEBAR_PROFILE_IMG } from '../../const';
+
 const id = 2;
 
 export default Component ({
@@ -21,7 +23,7 @@ class MainSidebar extends WebComponent {
             }, {
                 sidebarElementId: 'tournament',
                 iconClasses: 'bi bi-trophy',
-                sectionName: 'TOUR,NAMENTS',
+                sectionName: 'TOURNAMENTS',
                 url: 'tournament'
             }, {
                 sidebarElementId: 'chat',
@@ -89,31 +91,34 @@ class MainSidebar extends WebComponent {
         this.subscribe('#profile', 'click', () => Router.push(`/app/profile/${id}`));
     }
 
+    routes = [
+        {path: '/profile/:id', component: 'profile-page'},
+        {path: '/game', component: 'game-page'},
+        {path: '/tournament', component: 'tournament-page'},
+        {path: '/chat', component: 'chat-page'},
+        {path: '/ranking', component: 'ranking-page'},
+        {path: '/history', component: 'history-page'},
+        {path: '/settings', component: 'settings-page'},
+    ];
+
     render() {
         return `
-            <aside id="aside" class="sidebar">
-                <div class="head">
-                    <div id="profile" class="profile">
-                        <img src="https://placehold.co/50/png">
-                        <p>TRANSCENDENCE</p>
+            <div class="sidebar-container">
+                <aside id="aside" class="sidebar">
+                    <div class="head">
+                        <div id="profile" class="profile">
+                            <img src='${DEFAULT_SIDEBAR_PROFILE_IMG}'>
+                            <p>TRANSCENDENCE</p>
+                        </div>
+                        <i id="menu" class='bi bi-list'></i>
                     </div>
-                    <i id="menu" class='bi bi-list'></i>
+                    <div id="options" class="options">
+                        ${ this.mapSidebarLinksToDiv() }
+                    </div>
+                </aside>
+                <div id="content" class="content">
+                    <app-router [routes]="routes"></app-router>
                 </div>
-                <div id="options" class="options">
-                    ${ this.mapSidebarLinksToDiv() }
-                </div>
-            </aside>
-            <div id="content" class="content">
-                <app-router [routes]="[
-                    {path: '/profile/:id', component: 'profile-page'},
-                    {path: '/game', component: 'game-page'},
-                    {path: '/tournament', component: 'tournament-page'},
-                    {path: '/chat', component: 'chat-page'},
-                    {path: '/ranking', component: 'ranking-page'},
-                    {path: '/history', component: 'history-page'},
-                    {path: '/settings', component: 'settings-page'},
-                ]">
-                </app-router>
             </div>
         `;
     }

@@ -13,6 +13,8 @@ const DEFAULT_PROFILE_IMG = 'https://placehold.co/100/png';
 
 const DEFAULT_BANNER_IMG = 'https://placehold.co/1000x300/png';
 
+const DEFAULT_SIDEBAR_PROFILE_IMG = 'https://placehold.co/50/png';
+
 export {
     BUTTON_DEFAULT_MSG,
     DEFAULT_DIMENSION_VALUE,
@@ -20,5 +22,6 @@ export {
     BUTTON_DEFAULT_PRIMARY_COLOR,
     BUTTON_DEFAULT_SECONDARY_COLOR,
     DEFAULT_PROFILE_IMG,
-    DEFAULT_BANNER_IMG
+    DEFAULT_BANNER_IMG,
+    DEFAULT_SIDEBAR_PROFILE_IMG
 };
