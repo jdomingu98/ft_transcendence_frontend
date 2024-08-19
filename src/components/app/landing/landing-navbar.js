@@ -17,24 +17,26 @@ class LandingNavBar extends WebComponent {
                 >
                     Transcendence
                 </span>
-                <a
+                <router-link
                     class="nav-link link-light text-decoration-none col-2"
                     rel="noreferrer"
                     href="/game"
                     style="font-size: 20px;z-index: 1;"
                 >
-                    Play a game
-                </a>
-                <a
+                    {{ translator.translate("LANDING.NAVBAR.PLAY") }}
+                </router-link>
+                <router-link
                     class="nav-link link-light text-decoration-none col-2"
                     rel="noreferrer"
                     href="/tourneys"
                     style="font-size: 20px;z-index: 1;"
                 >
-                    Tournaments
-                </a>
+                    {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
+                </router-link>
                 <language-selector class="col-2" w="130px" h="35px"></language-selector>
-                <primary-button w="165px" h="45px">Log In</primary-button>
+                <primary-button w="165px" h="45px">
+                    {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
+                </primary-button>
             </nav>
         `;
     }

@@ -20,7 +20,7 @@ class LandingBottomInfoSection extends WebComponent {
                     <div class="my-4 col-9">
                         <body-text>${desc}</body-text>
                     </div>
-                    <primary-button w="345px" h="80px">Register now</primary-button>
+                    <primary-button w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
                 </div>
                 <landing-mobile></landing-mobile>
             </section>

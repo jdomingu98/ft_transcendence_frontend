@@ -24,23 +24,20 @@ class LandingPage extends WebComponent {
 
                     <landing-top-info-section
                         class="col-12 p-0"
-                        title="play PVP pong for free"
-                        desc="Play against your friends in local mode or organize local tournamets up to 32 players"
-                    >
+                        [title]="translator.translate('LANDING.PLAY.TITLE')"
+                        [desc]="translator.translate('LANDING.PLAY.SUBTITLE')">
                     </landing-top-info-section>
 
                     <landing-middle-info-section
-                        subHeader="social media"
-                        title="discover people and become friends"
-                        desc="Send friend requests and chat with people you play with from all over the world"
-                    >
+                        [subHeader]="translator.translate('LANDING.DISCOVER.HEADER')"
+                        [title]="translator.translate('LANDING.DISCOVER.TITLE')"
+                        [desc]="translator.translate('LANDING.DISCOVER.SUBTITLE')">
                     </landing-middle-info-section>
 
                     <landing-bottom-info-section
-                        subHeader="compete worldwide"
-                        title="be the top player on the leaderboard"
-                        desc="Compete in online games and gain points.<br>Become the best Pong player in the world"
-                    >
+                        [subHeader]="translator.translate('LANDING.LEADER_BOARD.HEADER')"
+                        [title]="translator.translate('LANDING.LEADER_BOARD.TITLE')"
+                        [desc]="translator.translate('LANDING.LEADER_BOARD.SUBTITLE')">
                     </landing-bottom-info-section>
 
                     <landing-dev-cards></landing-dev-cards>
