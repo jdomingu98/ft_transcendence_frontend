@@ -1,0 +1,50 @@
+{
+  "LANDING": {
+    "NAVBAR": {
+      "PLAY": "Jouer à un jeu",
+      "TOURNAMENTS": "Tournois",
+      "LOGIN": "Accéder"
+    },
+    "PLAY": {
+      "TITLE": "jouez à PVP pong gratuitement",
+      "SUBTITLE": "Jouez contre vos amis en mode local ou organisez des tournois locaux jusqu'à 32 joueurs"
+    },
+    "DISCOVER": {
+      "HEADER": "RÉSEAUX SOCIAUX",
+      "TITLE": "Découvrez des gens et devenez amis",
+      "SUBTITLE": "Envoyez des demandes d'amis et discutez avec des personnes avec qui vous jouez du monde entier"
+    },
+    "LEADER_BOARD": {
+      "HEADER": "COMPÉTITION MONDIALE",
+      "TITLE": "Devenez le meilleur joueur du classement",
+      "SUBTITLE": "Participez à des jeux en ligne et gagnez des points. </br>Devenez le meilleur joueur de Pong au monde"
+    },
+    "TEAM": {
+      "HEADER": "RENCONTREZ L'ÉQUIPE",
+      "TITLE": "Les esprits derrière </br>le code"
+    },
+    "GET_STARTED": {
+      "HEADER": "PRÊT À MONTRER</br>DE QUOI VOUS ÊTES CAPABLE?",
+      "TITLE": "Faites partie de cette </br>communauté"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "© Copyright 2024. Tous droits réservés",
+      "LEGAL_NOTICE": "Mentions légales",
+      "PRIVACY_POLICY": "Politique de confidentialité",
+      "COOKIE_POLICY": "Politique des cookies"
+    },
+    "BUTTONS": {
+      "LOCAL_MODE": "essayer le mode local",
+      "CREATE_TOURNAMENT": "Créer un tournoi",
+      "DISCOVER": "Rencontrer de </br>nouvelles personnes",
+      "REGISTER_NOW": "Inscrivez-vous maintenant",
+      "GET_STARTED": "Commencer"
+    }
+  },
+  "LANGUAGE": {
+    "ES": "Espagnol",
+    "EN": "Anglais",
+    "FR": "Français",
+    "ZH": "Chinois simplifié"
+  }
+}
