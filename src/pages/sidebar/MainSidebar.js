@@ -92,7 +92,7 @@ class MainSidebar extends WebComponent {
             let route = `/app/${option.sidebarElementId}`;
 
             if (option.sidebarElementId === 'logout') {
-                // TODO: Delete session token
+                // sessionStorage.removeItem('token');
                 route = '/';
             }
             Router.push(route);
