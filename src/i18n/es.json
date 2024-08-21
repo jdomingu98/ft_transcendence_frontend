@@ -1,0 +1,50 @@
+{
+  "LANDING": {
+    "NAVBAR": {
+      "PLAY": "Jugar",
+      "TOURNAMENTS": "Torneos",
+      "LOGIN": "Entrar"
+    },
+    "PLAY": {
+      "TITLE": "juega PVP pong gratis",
+      "SUBTITLE": "Juega contra tus amigos en modo local u organiza torneos locales de hasta 32 jugadores"
+    },
+    "DISCOVER": {
+      "HEADER": "REDES SOCIALES",
+      "TITLE": "Descubre Personas Y Haz Amigos",
+      "SUBTITLE": "Envía solicitudes de amistad y chatea con personas de todo el mundo con las que juegas"
+    },
+    "LEADER_BOARD": {
+      "HEADER": "COMPITE A NIVEL MUNDIAL",
+      "TITLE": "Sé El Mejor Jugador En El Tablero De Líderes",
+      "SUBTITLE": "Compite en juegos en línea y gana puntos. </br>Conviértete en el mejor jugador de Pong del mundo"
+    },
+    "TEAM": {
+      "HEADER": "CONOCE AL EQUIPO",
+      "TITLE": "Las Mentes Detrás Del Código"
+    },
+    "GET_STARTED": {
+      "HEADER": "¿Listo para demostrar </br> de qué estás hecho?",
+      "TITLE": "Sé parte de esta </br>comunidad"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "© Copyright 2024. Todos los derechos reservados",
+      "LEGAL_NOTICE": "Aviso Legal",
+      "PRIVACY_POLICY": "Política de Privacidad",
+      "COOKIE_POLICY": "Política de Cookies"
+    },
+    "BUTTONS": {
+      "LOCAL_MODE": "Probar en local",
+      "CREATE_TOURNAMENT": "crear un torneo",
+      "DISCOVER": "Conocer gente nueva",
+      "REGISTER_NOW": "Regístrate ahora",
+      "GET_STARTED": "Empezar"
+    }
+  },
+  "LANGUAGE": {
+    "ES": "Español",
+    "EN": "Inglés",
+    "FR": "Francés",
+    "ZH": "Chino Simplificado"
+  }
+}

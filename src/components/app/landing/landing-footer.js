@@ -12,10 +12,10 @@ class LandingFooter extends WebComponent {
                     style="font-family: var(--app-secondary-text-font);font-size: 14px;"
             >
                 <div class="col-12 d-flex justify-content-space-between align-items-center text-center">
-                    <span class="col-3">© Copyright 2024. All rights reserved</span>
-                    <a href="/legal-notice" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">Legal Notice</a>
-                    <a href="/privacy" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">Privacy Policy</a>
-                    <a href="/cookies" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">Cookie Policy</a>
+                    <span class="col-3">{{ translator.translate("LANDING.FOOTER.COPYRIGHT")}}</span>
+                    <router-link href="/legal-notice" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.LEGAL_NOTICE")}}</router-link>
+                    <router-link href="/privacy" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.PRIVACY_POLICY")}}</router-link>
+                    <router-link href="/cookies" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.COOKIE_POLICY")}}</router-link>
                 </div>
             </footer>
         `;

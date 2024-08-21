@@ -23,7 +23,7 @@ class LandingMiddleInfoSection extends WebComponent {
                     <div class="my-4 col-8">
                         <body-text>${desc}</body-text>
                     </div>
-                    <primary-button w="346px" h="76px">Meet new people</primary-button>
+                    <primary-button w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
                 </div>
             </section>
         `;

@@ -13,9 +13,9 @@ class LandingCallToActionCard extends WebComponent {
                 style="background: var(--app-landing-footer-gradient); border-radius: 30px;height: 30rem;"
             >
                 <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
-                    <sub-header-text color="black">ready to show <br> what are you made of?</sub-header-text>
-                    <h2-text>Be part of this <br>community</h2-text>
-                    <primary-button color="black" w="260px" h="90px">get started</primary-button>
+                    <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
+                    <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
+                    <primary-button color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
                 </div>
             </section>
         `;
