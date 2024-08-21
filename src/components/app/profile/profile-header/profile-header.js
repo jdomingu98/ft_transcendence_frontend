@@ -1,8 +1,8 @@
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './profile-header.css?inline';
+//import { DEFAULT_PROFILE_IMG } from '/src/const/index.js';
 
-import { DEFAULT_PROFILE_IMG } from '/src/const/index.js';
+import css from './profile-header.css?inline';
 
 const username = 'jDomingu98';
 const position = '42';

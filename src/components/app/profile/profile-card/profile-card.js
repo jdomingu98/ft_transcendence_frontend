@@ -1,7 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
 
-import { ProfileHeader, ProfileHistory, ProfileStats } from '/src/components/app/profile';
-
 import css from './profile-card.css?inline';
 
 export default Component ({

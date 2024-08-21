@@ -1,6 +1,6 @@
-import WebComponent, { Component } from '#WebComponent';
+import '/src/components/app/profile';
 
-import { ProfileCard } from '/src/components/app/profile';
+import WebComponent, { Component } from '#WebComponent';
 
 export default Component ({
     tagName: 'profile-page'
