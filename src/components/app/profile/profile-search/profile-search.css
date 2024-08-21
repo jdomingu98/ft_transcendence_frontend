@@ -4,23 +4,21 @@
     width: 80%;
 }
 
-.form-control, .form-control:focus {
+.search-icon {
+    left: 15px;
+}
+
+#input-control, #input-control:focus {
     background-color: #13124F;
     border-color: #ABD9D9;
+    font-size: 1rem;
 }
 
-.form-control::placeholder, .form-control:focus {
+#input-control::placeholder, #input-control:focus, #input-control:hover, .search-icon {
     color: white;
 }
 
-.form-control::placeholder {
+#input-control::placeholder {
     font-style: italic;
-}
-
-.form-control:focus {
-    font-size: 1.2rem;
-}
-
-.form-control:hover {
-    color: white;
+    opacity: 60%;
 }

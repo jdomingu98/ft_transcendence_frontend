@@ -11,10 +11,18 @@ class ProfileSearch extends WebComponent {
 
     render() {
         return `
-            <div class="mt-4">
+            <div class="container my-4">
                 <div class="position-relative my-0 mx-auto searchbar">
-                    <i class="bi bi-search position-absolute top-50 translate-middle-y" style="left: 15px; color: white"></i>
-                    <input type="search" class="form-control form-control-lg ps-5" placeholder="Search users.." aria-label="Search users...">
+                    <i
+                        class="bi bi-search position-absolute top-50 translate-middle-y search-icon"
+                    ></i>
+                    <input
+                        type="search"
+                        id="input-control"
+                        class="form-control form-control-lg ps-5"
+                        placeholder="Search users.."
+                        aria-label="Search users..."
+                    >
                 </div>
             </div>
         `;
