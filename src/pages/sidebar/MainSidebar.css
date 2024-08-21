@@ -2,6 +2,7 @@
     background-color: var(--app-primary-bg-color);
     font-weight: 500;
     margin: 0;
+    min-height: 100vh;
 }
 
 .sidebar {
@@ -58,8 +59,7 @@
 }
 
 .options div:hover {
-    background-color: #8D8DDA;
-    opacity: 0.25;
+    background-color: rgba(141, 141, 218, 0.25);
     transition: all .4s ease-in-out;
 }
 
