@@ -31,15 +31,9 @@ tr td {
     font-size: 20px;
 }
 
-tr td:first-child {
-    font-weight: bold;
-}
-
 .pagination {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2rem;
+
+    margin-top: 3rem;
 }
 
 .pagination .pagination-button {

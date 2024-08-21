@@ -46,7 +46,7 @@ class ProfileHistory extends WebComponent {
         return this.state.matches.map( match =>
             `
                 <tr class="${match.result.toLowerCase()}">
-                    <td>${match.result}</td>
+                    <td class="fw-bold">${match.result}</td>
                     <td>${match.against}</td>
                     <td>${match.earned}</td>
                     <td>${match.time}</td>
@@ -69,7 +69,7 @@ class ProfileHistory extends WebComponent {
                     ${ this.mapMatchesResults() }
                 </tbody>
             </table>
-            <div class="pagination">
+            <div class="d-flex align-items-center justify-content-evenly pagination">
                 <span class="pagination-button">&lt; Previous</span>
                 <span>${currentPage} of ${maxPages}</span>
                 <span class="pagination-button">Next &gt;</span>
