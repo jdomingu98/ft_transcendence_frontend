@@ -18,9 +18,9 @@ class LandingTopInfoSection extends WebComponent {
                     <div class="mt-3 col-7">
                         <body-text>${desc}</body-text>
                     </div>
-                    <div class="col col-11 d-flex mt-4 justify-content-between">
-                        <primary-button w="255px" h="75px">Try local mode</primary-button>
-                        <secondary-button w="255px" h="75px">Create a <br> tournament</secondary-button>
+                    <div class="col col-11 d-flex mt-4 gap-3">
+                        <primary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.LOCAL_MODE") }}</primary-button>
+                        <secondary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.CREATE_TOURNAMENT") }}</secondary-button>
                     </div>
                 </div>
                 <landing-laptop></landing-laptop>

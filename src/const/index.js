@@ -13,6 +13,13 @@ const DEFAULT_PROFILE_IMG = 'https://placehold.co/100/png';
 
 const DEFAULT_BANNER_IMG = 'https://placehold.co/1000x300/png';
 
+export const LANGUAGES = [
+    { language: 'es', flag:  '🇪🇸', url: '/src/i18n/es.json', default: true },
+    { language: 'en', flag:  '🇺🇸', url: '/src/i18n/en.json' },
+    { language: 'fr', flag:  '🇫🇷', url: '/src/i18n/fr.json' },
+    { language: 'zh', flag:  '🇨🇳', url: '/src/i18n/zh.json' }
+];
+
 export {
     BUTTON_DEFAULT_MSG,
     DEFAULT_DIMENSION_VALUE,

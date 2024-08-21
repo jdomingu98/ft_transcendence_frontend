@@ -45,8 +45,12 @@ class LandingDevCards extends WebComponent {
         return `
             <aside class="my-5">
                 <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
-                    <sub-header-text color="var(--app-secondary-color)">meet the team</sub-header-text>
-                    <h2-text>the minds behind <br> the code</h2-text>
+                    <sub-header-text color="var(--app-secondary-color)">
+                    {{ translator.translate('LANDING.TEAM.HEADER') }}
+                    </sub-header-text>
+                    <h2-text>
+                    ${ this.translator.translate('LANDING.TEAM.TITLE') }
+                    </h2-text>
                 </div>
 
                 <div class="col-12 d-flex"> 

@@ -1,0 +1,50 @@
+{
+  "LANDING": {
+    "NAVBAR": {
+      "PLAY": "Play a game",
+      "TOURNAMENTS": "Tournaments",
+      "LOGIN": "Log in"
+    },
+    "PLAY": {
+      "TITLE": "play PVP pong for free",
+      "SUBTITLE": "Play against your friends in local mode or organize local tournamets up to 32 players"
+    },
+    "DISCOVER": {
+      "HEADER": "SOCIAL MEDIA",
+      "TITLE": "Discover People And Become Friends",
+      "SUBTITLE": "Send friend requests and chat with people you play with from all over the world"
+    },
+    "LEADER_BOARD": {
+      "HEADER": "COMPETE WORLDWIDE",
+      "TITLE": "Be The Top Player On The Leaderboard",
+      "SUBTITLE": "Compete in online games and gain points. </br>Become the best Pong player in the world"
+    },
+    "TEAM": {
+      "HEADER": "MEET THE TEAM",
+      "TITLE": "The Minds Behind </br>The Code"
+    },
+    "GET_STARTED": {
+      "HEADER": "READY TO SHOW</br>WHAT ARE YOU MADE OF?",
+      "TITLE": "Be Part Of This </br>Community"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "© Copyright 2024. All Rights Reserved",
+      "LEGAL_NOTICE": "Legal Notice",
+      "PRIVACY_POLICY": "Privacy Policy",
+      "COOKIE_POLICY": "Cookie Policy"
+    },
+    "BUTTONS": {
+      "LOCAL_MODE": "try local mode",
+      "CREATE_TOURNAMENT": "Create a tournament",
+      "DISCOVER": "Meet new people",
+      "REGISTER_NOW": "Register now",
+      "GET_STARTED": "Get Started"
+    }
+  },
+  "LANGUAGE": {
+    "ES": "Spanish",
+    "EN": "English",
+    "FR": "French",
+    "ZH": "Simplified Chinese"
+  }
+}

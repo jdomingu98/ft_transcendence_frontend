@@ -21,7 +21,7 @@
   },
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
-    "#WebComponent/components": "./lib/WebComponent/components/index.js",
+    "#WebComponent/*": "./lib/WebComponent/*/index.js",
     "#common": "./src/components/common",
     "#svg": "./src/components/svg"
   }
