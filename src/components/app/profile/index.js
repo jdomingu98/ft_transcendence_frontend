@@ -1,7 +1,13 @@
-import profileSearch from "./profile-search/profile-search"
-import profileCard from "./profile-card/profile-card"
+import ProfileCard from './profile-card/profile-card';
+import ProfileHeader from './profile-header/profile-header';
+import ProfileHistory from './profile-history/profile-history';
+import ProfileSearch from './profile-search/profile-search';
+import ProfileStats from './profile-stats/profile-stats';
 
 export {
-    profileSearch,
-    profileCard,
-}
+    ProfileSearch,
+    ProfileHeader,
+    ProfileStats,
+    ProfileHistory,
+    ProfileCard
+};

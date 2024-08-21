@@ -1,0 +1,54 @@
+
+.matches-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.6rem;
+}
+
+.matches-table th, .matches-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.victory td {
+    color: #8DDAB5;
+}
+
+.defeat td {
+    color: #DA8D8D;
+}
+
+.draw td {
+    color: #8DBEDA;
+}
+
+tr th {
+    font-size: 18px;
+}
+
+tr td {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+tr td:first-child {
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.pagination .pagination-button {
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.pagination .pagination-button:hover {
+    background-color: rgba(141, 141, 218, 0.25);
+    transition: all .4s ease-in-out;
+    color: white;
+}

@@ -1,0 +1,22 @@
+
+.card-container {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    background-color: #13124F;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.matches-container {
+    margin-top: 1.75rem;
+}
