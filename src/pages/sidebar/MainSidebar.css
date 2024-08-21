@@ -15,6 +15,12 @@
     transition: all .4s ease;
 }
 
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
 .head {
     display: flex;
     align-items: center;
