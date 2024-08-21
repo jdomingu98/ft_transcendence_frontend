@@ -12,7 +12,7 @@ class H2Text extends WebComponent {
         return `
             <h2 
                 class="text-capitalize fw-bold"
-                style="font-size: 55px;"
+                style="font-size: 3.45rem;"
             >
                     ${content}
             </h2>
