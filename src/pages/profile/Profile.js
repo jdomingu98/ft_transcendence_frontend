@@ -1,4 +1,4 @@
-import WebComponent, { Component } from '#WebComponent';
+import WebComponent, { Component, Router } from '#WebComponent';
 
 
 const fakeDatabase = {
@@ -25,13 +25,12 @@ const mockFetch = url => {
 };
 
 export default Component ({
-    tagName: 'profile'
+    tagName: 'profile-page'
 },
 
 class ProfilePage extends WebComponent {
     init() {
-        const { id } = this.router.params;
-        //console.log('id', id);
+        const { id } = Router.getParams();
         this.state = {
             user: null,
             error: null,

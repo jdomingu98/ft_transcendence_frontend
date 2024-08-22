@@ -1,4 +1,4 @@
-import { Component, WebComponent } from '#WebComponent';
+import WebComponent, { Component } from '#WebComponent';
 
 
 export default Component ({
@@ -33,12 +33,13 @@ class ModalH1Text extends WebComponent {
     render() {
         const content = this.innerHTML || '';
         const color = this.getAttribute('color') || '#FFFFFF';
-        const uppercase = this.getAttribute('uperppercase') || 'false';
-        const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
 
+        const uppercase = this.getAttribute('uppercase') || 'false';
+        const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
+        const bootstrap = this.getAttribute('bootstrap') || '';
         return `
             <h1
-                class=" fw-bold mt-4 text-center "
+                class=" fw-bold mt-4 text-center ${bootstrap}"
                 style="color: ${color}; font-weight: 600;"
             >
                 ${transformedContent}

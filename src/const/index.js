@@ -9,7 +9,16 @@ const BUTTON_DEFAULT_PRIMARY_COLOR = 'var(--app-primary-color)';
 
 const BUTTON_DEFAULT_SECONDARY_COLOR = 'var(--app-secondary-color)';
 
-const DEFAULT_PROFILE_IMG_PATH = 'src/resources/default.png';
+const DEFAULT_PROFILE_IMG = 'https://placehold.co/100/png';
+
+const DEFAULT_BANNER_IMG = 'https://placehold.co/1000x300/png';
+
+export const LANGUAGES = [
+    { language: 'es', flag:  '🇪🇸', url: '/src/i18n/es.json', default: true },
+    { language: 'en', flag:  '🇺🇸', url: '/src/i18n/en.json' },
+    { language: 'fr', flag:  '🇫🇷', url: '/src/i18n/fr.json' },
+    { language: 'zh', flag:  '🇨🇳', url: '/src/i18n/zh.json' }
+];
 
 export {
     BUTTON_DEFAULT_MSG,
@@ -17,5 +26,6 @@ export {
     DEFAULT_IMG_DIMENSION,
     BUTTON_DEFAULT_PRIMARY_COLOR,
     BUTTON_DEFAULT_SECONDARY_COLOR,
-    DEFAULT_PROFILE_IMG_PATH
+    DEFAULT_PROFILE_IMG,
+    DEFAULT_BANNER_IMG
 };
