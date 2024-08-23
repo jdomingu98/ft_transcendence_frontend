@@ -2,7 +2,7 @@ import '/src/components/app/landing';
 
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './modal-password-assitance.css?inline';
+import css from './modal-password-assistance.css?inline';
 
 export default Component(
     {
@@ -10,7 +10,7 @@ export default Component(
         styleCSS: css,
     },
 
-    class ModalPasswordAssitance extends WebComponent {
+    class ModalPasswordAssistance extends WebComponent {
 
         init() {
             this.state = {
@@ -52,7 +52,7 @@ export default Component(
             <div class="data-section">
                 <modal-arrow></modal-arrow>
                 <modal-h1-text id="pp">TRANSCENDENCE</modal-h1-text>
-                <modal-h1-text color="var(--app-secondary-color);">Password assitance</modal-h1-text>
+                <modal-h1-text color="var(--app-secondary-color);">Password assistance</modal-h1-text>
                 <modal-span-text>Enter your email or username and we’ll send you <br> instructions on how to reset your password.</modal-span-text>
                 <form>
                         <form-field text="email or username" placeholder="johndoe@gmail.com"></form-field>
