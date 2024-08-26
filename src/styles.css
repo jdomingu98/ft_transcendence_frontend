@@ -15,6 +15,7 @@
   --app-secondary-text-font: 'Roboto';
   --absent-status-color: #DAB78D;
   --disconnected-status-color: #D9D9D9;
+  --app-element-hover-color: rgba(141, 141, 218, 0.25);
 }
 
 /** CSS Reset */

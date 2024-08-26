@@ -1,6 +1,4 @@
 .profile-header {
-    display: flex;
-    align-items: center;
     height: 250px;
     background-image: url(https://iintra.freekb.es/banners/jdomingu-1676213124.gif);/*url(https://placehold.co/1240x200/png);*/
     border-top-left-radius: 10px;
@@ -10,31 +8,19 @@
     background-position: center center;
 }
 
-.profile-img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: 20px;
-    object-fit: cover;
-}
-
 .profile-glask {
-    display: inline-flex;
     background: rgba(0, 2, 53, 0.71);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.3px);
     -webkit-backdrop-filter: blur(6.3px);
-    padding: 20px;
-    margin-left: 20px;
 }
 
 .profile-info h2 {
-    margin: 0;
     font-size: 24px;
 }
 
 .profile-info p {
-    margin: 5px 0 0 0;
+    margin-top: 5px;
     font-size: 14px;
 }

@@ -1,25 +1,18 @@
 
-.matches-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 0.6rem;
-}
-
-.matches-table th, .matches-table td {
+th, td {
     padding: 10px;
-    text-align: center;
 }
 
 .victory td {
-    color: #8DDAB5;
+    color: var(--app-green-color);
 }
 
 .defeat td {
-    color: #DA8D8D;
+    color: var(--app-red-color);
 }
 
 .draw td {
-    color: #8DBEDA;
+    color: var(--app-blue-color);
 }
 
 tr th {
@@ -31,18 +24,13 @@ tr td {
     font-size: 20px;
 }
 
-.pagination {
-    margin-top: 3rem;
-}
-
-.pagination .pagination-button {
+.pagination-button {
     padding: 5px 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.pagination .pagination-button:hover {
-    background-color: rgba(141, 141, 218, 0.25);
+.pagination-button:hover {
+    background-color: var(--app-element-hover-color);
     transition: all .4s ease-in-out;
-    color: white;
-    cursor: pointer;
 }

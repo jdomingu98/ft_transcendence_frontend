@@ -61,7 +61,7 @@ class ProfileHistory extends WebComponent {
 
     render() {
         return `
-            <table class="matches-table">
+            <table class="w-100 mb-2 text-center" style="border-collapse: separate;">
                 <thead>
                     <tr>
                         <th>{{ translator.translate("PROFILE.MATCH_HISTORY.TABLE_HEAD.RESULT") }}</th>
@@ -74,14 +74,18 @@ class ProfileHistory extends WebComponent {
                     ${ this.mapMatchesResults() }
                 </tbody>
             </table>
-            <div class="d-flex align-items-center justify-content-evenly pagination">
-                <span class="pagination-button"> {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.PREVIOUS") }}</span>
+            <div class="d-flex align-items-center justify-content-evenly text-white mt-5 pagination">
+                <span class="pagination-button">
+                    {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.PREVIOUS") }}
+                </span>
                 <div>
                     <span>${currentPage}</span>
                     <span>{{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.OF") }}</span>
                     <span> ${maxPages}</span>
                 </div>
-                <span class="pagination-button">{{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.NEXT") }}</span>
+                <span class="pagination-button">
+                    {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.NEXT") }}
+                </span>
             </div>
         `;
     }

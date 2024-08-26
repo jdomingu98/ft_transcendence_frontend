@@ -1,52 +1,28 @@
 .stats-container {
-    display: grid;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-    padding-bottom: 20px;
 }
 
 .stat h3 {
     margin: 0;
     font-size: 20px;
     color: #aaa;
-}
-
-.circle-wrapper {
-    position: relative;
-    width: 75px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.progress-circle {
-    transform: rotate(-90deg);
+    text-align: center;
 }
 
 .circle-bg {
     fill: none;
-    stroke: #DA8D8D;
+    stroke: var(--app-red-color);
     stroke-width: 5;
 }
 
 .circle-progress {
     fill: none;
-    stroke: #8DDAB5;
+    stroke: var(--app-green-color);
     stroke-width: 5;
     stroke-dasharray: 157;
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 0.3s ease;
-}
-
-.solo-wr-value {
-    position: absolute;
-    font-size: 20px !important;
-    color: white;
-    margin-bottom: 10px;
+    transition: stroke-dashoffset 2s ease;
 }
 
 .stat p {
@@ -56,13 +32,7 @@
     font-weight: bold;
 }
 
-.fire-gif {
-    margin: 0 auto;
-    width: 5rem;
-}
-
 .win-streak {
     top: 42%;
     left: 41%;
-    color: black;
 }

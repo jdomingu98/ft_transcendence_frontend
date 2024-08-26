@@ -24,15 +24,15 @@ class ProfileStats extends WebComponent {
             stats: [{
                 statName: '{{ translator.translate("PROFILE.STATS.GOALS_SCORED") }}',
                 statValue: playerData.goalsScored,
-                statColor: '#8DDAB5',
+                statColor: 'var(--app-green-color)',
             }, {
                 statName: '{{ translator.translate("PROFILE.STATS.GOALS_AGAINST") }}',
                 statValue: playerData.goalsAgainst,
-                statColor: '#DA8D8D'
+                statColor: 'var(--app-red-color)'
             }, {
                 statName: '{{ translator.translate("PROFILE.STATS.GOALS_STOPPED") }}',
                 statValue: playerData.goalsStopped,
-                statColor: '#8DBEDA'
+                statColor: 'var(--app-blue-color)'
             }, {
                 statName: '{{ translator.translate("PROFILE.STATS.TIME_PLAYED") }}',
                 statValue: playerData.timePlayed,
@@ -62,23 +62,26 @@ class ProfileStats extends WebComponent {
             if (stat.statCode === 'wr') {
                 return`
                     <div class="stat">
-                        <h3 class="text-center">${stat.statName}</h3>
-                        <div class="circle-wrapper">
-                            <svg class="progress-circle" width="60" height="60">
+                        <h3>${stat.statName}</h3>
+                        <div
+                            class="position-relative d-flex justify-content-center align-items-center mt-2"
+                            style="width: 75px; height: 60px;"
+                        >
+                            <svg width="60" height="60" style="transform: rotate(-90deg);">
                                 <circle cx="30" cy="30" r="25" class="circle-bg" />
                                 <circle cx="30" cy="30" r="25" class="circle-progress" />
                             </svg>
-                            <p class="solo-wr-value">${stat.statValue}</p>
+                            <p class="position-absolute text-white mb-2 solo-wr-value" style="font-size: 1.3rem">${stat.statValue}</p>
                         </div>
                     </div>
                 `;
             } else if (stat.statCode === 'streak') {
                 return`
                     <div class="stat">
-                        <h3 class="text-center">${stat.statName}</h3>
+                        <h3>${stat.statName}</h3>
                         <div class="d-flex position-relative">
-                            <img src="/src/resources/fire.gif" alt="Fire GIF" class="fire-gif"/>
-                            <p class="position-absolute win-streak">${stat.statValue}</p>
+                            <img src="/src/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
+                            <p class="position-absolute text-black win-streak">${stat.statValue}</p>
                         </div>
                     </div>
                 `;
@@ -95,7 +98,7 @@ class ProfileStats extends WebComponent {
 
     render() {
         return `
-            <div class="stats-container">
+            <div class="d-grid mt-3 pt-5 pb-3 gap-3 stats-container">
                 ${ this.mapStatsToDiv() }
             </div>
         `;

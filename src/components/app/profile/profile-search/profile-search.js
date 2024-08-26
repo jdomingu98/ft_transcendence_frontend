@@ -14,14 +14,15 @@ class ProfileSearch extends WebComponent {
             <div class="container my-4">
                 <div class="position-relative my-0 mx-auto searchbar">
                     <i
-                        class="bi bi-search position-absolute top-50 translate-middle-y search-icon"
+                        class="bi bi-search position-absolute top-50 translate-middle-y text-white"
+                        style="left: 1rem;"
                     ></i>
                     <input
                         type="search"
                         id="input-control"
-                        class="form-control form-control-lg ps-5"
+                        class="form-control ps-5"
                         placeholder="${ this.translator.translate('PROFILE.SEARCH') }"
-                        aria-label="Search users..."
+                        aria-label="${ this.translator.translate('PROFILE.SEARCH') }"
                     >
                 </div>
             </div>
