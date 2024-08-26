@@ -44,4 +44,5 @@ tr td {
     background-color: rgba(141, 141, 218, 0.25);
     transition: all .4s ease-in-out;
     color: white;
+    cursor: pointer;
 }
