@@ -20,7 +20,7 @@ class ProfileSearch extends WebComponent {
                         type="search"
                         id="input-control"
                         class="form-control form-control-lg ps-5"
-                        placeholder="Search users.."
+                        placeholder="${ this.translator.translate('PROFILE.SEARCH') }"
                         aria-label="Search users..."
                     >
                 </div>
