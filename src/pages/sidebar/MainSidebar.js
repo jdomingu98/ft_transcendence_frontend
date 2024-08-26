@@ -69,7 +69,7 @@ class MainSidebar extends WebComponent {
             `
                 <div id="${link.sidebarElementId}" class="menu-options">
                     <i class='${link.iconClasses}'></i>
-                    <span class="option" style="pointer-events: none;">${link.sectionName}</span>
+                    <span class="text-uppercase option">${link.sectionName}</span>
                 </div>
             `).join('');
     }
