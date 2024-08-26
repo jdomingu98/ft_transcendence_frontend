@@ -41,6 +41,52 @@
       "GET_STARTED": "Empezar"
     }
   },
+  "SIDEBAR": {
+    "PLAY_A_GAME": "Jugar partida",
+    "TOURNAMENTS": "Torneos",
+    "CHATS": "Chats",
+    "RANKING": "Clasificación",
+    "SETTINGS": "Ajustes",
+    "LOGOUT": "Cerrar sesión"
+  },
+  "PROFILE": {
+    "SEARCH": "Buscar usuarios...",
+    "HEADER": {
+      "POSITION": "Posición: ",
+      "STATUS": {
+        "CONNECTED": "Disponible",
+        "DISCONNECTED": "No disponible",
+        "SEARCHING": "Buscando partida",
+        "PLAYING": "Jugando partida"
+      }
+    },
+    "STATS": {
+      "GOALS_SCORED": "Goles Marcados",
+      "GOALS_AGAINST": "Goles Recibidos",
+      "GOALS_STOPPED": "Goles Parados",
+      "TIME_PLAYED": "Tiempo Jugado",
+      "WINRATE": "Ratio de </br>Victorias", 
+      "STREAK": "Max. Racha de </br>Victorias"
+    },
+    "MATCH_HISTORY": {
+      "TABLE_HEAD": {
+        "RESULT": "Resultado",
+        "OPPONENT": "Oponente",
+        "EARNED": "Ganado",
+        "TIME": "Tiempo"
+      },
+      "RESULT_STATUS": {
+        "VICTORY": "Victoria",
+        "DEFEAT": "Derrota",
+        "DRAW": "Empate"
+      },
+      "PAGINATION": {
+        "PREVIOUS": "< Anterior",
+        "OF": "de",
+        "NEXT": "Siguiente >"
+      }
+    }
+  },
   "LANGUAGE": {
     "ES": "Español",
     "EN": "Inglés",

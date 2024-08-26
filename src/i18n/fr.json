@@ -41,6 +41,52 @@
       "GET_STARTED": "Commencer"
     }
   },
+  "SIDEBAR": {
+    "PLAY_A_GAME": "Jouer à un jeu",
+    "TOURNAMENTS": "Tournois",
+    "CHATS": "Chats",
+    "RANKING": "Classement",
+    "SETTINGS": "Paramètres",
+    "LOGOUT": "Déconnexion"
+  },
+  "PROFILE": {
+    "SEARCH": "Recherche d'utilisateurs...",
+    "HEADER": {
+      "POSITION": "Poste: ",
+      "STATUS": {
+        "CONNECTED": "Connecté",
+        "DISCONNECTED": "Déconnecté",
+        "SEARCHING": "Recherche de correspondance",
+        "PLAYING": "Match de jeu"
+      }
+    },
+    "STATS": {
+      "GOALS_SCORED": "Buts Marqués",
+      "GOALS_AGAINST": "Objectifs Contre",
+      "GOALS_STOPPED": "Objectifs Arrêtés",
+      "TIME_PLAYED": "Temps Joué",
+      "WINRATE": "Taux de </br>Victoire", 
+      "STREAK": "Série de </br>Victoires Maximale"
+    },
+    "MATCH_HISTORY": {
+      "TABLE_HEAD": {
+        "RESULT": "Résultat",
+        "OPPONENT": "Adversaire",
+        "EARNED": "Gagné",
+        "TIME": "Temps"
+      },
+      "RESULT_STATUS": {
+        "VICTORY": "Victoire",
+        "DEFEAT": "Défaite",
+        "DRAW": "Nul"
+      },
+      "PAGINATION": {
+        "PREVIOUS": "< Précédent",
+        "OF": "de",
+        "NEXT": "Suivant >"
+      }
+    }
+  },
   "LANGUAGE": {
     "ES": "Espagnol",
     "EN": "Anglais",

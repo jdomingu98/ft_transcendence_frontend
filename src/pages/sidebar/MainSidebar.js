@@ -19,37 +19,37 @@ class MainSidebar extends WebComponent {
             sidebarLinks: [{
                 sidebarElementId: 'game',
                 iconClasses: 'bi bi-joystick',
-                sectionName: 'PLAY A GAME',
+                sectionName: '{{ translator.translate("SIDEBAR.PLAY_A_GAME") }}',
                 url: 'game'
             }, {
                 sidebarElementId: 'tournament',
                 iconClasses: 'bi bi-trophy',
-                sectionName: 'TOURNAMENTS',
+                sectionName: '{{ translator.translate("SIDEBAR.TOURNAMENTS") }}',
                 url: 'tournament'
             }, {
                 sidebarElementId: 'chat',
                 iconClasses: 'bi bi-chat-square',
-                sectionName: 'CHATS',
+                sectionName: '{{ translator.translate("SIDEBAR.CHATS") }}',
                 url: 'chat'
             }, {
                 sidebarElementId: 'rank',
                 iconClasses: 'bi bi-graph-up-arrow',
-                sectionName: 'RANKING',
+                sectionName: '{{ translator.translate("SIDEBAR.RANKING") }}',
                 url: 'ranking'
             }, /*{
                 sidebarElementId: 'history',
                 iconClasses: 'bi bi-clock-history',
-                sectionName: 'HISTORY',
+                sectionName: '{{ translator.translate("SIDEBAR.HISTORY") }}',
                 url: 'history'
             },*/ {
                 sidebarElementId: 'settings',
                 iconClasses: 'bi bi-gear',
-                sectionName: 'SETTINGS',
+                sectionName: '{{ translator.translate("SIDEBAR.SETTINGS") }}',
                 url: 'settings'
             }, {
                 sidebarElementId: 'logout',
                 iconClasses: 'bi bi-box-arrow-left',
-                sectionName: 'LOG OUT',
+                sectionName: '{{ translator.translate("SIDEBAR.LOGOUT") }}',
                 url: ''
             }],
             routes: [

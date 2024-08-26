@@ -41,6 +41,52 @@
       "GET_STARTED": "Get Started"
     }
   },
+  "SIDEBAR": {
+    "PLAY_A_GAME": "Play a game",
+    "TOURNAMENTS": "Tournaments",
+    "CHATS": "Chats",
+    "RANKING": "Ranking",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Log out"
+  },
+  "PROFILE": {
+    "SEARCH": "Search users...",
+    "HEADER": {
+      "POSITION": "Position: ",
+      "STATUS": {
+        "CONNECTED": "Connected",
+        "DISCONNECTED": "Disconnected",
+        "SEARCHING": "Searching Match",
+        "PLAYING": "Playing Match"
+      }
+    },
+    "STATS": {
+      "GOALS_SCORED": "Goals Scored",
+      "GOALS_AGAINST": "Goals Against",
+      "GOALS_STOPPED": "Goals Stopped",
+      "TIME_PLAYED": "Time Played",
+      "WINRATE": "Win Rate", 
+      "STREAK": "Max Win Streak"
+    },
+    "MATCH_HISTORY": {
+      "TABLE_HEAD": {
+        "RESULT": "Result",
+        "OPPONENT": "Opponent",
+        "EARNED": "Earned",
+        "TIME": "Time"
+      },
+      "RESULT_STATUS": {
+        "VICTORY": "Victory",
+        "DEFEAT": "Defeat",
+        "DRAW": "Draw"
+      },
+      "PAGINATION": {
+        "PREVIOUS": "< Previous",
+        "OF": "of",
+        "NEXT": "Next >"
+      }
+    }
+  },
   "LANGUAGE": {
     "ES": "Spanish",
     "EN": "English",

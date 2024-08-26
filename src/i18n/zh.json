@@ -41,6 +41,52 @@
       "GET_STARTED": "开始"
     }
   },
+  "SIDEBAR": {
+    "PLAY_A_GAME": "玩游戏",
+    "TOURNAMENTS": "锦标赛",
+    "CHATS": "聊天",
+    "RANKING": "排名",
+    "SETTINGS": "设置",
+    "LOGOUT": "退出登录"
+  },
+  "PROFILE": {
+    "SEARCH": "搜索用户...",
+    "HEADER": {
+      "POSITION": "职位: ",
+      "STATUS": {
+        "CONNECTED": "已连接",
+        "DISCONNECTED": "断开",
+        "SEARCHING": "搜索匹配",
+        "PLAYING": "比赛"
+      }
+    },
+    "STATS": {
+      "GOALS_SCORED": "进球数",
+      "GOALS_AGAINST": "反对目标",
+      "GOALS_STOPPED": "目标停止",
+      "TIME_PLAYED": "播放时间",
+      "WINRATE": "中奖率", 
+      "STREAK": "最大连胜"
+    },
+    "MATCH_HISTORY": {
+      "TABLE_HEAD": {
+        "RESULT": "结果",
+        "OPPONENT": "对手",
+        "EARNED": "已赚取",
+        "TIME": "时间"
+      },
+      "RESULT_STATUS": {
+        "VICTORY": "胜利",
+        "DEFEAT": "失败",
+        "DRAW": "平局"
+      },
+      "PAGINATION": {
+        "PREVIOUS": "< 上一页",
+        "OF": "的",
+        "NEXT": "下一页 >"
+      }
+    }
+  },
   "LANGUAGE": {
     "ES": "西班牙语",
     "EN": "英语",

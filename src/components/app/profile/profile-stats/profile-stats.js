@@ -22,27 +22,29 @@ class ProfileStats extends WebComponent {
     init() {
         this.state = {
             stats: [{
-                statName: 'Goals Scored',
+                statName: '{{ translator.translate("PROFILE.STATS.GOALS_SCORED") }}',
                 statValue: playerData.goalsScored,
-                statColor: '#8DDAB5'
+                statColor: '#8DDAB5',
             }, {
-                statName: 'Goals Against',
+                statName: '{{ translator.translate("PROFILE.STATS.GOALS_AGAINST") }}',
                 statValue: playerData.goalsAgainst,
                 statColor: '#DA8D8D'
             }, {
-                statName: 'Goals Stopped',
+                statName: '{{ translator.translate("PROFILE.STATS.GOALS_STOPPED") }}',
                 statValue: playerData.goalsStopped,
                 statColor: '#8DBEDA'
             }, {
-                statName: 'Time Played',
+                statName: '{{ translator.translate("PROFILE.STATS.TIME_PLAYED") }}',
                 statValue: playerData.timePlayed,
                 statColor: 'white'
             }, {
-                statName: 'WinRate',
-                statValue: playerData.soloWr
+                statName: `${ this.translator.translate('PROFILE.STATS.WINRATE')}`,
+                statValue: playerData.soloWr,
+                statCode: 'wr'
             }, {
-                statName: 'Max Win Streak',
-                statValue: playerData.maxWinStreak
+                statName: `${ this.translator.translate('PROFILE.STATS.STREAK')}`,
+                statValue: playerData.maxWinStreak,
+                statCode: 'streak'
             }]
         };
     }
@@ -57,10 +59,10 @@ class ProfileStats extends WebComponent {
 
     mapStatsToDiv() {
         return this.state.stats.map(stat => {
-            if (stat.statName === 'WinRate') {
+            if (stat.statCode === 'wr') {
                 return`
                     <div class="stat">
-                        <h3>${stat.statName}</h3>
+                        <h3 class="text-center">${stat.statName}</h3>
                         <div class="circle-wrapper">
                             <svg class="progress-circle" width="60" height="60">
                                 <circle cx="30" cy="30" r="25" class="circle-bg" />
@@ -70,10 +72,10 @@ class ProfileStats extends WebComponent {
                         </div>
                     </div>
                 `;
-            } else if (stat.statName === 'Max Win Streak') {
+            } else if (stat.statCode === 'streak') {
                 return`
                     <div class="stat">
-                        <h3>${stat.statName}</h3>
+                        <h3 class="text-center">${stat.statName}</h3>
                         <div class="d-flex position-relative">
                             <img src="/src/resources/fire.gif" alt="Fire GIF" class="fire-gif"/>
                             <p class="position-absolute win-streak">${stat.statValue}</p>
