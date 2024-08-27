@@ -14,35 +14,30 @@ class ProfileHistory extends WebComponent {
     init() {
         this.state = {
             matches: [{
-                result: '{{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS.VICTORY") }}',
+                result: 'VICTORY',
                 against: 'aTRuJiLl',
                 earned: '329 pts',
-                time: '1min 30s',
-                classMatch: 'victory'
+                time: '1min 30s'
             }, {
-                result: '{{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS.DEFEAT") }}',
+                result: 'DEFEAT',
                 against: 'castor-afanoso',
                 earned: '-87 pts',
-                time: '5min',
-                classMatch: 'defeat'
+                time: '5min'
             }, {
-                result: '{{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS.DEFEAT") }}',
+                result: 'DEFEAT',
                 against: '-----',
                 earned: '-101 pts',
-                time: '4min 1s',
-                classMatch: 'defeat'
+                time: '4min 1s'
             }, {
-                result: '{{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS.DRAW") }}',
+                result: 'DRAW',
                 against: '-----',
                 earned: '0 pts',
-                time: '5min',
-                classMatch: 'draw'
+                time: '5min'
             }, {
-                result: '{{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS.VICTORY") }}',
+                result: 'VICTORY',
                 against: 'cMoraleS',
                 earned: '94 pts',
-                time: '4min 42 s',
-                classMatch: 'victory'
+                time: '4min 42 s'
             }]
         };
     }
@@ -50,8 +45,10 @@ class ProfileHistory extends WebComponent {
     mapMatchesResults() {
         return this.state.matches.map( match =>
             `
-                <tr class="${match.classMatch}">
-                    <td class="text-uppercase fw-bold">${match.result}</td>
+                <tr class="${match.result.toLowerCase()}">
+                    <td class="text-uppercase fw-bold">
+                        {{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS." + '${match.result}') }}
+                    </td>
                     <td>${match.against}</td>
                     <td>${match.earned}</td>
                     <td>${match.time}</td>

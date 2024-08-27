@@ -18,10 +18,10 @@ class ProfileHeader extends WebComponent {
     init() {
         this.state = {
             status: [{
-                connected: '{{ translator.translate("PROFILE.HEADER.STATUS.CONNECTED") }}',
-                disconnected: '{{ translator.translate("PROFILE.HEADER.STATUS.DISCONNECTED") }}',
-                searching: '{{ translator.translate("PROFILE.HEADER.STATUS.SEARCHING") }}',
-                playing: '{{ translator.translate("PROFILE.HEADER.STATUS.PLAYING") }}'
+                connected: 'CONNECTED',
+                disconnected: 'DISCONNECTED',
+                searching: 'SEARCHING',
+                playing: 'PLAYING'
             }]
         };
     }
@@ -39,7 +39,7 @@ class ProfileHeader extends WebComponent {
                         <div class="d-flex align-items-center mt-2" style="gap: 5px;">
                             <div class="rounded-circle " style="width:16px; height:16px; background-color: var(--app-green-color);"></div>
                             <p class="m-0" style="font-size: 1rem;">
-                                <span style="color: var(--app-green-color)"> ${this.state.status[0].connected} </span>
+                                <span style="color: var(--app-green-color)"> {{ translator.translate("PROFILE.HEADER.STATUS." + state.status[0].connected)}} </span>
                             </p>
                         </div>
                     </div>
