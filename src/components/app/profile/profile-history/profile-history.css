@@ -1,0 +1,36 @@
+
+th, td {
+    padding: 10px;
+}
+
+.victory td {
+    color: var(--app-green-color);
+}
+
+.defeat td {
+    color: var(--app-red-color);
+}
+
+.draw td {
+    color: var(--app-blue-color);
+}
+
+tr th {
+    font-size: 18px;
+}
+
+tr td {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.pagination-button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination-button:hover {
+    background-color: var(--app-element-hover-color);
+    transition: all .4s ease-in-out;
+}

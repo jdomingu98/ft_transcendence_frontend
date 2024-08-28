@@ -1,0 +1,38 @@
+.stats-container {
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.stat h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #aaa;
+    text-align: center;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: var(--app-red-color);
+    stroke-width: 5;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: var(--app-green-color);
+    stroke-width: 5;
+    stroke-dasharray: 157;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 2s ease;
+}
+
+.stat p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.win-streak {
+    top: 42%;
+    left: 41%;
+}

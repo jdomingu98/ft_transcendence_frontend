@@ -17,7 +17,8 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "bootstrap": "5.3.3"
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +25,8 @@
         <app-router
             [routes]="[
                 { path: '/', component: 'landing-page' },
-                { path: '/home', component: 'home-page'},
+                { path: '/app', component: 'main-sidebar'},
                 { path: '/reset-password/:token', component: 'update-password' },
-                { path: '/profile/:id', component: 'profile-page'},
-                { path: '/app', component: 'profile-test'},
             ]">
 
         </app-router>

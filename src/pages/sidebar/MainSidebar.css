@@ -1,0 +1,130 @@
+.sidebar-container {
+    background-color: var(--app-primary-bg-color);
+    font-weight: 500;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 300px;
+    background-color: #13124F;
+    color: white;
+    position: fixed;
+    padding: 10px;
+    transition: all .4s ease;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.head i {
+    font-size: 30px;
+    color: #8D8DDA;
+    cursor: pointer;
+}
+
+.head img {
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #8D8DDA;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    margin-right: 10px;
+}
+
+.profile p {
+    margin: 0;
+}
+
+.options div {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+
+.options div:hover {
+    background-color: rgba(141, 141, 218, 0.25);
+    transition: all .4s ease-in-out;
+}
+
+.options div.active {
+    color: #8DBEDA;
+}
+
+.options i {
+    font-size: 1.4rem;
+    margin-right: 10px;
+    color: #8D8DDA;
+}
+
+div.content {
+    margin-left: 300px;
+    padding: 20px;
+}
+
+/* Modificaciones al cerrar el menu */
+
+.sidebar.active {
+    width: 70px;
+    transition: all .4s ease;
+}
+
+.sidebar.active .option, .sidebar.active .profile {
+    display: none;
+}
+
+.sidebar.active .head i {
+    margin: auto;
+}
+
+/* Modificaciones para hacerlo responsive */
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .option, .sidebar .profile {
+        display: none;
+    }
+
+    .sidebar .head i {
+        margin: auto;
+    }
+
+    .sidebar.active {
+        width: 300px;
+    }
+
+    .sidebar.active .option, .sidebar.active .profile {
+        display: flex;
+    }
+
+    div.content {
+        margin-left: 70px;
+    }
+
+}
