@@ -5,25 +5,17 @@ export default Component ({
     tagName: 'modal-h1-text',
     styleCSS: `
         h1{
-            font-size: 55px; 
-            animation: fadeIn 1s ease-in-out;
+            font-size: 42px; 
             text-align: center;
-            min-width: 500px;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @media (max-width: 1300px) {
-            h1{
-                font-size: 42px;
-                min-width: 0px;
-            }
-        }
-        @media (max-width: 1000px) {
+        @media (max-width: 1400px) {
             h1{
                 min-width: 0px;
-                font-size: 40px;
+                font-size: 35px;
             }
         }
     `
@@ -36,10 +28,12 @@ class ModalH1Text extends WebComponent {
         const uppercase = this.getAttribute('uppercase') || 'false';
         const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
         const bootstrap = this.getAttribute('bootstrap') || '';
+        const mt = this.getAttribute('mt') || '';
+        const mb = this.getAttribute('mb') || '';
         return `
             <h1
-                class=" fw-bold mt-4 text-center ${bootstrap}"
-                style="color: ${color}; font-weight: 600;"
+                class=" fw-bold text-center ${bootstrap}"
+                style="color: ${color}; font-weight: 600; margin-top:${mt}; margin-bottom:${mb}"
             >
                 ${transformedContent}
             </h1>

@@ -13,7 +13,7 @@ class SubHeaderText extends WebComponent {
         return `
             <p
                 class="text-uppercase fw-semibold m-0"
-                style="letter-spacing: 0.1em; font-size: 20px; color: ${color};">${content}</p>
+                style="letter-spacing: 0.1em; font-size: 18px; color: ${color};">${content}</p>
         `;
     }
 });
