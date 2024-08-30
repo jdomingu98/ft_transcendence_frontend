@@ -5,6 +5,7 @@ import LandingFooter from './landing-footer.js';
 import LandingMiddleInfoSection from './landing-middle-info-section.js';
 import LandingNavBar from './landing-navbar.js';
 import LandingTopInfoSection from './landing-top-info-section.js';
+import modalsRegister from './landing-modals/modals-register.js';
 
 export {
     LandingCallToActionCard,
@@ -13,5 +14,6 @@ export {
     LandingTopInfoSection,
     LandingMiddleInfoSection,
     LandingBottomInfoSection,
-    LandingNavBar
+    LandingNavBar,
+    modalsRegister,
 };
