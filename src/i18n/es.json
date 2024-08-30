@@ -38,7 +38,21 @@
       "CREATE_TOURNAMENT": "crear un torneo",
       "DISCOVER": "Conocer gente nueva",
       "REGISTER_NOW": "Regístrate ahora",
-      "GET_STARTED": "Empezar"
+      "REGISTER_42": "Regístrate con 42",
+      "GET_STARTED": "Empezar",
+      "LOGIN": "Entrar",
+      "SIGN_UP": "Regístrate"
+    },
+    "FORMS": {
+      "USERNAME": "Nombre de Usuario",
+      "EMAIL": "Correo Electrónico",
+      "PASSWORD": "Contraseña",
+      "PASSWORD_CONFIRMATION": "Confirmar Contraseña"
+    },
+    "SPAN":{
+      "TERMS_CONDITIONS": "Términos y Condiciones",
+      "ACCEPT":"Acepto los ",
+      "OR":"-O-"
     }
   },
   "SIDEBAR": {

@@ -38,7 +38,21 @@
       "CREATE_TOURNAMENT": "Créer un tournoi",
       "DISCOVER": "Rencontrer de </br>nouvelles personnes",
       "REGISTER_NOW": "Inscrivez-vous maintenant",
-      "GET_STARTED": "Commencer"
+      "REGISTER_42": "Inscrivez-vous avec 42",
+      "GET_STARTED": "Commencer",
+      "LOGIN": "Se connecter",
+      "SIGN_UP": "S'inscrire"
+    },
+    "FORMS": {
+      "USERNAME": "Nom d'utilisateur",
+      "EMAIL": "Adresse email",
+      "PASSWORD": "Mot de passe",
+      "PASSWORD_CONFIRMATION": "Confirmez le mot de passe"
+    },
+    "SPAN":{
+      "TERMS_CONDITIONS": "Conditions générales d'utilisation",
+      "ACCEPT":"J'accepte la ",
+      "OR": "-OU-"
     }
   },
   "SIDEBAR": {

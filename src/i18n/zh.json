@@ -38,7 +38,21 @@
       "CREATE_TOURNAMENT": "创建锦标赛",
       "DISCOVER": "结识新朋友",
       "REGISTER_NOW": "立即注册",
-      "GET_STARTED": "开始"
+      "REGISTER_42": "使用 42 注册",
+      "GET_STARTED": "开始",
+      "LOGIN": "登录",
+      "SIGN_UP": "注册"
+    },
+    "FORMS": {
+      "USERNAME": "用户名",
+      "EMAIL": "邮箱",
+      "PASSWORD": "密码",
+      "PASSWORD_CONFIRMATION": "确认密码"
+    },
+    "SPAN":{
+      "TERMS_CONDITIONS": "条款和条件",
+      "ACCEPT":"我接受 ",
+      "OR": "-或-"
     }
   },
   "SIDEBAR": {

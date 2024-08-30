@@ -38,7 +38,21 @@
       "CREATE_TOURNAMENT": "Create a tournament",
       "DISCOVER": "Meet new people",
       "REGISTER_NOW": "Register now",
-      "GET_STARTED": "Get Started"
+      "REGISTER_42": "Register with 42",
+      "GET_STARTED": "Get Started",
+      "LOGIN": "Log in",
+      "SIGN_UP": "Sign Up"
+    },
+    "FORMS": {
+      "USERNAME": "Username",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "PASSWORD_CONFIRMATION": "Confirm Password"
+    },
+    "SPAN":{
+      "TERMS_CONDITIONS": "Terms and Conditions",
+      "ACCEPT":"I accept the ",
+      "OR": "-OR-"
     }
   },
   "SIDEBAR": {
