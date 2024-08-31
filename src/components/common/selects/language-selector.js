@@ -26,6 +26,12 @@ class LanguageSelector extends WebComponent {
 
     bind() {
         this.subscribe('#language', 'change', event => this.handleLanguageChange(event));
+        const unsubscribe = this.translator.observable$.subscribe(language => {
+            this._getDOM().querySelector('#language').value = language;
+        });
+        return () => {
+            unsubscribe();
+        };
     }
 
     render() {
