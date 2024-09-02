@@ -11,12 +11,14 @@ class LandingNavBar extends WebComponent {
             <nav
                 class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center"
             >
-                <span
-                    class="col-4"
+                <router-link
+                    class="nav-link link-light text-decoration-none col-4"
                     style="font-size:24px; z-index: 1;"
+                    rel="noreferrer"
+                    href="/"
                 >
                     Transcendence
-                </span>
+                </router-link>
                 <router-link
                     class="nav-link link-light text-decoration-none col-2"
                     rel="noreferrer"
@@ -28,7 +30,7 @@ class LandingNavBar extends WebComponent {
                 <router-link
                     class="nav-link link-light text-decoration-none col-2"
                     rel="noreferrer"
-                    href="/tourneys"
+                    href="/tournament"
                     style="font-size: 20px;z-index: 1;"
                 >
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
