@@ -10,14 +10,21 @@ export default Component ({
 class PrivacyPolicy extends WebComponent {
 
     bind() {
-        this.shadowRoot.querySelector('landing-navbar').setAttribute('hide', 'true');
+        const currentPath = window.location.pathname;
+        if (currentPath === '/privacy-policy') {
+            this.shadowRoot.querySelector('#navbar-privacy').style.display = 'none';
+        }
+
     }
 
     render() {
+
         return `
-            <div class="base-wrapper">
-                <landing-navbar></landing-navbar>
                 <section class="container-fuild base">
+                    <div id="navbar-privacy" class="w-100">
+                        <div class="col-12 p-0 position-absolute rounded-circle lights top-light"></div>
+                        <landing-navbar></landing-navbar>
+                    </div>
                     <div class="card base-card">
                         <div class="card-body text-white body p-5">
                             <h1-text>Política de Privacidad</h1-text>
@@ -69,7 +76,6 @@ class PrivacyPolicy extends WebComponent {
                         </div>
                     </div>
                 </section>
-            </div>
         `;
     }
 });
