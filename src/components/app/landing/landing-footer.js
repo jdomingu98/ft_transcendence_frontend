@@ -14,8 +14,8 @@ class LandingFooter extends WebComponent {
                 <div class="col-12 d-flex justify-content-space-between align-items-center text-center">
                     <span class="col-3">{{ translator.translate("LANDING.FOOTER.COPYRIGHT")}}</span>
                     <router-link href="/legal-notice" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.LEGAL_NOTICE")}}</router-link>
-                    <router-link href="/privacy" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.PRIVACY_POLICY")}}</router-link>
-                    <router-link href="/cookies" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.COOKIE_POLICY")}}</router-link>
+                    <router-link href="/privacy-policy" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.PRIVACY_POLICY")}}</router-link>
+                    <router-link href="/terms-conditions" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.COOKIE_POLICY")}}</router-link>
                 </div>
             </footer>
         `;
