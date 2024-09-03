@@ -27,12 +27,12 @@ class ModalH1Text extends WebComponent {
         const color = this.getAttribute('color') || '#FFFFFF';
         const uppercase = this.getAttribute('uppercase') || 'false';
         const transformedContent = uppercase === 'true' ? content.toUpperCase() : content;
-        const bootstrap = this.getAttribute('bootstrap') || '';
+        const claseName = this.getAttribute('claseName') || '';
         const mt = this.getAttribute('mt') || '';
         const mb = this.getAttribute('mb') || '';
         return `
             <h1
-                class=" fw-bold text-center ${bootstrap}"
+                class=" fw-bold text-center ${claseName}"
                 style="color: ${color}; font-weight: 600; margin-top:${mt}; margin-bottom:${mb}"
             >
                 ${transformedContent}

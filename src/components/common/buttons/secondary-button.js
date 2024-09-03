@@ -12,14 +12,15 @@ class SecondaryButton extends WebComponent {
         const height = this.getAttribute('h') || DEFAULT_DIMENSION_VALUE;
         const color = this.getAttribute('color') || BUTTON_DEFAULT_SECONDARY_COLOR;
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
-        const bootstrap = this.getAttribute('bootstrap') || '';
+        const claseName = this.getAttribute('claseName') || '';
+        const fontSize = this.getAttribute('fs') || ''
 
         return `
             <button
-                class="btn btn-secondary border bg-transparent rounded-pill ${bootstrap}"
+                class="btn btn-secondary border bg-transparent rounded-pill ${claseName}"
                 style="width: ${width}; height: ${height}; border-color: ${color} !important;"
             >
-                <sub-header-text>${buttonText}<sub-header-text>
+                <sub-header-text fs="16px">${buttonText}<sub-header-text>
             </button>
         `;
     }
