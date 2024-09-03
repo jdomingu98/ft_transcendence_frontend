@@ -1,6 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './PrivacyPolicy.css?inline';
+import css from './LegalDocs.css?inline';
 
 export default Component ({
     tagName: 'privacy-policy',
@@ -11,7 +11,7 @@ class PrivacyPolicy extends WebComponent {
 
     bind() {
         const currentPath = window.location.pathname;
-        if (currentPath === '/privacy-policy') {
+        if (currentPath === '/app/privacy-policy') {
             this.shadowRoot.querySelector('#navbar-privacy').style.display = 'none';
         }
 
