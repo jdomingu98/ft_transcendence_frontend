@@ -1,6 +1,7 @@
 .terms-group input[type="checkbox"] {
     appearance: none; 
     width: 1rem; 
+    min-width: 1rem;
     height: 1rem; 
     border: 2px solid #fff; 
     background-color: transparent;
@@ -26,30 +27,11 @@
 .terms-group label {
     margin-left: 1rem;
     font-size: 17px;
+    white-space: nowrap;
+
 }
 
 .terms-group .terms-link {
     color: #a8c0f0; 
     text-decoration: underline; 
-}
-.hidden{
-    display: none;
-}
-
-.error-alert {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    margin: 0;
-    width: 100%;
-    background-color: #ff4d4d;
-    color: white;
-    padding: 0.5px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 15px;
-    animation: fadeInOut 3s ease-in-out forwards;
-}
-.hidden{
-    display: none;
 }
