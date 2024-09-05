@@ -80,7 +80,8 @@
       "RECTIFICATION": "<strong>Rectification:</strong> Request the correction of any incorrect personal data.",
       "SUPPRESSION": "<strong>Erasure:</strong> Request the deletion of any personal data that may have been collected.",
       "LIMITATION": "<strong>Restriction:</strong> Restrict the processing of your personal data in certain cases.",
-      "OPPOSITION": "<strong>Objection:</strong> Object to the processing of your personal data."
+      "OPPOSITION": "<strong>Objection:</strong> Object to the processing of your personal data.",
+      "OUTRO": "If you wish to exercise any of these rights, please contact us using the details provided in section 1."
     },
     "SECTION_7": {
       "TITLE": "7. Changes to the Privacy Policy",

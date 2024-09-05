@@ -80,7 +80,8 @@
       "RECTIFICATION": "<strong>更正：</strong> 请求更正任何不正确的个人数据。",
       "SUPPRESSION": "<strong>删除：</strong> 请求删除可能已收集的任何个人数据。",
       "LIMITATION": "<strong>限制：</strong> 在某些情况下限制您的个人数据处理。",
-      "OPPOSITION": "<strong>反对：</strong> 反对处理您的个人数据。"
+      "OPPOSITION": "<strong>反对：</strong> 反对处理您的个人数据。",
+      "OUTRO": "如果您希望行使任何这些权利，请通过第 1 节中提供的联系方式与我们联系。"
     },
     "SECTION_7": {
       "TITLE": "7. 隐私政策的变更",

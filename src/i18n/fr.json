@@ -80,7 +80,8 @@
       "RECTIFICATION": "<strong>Rectification :</strong> Demander la correction de toute donnée personnelle incorrecte.",
       "SUPPRESSION": "<strong>Suppression :</strong> Demander la suppression de toute donnée personnelle qui pourrait avoir été collectée.",
       "LIMITATION": "<strong>Limitation :</strong> Restreindre le traitement de vos données personnelles dans certains cas.",
-      "OPPOSITION": "<strong>Opposition :</strong> S'opposer au traitement de vos données personnelles."
+      "OPPOSITION": "<strong>Opposition :</strong> S'opposer au traitement de vos données personnelles.",
+      "OUTRO": "Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter en utilisant les informations fournies dans la section 1."
     },
     "SECTION_7": {
       "TITLE": "7. Modifications de la Politique de Confidentialité",
