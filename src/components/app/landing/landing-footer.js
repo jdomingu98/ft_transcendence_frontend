@@ -8,7 +8,7 @@ export default Component ({
 class LandingFooter extends WebComponent {
     render() {
         return `
-            <footer class="text-capitalize mt-5"
+            <footer class="text-capitalize pt-5"
                     style="font-family: var(--app-secondary-text-font);font-size: 14px;"
             >
                 <div class="col-12 d-flex justify-content-space-between align-items-center text-center text-white">
