@@ -60,6 +60,9 @@ class MainSidebar extends WebComponent {
                 {path: '/app/ranking', component: 'ranking-page'},
                 {path: '/app/history', component: 'history-page'},
                 {path: '/app/settings', component: 'settings-page'},
+                {path: '/app/privacy-policy', component: 'privacy-policy'},
+                {path: '/app/legal-notice', component: 'legal-notice'},
+                {path: '/app/terms-conditions', component: 'terms-conditions'}
             ]
         };
     }

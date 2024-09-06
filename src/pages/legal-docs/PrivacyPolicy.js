@@ -9,25 +9,23 @@ export default Component ({
 
 class PrivacyPolicy extends WebComponent {
 
-    bind() {
-        //TODO: Hide navbar if its logged in (has token)
+    init() {
         const currentPath = window.location.pathname;
-        if (currentPath === '/app/privacy-policy') {
-            this.shadowRoot.querySelector('#navbar-privacy').style.display = 'none';
-        }
-
+        this.state = {
+            shownNavbar: currentPath !== '/app/privacy-policy'
+        };
     }
 
     render() {
         return `
             <section class="position-relative container-fuild base">
-                <div class="col-12 p-0 position-absolute rounded-circle lights top-light"></div>
+                ${this.state.shownNavbar ? `<div class="col-12 p-0 position-absolute rounded-circle lights top-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-left-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-right-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights bottom-light"></div>
                 <div id="navbar-privacy" class="w-100">
                     <landing-navbar></landing-navbar>
-                </div>
+                </div>` : ''}
                 <div class="card base-card">
                     <div class="card-body text-white body p-5">
                         <h1-text>{{ translator.translate('PRIVACY.TITLE') }}</h1-text>
@@ -78,10 +76,10 @@ class PrivacyPolicy extends WebComponent {
                     </div>
                 </div>
             </section>
-            <div style="background-color: var(--app-primary-bg-color)">
+            ${this.state.shownNavbar ? `<div style="background-color: var(--app-primary-bg-color)">
                 <landing-footer></landing-footer>
                 <div id="footer-gradient" class="col-12"></div>
-            </div>
+            </div>` : ''}
         `;
     }
 });
