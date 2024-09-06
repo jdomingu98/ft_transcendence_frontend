@@ -1,15 +1,35 @@
 
 .lights {
-    width: 680px;
-    height: 680px;
-    filter: blur(306px);
+    width: 500px;
+    height: 500px;
+    filter: blur(250px);
     z-index: 0;
+    overflow: hidden;
 }
 
 .top-light {
-    top: -330px;
+    top: -450px;
     left: 55px;
     background-color: var(--app-primary-color);
+}
+
+.middle-left-light {
+    top: 1500px;
+    left: -335px;
+    background: var(--app-secondary-color);
+}
+
+.middle-right-light {
+    top: 450px;
+    right: -335px;
+    background: var(--app-secondary-color);
+}
+
+.bottom-light {
+    bottom: 450px;
+    right: -335px;
+    background-color: var(--app-primary-color);
+    filter: blur(206px);
 }
 
 .base {
@@ -21,6 +41,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--app-primary-bg-color);
+    overflow: hidden;
 }
 
 .base-card {
@@ -52,4 +73,11 @@ p, li, li::marker {
 p strong, li strong {
     font-weight: bold;
     font-size: 1.3rem;
+}
+
+#footer-gradient {
+    background: var(--app-landing-footer-gradient);
+    width: 100%;
+    height: 10px;
+    margin-top: 1rem;
 }
