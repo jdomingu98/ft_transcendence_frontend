@@ -15,3 +15,20 @@ import style from './styles.css?inline';
 WebComponent.defineGlobalCSS([style, bootstrap, bootstrapIcons]);
 
 Translator.init({ fileList: LANGUAGES });
+
+export default Component({
+    tagName: 'app-root',
+}, class extends WebComponent {
+    render() {
+        return `
+            <app-router [routes]="[
+                { path: '/', component: 'landing-page' },
+                { path: '/app', component: 'main-sidebar'},
+                { path: '/reset-password/:token', component: 'update-password' },
+                { path: '/privacy-policy', component: 'privacy-policy' },
+                { path: '/legal-notice', component: 'legal-notice' },
+                { path: '/terms-conditions', component: 'terms-conditions' },
+            ]"></app-router>
+        `;
+    }
+});
