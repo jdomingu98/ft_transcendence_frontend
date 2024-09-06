@@ -31,7 +31,7 @@
       "COPYRIGHT": "© Copyright 2024. Tous droits réservés",
       "LEGAL_NOTICE": "Mentions légales",
       "PRIVACY_POLICY": "Politique de confidentialité",
-      "COOKIE_POLICY": "Politique des cookies"
+      "TERMS_CONDITIONS": "Conditions générales"
     },
     "BUTTONS": {
       "LOCAL_MODE": "essayer le mode local",
@@ -41,6 +41,151 @@
       "GET_STARTED": "Commencer"
     }
   },
+  "LEGAL_COMMON_DATA": {
+    "EMAIL": "<strong>E-mail :</strong> pongtrancendence@gmail.com",
+    "ENTERPRISE": "<strong>Nom de l'Entreprise :</strong> Transcendence",
+    "ADDRESS": "<strong>Adresse :</strong> Av de Sor Teresa Prat, 15, Carretera de Cádiz, 29003 Málaga",
+    "POSTAL_ADDRESS": "<strong>Adresse Postale :</strong> Av de Sor Teresa Prat, 15, Carretera de Cádiz, 29003 Málaga",
+    "NIF": "<strong>NIF/CIF :</strong> 12345678A",
+    "TELEPHONE": "<strong>Téléphone de Contact :</strong> +34123456789"
+  },
+  "PRIVACY": {
+    "TITLE": "Politique de Confidentialité",
+    "UPDATED": "<strong>Dernière mise à jour :</strong> 02/09/2024",
+    "INTRO": "Chez <strong>Transcendence</strong> (« nous », « notre », « l’Entreprise »), nous respectons et protégeons la vie privée de nos utilisateurs. Cette Politique de Confidentialité explique comment nous traitons les informations personnelles sur notre site web <strong>Transcendence</strong>.",
+    "SECTION_1": {
+      "TITLE": "1. Responsable du Traitement des Données",
+      "CONTENT": "Le responsable du traitement des données personnelles sur ce site web est :"
+    },
+    "SECTION_2": {
+      "TITLE": "2. Collecte des Données Personnelles",
+      "CONTENT": "Nous collectons l'adresse e-mail des utilisateurs de manière obligatoire lors de l'inscription sur notre site web. De plus, les utilisateurs peuvent choisir de nous fournir volontairement leur adresse e-mail en nous envoyant un e-mail à l'adresse indiquée dans cette Politique de Confidentialité. Nous ne collectons aucune autre information personnelle identifiable, telle que des noms, adresses physiques ou numéros de téléphone."
+    },
+    "SECTION_3": {
+      "TITLE": "3. Utilisation des Cookies",
+      "CONTENT": "Notre site web n’utilise pas de cookies ni d'autres technologies de suivi pour collecter des informations sur les visiteurs. Cela inclut à la fois les cookies propriétaires et les cookies tiers."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Liens vers des Sites Web Tiers",
+      "CONTENT": "Notre site web peut contenir des liens vers d'autres sites web qui ne sont pas opérés par nous. Si vous cliquez sur un lien de tiers, vous serez dirigé vers le site de ce tiers. Nous vous recommandons de consulter la politique de confidentialité de chaque site que vous visitez. Nous n’avons aucun contrôle sur le contenu, les politiques de confidentialité ou les pratiques des sites web tiers et n’assumons aucune responsabilité à cet égard."
+    },
+    "SECTION_5": {
+      "TITLE": "5. Sécurité des Données",
+      "CONTENT": "Bien que nous ne collections pas de données personnelles, nous avons mis en place des mesures de sécurité appropriées pour protéger les informations que vous pourriez nous fournir par d'autres moyens, notamment par e-mail."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Vos Droits",
+      "INTRO": "En tant qu'utilisateur, vous avez le droit de :",
+      "ACCESS": "<strong>Accès :</strong> Demander des informations sur les données personnelles qui pourraient avoir été collectées.",
+      "RECTIFICATION": "<strong>Rectification :</strong> Demander la correction de toute donnée personnelle incorrecte.",
+      "SUPPRESSION": "<strong>Suppression :</strong> Demander la suppression de toute donnée personnelle qui pourrait avoir été collectée.",
+      "LIMITATION": "<strong>Limitation :</strong> Restreindre le traitement de vos données personnelles dans certains cas.",
+      "OPPOSITION": "<strong>Opposition :</strong> S'opposer au traitement de vos données personnelles.",
+      "OUTRO": "Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter en utilisant les informations fournies dans la section 1."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Modifications de la Politique de Confidentialité",
+      "CONTENT": "Nous pouvons mettre à jour cette Politique de Confidentialité de temps en temps pour refléter les changements dans nos pratiques ou dans la législation applicable. Toute modification sera publiée sur cette page avec la date de la dernière mise à jour."
+    },
+    "SECTION_8": {
+      "TITLE": "8. Contact",
+      "CONTENT": "Si vous avez des questions ou des préoccupations concernant cette Politique de Confidentialité ou nos pratiques, n’hésitez pas à nous contacter :"
+    }
+  },
+  "NOTICE": {
+    "TITLE": "Avis Juridique",
+    "UPDATED": "<strong>Dernière mise à jour :</strong> 02/09/2024",
+    "INTRO": "Cet avis juridique régit l'utilisation du site web <strong>Transcendence</strong> (ci-après « le Site Web »), mis à disposition des utilisateurs d'Internet par l'entité <strong>Transcendence</strong> (ci-après « l'Entreprise »).",
+    "SECTION_1_TITLE": "1. Informations sur le Propriétaire du Site Web",
+    "SECTION_2": {
+      "TITLE": "2. Conditions d'Utilisation",
+      "CONTENT": "L'accès et l'utilisation du Site Web confèrent le statut d'« Utilisateur » et impliquent l'acceptation pleine et sans réserve de l'ensemble des dispositions contenues dans le présent Avis Juridique, dans la version publiée par l'Entreprise au moment où l'Utilisateur accède au Site Web. Par conséquent, il est conseillé à l'Utilisateur de lire attentivement cet Avis Juridique chaque fois qu'il accède au Site Web."
+    },
+    "SECTION_3": {
+      "TITLE": "3. Propriété Intellectuelle",
+      "FIRST_PART": "Tous les contenus du Site Web, y compris à titre d'exemple les textes, photographies, graphiques, images, icônes, technologies, logiciels et autres contenus audiovisuels ou sonores, ainsi que leur design graphique et codes sources, sont la propriété intellectuelle de l'Entreprise ou de tiers, sans que l'Utilisateur puisse prétendre à des droits d'exploitation au-delà de ce qui est strictement nécessaire pour une utilisation correcte du Site Web.",
+      "SECOND_PART": "Les marques, noms commerciaux ou signes distinctifs sont la propriété de l'Entreprise ou de tiers, sans que l'accès au Site Web ne confère aucun droit sur ces éléments."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Exclusion de Responsabilité",
+      "INTRO": "Le contenu de ce Site Web est de nature générale et a une finalité purement informative. L'Entreprise ne garantit pas l'accès complet à tous les contenus, ni leur exhaustivité, exactitude, actualité ou pertinence pour un objectif spécifique.",
+      "CONTENT": {
+        "FIRST_PART": "L'Entreprise ne saurait être tenue responsable des dommages de toute nature résultant de :",
+        "REASON_1": "L'impossibilité d'accéder au Site Web ou le manque de véracité, exactitude, exhaustivité et/ou actualité des contenus, ainsi que l'existence de vices ou défauts de toute nature dans les contenus transmis, diffusés, stockés ou mis à disposition auxquels il a été accédé via le Site Web ou les services proposés.",
+        "REASON_2": "La présence de virus ou d'autres éléments dans les contenus pouvant entraîner des modifications des systèmes informatiques, documents électroniques ou données des Utilisateurs.",
+        "REASON_3": "La violation des lois, de la bonne foi, de l'ordre public, des usages commerciaux et du présent Avis Juridique résultant d'une utilisation incorrecte du Site Web. En particulier, et à titre d'exemple, l'Entreprise ne saurait être responsable des actes de tiers violant les droits de propriété intellectuelle et industrielle, les secrets d'affaires, les droits à l'honneur, à la vie privée et à l'image, ainsi que des réglementations en matière de concurrence déloyale et de publicité illégale."
+      }
+    },
+    "SECTION_5": {
+      "TITLE": "5. Liens Externes",
+      "CONTENT": "Ce Site Web peut inclure des liens vers des sites web tiers. L'Entreprise ne saurait être tenue responsable du contenu, des politiques de confidentialité ou des pratiques de ces sites externes. L'Utilisateur accède au contenu de ces sites web sous sa propre responsabilité et doit consulter leurs politiques de confidentialité et conditions d'utilisation."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Protection des Données Personnelles",
+      "FIRST_PART": "Conformément au Règlement Général sur la Protection des Données (RGPD), nous informons les Utilisateurs que ce Site Web ne collecte pas de données personnelles ni n'utilise de cookies.",
+      "SECOND_PART": "Si l'Utilisateur décide de contacter l'Entreprise par les moyens fournis sur ce Site Web, tels que l'e-mail ou les formulaires de contact, ses données seront traitées conformément à notre Politique de Confidentialité, disponible sur le Site Web."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Législation Applicable et Juridiction",
+      "CONTENT": "Les relations établies entre l'Entreprise et l'Utilisateur seront régies par la législation espagnole en vigueur, et tout litige découlant de l'accès ou de l'utilisation de ce Site Web sera de la compétence des tribunaux de Málaga."
+    }
+  },
+  "TERMS_AND_CONDITIONS": {
+    "TITLE": "Conditions Générales",
+    "UPDATED": "<strong>Dernière mise à jour :</strong> 02/09/2024",
+    "INTRO": "<strong>Transcendence</strong> (« nous », « notre ») est engagé dans la protection de votre vie privée et dans la transparence du traitement de vos données personnelles. Afin de respecter le Règlement Général sur la Protection des Données (RGPD), nous vous demandons votre consentement explicite pour collecter et traiter les données personnelles suivantes lorsque vous créez un compte sur notre site web.",
+    "SECTION_1": {
+      "TITLE": "1. Données Personnelles Collectées",
+      "INTRO": "Lors de la création d'un compte sur notre site web, nous collecterons et traiterons les données personnelles suivantes :",
+      "DATA": {
+        "PICTURES": "<strong>Images :</strong> Nous collectons uniquement deux images, une comme image représentative de l'utilisateur et l'autre comme image de fond pour son profil.",
+        "PASSWORD": "<strong>E-mail :</strong> Pour vous identifier et communiquer avec vous.",
+        "EMAIL": "<strong>Mot de passe :</strong> Pour sécuriser l'accès à votre compte.",
+        "USERNAME": "<strong>Nom d'utilisateur :</strong> Pour identifier votre compte sur notre site.",
+        "CODE": "<strong>Code de liaison (optionnel) :</strong> Vous pouvez choisir de lier votre compte avec un service tiers (42 dans notre cas) en utilisant un code de liaison."
+      }
+    },
+    "SECTION_2": {
+      "TITLE": "2. Finalité du Traitement des Données",
+      "INTRO": "Vos données personnelles seront traitées aux fins suivantes :",
+      "DATA": {
+        "PICTURES": "<strong>Images :</strong> Pour la personnalisation du profil utilisateur.",
+        "EMAIL": "<strong>E-mail :</strong> Pour gérer votre compte et envoyer des notifications liées au service.",
+        "PASSWORD": "<strong>Mot de passe :</strong> Pour sécuriser l'accès à votre compte de manière confidentielle.",
+        "USERNAME": "<strong>Nom d'utilisateur :</strong> Pour identifier votre compte dans notre système et vous permettre d'interagir avec d'autres fonctions du site.",
+        "CODE": "<strong>Code de liaison (optionnel) :</strong> Pour permettre la liaison avec des services tiers, facilitant l'accès et améliorant votre expérience sur notre site web."
+      }
+    },
+    "SECTION_3": {
+      "TITLE": "3. Base Légale pour le Traitement",
+      "CONTENT": "Le traitement de vos données personnelles est effectué sur la base de votre consentement explicite (Article 6.1.a RGPD) en cochant la case correspondante et en envoyant ce formulaire."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Durée du Traitement des Données",
+      "CONTENT": "Vos données personnelles seront conservées tant que votre compte restera actif. Si vous décidez de fermer votre compte, nous supprimerons vos données personnelles, sauf si nous sommes tenus de les conserver pour respecter des obligations légales."
+    },
+    "SECTION_5": {
+      "TITLE": "5. Droits du Titulaire des Données",
+      "INTRO": "Vous avez le droit de :",
+      "LIST": {
+        "ELEMENT_1": "Accéder à vos données personnelles et obtenir une copie de celles-ci.",
+        "ELEMENT_2": "Rectifier toute donnée inexacte ou incomplète.",
+        "ELEMENT_3": "Supprimer vos données personnelles lorsque celles-ci ne sont plus nécessaires aux fins pour lesquelles elles ont été collectées.",
+        "ELEMENT_4": "Limiter le traitement de vos données dans certaines circonstances.",
+        "ELEMENT_5": "Transférer vos données personnelles à un autre responsable du traitement.",
+        "ELEMENT_6": "S'opposer au traitement de vos données personnelles dans certaines situations."
+      },
+      "OUTRO": "Pour exercer vos droits, vous pouvez nous contacter à tout moment à <strong>pongtrancendence@gmail.com</strong>."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Transferts Internationaux de Données",
+      "CONTENT": "Vos données personnelles ne seront pas transférées en dehors de l'Espace Économique Européen (EEE), sauf si des mesures de protection appropriées conformément au RGPD sont prises."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Consentement",
+      "CONTENT": "En cochant la case et en vous inscrivant, vous consentez librement, spécifiquement, informéement et sans équivoque au traitement de vos données personnelles tel que décrit dans cette politique."
+    }
+  },  
   "SIDEBAR": {
     "PLAY_A_GAME": "Jouer à un jeu",
     "TOURNAMENTS": "Tournois",
