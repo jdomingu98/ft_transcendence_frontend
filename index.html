@@ -22,6 +22,7 @@
         <title>Pongcendence</title>
     </head>
     <body>
+        <!-- <snackbar-container style="position: absolute; z-index: 1; width: 300px;"></snackbar-container> -->
         <app-router
             [routes]="[
                 { path: '/', component: 'landing-page' },
@@ -30,6 +31,8 @@
                 { path: '/terms-conditions', component: 'terms-conditions' },
                 { path: '/app', component: 'main-sidebar'},
                 { path: '/reset-password/:token', component: 'update-password' },
+                { path: '/redirect', component: 'oauth-redirect' },
+                { path: '/error', component: 'error-page' },
             ]">
 
         </app-router>

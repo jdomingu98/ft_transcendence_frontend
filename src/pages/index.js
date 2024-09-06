@@ -5,3 +5,5 @@ import './legal-docs/TermsConditions';
 import './sidebar/MainSidebar';
 import './profile/ProfilePage';
 import './update-password/UpdatePassword';
+import './oauth-redirect/OAuthRedirect';
+import './error-page/error-page';
