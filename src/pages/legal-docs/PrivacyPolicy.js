@@ -23,7 +23,7 @@ class PrivacyPolicy extends WebComponent {
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-left-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-right-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights bottom-light"></div>
-                <div id="navbar-privacy" class="w-100">
+                <div class="w-100">
                     <landing-navbar></landing-navbar>
                 </div>` : ''}
                 <div class="card base-card">
