@@ -5,17 +5,36 @@ export default Component ({
 },
 
 class LandingNavBar extends WebComponent {
-    bind() {
 
-        this.subscribe('#modal', 'click', () => {
-            const modal = this._getDOM().querySelector('#modal-register');
-            if (modal){
-                modal._getDOM().querySelector('.overlay').classList.remove('hidden');
-                modal._getDOM().querySelector('.modal-form').classList.remove('hidden');
-                modal.scrollIntoView();
-            }
+    init() {
+        this.state = {
+            showRegister: false,
+        };
+    }
 
+    closeModal() {
+        this.setState({
+            ...this.state,
+            showRegister: false,
         });
+    }
+
+    handleModalEvents() {
+        const modal = this._getDOM().querySelector('modal-card');
+        if (modal) {
+            this.subscribe('modal-card','CLOSE_MODAL', () => this.closeModal());
+        }
+    }
+
+    bind() {
+        this.subscribe('#btn-modal', 'click', () => {
+            this.setState({
+                ...this.state,
+                showRegister: true,
+            });
+            this.handleModalEvents();
+        });
+
     }
     render() {
         return `
@@ -45,11 +64,11 @@ class LandingNavBar extends WebComponent {
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
                 </router-link>
                 <language-selector class="col-2" w="130px" h="35px"></language-selector>
-                <primary-button id="modal" w="165px" h="45px">
+                <primary-button id="btn-modal" w="165px" h="45px">
                     {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
                 </primary-button>
             </nav>
-            <modal-register id="modal-register"></modal-register>
+            ${this.state.showRegister ? '<modal-card id="modal-register"></modal-card>' : ''}
         `;
     }
 });
