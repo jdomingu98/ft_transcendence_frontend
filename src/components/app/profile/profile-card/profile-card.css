@@ -1,0 +1,9 @@
+
+.card-container {
+    font-family: 'Outfit', sans-serif;
+}
+
+.profile-container {
+    background-color: var(--app-secondary-bg-color);
+    border-radius: 10px;
+}

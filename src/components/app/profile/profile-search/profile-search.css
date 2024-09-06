@@ -1,0 +1,20 @@
+
+.searchbar {
+    font-family: Roboto;
+    width: 80%;
+}
+
+#input-control, #input-control:focus {
+    background-color: var(--app-secondary-bg-color);
+    border-color: var(--app-secondary-color);
+    font-size: 1rem;
+}
+
+#input-control::placeholder, #input-control:focus, #input-control:hover {
+    color: white;
+}
+
+#input-control::placeholder {
+    font-style: italic;
+    opacity: 60%;
+}

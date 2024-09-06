@@ -8,14 +8,14 @@ export default Component ({
 class LandingFooter extends WebComponent {
     render() {
         return `
-            <footer class="text-capitalize mt-5"
+            <footer class="text-capitalize pt-5"
                     style="font-family: var(--app-secondary-text-font);font-size: 14px;"
             >
-                <div class="col-12 d-flex justify-content-space-between align-items-center text-center">
+                <div class="col-12 d-flex justify-content-space-between align-items-center text-center text-white">
                     <span class="col-3">{{ translator.translate("LANDING.FOOTER.COPYRIGHT")}}</span>
-                    <router-link href="/legal-notice" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.LEGAL_NOTICE")}}</router-link>
-                    <router-link href="/privacy" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.PRIVACY_POLICY")}}</router-link>
-                    <router-link href="/cookies" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.COOKIE_POLICY")}}</router-link>
+                    <a href="/privacy-policy" target="_blank" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.PRIVACY_POLICY")}}</a>
+                    <a href="/legal-notice" target="_blank" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.LEGAL_NOTICE")}}</a>
+                    <a href="/terms-conditions" target="_blank" rel="noreferrer" class="col-3 link-light link-underline-opacity-0">{{ translator.translate("LANDING.FOOTER.TERMS_CONDITIONS")}}</a>
                 </div>
             </footer>
         `;

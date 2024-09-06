@@ -31,7 +31,7 @@
       "COPYRIGHT": "© Copyright 2024. All Rights Reserved",
       "LEGAL_NOTICE": "Legal Notice",
       "PRIVACY_POLICY": "Privacy Policy",
-      "COOKIE_POLICY": "Cookie Policy"
+      "TERMS_CONDITIONS": "Terms and Conditions"
     },
     "BUTTONS": {
       "LOCAL_MODE": "try local mode",
@@ -39,6 +39,197 @@
       "DISCOVER": "Meet new people",
       "REGISTER_NOW": "Register now",
       "GET_STARTED": "Get Started"
+    }
+  },
+  "LEGAL_COMMON_DATA": {
+    "EMAIL": "<strong>Email:</strong> pongtrancendence@gmail.com",
+    "ENTERPRISE": "<strong>Company Name:</strong> Transcendence",
+    "ADDRESS": "<strong>Address:</strong> Av de Sor Teresa Prat, 15, Carretera de Cádiz, 29003 Málaga",
+    "POSTAL_ADDRESS": "<strong>Postal Address:</strong> Av de Sor Teresa Prat, 15, Carretera de Cádiz, 29003 Málaga",
+    "NIF": "<strong>NIF/CIF:</strong> 12345678A",
+    "TELEPHONE": "<strong>Contact Telephone:</strong> +34123456789"
+  },
+  "PRIVACY": {
+    "TITLE": "Privacy Policy",
+    "UPDATED": "<strong>Last updated:</strong> 02/09/2024",
+    "INTRO": "At <strong>Transcendence</strong> ('we', 'our', 'the Company'), we respect and protect the privacy of our users. This Privacy Policy explains how we handle personal information on our <strong>Transcendence</strong> website.",
+    "SECTION_1": {
+      "TITLE": "1. Data Controller",
+      "CONTENT": "The data controller for personal data on this website is:"
+    },
+    "SECTION_2": {
+      "TITLE": "2. Collection of Personal Data",
+      "CONTENT": "We collect users' email addresses as a mandatory requirement when registering on our website. Additionally, users may choose to provide us with their email address voluntarily when sending an email to the address provided in this Privacy Policy. We do not collect any other personally identifiable information, such as names, physical addresses, or phone numbers."
+    },
+    "SECTION_3": {
+      "TITLE": "3. Use of Cookies",
+      "CONTENT": "Our website does not use cookies or other tracking technologies to collect information about visitors. This includes both first-party and third-party cookies."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Links to Third-Party Websites",
+      "CONTENT": "Our website may contain links to other websites that are not operated by us. If you click on a third-party link, you will be directed to that third-party’s site. We recommend that you review the privacy policy of every site you visit. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of third-party websites."
+    },
+    "SECTION_5": {
+      "TITLE": "5. Data Security",
+      "CONTENT": "Although we do not collect personal data, we have implemented appropriate security measures to protect any information you may provide us through other means, specifically via emails."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Your Rights",
+      "INTRO": "As a user, you have the right to:",
+      "ACCESS": "<strong>Access:</strong> Request information about any personal data that may have been collected.",
+      "RECTIFICATION": "<strong>Rectification:</strong> Request the correction of any incorrect personal data.",
+      "SUPPRESSION": "<strong>Erasure:</strong> Request the deletion of any personal data that may have been collected.",
+      "LIMITATION": "<strong>Restriction:</strong> Restrict the processing of your personal data in certain cases.",
+      "OPPOSITION": "<strong>Objection:</strong> Object to the processing of your personal data.",
+      "OUTRO": "If you wish to exercise any of these rights, please contact us using the details provided in section 1."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Changes to the Privacy Policy",
+      "CONTENT": "We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. Any changes will be posted on this page, and the date of the last update will be indicated."
+    },
+    "SECTION_8": {
+      "TITLE": "8. Contact",
+      "CONTENT": "If you have any questions or concerns about this Privacy Policy or our practices, please feel free to contact us:"
+    }
+  },
+  "NOTICE": {
+    "TITLE": "Legal Notice",
+    "UPDATED": "<strong>Last updated:</strong> 02/09/2024",
+    "INTRO": "This legal notice governs the use of the <strong>Transcendence</strong> website (hereinafter, 'the Website'), made available to Internet users by the entity <strong>Transcendence</strong> (hereinafter, 'the Company').",
+    "SECTION_1_TITLE": "1. Website Owner’s Information",
+    "SECTION_2": {
+      "TITLE": "2. Terms of Use",
+      "CONTENT": "Access to and use of the Website grants the status of 'User' and implies full and unreserved acceptance of all provisions included in this Legal Notice, in the version published by the Company at the time the User accesses the Website. Therefore, it is recommended that the User read this Legal Notice carefully each time they access the Website."
+    },
+    "SECTION_3": {
+      "TITLE": "3. Intellectual and Industrial Property",
+      "FIRST_PART": "All the contents of the Website, including but not limited to texts, photographs, graphics, images, icons, technology, software, and other audiovisual or sound content, as well as its graphic design and source code, are the intellectual property of the Company or third parties, without any rights of exploitation being transferred to the User beyond what is strictly necessary for the correct use of the Website.",
+      "SECOND_PART": "The trademarks, trade names, or distinctive signs are owned by the Company or third parties, without it being understood that access to the Website grants any rights over them."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Disclaimer of Liability",
+      "INTRO": "The content of this Website is general in nature and is provided for informational purposes only. The Company does not fully guarantee access to all content, nor its completeness, correctness, validity, or timeliness, nor its suitability or usefulness for a specific purpose.",
+      "CONTENT": {
+        "FIRST_PART": "The Company is not liable for any damages of any nature arising from:",
+        "REASON_1": "The inability to access the Website or the lack of truthfulness, accuracy, completeness, and/or timeliness of the content, as well as the presence of errors or defects of any kind in the content transmitted, disseminated, stored, made available or accessed through the Website or the services offered.",
+        "REASON_2": "The presence of viruses or other elements in the content that may cause alterations to Users' computer systems, electronic documents, or data.",
+        "REASON_3": "Failure to comply with laws, good faith, public order, commercial practices, and this Legal Notice as a result of the improper use of the Website. In particular, the Company is not responsible for the actions of third parties that infringe intellectual and industrial property rights, trade secrets, rights to honour, personal and family privacy, personal image, or the rules on unfair competition and illicit advertising."
+      }
+    },
+    "SECTION_5": {
+      "TITLE": "5. External Links",
+      "CONTENT": "This Website may include links to third-party websites. The Company assumes no responsibility for the content, privacy policies, or practices of these external sites. The User accesses such websites at their own risk and should review their privacy policies and terms of use."
+    },
+    "SECTION_6": {
+      "TITLE": "6. Personal Data Protection",
+      "FIRST_PART": "In accordance with the provisions of the General Data Protection Regulation (GDPR), Users are informed that this Website does not collect personal data or use cookies.",
+      "SECOND_PART": "If the User decides to contact the Company through the means provided on this Website, such as email or contact forms, their data will be processed in accordance with our Privacy Policy, available on the Website."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Applicable Law and Jurisdiction",
+      "CONTENT": "The relationship between the Company and the User shall be governed by the applicable Spanish law, and any disputes arising from access or use of this Website shall be subject to the courts and tribunals of Málaga."
+    }
+  },
+  "TERMS_AND_CONDITIONS": {
+    "TITLE": "Terms and Conditions",
+    "UPDATED": "<strong>Last updated:</strong> 02/09/2024",
+    "INTRO": "<strong>Transcendence</strong> ('we', 'our') is committed to protecting your privacy and ensuring transparency in the processing of your personal data. To comply with the General Data Protection Regulation (GDPR), we ask for your explicit consent to collect and process the following personal data when you create an account on our website.",
+    "SECTION_1": {
+      "TITLE": "1. Personal Data Collected",
+      "INTRO": "When creating an account on our website, we will collect and process the following personal data:",
+      "DATA": {
+        "PICTURES": "<strong>Pictures:</strong> Only two pictures are collected, one as the user’s representative image and the other as a background image for their profile.",
+        "PASSWORD": "<strong>Email:</strong> To identify and communicate with you.",
+        "EMAIL": "<strong>Password:</strong> To secure access to your account.",
+        "USERNAME": "<strong>Username:</strong> To identify your account on our site.",
+        "CODE": "<strong>Linking code (optional):</strong> You may choose to link your account with a third-party service (42 in our case) using a linking code."
+      }
+    },
+    "SECTION_2": {
+      "TITLE": "2. Purpose of Data Processing",
+      "INTRO": "Your personal data will be processed for the following purposes:",
+      "DATA": {
+        "PICTURES": "<strong>Pictures:</strong> For personalising the user profile.",
+        "EMAIL": "<strong>Email:</strong> To manage your account and send service-related notifications.",
+        "PASSWORD": "<strong>Password:</strong> To secure access to your account confidentially.",
+        "USERNAME": "<strong>Username:</strong> To identify your account in our system and allow you to interact with other site features.",
+        "CODE": "<strong>Linking code (optional):</strong> To allow linking with third-party services, facilitating access and enhancing your experience on our website."
+      }
+    },
+    "SECTION_3": {
+      "TITLE": "3. Legal Basis for Processing",
+      "CONTENT": "The processing of your personal data is based on your explicit consent (Art. 6.1.a GDPR) by ticking the relevant box and submitting this form."
+    },
+    "SECTION_4": {
+      "TITLE": "4. Duration of Data Processing",
+      "CONTENT": "Your personal data will be retained as long as your account remains active. If you choose to close your account, we will delete your personal data unless we are required to retain it to comply with legal obligations."
+    },
+    "SECTION_5": {
+      "TITLE": "5. Data Subject Rights",
+      "INTRO": "You have the right to:",
+      "LIST": {
+        "ELEMENT_1": "Access your personal data and obtain a copy.",
+        "ELEMENT_2": "Rectify any inaccurate or incomplete data.",
+        "ELEMENT_3": "Delete your personal data when it is no longer necessary for the purposes for which it was collected.",
+        "ELEMENT_4": "Restrict the processing of your data in certain circumstances.",
+        "ELEMENT_5": "Port your personal data to another data controller.",
+        "ELEMENT_6": "Object to the processing of your personal data in certain situations."
+      },
+      "OUTRO": "To exercise your rights, you can contact us at any time at <strong>pongtrancendence@gmail.com</strong>."
+    },
+    "SECTION_6": {
+      "TITLE": "6. International Data Transfers",
+      "CONTENT": "Your personal data will not be transferred outside the European Economic Area (EEA), unless appropriate safeguards are in place in accordance with the GDPR."
+    },
+    "SECTION_7": {
+      "TITLE": "7. Consent",
+      "CONTENT": "By ticking the box and registering, you freely, specifically, and unambiguously consent to the processing of your personal data as described in this policy."
+    }
+  },
+  "SIDEBAR": {
+    "PLAY_A_GAME": "Play a game",
+    "TOURNAMENTS": "Tournaments",
+    "CHATS": "Chats",
+    "RANKING": "Ranking",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Log out"
+  },
+  "PROFILE": {
+    "SEARCH": "Search users...",
+    "HEADER": {
+      "POSITION": "Position: ",
+      "STATUS": {
+        "CONNECTED": "Connected",
+        "DISCONNECTED": "Disconnected",
+        "SEARCHING": "Searching Match",
+        "PLAYING": "Playing Match"
+      }
+    },
+    "STATS": {
+      "GOALS_SCORED": "Goals Scored",
+      "GOALS_AGAINST": "Goals Against",
+      "GOALS_STOPPED": "Goals Stopped",
+      "TIME_PLAYED": "Time Played",
+      "WINRATE": "Win Rate", 
+      "STREAK": "Max Win Streak"
+    },
+    "MATCH_HISTORY": {
+      "TABLE_HEAD": {
+        "RESULT": "Result",
+        "OPPONENT": "Opponent",
+        "EARNED": "Earned",
+        "TIME": "Time"
+      },
+      "RESULT_STATUS": {
+        "VICTORY": "Victory",
+        "DEFEAT": "Defeat",
+        "DRAW": "Draw"
+      },
+      "PAGINATION": {
+        "PREVIOUS": "< Previous",
+        "OF": "of",
+        "NEXT": "Next >"
+      }
     }
   },
   "LANGUAGE": {

@@ -1,7 +1,7 @@
 {
   "name": "ft_transcendence",
   "private": true,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,8 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "bootstrap": "5.3.3"
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
