@@ -13,7 +13,6 @@ class SecondaryButton extends WebComponent {
         const color = this.getAttribute('color') || BUTTON_DEFAULT_SECONDARY_COLOR;
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
         const claseName = this.getAttribute('claseName') || '';
-        const fontSize = this.getAttribute('fs') || ''
 
         return `
             <button

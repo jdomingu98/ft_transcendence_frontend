@@ -48,7 +48,7 @@ class PrimaryButton extends WebComponent {
         const buttonText = this.innerHTML || BUTTON_DEFAULT_MSG;
         const claseName = this.getAttribute('claseName') || '';
         const txt_color = this.getAttribute('txt-color') || '#FFFFFF';
-        const fontSize = this.getAttribute('fs') || ''
+        const fontSize = this.getAttribute('fs') || '';
 
         return `
             <button

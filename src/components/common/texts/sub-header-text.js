@@ -9,7 +9,7 @@ class SubHeaderText extends WebComponent {
     render() {
         const color = this.getAttribute('color') || 'white';
         const content = this.innerHTML;
-        const fontSize = this.getAttribute('fs') || 18
+        const fontSize = this.getAttribute('fs') || 18;
 
         return `
             <p

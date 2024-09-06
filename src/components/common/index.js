@@ -11,11 +11,11 @@ import {
 import { PrimaryButton, SecondaryButton } from './buttons';
 import BoxFormField from './forms/box-form-field/box-form-field.js';
 import { DevCard } from './cards';
+import ErrorAlert from './texts/error-alert.js';
 import FormField from './forms/form-field/form-field.js';
 import LanguageSelector from './selects/language-selector.js';
 import ModalSpanText from './texts/modal-span-text.js';
 import ProfileImg from './profile-img/profile-img.js';
-import ErrorAlert from './texts/error-alert.js';
 export {
     H1Text,
     H2Text,
