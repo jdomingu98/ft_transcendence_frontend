@@ -9,13 +9,33 @@ export default Component ({
 
 class ProfileSearch extends WebComponent {
 
+    redirectToSearchPage() {
+        const searchTerm = this.shadowRoot.querySelector('#input-control').value.trim();
+        if (searchTerm) {
+            window.location.href = `/app/search/${encodeURIComponent(searchTerm)}`;
+        }
+    }
+
+    bind() {
+        this.subscribe('#input-control', 'keydown', e => {
+            if (e.key === 'Enter') {
+                this.redirectToSearchPage();
+            }
+        });
+
+        this.subscribe('#search-icon', 'click', () => {
+            this.redirectToSearchPage();
+        });
+    }
+
     render() {
         return `
             <div class="container my-4">
                 <div class="position-relative my-0 mx-auto searchbar">
                     <i
+                        id="search-icon"
                         class="bi bi-search position-absolute top-50 translate-middle-y text-white"
-                        style="left: 1rem;"
+                        style="cursor:pointer; left: 1rem; padding: 0.375rem;"
                     ></i>
                     <input
                         type="search"
