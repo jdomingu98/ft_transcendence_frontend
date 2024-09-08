@@ -47,6 +47,7 @@ class ProfileSearch extends WebComponent {
                     <input
                         type="search"
                         id="input-control"
+                        [value]="decodeURIComponent(state.searchTerm)"
                         class="form-control ps-5"
                         [placeholder]="translator.translate('PROFILE.SEARCH')"
                         [aria-label]="translator.translate('PROFILE.SEARCH')"
