@@ -77,10 +77,14 @@ class SearchResults extends WebComponent {
         };
     }
 
-    makeSearchResultGrid() {
+    getSearchTerm() {
         const currentPath = window.location.pathname;
         const pathSegments = currentPath.split('/');
-        const searchTerm = pathSegments.length === 0 ? '' : pathSegments[pathSegments.length - 1];
+        return pathSegments.length === 0 ? '' : pathSegments[pathSegments.length - 1];
+    }
+
+    makeSearchResultGrid() {
+        const searchTerm = this.getSearchTerm();
 
         return this.state.searchResults.filter(result => result.username.toLowerCase().startsWith(searchTerm.toLowerCase())).map( result =>
             `
