@@ -1,4 +1,4 @@
-import WebComponent, { Component } from '#WebComponent';
+import WebComponent, { Component, Router } from '#WebComponent';
 
 export default Component ({
     tagName: 'search-results'
@@ -77,14 +77,8 @@ class SearchResults extends WebComponent {
         };
     }
 
-    getSearchTerm() {
-        const currentPath = window.location.pathname;
-        const pathSegments = currentPath.split('/');
-        return pathSegments.length === 0 ? '' : pathSegments[pathSegments.length - 1];
-    }
-
     makeSearchResultGrid() {
-        const searchTerm = this.getSearchTerm();
+        const searchTerm = Router.getQuery().username || '';
 
         return this.state.searchResults.filter(result => result.username.toLowerCase().startsWith(searchTerm.toLowerCase())).map( result =>
             `

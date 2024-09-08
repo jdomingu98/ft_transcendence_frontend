@@ -1,4 +1,4 @@
-import WebComponent, { Component } from '#WebComponent';
+import WebComponent, { Component, Router } from '#WebComponent';
 
 import css from './profile-search.css?inline';
 
@@ -9,10 +9,17 @@ export default Component ({
 
 class ProfileSearch extends WebComponent {
 
+    init() {
+        const query = Router.getQuery();
+        this.state = {
+            searchTerm: query.username || ''
+        };
+    }
+
     redirectToSearchPage() {
         const searchTerm = this.shadowRoot.querySelector('#input-control').value.trim();
-        if (searchTerm) {
-            window.location.href = `/app/search/${encodeURIComponent(searchTerm)}`;
+        if (searchTerm && searchTerm !== this.state.searchTerm) {
+            Router.push(`/app/search?username=${encodeURIComponent(searchTerm)}`);
         }
     }
 
