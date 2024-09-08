@@ -232,6 +232,11 @@
       }
     }
   },
+  "LEADERBOARD": {
+    "TITLE": "Los 10 mejores jugadores de Pong",
+    "POSITION": "Tu posición actual",
+    "PTS": " pts"
+  },
   "LANGUAGE": {
     "ES": "Español",
     "EN": "Inglés",
