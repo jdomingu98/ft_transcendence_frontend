@@ -5,4 +5,5 @@ import './legal-docs/TermsConditions';
 import './sidebar/MainSidebar';
 import './profile/ProfilePage';
 import './search-results/SearchResults';
+import './ranking/RankingPage';
 import './update-password/UpdatePassword';
