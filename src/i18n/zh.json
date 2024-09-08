@@ -232,6 +232,11 @@
       }
     }
   },
+  "LEADERBOARD": {
+    "TITLE": "前 10 名乒乓球玩家",
+    "POSITION": "你当前的位置",
+    "PTS": " 分"
+  },
   "LANGUAGE": {
     "ES": "西班牙语",
     "EN": "英语",

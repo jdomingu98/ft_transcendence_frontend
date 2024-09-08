@@ -1,0 +1,72 @@
+.position {
+    height: 100px;
+    width: 0;
+    opacity: 0;
+    padding: 10px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    color: white;
+    border-radius: 5px;
+    animation: growBar 1.5s forwards ease-in-out;
+    font-size: 1.5rem;
+}
+
+.position[data-rank="first"] {
+    background: linear-gradient(0deg, rgba(239,184,16,1) 0%, rgba(127,105,36,1) 100%);
+    width: 100%;
+}
+
+.position[data-rank="second"] {
+    background: linear-gradient(0deg, rgba(138,149,151,1) 0%, rgba(89,95,96,1) 100%);
+    width: 90%;
+}
+
+.position[data-rank="third"] {
+    background: linear-gradient(0deg, rgba(191,137,112,1) 0%, rgba(120,88,73,1) 100%);
+    width: 80%;
+}
+
+.position[data-rank="rest"] {
+    background-color: var(--app-primary-color);
+    width: 75%;
+}
+
+@keyframes growBar {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards; /* Aplica la animación de aparición */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.profile-picture {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin: auto 1.5rem;
+    object-fit: cover;
+}
+
+.rank-position {
+    font-size: 6rem;
+    font-style: italic;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
