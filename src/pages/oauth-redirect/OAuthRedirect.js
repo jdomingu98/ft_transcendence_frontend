@@ -17,7 +17,7 @@ class OAuthRedirect extends WebComponent {
             // AuthService.oauthLogin(code)
             //     .then(() => console.log('@TODO: set token in local storage'))
             //     .catch(() => NavigatorService.goToErrorPage('Failed to login'));
-            AuthService.oauthLogin({ code })
+            AuthService.oauthLogin(code)
                 .then(console.log)
                 .catch(console.error);
         }
