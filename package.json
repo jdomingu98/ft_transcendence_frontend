@@ -23,6 +23,7 @@
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
     "#WebComponent/*": "./lib/WebComponent/*/index.js",
+    "#services/": "./lib/services/",
     "#common": "./src/components/common",
     "#svg": "./src/components/svg"
   }

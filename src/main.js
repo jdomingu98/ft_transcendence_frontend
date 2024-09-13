@@ -21,6 +21,7 @@ export default Component({
 }, class extends WebComponent {
     render() {
         return `
+            <snackbar-container></snackbar-container>
             <app-router [routes]="[
                 { path: '/', component: 'landing-page' },
                 { path: '/app', component: 'main-sidebar'},
