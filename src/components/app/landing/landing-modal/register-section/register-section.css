@@ -29,26 +29,34 @@
     height: 65px;
 }
 
+.text{
+    color: #FFFFFF;
+    opacity: 70%;
+    font-size: 16px;
+    opacity: 70%;
+}
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1000px) {
 
     .small-btns{
         flex-direction: column;
-        margin-top: 10px;
+        margin-bottom: 10px;
     }
-}
 
-@media (max-width: 950px) {
     .data-section {
         left: 0%;
         width: 100%;
         border-radius: 20px 20px 20px 20px;
     }
+}
 
-    .modal-form {
-        width: 80%;
-        transform: translate(-50%, -50%);
+@media (max-width: 550px) {
+    .text{
+        font-size: 15px;
+        min-width: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .small-btns{

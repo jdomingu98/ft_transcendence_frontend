@@ -1,7 +1,9 @@
 import '/src/components/app/landing';
 
 import WebComponent, { Component } from '#WebComponent';
-import { UserService } from '../../../../../../lib/services/UserService';
+import NavigatorService from '#services/NavigatorService.js';
+import { SnackbarService } from '#services/SnackbarService';
+import { UserService } from '#services/UserService';
 
 import css from './register-section.css?inline';
 
@@ -17,10 +19,9 @@ export default Component(
     },
 
     class RegisterSection extends WebComponent {
-
         init() {
             this.state = {
-                submitting: false,
+                isFetching: false,
                 errors: {}
             };
         }
@@ -35,29 +36,96 @@ export default Component(
             return data;
         }
 
-        handleEmptyForms(data)
-        {
+        validateUsername(username) {
+            const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+            return usernameRegex.test(username);
+        }
+
+        validateEmailFormat(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        validatePassword(password) {
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+            return passwordRegex.test(password);
+        }
+
+        handleCheckboxChange = () => {
+            const checkbox = this._getDOM().querySelector('#box-form')._getDOM().querySelector('input');
+            if (checkbox.checked) {
+                this.setState({
+                    ...this.state,
+                    errors: {
+                        ...this.state.errors,
+                        checkbox: ''
+                    }
+                });
+                return true;
+            }
+            return false;
+
+        };
+
+        validateForm(data) {
+
+            const { password, confirm_password, username, email } = data;
             let hasErrors = false;
+            const errors = {};
 
             Object.entries(data).forEach(([key, value]) => {
                 if (value === '') {
-                    const msgError = capitalizeFirstLetter(`${key}`) + ' is required';
-                    this.setState({
-                        ...this.state,
-                        errors: {
-                            ...this.state.errors,
-                            [key]: msgError
-                        }
-                    });
-                    if(`${key}` === 'username' || `${key}` === 'checkbox'){
-                        const field = this._getDOM().querySelector(`#${key}`);
-                        field.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    errors[key] = `${capitalizeFirstLetter(key)} is required`;
                     hasErrors = true;
+                } else {
+                    if (key === 'username' && !this.validateUsername(username)) {
+                        errors.username = 'Invalid username';
+                        hasErrors = true;
+                    }
+
+                    if (key === 'email' && !this.validateEmailFormat(email)) {
+                        errors.email = 'Invalid email (name@example.com)';
+                        hasErrors = true;
+                    }
+
+                    if (key === 'password' && !this.validatePassword(password)) {
+                        errors.password = 'Invalid password';
+                        hasErrors = true;
+                    }
+
+                    if (key === 'confirm_password' && password !== confirm_password) {
+                        errors.confirm_password = 'Passwords do not match';
+                        hasErrors = true;
+                    }
                 }
             });
-            return hasErrors ? false : true;
+
+            if (!this.handleCheckboxChange()) {
+                errors.checkbox = 'Please accept the terms to continue.';
+                hasErrors = true;
+            }
+
+            Object.keys(errors).forEach(key => {
+                if (key === 'username' || key === 'checkbox') {
+                    const field = this._getDOM().querySelector(`#${key}`);
+                    if (field) {
+                        field.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+
+            if (hasErrors) {
+                this.setState({
+                    ...this.state,
+                    errors: {
+                        ...this.state.errors,
+                        ...errors
+                    }
+                });
+            }
+            return !hasErrors;
         }
+
 
         handleErrorForm(error)
         {
@@ -72,65 +140,51 @@ export default Component(
                         [key]: value[0]
                     }
                 });
+                if(key === 'username' || key === 'checkbox'){
+                    const field = this._getDOM().querySelector(`#${key}`);
+                    field.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         }
 
-        handleCheckboxChange = () => {
-            const checkbox = this._getDOM().querySelector('#box-form')._getDOM().querySelector('input');
-            const registerButton = this._getDOM().querySelector('#register-btn')._getDOM().querySelector('button');
-
-            registerButton.classList.remove('lighting', 'shutdown');
-
-            if (checkbox.checked) {
-                registerButton.classList.add('lighting');
+        clearErrorMsgField(field){
+            const clearError = () => {
                 this.setState({
                     ...this.state,
                     errors: {
                         ...this.state.errors,
-                        checkbox: ''
+                        [field]: ''
                     }
                 });
-                return true;
-            }
-
-            registerButton.classList.add('shutdown');
-            return false;
-
-        };
-
-        clearErrorMsgField(field){
-            this.subscribe(`#${field}`, 'keydown', () => {
-                this.setState({
-                    ...this.state,
-                    errors:{
-                        ...this.state.errors,
-                        [field]:''
-                    }
-                });
-            });
+            };
+            this.subscribe(`#${field}`, 'keydown', clearError);
+            this.subscribe(`#${field}`, 'input', clearError);
         }
 
         sendData(){
             const data = this.storeFormData();
 
-            if(!this.handleEmptyForms(data) || !this.handleCheckboxChange())
-            {
-                const errors = { ...this.state.errors };
-
-                if(!this.handleCheckboxChange()){
-                    errors.checkbox = 'Please accept the terms to continue.';
-                }
-                this.setState({...this.state, errors });
+            if (!this.validateForm(data))
                 return ;
-            }
 
             UserService.register(
                 data.username,
                 data.email,
                 data.password,
                 data.confirm_password
-            ).catch(error => this.handleErrorForm(error));
-            // TODO: Spinner
+            ).then(response => {
+                SnackbarService.addToast({title: 'Success', body: 'You have logged in successfully',});
+                const { access_token: accessToken, refresh_token: refreshToken} = response;
+                sessionStorage.setItem('accessToken', accessToken);
+                sessionStorage.setItem('refreshToken', refreshToken);
+                NavigatorService.goToHome();
+            }).catch(error => this.handleErrorForm(error))
+                .finally(() => {
+                    this.setState({
+                        ...this.state,
+                        isFetching: false,
+                    });
+                });
         }
 
         bind() {
@@ -158,17 +212,27 @@ export default Component(
                             <div class="row justify-content-center">
                                 <div class="col-9">
                                     <div class="row">
-                                        <form-field [error]="state.errors.username" id="username" rl="username" [text]="translator.translate('LANDING.FORMS.USERNAME')" placeholder="Jdomingu" required="true"></form-field>
-                                        <form-field [error]="state.errors.email" id="email" rl=email type="email" [text]="translator.translate('LANDING.FORMS.EMAIL')" placeholder="johndoe@gmail.com" required="true"></form-field>
-                                        <form-field [error]="state.errors.password" id="password" rl="password" type="password" [text]="translator.translate('LANDING.FORMS.PASSWORD')" placeholder="**********" required="true"></form-field>
-                                        <form-field [error]="state.errors.confirm_password" id="confirm_password" rl="password-confirmation" type="password" [text]="translator.translate('LANDING.FORMS.PASSWORD_CONFIRMATION')" placeholder="**********" required></form-field>
-                                        <box-form-field [error]="state.errors.checkbox" id="box-form"></box-form-field>
-                                        <div class="small-btns d-flex gap-4  justify-content-center align-items-center p-0">
-                                            <primary-button id="register-btn" color="#5c5c89" w="100%" h="100%" fs="16px" claseName="mt-3">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}</primary-button>
+
+                                        <form-field [error]="state.errors.username" id="username" class="mb-5 mt-3" name="username" [labelMsg]="translator.translate('LANDING.FORMS.USERNAME')" placeholder="Jdomingu" required="true"></form-field>
+                                        <form-field [error]="state.errors.email" id="email" class="mb-5" name=email type="email" [labelMsg]="translator.translate('LANDING.FORMS.EMAIL')" placeholder="johndoe@gmail.com" required="true"></form-field>
+                                        <form-field [error]="state.errors.password" id="password" class="mb-5" name="password" type="password" [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD')" placeholder="**********" required="true"></form-field>
+                                        <form-field [error]="state.errors.confirm_password" id="confirm_password" class="mb-5" name="password-confirmation" type="password" [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD_CONFIRMATION')" placeholder="**********" required></form-field>
+                                        
+                                        <box-form-field [error]="state.errors.checkbox" id="box-form"  class="mt-2 mb-4">{{ translator.translate("LANDING.SPAN.ACCEPT") }} <a href="/terms-conditions" class="terms-link" target="_blank">{{ translator.translate("LANDING.SPAN.TERMS_CONDITIONS") }}</a></box-form-field>
+                                        
+                                        <div class="small-btns d-flex gap-4  justify-content-center align-items-center p-0 mt-4">
+                                        ${this.state.isFetching ? `<div class="d-flex justify-content-center align-items-center bg-dar">
+                                                <app-spinner size="5rem"></app-spinner>
+                                             </div>` : `<primary-button id="register-btn" color="#8D8DDA" w="100%" h="100%" fs="16px" claseName="mt-3">
+                                                ${this.translator.translate('LANDING.BUTTONS.REGISTER_NOW')}
+                                            </primary-button>`}
                                             <secondary-button id="login-btn"  w="100%" h="100%" claseName="mt-3" fs="16px">{{ translator.translate("LANDING.BUTTONS.LOGIN") }}</secondary-button>
                                         </div>
-                                        <modal-span-text mt="2rem" mb="1rem">{{ translator.translate("LANDING.SPAN.OR") }}</modal-span-text>
-                                        <primary-button  id="register-42-btn" color="var(--app-secondary-color)" txt-color="#000000" w="100%" h="65px" fs="16px" claseName="mb-5">{{ translator.translate("LANDING.BUTTONS.REGISTER_42") }}</primary-button>
+
+                                        <p class="mt-4 mb-4 text">{{ translator.translate("LANDING.SPAN.OR") }}</p>
+                                        
+                                        <primary-button id="register-42-btn" color="var(--app-secondary-color)" txt-color="#000000" w="100%" h="65px" fs="16px" claseName="mb-5">{{ translator.translate("LANDING.BUTTONS.REGISTER_42") }}</primary-button>
+                                    
                                     </div>
                                 </div>
                             </div>

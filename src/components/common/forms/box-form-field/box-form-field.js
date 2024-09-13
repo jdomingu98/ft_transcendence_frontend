@@ -17,13 +17,12 @@ class BoxFormField extends WebComponent {
 
     render() {
         this.state.errors = this.getAttribute('error') || '';
+        const content = this.innerHTML || '';
         return ` 
-            <div class="terms-group d-flex align-items-center mt-4 mb-4 position-relative ">
+            <div class="terms-group d-flex text-start align-items-center position-relative ">
                 <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms">
-                    {{ translator.translate("LANDING.SPAN.ACCEPT") }} <a href="/terms-conditions" class="terms-link" target="_blank">{{ translator.translate("LANDING.SPAN.TERMS_CONDITIONS") }}</a>
-                </label>
-                ${this.state.errors.length > 0 ? ' <error-alert top=25px">{{translator.translate(state.errors)}}</error-alert>' : ''}
+                <label for="terms">${content}</label>
+                ${this.state.errors.length > 0 ? ' <error-alert top=30px">{{translator.translate(state.errors)}}</error-alert>' : ''}
             </div>
         `;
     }

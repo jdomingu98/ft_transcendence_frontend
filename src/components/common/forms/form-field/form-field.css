@@ -5,9 +5,10 @@
     font-weight: 500;
     line-height: 27.5px;
     letter-spacing: 10%;
+    margin-bottom: 12px;
 }
 
-.form-group input{
+.form-input{
     background-color: transparent;
     border: 1px solid var(--app-secondary-color);
     border-radius: 10px;
@@ -20,6 +21,11 @@
     width: 100%;
     box-sizing: border-box;
     position: relative;
+    margin-bottom: 5px;
+}
+
+.red-border{
+    animation: borderToRed 1s forwards;
 }
 
 .form-group input:focus {
@@ -29,10 +35,24 @@
 }
 
 .form-group input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important; /* Fondo transparente */
-    -webkit-text-fill-color: #ffffffca !important; /* Color del texto */
-    background-color: transparent !important; /* Fondo transparente */
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: #ffffffca !important;
+    background-color: transparent !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-65%);
+    cursor: pointer;
+    opacity: 0.7;
+    font-size: 20px;
+}
+
+.toggle-password:hover {
+    opacity: 1;
 }
 
 @keyframes slideIn {
@@ -51,3 +71,11 @@
 }
 
 
+@keyframes borderToRed {
+    0% {
+      border-color: var(--app-secondary-color);
+    }
+    100% {
+      border-color: var(--app-red-color);
+    }
+}

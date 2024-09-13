@@ -12,17 +12,22 @@ export default Component ({
             background-color: transparent;
             color: var(--app-red-color);
             padding: 1px;
-            margin-top: 5px;
+            margin-top: 16px;
             border-radius: 10px;
             font-size: 15px;
             font-weight: bold;
             animation: fadeInOut 3s ease-in-out forwards;
-            white-space: nowrap;
+            overflow: hidden;
         }
         
         .error-icon {
             font-size: 12px;
         }
+
+        .error-msg {
+            word-wrap: break-word;
+        }
+        
         
         @keyframes fadeInOut {
             0% { opacity: 0; transform: translateY(-20px); }
@@ -38,7 +43,7 @@ class ErrorAlert extends WebComponent {
         const top = this.getAttribute('top') || 50;
 
         return `
-            <div id="errorMessage" class="error-alert d-flex justify-content-start align-items-center gap-2" style="top:${top};">
+            <div id="errorMessage" class="error-alert d-flex text-start justify-content-start align-items-start gap-2" style="top:${top};">
                 <span class="error-icon">⚠️</span>
                 <span class="error-msg">${content}</span>
             </div>
