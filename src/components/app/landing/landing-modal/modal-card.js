@@ -1,54 +1,49 @@
 import '/src/components/app/landing';
-
 import './register-section/register-section';
 import WebComponent, { Component } from '#WebComponent';
-
 import css from './modal-card.css?inline';
 
+export default Component({
+    tagName: 'modal-card',
+    styleCSS: css,
+},
 
+class ModalCard extends WebComponent {
 
-export default Component(
-    {
-        tagName: 'modal-card',
-        styleCSS: css,
-    },
-
-    class ModalCard extends WebComponent {
-
-        init() {
-            this.state = {
-                submitting: false,
-                showRegister: true,
-                errors: {}
-            };
-        }
-
-        closeModal() {
-            this.setState({
-                ...this.state,
-                showRegister: false,
-            });
-        }
-
-        closeEsc = (e) => {
-            if (e.key === 'Escape') {
-                this.emit('CLOSE_MODAL');
-            }
+    init() {
+        this.state = {
+            submitting: false,
+            showRegister: true,
+            errors: {}
         };
+    }
 
-        bind() {
-            this.subscribe('.overlay', 'click', () => this.emit('CLOSE_MODAL'));
+    closeModal() {
+        this.setState({
+            ...this.state,
+            showRegister: false,
+        });
+    }
 
-            this.subscribe('register-section', 'CLOSE_MODAL', () => this.emit('CLOSE_MODAL'));
-
-            document.addEventListener('keydown', this.closeEsc);
-            return () => {
-                document.removeEventListener('keydown', this.closeEsc);
-            };
+    closeEsc = e => {
+        if (e.key === 'Escape') {
+            this.emit('CLOSE_MODAL');
         }
+    };
 
-        render() {
-            return `
+    bind() {
+        this.subscribe('.overlay', 'click', () => this.emit('CLOSE_MODAL'));
+
+        this.subscribe('register-section', 'CLOSE_MODAL', () => this.emit('CLOSE_MODAL'));
+
+        document.addEventListener('keydown', this.closeEsc);
+        return () => {
+            document.removeEventListener('keydown', this.closeEsc);
+        };
+    }
+
+    render() {
+        return `
                 <div class="overlay"></div>
                 <div class="modal-form">     
                     <div class="img-section"></div>
@@ -56,6 +51,6 @@ export default Component(
                     </div>
                 </div>
             `;
-        }
     }
+}
 );
