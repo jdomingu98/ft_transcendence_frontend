@@ -8,6 +8,8 @@ import { UserService } from '#services/UserService';
 import css from './register-section.css?inline';
 
 function capitalizeFirstLetter(str) {
+    if(str === 'confirm_password')
+        str = 'confirm password';
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
@@ -79,17 +81,17 @@ export default Component(
                     hasErrors = true;
                 } else {
                     if (key === 'username' && !this.validateUsername(username)) {
-                        errors.username = 'Invalid username';
+                        errors.username = 'Username must be 3-16 chars, no special symbols';
                         hasErrors = true;
                     }
 
                     if (key === 'email' && !this.validateEmailFormat(email)) {
-                        errors.email = 'Invalid email (name@example.com)';
+                        errors.email = 'Invalid email format (name@example.com)';
                         hasErrors = true;
                     }
 
                     if (key === 'password' && !this.validatePassword(password)) {
-                        errors.password = 'Invalid password';
+                        errors.password = 'Password must be 8+ chars, 1 uppercase and 1 special char.';
                         hasErrors = true;
                     }
 
@@ -149,13 +151,15 @@ export default Component(
 
         clearErrorMsgField(field){
             const clearError = () => {
-                this.setState({
-                    ...this.state,
-                    errors: {
-                        ...this.state.errors,
-                        [field]: ''
-                    }
-                });
+                if (this.state.errors[field] !== '') {
+                    this.setState({
+                        ...this.state,
+                        errors: {
+                            ...this.state.errors,
+                            [field]: ''
+                        }
+                    });
+                }
             };
             this.subscribe(`#${field}`, 'keydown', clearError);
             this.subscribe(`#${field}`, 'input', clearError);
@@ -193,7 +197,7 @@ export default Component(
 
             this.subscribe('#box-form', 'click', () => this.handleCheckboxChange());
 
-            this.subscribe('close-modal', 'click', () => this.emit('CLOSE_MODAL'));
+            this.subscribe('#close-modal', 'click', () => this.emit('CLOSE_MODAL'));
 
             const fields = ['username', 'email', 'password', 'confirm_password'];
 
@@ -204,35 +208,54 @@ export default Component(
         render() {
             return `
                 <div class="data-section">
+                    <button id="close-modal" class="btn btn-primary p-0 text-light d-flex ms-3 mt-3 fs-2" style="background-color: transparent; border:none;">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                     <div class="scroll-container">
-                        <close-modal></close-modal>
-                        <modal-h1-text mt="0.5rem">TRANSCENDENCE</modal-h1-text>
+                        <modal-h1-text mt="4.2rem">TRANSCENDENCE</modal-h1-text>
                         <modal-h1-text mt="1.2rem" mb="2rem" color="var(--app-secondary-color);">{{ translator.translate("LANDING.BUTTONS.SIGN_UP") }}</modal-h1-text>
                         <form class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-9">
                                     <div class="row">
+                                        <form-field [error]="state.errors.username" id="username" class="mb-5 mt-3" name="username" 
+                                            [labelMsg]="translator.translate('LANDING.FORMS.USERNAME')" placeholder="Jdomingu" required="true">
+                                        </form-field>
+                            
+                                        <form-field [error]="state.errors.email" id="email" class="mb-5" name="email" type="email" 
+                                            [labelMsg]="translator.translate('LANDING.FORMS.EMAIL')" placeholder="johndoe@gmail.com" required="true">
+                                        </form-field>
+                            
+                                        <form-field [error]="state.errors.password" id="password" class="mb-5" name="password" type="password" 
+                                            [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD')" placeholder="**********" required="true">
+                                        </form-field>
+                            
+                                        <form-field [error]="state.errors.confirm_password" id="confirm_password" class="mb-5" name="password-confirmation" 
+                                            type="password" [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD_CONFIRMATION')" placeholder="**********" required>
+                                        </form-field>
+                    
+                                        <box-form-field [error]="state.errors.checkbox" id="box-form" class="mb-4">
+                                            {{ translator.translate("LANDING.SPAN.ACCEPT") }}
+                                            <a href="/terms-conditions" class="terms-link" target="_blank">
+                                                {{ translator.translate("LANDING.SPAN.TERMS_CONDITIONS") }}
+                                            </a>
+                                        </box-form-field>
 
-                                        <form-field [error]="state.errors.username" id="username" class="mb-5 mt-3" name="username" [labelMsg]="translator.translate('LANDING.FORMS.USERNAME')" placeholder="Jdomingu" required="true"></form-field>
-                                        <form-field [error]="state.errors.email" id="email" class="mb-5" name=email type="email" [labelMsg]="translator.translate('LANDING.FORMS.EMAIL')" placeholder="johndoe@gmail.com" required="true"></form-field>
-                                        <form-field [error]="state.errors.password" id="password" class="mb-5" name="password" type="password" [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD')" placeholder="**********" required="true"></form-field>
-                                        <form-field [error]="state.errors.confirm_password" id="confirm_password" class="mb-5" name="password-confirmation" type="password" [labelMsg]="translator.translate('LANDING.FORMS.PASSWORD_CONFIRMATION')" placeholder="**********" required></form-field>
-                                        
-                                        <box-form-field [error]="state.errors.checkbox" id="box-form"  class="mt-2 mb-4">{{ translator.translate("LANDING.SPAN.ACCEPT") }} <a href="/terms-conditions" class="terms-link" target="_blank">{{ translator.translate("LANDING.SPAN.TERMS_CONDITIONS") }}</a></box-form-field>
-                                        
                                         <div class="small-btns d-flex gap-4  justify-content-center align-items-center p-0 mt-4">
-                                        ${this.state.isFetching ? `<div class="d-flex justify-content-center align-items-center bg-dar">
-                                                <app-spinner size="5rem"></app-spinner>
-                                             </div>` : `<primary-button id="register-btn" color="#8D8DDA" w="100%" h="100%" fs="16px" claseName="mt-3">
+                                            ${this.state.isFetching ? `<div class="d-flex justify-content-center align-items-center bg-dar">
+                                            <app-spinner size="5rem"></app-spinner>
+                                            </div>` : `<primary-button id="register-btn" color="#8D8DDA" w="100%" h="100%" fs="16px" claseName="mt-3">
                                                 ${this.translator.translate('LANDING.BUTTONS.REGISTER_NOW')}
                                             </primary-button>`}
                                             <secondary-button id="login-btn"  w="100%" h="100%" claseName="mt-3" fs="16px">{{ translator.translate("LANDING.BUTTONS.LOGIN") }}</secondary-button>
                                         </div>
 
                                         <p class="mt-4 mb-4 text">{{ translator.translate("LANDING.SPAN.OR") }}</p>
-                                        
-                                        <primary-button id="register-42-btn" color="var(--app-secondary-color)" txt-color="#000000" w="100%" h="65px" fs="16px" claseName="mb-5">{{ translator.translate("LANDING.BUTTONS.REGISTER_42") }}</primary-button>
-                                    
+
+                                        <primary-button id="register-42-btn" color="var(--app-secondary-color)" txt-color="#000000" 
+                                            w="100%" h="65px" fs="16px" class="mb-5">
+                                            {{ translator.translate("LANDING.BUTTONS.REGISTER_42") }}
+                                        </primary-button>
                                     </div>
                                 </div>
                             </div>
@@ -243,3 +266,4 @@ export default Component(
         }
     }
 );
+
