@@ -28,6 +28,9 @@ export default Component ({
             word-wrap: break-word;
         }
         
+        .bi{
+            font-size: 15px;
+        }
         
         @keyframes fadeInOut {
             0% { opacity: 0; transform: translateY(-20px); }
@@ -43,8 +46,8 @@ class ErrorAlert extends WebComponent {
         const top = this.getAttribute('top') || 50;
 
         return `
-            <div id="errorMessage" class="error-alert d-flex text-start justify-content-start align-items-start gap-2" style="top:${top};">
-                <span class="error-icon">⚠️</span>
+            <div id="errorMessage" class="error-alert d-flex text-start justify-content-start align-items-center gap-2" style="top:${top};">
+                <i class="bi bi-x-circle"></i>
                 <span class="error-msg">${content}</span>
             </div>
         `;
