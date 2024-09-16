@@ -20,15 +20,19 @@ class FormField extends WebComponent {
 
     togglePasswordVisibility() {
         const input = this._getDOM().querySelector('input');
-        if(input.type === 'password')
-            input.type = 'text';
-        else
-            input.type = 'password';
+        const eyeIcon = this._getDOM().querySelector('.bi-eye');
+        const eyeSlashIcon = this._getDOM().querySelector('.bi-eye-slash');
+
+        input.type = input.type === 'password' ? 'text' : 'password';
+        eyeIcon.style.display = input.type === 'password' ? 'inline' : 'none';
+        eyeSlashIcon.style.display = input.type === 'password' ? 'none' : 'inline';
     }
 
     bind(){
-        if(this.state.isPasswordField)
+        if(this.state.isPasswordField){
             this.subscribe('.bi-eye', 'click', (() => this.togglePasswordVisibility()));
+            this.subscribe('.bi-eye-slash', 'click', (() => this.togglePasswordVisibility()));
+        }
     }
 
     render() {
@@ -42,13 +46,14 @@ class FormField extends WebComponent {
         const red_border = 'red-border';
 
         return `
-            <div class="form-group d-flex flex-column">
-                <label for="${name}" class="text-uppercase text-start">${labelMsg}</label>
+            <div class="form-group d-flex flex-column ${error.length > 0 ? 'mb-4' : ''}">
+                <label for="${name}" class="text-uppercase text-start mb-3">${labelMsg}</label>
                 <div class="position-relative">
                     <input type="${type}" id="${name}" name="${name}" placeholder="${placeholder}" class="form-input ${error.length > 0 ? red_border : ''}" ${required}>
                     ${this.state.isPasswordField ? `
                         <span class="toggle-password">
                             <i class="bi bi-eye"></i>
+                            <i class="bi bi-eye-slash" style="display: none;"></i>
                         </span>` : ''}
                     ${ error.length > 0 ? `<error-alert>${this.translator.translate(error)}</error-alert>` : '' } 
                 </div>

@@ -11,18 +11,18 @@ class BoxFormField extends WebComponent {
 
     init() {
         this.state = {
-            errors: this.getAttribute('error') || '',
+            error: this.getAttribute('error') || '',
         };
     }
 
     render() {
-        this.state.errors = this.getAttribute('error') || '';
+        this.state.error = this.getAttribute('error') || '';
         const content = this.innerHTML || '';
         return ` 
-            <div class="terms-group d-flex text-start align-items-center position-relative ">
+            <div class="terms-group d-flex text-start align-items-center position-relative ${this.state.error.length > 0 ? 'mb-3' : ''}">
                 <input type="checkbox" id="terms" name="terms" required>
                 <label for="terms">${content}</label>
-                ${this.state.errors.length > 0 ? ' <error-alert top=30px">{{translator.translate(state.errors)}}</error-alert>' : ''}
+                ${this.state.error.length > 0 ? ' <error-alert top=35px">{{translator.translate(state.error)}}</error-alert>' : ''}
             </div>
         `;
     }
