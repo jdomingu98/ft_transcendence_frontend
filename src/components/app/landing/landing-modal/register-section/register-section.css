@@ -29,6 +29,10 @@
     height: 65px;
 }
 
+#close-modal{
+    position: fixed;
+}
+
 .text{
     color: #FFFFFF;
     opacity: 70%;
