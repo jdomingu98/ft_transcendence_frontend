@@ -17,7 +17,7 @@
     font-size: 17px;
     opacity: 70%;
     font-weight: 300;
-    color: #ffffffca;
+    color: rgba(255, 255, 255, 0.79);
     width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -30,22 +30,22 @@
 
 .form-group input:focus {
     outline: none;
-    color: #ffffffca;
+    color: rgba(255, 255, 255, 0.79);
     opacity: 100%;
 }
 
 .form-group input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    -webkit-text-fill-color: #ffffffca !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.79) !important;
     background-color: transparent !important;
     transition: background-color 5000s ease-in-out 0s;
 }
 
 .toggle-password {
     position: absolute;
-    right: 15px;
+    right: 30px;
     top: 50%;
-    transform: translateY(-65%);
+    transform: translateY(-62%);
     cursor: pointer;
     opacity: 0.7;
     font-size: 20px;
