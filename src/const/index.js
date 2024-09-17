@@ -15,6 +15,13 @@ const DEFAULT_BANNER_IMG = 'https://placehold.co/1000x200/png';
 
 const DEFAULT_SIDEBAR_PROFILE_IMG = 'https://placehold.co/50/png';
 
+const USERNAME_REGEX = /^[a-zA-Z0-9-]{3,15}$/;
+
+const EMAIL_REGEX = /^[\w.-]+@([\w-]+\.)+[a-zA-Z]{2,3}$/;
+
+const PASSWORD_RREGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^_])[A-Za-z\d@.#$!%*?&_]{8,15}$/;
+
+
 export const LANGUAGES = [
     { language: 'es', flag:  '🇪🇸', url: '/src/i18n/es.json', default: true },
     { language: 'en', flag:  '🇺🇸', url: '/src/i18n/en.json' },
@@ -30,5 +37,8 @@ export {
     BUTTON_DEFAULT_SECONDARY_COLOR,
     DEFAULT_PROFILE_IMG,
     DEFAULT_BANNER_IMG,
-    DEFAULT_SIDEBAR_PROFILE_IMG
+    DEFAULT_SIDEBAR_PROFILE_IMG,
+    USERNAME_REGEX,
+    EMAIL_REGEX,
+    PASSWORD_RREGEX,
 };
