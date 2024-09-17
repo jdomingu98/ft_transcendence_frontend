@@ -1,7 +1,6 @@
 import WebComponent, { Component} from '#WebComponent';
 import css from './box-form-field.css?inline';
 
-
 export default Component ({
     tagName: 'box-form-field',
     styleCSS: css
