@@ -38,7 +38,7 @@
       "CREATE_TOURNAMENT": "创建锦标赛",
       "DISCOVER": "结识新朋友",
       "REGISTER_NOW": "立即注册",
-      "REGISTER_42": "使用 42 注册",
+      "42_ACCOUNT": "42 个网络",
       "GET_STARTED": "开始",
       "LOGIN": "登录",
       "SIGN_UP": "注册"
@@ -49,10 +49,22 @@
       "PASSWORD": "密码",
       "PASSWORD_CONFIRMATION": "确认密码"
     },
-    "SPAN":{
-      "TERMS_CONDITIONS": "条款和条件",
-      "ACCEPT":"我接受 ",
-      "OR": "- 或 -"
+    "ERRORS":{
+      "EMPTY_FIELD":{
+        "USERNAME": "需要用户名",
+        "EMAIL": "需要电子邮件",
+        "PASSWORD": "需要密码",
+        "CONFIRM_PASSWORD": "需要确认密码"
+      },
+      "INVALID_USERNAME": "用户名必须为 3 个以上字符、字母数字或包含连字符",
+      "INVALID_EMAIL": "电子邮件格式无效",
+      "INVALID_PASSWORD": "密码必须为 8 个以上字符，1 个大写字母和 1 个特殊字符。",
+      "PASSWORDS_DONT_MATCH": "密码不匹配",
+      "CHECKBOX_TERMS": "请接受条款以继续。"
+    },
+    "REGISTER":{
+      "ACCEPT":"我接受<a href='/terms-conditions' class='terms-link' target='_blank'>条款和条件</a>。",
+      "OR": "- 或注册  -"
     }
   },
   "LEGAL_COMMON_DATA": {

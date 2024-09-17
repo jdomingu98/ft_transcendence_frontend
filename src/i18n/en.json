@@ -38,7 +38,7 @@
       "CREATE_TOURNAMENT": "Create a tournament",
       "DISCOVER": "Meet new people",
       "REGISTER_NOW": "Register now",
-      "REGISTER_42": "Register with 42",
+      "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Get Started",
       "LOGIN": "Log in",
       "SIGN_UP": "Sign Up"
@@ -49,10 +49,22 @@
       "PASSWORD": "Password",
       "PASSWORD_CONFIRMATION": "Confirm Password"
     },
-    "SPAN":{
-      "TERMS_CONDITIONS": "Terms and Conditions",
-      "ACCEPT":"I accept the ",
-      "OR": "- O R-"
+    "ERRORS":{
+      "EMPTY_FIELD":{
+        "USERNAME": "A username is required",
+        "EMAIL": "A email is required",
+        "PASSWORD": "A password is required",
+        "CONFIRM_PASSWORD": "A confirm password is required"
+      },
+      "INVALID_USERNAME": "Username must be 3+ chars, alphanumeric or contain hyphens",
+      "INVALID_EMAIL": "Invalid email format",
+      "INVALID_PASSWORD": "Password must be 8+ chars, 1 uppercase and 1 special char.",
+      "PASSWORDS_DONT_MATCH": "Passwords don't match",
+      "CHECKBOX_TERMS": "Please accept the terms to continue."
+    },
+    "REGISTER":{
+      "ACCEPT":"I accept the <a href='/terms-conditions' class='terms-link' target='_blank'>Terms and Conditions</a>.",
+      "OR": "- OR REGISTER WITH -"
     }
   },
   "LEGAL_COMMON_DATA": {

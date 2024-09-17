@@ -38,7 +38,7 @@
       "CREATE_TOURNAMENT": "crear un torneo",
       "DISCOVER": "Conocer gente nueva",
       "REGISTER_NOW": "Regístrate ahora",
-      "REGISTER_42": "Regístrate con 42",
+      "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Empezar",
       "LOGIN": "Entrar",
       "SIGN_UP": "Regístrate"
@@ -49,10 +49,22 @@
       "PASSWORD": "Contraseña",
       "PASSWORD_CONFIRMATION": "Confirmar Contraseña"
     },
-    "SPAN":{
-      "TERMS_CONDITIONS": "Términos y Condiciones",
-      "ACCEPT":"Acepto los ",
-      "OR":"- O -"
+    "ERRORS":{
+      "EMPTY_FIELD":{
+        "USERNAME": "Se requiere un nombre de usuario",
+        "EMAIL": "Se requiere un correo electrónico",
+        "PASSWORD": "Se requiere una contraseña",
+        "CONFIRM_PASSWORD": "Se requiere una contraseña de confirmación"
+      },
+      "INVALID_USERNAME":"El nombre de usuario debe tener +3 caracteres, ser alfanumérico o contener guiones",
+      "INVALID_EMAIL":"Formato de correo electrónico no válido",
+      "INVALID_PASSWORD":"La contraseña debe tener +8 caracteres, 1 mayúscula y 1 carácter especial.",
+      "PASSWORDS_DONT_MATCH":"Las contraseñas no coinciden",
+      "CHECKBOX_TERMS": "Acepte las condiciones para continuar."
+    },
+    "REGISTER":{
+      "ACCEPT":"Acepto los <a href='/terms-conditions' class='terms-link' target='_blank'>Términos y condiciones</a>",
+      "OR":"- O REGISTRATE CON -"
     }
   },
   "LEGAL_COMMON_DATA": {
