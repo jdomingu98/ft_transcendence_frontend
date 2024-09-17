@@ -24,29 +24,16 @@ class ModalCard extends WebComponent {
             showRegister: false,
         });
     }
-
-    closeEsc = e => {
-        if (e.key === 'Escape') {
-            this.emit('CLOSE_MODAL');
-        }
-    };
-
     bind() {
         this.subscribe('.overlay', 'click', () => this.emit('CLOSE_MODAL'));
-
         this.subscribe('register-section', 'CLOSE_MODAL', () => this.emit('CLOSE_MODAL'));
-
-        document.addEventListener('keydown', this.closeEsc);
-        return () => {
-            document.removeEventListener('keydown', this.closeEsc);
-        };
     }
 
     render() {
         return `
                 <div class="overlay"></div>
                 <div class="modal-form">     
-                    <div class="img-section"></div>
+                    <div class="img-section">
                         <register-section></register-section>
                     </div>
                 </div>
