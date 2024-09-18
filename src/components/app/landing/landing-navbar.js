@@ -6,41 +6,13 @@ export default Component ({
 
 class LandingNavBar extends WebComponent {
 
-    init() {
-        this.state = {
-            showRegister: false,
-        };
-    }
-
-    closeModal() {
-        this.setState({
-            ...this.state,
-            showRegister: false,
-        });
-    }
-
-    handleModalEvents() {
-        const modal = this._getDOM().querySelector('modal-card');
-        if (modal) {
-            this.subscribe('modal-card','CLOSE_MODAL', () => this.closeModal());
-        }
-    }
-
     bind() {
-        this.subscribe('#btn-modal', 'click', () => {
-            this.setState({
-                ...this.state,
-                showRegister: true,
-            });
-            this.handleModalEvents();
-        });
-
+        this.subscribe('#landing-login-modal', 'click', () => this.emit('OPEN_MODAL'));
     }
+
     render() {
         return `
-            <nav
-                class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center"
-            >
+            <nav class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center">
                 <router-link
                     class="nav-link link-light text-decoration-none col-4"
                     style="font-size:24px; z-index: 1;"
@@ -66,11 +38,10 @@ class LandingNavBar extends WebComponent {
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
                 </router-link>
                 <language-selector class="col-2" w="130px" h="35px"></language-selector>
-                <primary-button id="btn-modal" w="165px" h="45px">
+                <primary-button id="landing-login-modal" w="165px" h="45px">
                     {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
                 </primary-button>
             </nav>
-            ${this.state.showRegister ? '<modal-card id="modal-register"></modal-card>' : ''}
         `;
     }
 });

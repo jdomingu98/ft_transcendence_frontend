@@ -7,6 +7,11 @@ export default Component ({
 },
 
 class LandingBottomInfoSection extends WebComponent {
+
+    bind() {
+        this.subscribe('#landing-register-modal', 'click', () => this.emit('OPEN_MODAL'));
+    }
+
     render() {
         const subHeader = this.getAttribute('subHeader');
         const title = this.getAttribute('title');
@@ -20,7 +25,7 @@ class LandingBottomInfoSection extends WebComponent {
                     <div class="my-4 col-9">
                         <body-text>${desc}</body-text>
                     </div>
-                    <primary-button w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
+                    <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
                 </div>
                 <landing-mobile></landing-mobile>
             </section>

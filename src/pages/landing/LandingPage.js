@@ -9,8 +9,42 @@ export default Component({
 },
 
 class LandingPage extends WebComponent {
+    init() {
+        this.state = {
+            showRegister: false,
+            showLogin: false
+        };
+    }
+
+    closeModal() {
+        this.setState({
+            ...this.state,
+            showRegister: false,
+            showLogin: false
+        });
+    }
+
+    handleModalEvents() {
+        const modal = this._getDOM().querySelector('modal-card');
+        if (modal) {
+            this.subscribe('modal-card','CLOSE_MODAL', () => this.closeModal());
+        }
+    }
+
+    openModal(state) {
+        this.setState({...this.state, ...state});
+        this.handleModalEvents();
+    }
+
+    bind() {
+        this.subscribe('landing-bottom-info-section', 'OPEN_MODAL', () => this.openModal({showRegister: true}));
+        this.subscribe('landing-call-to-action-card', 'OPEN_MODAL', () => this.openModal({showRegister: true}));
+        this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.openModal({showRegister: true}));
+    }
+
     render() {
         return `
+            ${this.state.showRegister ? '<modal-card id="modal-register"></modal-card>' : ''}
             <div
                 class="text-white d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
                 style="width: 100%; height: 100%; background-color: var(--app-primary-bg-color); font-family: var(--app-primary-text-font);"

@@ -6,6 +6,11 @@ export default Component ({
 },
 
 class LandingCallToActionCard extends WebComponent {
+
+    bind() {
+        this.subscribe('#call-action-register-modal', 'click', () => this.emit('OPEN_MODAL'));
+    }
+
     render() {
         return `
             <section
@@ -15,7 +20,7 @@ class LandingCallToActionCard extends WebComponent {
                 <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
                     <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
                     <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
-                    <primary-button color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
+                    <primary-button id="call-action-register-modal" color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
                 </div>
             </section>
         `;
