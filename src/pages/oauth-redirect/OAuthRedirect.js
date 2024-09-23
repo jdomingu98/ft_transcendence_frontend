@@ -10,7 +10,7 @@ export default Component({
 },
 class OAuthRedirect extends WebComponent {
     init() {
-        /*const { code } = Router.getQuery();
+        const { code } = Router.getQuery();
         if (!code)
             NavigatorService.goToErrorPage('OAUTH.REDIRECT.NO_CODE');
         else {
@@ -22,7 +22,7 @@ class OAuthRedirect extends WebComponent {
                     NavigatorService.goToHome();
                 })
                 .catch(({ error }) => NavigatorService.goToErrorPage(error));
-        }*/
+        }
     }
 
     render() {
