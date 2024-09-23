@@ -16,26 +16,25 @@ WebComponent.defineGlobalCSS([style, bootstrap, bootstrapIcons]);
 
 Translator.init({ fileList: LANGUAGES });
 
-Component({
+export default Component ({
     tagName: 'app-root',
-}, class AppRoot extends WebComponent {
+},
+class AppRoot extends WebComponent {
     render() {
         return `
-        <snackbar-container></snackbar-container>
-        <app-router
-          [routes]="[
-              { path: '/', component: 'landing-page' },
-              { path: '/privacy-policy', component: 'privacy-policy' },
-              { path: '/legal-notice', component: 'legal-notice' },
-              { path: '/terms-conditions', component: 'terms-conditions' },
-              { path: '/app', component: 'main-sidebar'},
-              { path: '/reset-password/:token', component: 'update-password' },
-              { path: '/redirect', component: 'oauth-redirect' },
-              { path: '/error', component: 'error-page' },
-              { path: '/404', component: 'not-found-page' },
-          ]">
-
-    </app-router>
+            <snackbar-container></snackbar-container>
+            <app-router
+                [routes]="[
+                    { path: '/', component: 'landing-page' },
+                    { path: '/privacy-policy', component: 'privacy-policy' },
+                    { path: '/legal-notice', component: 'legal-notice' },
+                    { path: '/terms-conditions', component: 'terms-conditions' },
+                    { path: '/app', component: 'main-sidebar'},
+                    { path: '/reset-password/:token', component: 'update-password' },
+                    { path: '/redirect', component: 'oauth-redirect' },
+                    { path: '/error', component: 'error-page' },
+                ]">
+            </app-router>
         `;
     }
 });

@@ -1,10 +1,8 @@
-import '../../components/common/spinner/app-spinner';
 import WebComponent, { Component, Router } from '#WebComponent';
 import AuthService from '#services/AuthService';
 import NavigatorService from '#services/NavigatorService';
 import { ToastService } from '#services/ToastService.js';
 import css from './OAuthRedirect.css?inline';
-
 
 export default Component({
     tagName: 'oauth-redirect',
@@ -12,9 +10,10 @@ export default Component({
 },
 class OAuthRedirect extends WebComponent {
     init() {
-        const queries = Router.getQuery();
-        const { code } = queries;
-        if (code) {
+        /*const { code } = Router.getQuery();
+        if (!code)
+            NavigatorService.goToErrorPage('OAUTH.REDIRECT.NO_CODE');
+        else {
             AuthService.oauthLogin(code)
                 .then(({ access_token, refresh_token }) => {
                     localStorage.setItem('access_token', access_token);
@@ -23,9 +22,7 @@ class OAuthRedirect extends WebComponent {
                     NavigatorService.goToHome();
                 })
                 .catch(({ error }) => NavigatorService.goToErrorPage(error));
-        } else {
-            NavigatorService.goToErrorPage('OAUTH.REDIRECT.NO_CODE');
-        }
+        }*/
     }
 
     render() {

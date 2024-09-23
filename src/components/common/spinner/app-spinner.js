@@ -1,9 +1,9 @@
 import WebComponent, { Component } from '#WebComponent';
 
-Component({
+export default Component({
     tagName: 'app-spinner',
 },
-class Spinner extends WebComponent {
+class AppSpinner extends WebComponent {
     DEFAULT_SIZE = '17rem';
 
     render() {
@@ -12,7 +12,7 @@ class Spinner extends WebComponent {
             <div style="width: ${size}; height: ${size};">
                 <img src="src/resources/loading-paddle.gif" style="width:100%" />
             </div>
-      `;
+        `;
     }
 }
 );
