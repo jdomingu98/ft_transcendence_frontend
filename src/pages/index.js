@@ -9,3 +9,4 @@ import './ranking/RankingPage';
 import './update-password/UpdatePassword';
 import './oauth-redirect/OAuthRedirect';
 import './error-page/error-page';
+import './not-found-page/not-found-page';
