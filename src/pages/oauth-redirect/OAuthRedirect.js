@@ -12,7 +12,7 @@ class OAuthRedirect extends WebComponent {
     init() {
         const { code } = Router.getQuery();
         if (!code)
-            NavigatorService.goToErrorPage('OAUTH.REDIRECT.NO_CODE');
+            NavigatorService.goToErrorPage('ERROR.OAUTH.NO_CODE');
         else {
             AuthService.oauthLogin(code)
                 .then(({ access_token, refresh_token }) => {
@@ -32,8 +32,8 @@ class OAuthRedirect extends WebComponent {
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-light"></div>
                 <div class="card position-absolute top-50 start-50 translate-middle" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Iniciando sesión con 42.</h5>
-                        <p class="card-text">Por favor, tenga muchisima paciencia, sus servidores son lentos.</p>
+                        <h5 class="card-title">{{translator.translate("OAUTH.TITLE")}}</h5>
+                        <p class="card-text">{{translator.translate("OAUTH.DESCRIPTION")}}</p>
                         <app-spinner></app-spinner>
                     </div>
                 </div>
