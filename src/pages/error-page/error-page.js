@@ -1,6 +1,6 @@
-import Component from '../../../lib/WebComponent/Component';
+import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService.js';
 import Router from '../../../lib/WebComponent/Router';
-import WebComponent from '../../../lib/WebComponent/WebComponent';
 
 Component({
     tagName: 'error-page',
@@ -41,10 +41,14 @@ Component({
 },
 class ErrorPage extends WebComponent {
     init() {
-        const { message } = Router.state;
         this.state = {
-            message
+            message: Router.state?.message ?? 'ERROR.PAGE.DEFAULT',
         };
+    }
+
+    bind() {
+        this.subscribe('#back-button', 'click', () => NavigatorService.goToHome());
+        this.subscribe('#home-button', 'click', () => NavigatorService.goToLandingPage());
     }
 
     render() {
@@ -54,8 +58,13 @@ class ErrorPage extends WebComponent {
           <div class="col-12 p-0 position-absolute rounded-circle lights middle-light"></div>
           <div class="card position-absolute top-50 start-50 translate-middle" style="width: 18rem;">
               <div class="card-body">
-                  <h5 class="card-title">ERROR.</h5>
-                  <p class="card-text">{{ state.message }}</p>
+                    <div class="d-flex justify-content-between pb-4">
+                        <i id="back-button" class="bi bi-arrow-left cursor-pointer"></i>
+                        <i id="home-button" class="bi bi-house cursor-pointer"></i>
+                    </div>
+                    <h5 class="card-title">{{ translator.translate("ERROR.PAGE.TITLE") }}</h5>
+                    <p class="card-text">{{ translator.translate(state.message) }}</p>
+                    <app-spinner></app-spinner>
               </div>
           </div>
           <div id="footer-gradient" class="col-12"></div>
