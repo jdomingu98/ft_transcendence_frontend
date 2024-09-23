@@ -4,19 +4,14 @@ Component({
     tagName: 'app-spinner',
 },
 class Spinner extends WebComponent {
-    init() {
-        this.state = {
-            SPINNER_SIZE: '7rem'
-        };
-    }
+    DEFAULT_SIZE = '17rem';
 
     render() {
+        const size = this.getAttribute('size') || this.DEFAULT_SIZE;
         return `
-          <div class="spinner-container d-flex justify-content-center align-items-center">
-              <div class="spinner-grow text-light" style="width: 7rem; height: 7rem;"  role="status">
-                  <svg-spinner [height]="state.SPINNER_SIZE" [width]="state.SPINNER_SIZE"></svg-spinner>
-              </div>
-          </div>
+            <div style="width: ${size}; height: ${size};">
+                <img src="src/resources/loading-paddle.gif" style="width:100%" />
+            </div>
       `;
     }
 }
