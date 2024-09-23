@@ -54,8 +54,8 @@ class ErrorPage extends WebComponent {
     }
 
     bind() {
-        this.subscribe('#back-button', 'click', () => NavigatorService.goToHome());
-        this.subscribe('#home-button', 'click', () => NavigatorService.goToLandingPage());
+        this.subscribe('#back-button', 'click', () => Router.goBack());
+        this.subscribe('#home-button', 'click', () => NavigatorService.goToHome());
     }
 
     render() {
