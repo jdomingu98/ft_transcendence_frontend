@@ -232,6 +232,11 @@
       }
     }
   },
+  "LEADERBOARD": {
+    "TITLE": "TOP 10 jugadores de Pong",
+    "POSITION": "Tu posición actual",
+    "PTS": " pts"
+  },
   "LANGUAGE": {
     "ES": "Español",
     "EN": "Inglés",
