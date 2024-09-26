@@ -97,7 +97,8 @@ class MainSidebar extends WebComponent {
             let route = `/app/${option.sidebarElementId}`;
 
             if (option.sidebarElementId === 'logout') {
-                // sessionStorage.removeItem('token');
+                // localStorage.removeItem('accessToken');
+                // localStorage.removeItem('refreshToken');
                 route = '/';
             }
             Router.push(route);
