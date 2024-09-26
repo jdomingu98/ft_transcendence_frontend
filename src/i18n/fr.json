@@ -198,6 +198,11 @@
     "SEARCH": "Recherche d'utilisateurs...",
     "HEADER": {
       "POSITION": "Poste: ",
+      "POINTS": "Points: ",
+      "FRIEND": {
+        "ADD_FRIEND": "Ajouter un ami",
+        "LIST_FRIENDS": "Afficher la liste des amis"
+      },
       "STATUS": {
         "CONNECTED": "Connecté",
         "DISCONNECTED": "Déconnecté",

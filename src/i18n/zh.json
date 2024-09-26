@@ -198,6 +198,11 @@
     "SEARCH": "搜索用户...",
     "HEADER": {
       "POSITION": "职位: ",
+      "POINTS": "点数: ",
+      "FRIEND": {
+        "ADD_FRIEND": "添加好友",
+        "LIST_FRIENDS": "显示好友列表"
+      },
       "STATUS": {
         "CONNECTED": "已连接",
         "DISCONNECTED": "断开",

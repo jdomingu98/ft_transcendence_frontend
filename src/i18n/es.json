@@ -198,6 +198,11 @@
     "SEARCH": "Buscar usuarios...",
     "HEADER": {
       "POSITION": "Posición: ",
+      "POINTS": "Puntos: ",
+      "FRIEND": {
+        "ADD_FRIEND": "Añadir amigo",
+        "LIST_FRIENDS": "Mostrar lista de amigos"
+      },
       "STATUS": {
         "CONNECTED": "Disponible",
         "DISCONNECTED": "No disponible",
