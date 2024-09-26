@@ -40,7 +40,6 @@ input, button, textarea, select {
 p {
   text-wrap: pretty;
   margin: 0 !important;
-  font-family: var(--app-secondary-text-font), sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
