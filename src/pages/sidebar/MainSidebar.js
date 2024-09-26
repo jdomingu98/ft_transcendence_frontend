@@ -53,6 +53,7 @@ class MainSidebar extends WebComponent {
                 url: ''
             }],
             routes: [
+                {path: '/app/profile/me', component: 'profile-page'},
                 {path: '/app/profile/:id', component: 'profile-page'},
                 {path: '/app/search', component: 'search-results'},
                 {path: '/app/game', component: 'game-page'},
@@ -102,7 +103,7 @@ class MainSidebar extends WebComponent {
             Router.push(route);
         });
 
-        this.subscribe('#profile', 'click', () => Router.push(`/app/profile/${id}`));
+        this.subscribe('#profile', 'click', () => Router.push('/app/profile/me'));
     }
 
     render() {
