@@ -11,10 +11,4 @@ COPY . /app/
 RUN npm install -g pnpm && pnpm install
 
 # Build the frontend
-RUN pnpm run build
-
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
-
-# Copy built files from the builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+CMD ["pnpm", "run", "dev", "--host"]
