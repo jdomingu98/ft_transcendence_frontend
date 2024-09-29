@@ -237,6 +237,19 @@
     "POSITION": "你当前的位置",
     "PTS": " 分"
   },
+  "OAUTH": {
+    "TITLE": "连接到 42。",
+    "DESCRIPTION": "计算生命的意义。。。"
+  },
+  "ERROR": {
+    "PAGE": {
+      "TITLE": "哦，不，这有点尴-乓。。。",
+      "DESCRIPTION": "看起来我们的乒乓球在网络空间迷路了。"
+    },
+    "OAUTH": {
+      "NO_CODE": "哎呀，你怎么会在这里？ 🤔"
+    }
+  },
   "LANGUAGE": {
     "ES": "西班牙语",
     "EN": "英语",

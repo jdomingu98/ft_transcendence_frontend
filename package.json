@@ -1,7 +1,7 @@
 {
   "name": "ft_transcendence",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,6 +23,7 @@
   "imports": {
     "#WebComponent": "./lib/WebComponent/index.js",
     "#WebComponent/*": "./lib/WebComponent/*/index.js",
+    "#services/*": "./lib/services/*",
     "#common": "./src/components/common",
     "#svg": "./src/components/svg"
   }

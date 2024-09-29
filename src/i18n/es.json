@@ -237,6 +237,19 @@
     "POSITION": "Tu posición actual",
     "PTS": " pts"
   },
+  "OAUTH": {
+    "TITLE": "Conectando con 42.",
+    "DESCRIPTION": "Calculando el sentido de la vida..."
+  },
+  "ERROR": {
+    "PAGE": {
+      "TITLE": "¡Oh, no!, esto es pong-barazoso...",
+      "DESCRIPTION": "Parece que nuestras pelotas de pong se han perdido en el ciberespacio."
+    },
+    "OAUTH": {
+      "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
+    }
+  },
   "LANGUAGE": {
     "ES": "Español",
     "EN": "Inglés",
