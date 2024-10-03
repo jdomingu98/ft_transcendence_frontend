@@ -16,20 +16,25 @@ WebComponent.defineGlobalCSS([style, bootstrap, bootstrapIcons]);
 
 Translator.init({ fileList: LANGUAGES });
 
-export default Component({
+export default Component ({
     tagName: 'app-root',
-}, class extends WebComponent {
+},
+class AppRoot extends WebComponent {
     render() {
         return `
             <snackbar-container></snackbar-container>
-            <app-router [routes]="[
-                { path: '/', component: 'landing-page' },
-                { path: '/app', component: 'main-sidebar'},
-                { path: '/reset-password/:token', component: 'update-password' },
-                { path: '/privacy-policy', component: 'privacy-policy' },
-                { path: '/legal-notice', component: 'legal-notice' },
-                { path: '/terms-conditions', component: 'terms-conditions' },
-            ]"></app-router>
+            <app-router
+                [routes]="[
+                    { path: '/', component: 'landing-page' },
+                    { path: '/privacy-policy', component: 'privacy-policy' },
+                    { path: '/legal-notice', component: 'legal-notice' },
+                    { path: '/terms-conditions', component: 'terms-conditions' },
+                    { path: '/app', component: 'main-sidebar'},
+                    { path: '/reset-password/:token', component: 'update-password' },
+                    { path: '/redirect', component: 'oauth-redirect' },
+                    { path: '/error', component: 'error-page' },
+                ]">
+            </app-router>
         `;
     }
 });
