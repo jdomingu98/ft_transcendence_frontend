@@ -1,13 +1,13 @@
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './UpdatePassword.css?inline';
+import css from './ResetPassword.css?inline';
 
 export default Component ({
-    tagName: 'update-password',
+    tagName: 'reset-password',
     styleCSS: css
 },
 
-class UpdatePassword extends WebComponent {
+class ResetPassword extends WebComponent {
     render() {
         return `
             <section class="container-fluid parent">
