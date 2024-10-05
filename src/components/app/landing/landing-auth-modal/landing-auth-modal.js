@@ -47,21 +47,15 @@ class LandingAuthModal extends WebComponent {
         const authBody = this._getDOM().querySelector('.auth-body');
         const authModal = this._getDOM().getElementById('authModal');
 
-        this.subscribe('register-form', 'ON_SIGNIN_CLICK', () => {
-            authBody.classList.add('slide');
-        });
+        this.subscribe('register-form', 'ON_SIGNIN_CLICK', () => authBody.classList.add('slide'));
 
-        this.subscribe('login-form', 'ON_SIGNUP_CLICK', () => {
-            authBody.classList.remove('slide');
-        });
+        this.subscribe('login-form', 'ON_SIGNUP_CLICK', () => authBody.classList.remove('slide'));
 
-        this.subscribe('login-form', 'LOGIN_TO_FORGOT_CLICK', () => {
+        this.subscribe('login-form', 'LOGIN_TO_FORGOT_CLICK', () => authBody.classList.add('slide-forgot'));
 
         this.subscribe('login-form', 'OPEN_OTP', () => this.emit('OPEN_OTP'));
 
-        this.subscribe('forgot-password-form', 'FORGOT_TO_LOGIN_CLICK', () => {
-            authBody.classList.remove('slide-forgot');
-        });
+        this.subscribe('forgot-password-form', 'FORGOT_TO_LOGIN_CLICK', () => authBody.classList.remove('slide-forgot'));
 
         this.subscribeAll('.formBx > *', 'CLOSE_MODAL', () => {
             this.cleanInputs();
