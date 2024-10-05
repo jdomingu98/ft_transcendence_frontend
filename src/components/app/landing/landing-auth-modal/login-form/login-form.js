@@ -10,28 +10,31 @@ export default Component ({
 class LoginForm extends WebComponent {
 
     doLogin() {
-        const username = this._getDOM().querySelector('#sigin-username').value;
-        const password = this._getDOM().querySelector('#signin-password').value;
-
-        if (!username || !password) {
-            this._getDOM().querySelector('.input-field h4').classList.add('error');
-            this._getDOM().querySelector('.input-field p').textContent = 'Please fill in all fields';
-            return;
-        }
+        const username = this._getDOM().querySelector('#sigin-username').value.trim();
+        const password = this._getDOM().querySelector('#signin-password').value.trim();
 
         AuthService.login({username, password}).then(response => {
-            // Mirar si tiene otp
-                //Si tiene otp, mostrar formulario de otp y cerrar login
-            //Setter acces y refresh tokens en localsotrage
-            //Snackbar
-            //Redirigir a la pagina de app/me
+            const two_factor = response.two_factor_enabled;
+            if (two_factor) {
+                this.emit('CLOSE_MODAL');
+                this.emit('OPEN_OTP');
+            } else {
+                localStorage.setItem('access_token', response.access_token);
+                localStorage.setItem('refresh_token', response.refresh_token);
+                this.emit('CLOSE_MODAL');
+                SnackbarService.addToast({title: 'Success', body: 'You have successfully logged in'});
+                NavigationService.goToHome();
+            }
         }).catch(error => {
             //mensaje de error en campo x
         })
     }
 
     bind() {
-        this.subscribe('.primary-btn', 'click', () => this.doLogin());
+        this.subscribe('.primary-btn', 'click', () => {
+            e.preventDefault();
+            this.doLogin();
+        });
 
         this.subscribe('.signupBtn', 'click', e => {
             e.preventDefault();
@@ -72,7 +75,7 @@ class LoginForm extends WebComponent {
                     <div class="input-field">
                         <h4>Username</h4>
                         <input type="text" id="sigin-username" placeholder="JohnDoe" required>
-                        <p class="error-message">Error message here</p>
+                        <p class="error-message hidden">Error message here</p>
                     </div>
                     <div class="input-field">
                         <h4>Password</h4>
@@ -82,7 +85,7 @@ class LoginForm extends WebComponent {
                                 <i class='bi bi-eye'></i>
                             </span>
                         </div>
-                        <p class="error-message">Error message here</p>
+                        <p class="error-message hidden ">Error message here</p>
                     </div>
                     <p class="forgotBtn forgot" style="padding: 10px; cursor:pointer; width:fit-content">Forgot Password?</p>
                     <div class="signButtons">
@@ -95,5 +98,4 @@ class LoginForm extends WebComponent {
             </div>
             `;
     }
-}
-);
+});
