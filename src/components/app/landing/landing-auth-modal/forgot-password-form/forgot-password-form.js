@@ -67,5 +67,4 @@ class ForgotPasswordForm extends WebComponent {
             </div>
             `;
     }
-}
-);
+});

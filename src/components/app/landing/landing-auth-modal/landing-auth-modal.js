@@ -92,7 +92,7 @@ class LandingAuthModal extends WebComponent {
                     </div>
                 </dialog>
             </div>
-            `;
+        `;
     }
 }
 );

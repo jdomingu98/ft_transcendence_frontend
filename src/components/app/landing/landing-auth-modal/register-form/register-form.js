@@ -2,7 +2,6 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from '../landing-auth-modal.css?inline';
 
-
 export default Component ({
     tagName: 'register-form',
     styleCSS: css,
@@ -90,5 +89,4 @@ class RegisterForm extends WebComponent {
             </div>
             `;
     }
-}
-);
+});
