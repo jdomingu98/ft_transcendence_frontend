@@ -13,15 +13,22 @@ class LandingPage extends WebComponent {
         modal.openModal(section);
     }
 
+    showOTPModal(){
+        const otpModal = this._getDOM().querySelector('landing-otp-modal');
+        otpModal.openModal();
+    }
+
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('landing-bottom-info-section', 'OPEN_MODAL', () => this.showModal('REGISTER'));
         this.subscribe('landing-call-to-action-card', 'OPEN_MODAL', () => this.showModal('REGISTER'));
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', () => this.showOTPModal());
     }
 
     render() {
         return `
             <landing-auth-modal></landing-auth-modal>
+            <landing-otp-modal></landing-otp-modal>
             <div
                 class="w-100 h-100 text-white d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
                 style="background-color: var(--app-primary-bg-color); font-family: var(--app-primary-text-font);"

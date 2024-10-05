@@ -56,8 +56,8 @@ class LandingAuthModal extends WebComponent {
         });
 
         this.subscribe('login-form', 'LOGIN_TO_FORGOT_CLICK', () => {
-            authBody.classList.add('slide-forgot');
-        });
+
+        this.subscribe('login-form', 'OPEN_OTP', () => this.emit('OPEN_OTP'));
 
         this.subscribe('forgot-password-form', 'FORGOT_TO_LOGIN_CLICK', () => {
             authBody.classList.remove('slide-forgot');
