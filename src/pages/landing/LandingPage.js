@@ -13,7 +13,7 @@ class LandingPage extends WebComponent {
         modal.openModal(section);
     }
 
-    showOTPModal(){
+    showOTPModal() {
         const otpModal = this._getDOM().querySelector('landing-otp-modal');
         otpModal.openModal();
     }
