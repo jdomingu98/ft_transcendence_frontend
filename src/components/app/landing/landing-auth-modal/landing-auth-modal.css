@@ -282,7 +282,7 @@ dialog[open] {
 
 .input-error {
     border: 2px solid #DA8D8D !important;
-    transition: border 0.5s ease-out;
+    transition: border 0.5s ease-in-out;
 }
 
 .error-message {
@@ -292,7 +292,7 @@ dialog[open] {
     font-weight: 600;
     opacity: 1;
     visibility: visible;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 1s ease-in, visibility 1s ease;
     display: block;
 }
 

@@ -2,7 +2,7 @@ import '/src/components/app/landing';
 
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './landing-auth-modal.css?inline';
+import css from './landing-otp-modal.css?inline';
 
 export default Component ({
     tagName: 'landing-otp-modal',
@@ -30,12 +30,14 @@ class LandingOtpModal extends WebComponent {
     render() {
         return `
             <div class="otp-body">
-                <dialog id="optModal" class="otp-modal">
+                <dialog id="otpModal" class="otp-modal">
                     <div class="container">
                         <div class="formBx">
                             <div class="otp-form">
                                 <div class="icons-toolbar">
                                     <i class='closeModal'></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </dialog>
