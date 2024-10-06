@@ -20,9 +20,9 @@ class ForgotPasswordForm extends WebComponent {
                 SnackbarService.addToast({title: 'Success', body: 'We have sent you an email with instructions',});
                 this.emit('CLOSE_MODAL');
             })
-            .catch(e => {
+            .catch(() => {
                 input.classList.add('input-error');
-                errorMessageElement.textContent = e.error;
+                errorMessageElement.textContent = 'No user or email matches the given input';
                 errorMessageElement.classList.remove('hidden');
             });
     }
