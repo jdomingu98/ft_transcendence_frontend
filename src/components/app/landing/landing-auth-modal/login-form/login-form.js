@@ -14,6 +14,8 @@ class LoginForm extends WebComponent {
     doLogin() {
         const username = this._getDOM().querySelector('#sigin-username').value.trim();
         const password = this._getDOM().querySelector('#signin-password').value.trim();
+        const errorMessageElement = this._getDOM().querySelector('.error-message');
+        const input = this._getDOM().querySelectorAll('input:not([type="submit"])');
 
         AuthService.login({username, password}).then(response => {
             const two_factor = response.two_factor_enabled;
@@ -25,10 +27,12 @@ class LoginForm extends WebComponent {
                 localStorage.setItem('refresh_token', response.refresh_token);
                 this.emit('CLOSE_MODAL');
                 SnackbarService.addToast({title: 'Success', body: 'You have successfully logged in'});
-                setTimeout(() => NavigatorService.goToHome(), 1500);
+                setTimeout(() => NavigatorService.goToHome(), 1000);
             }
         }).catch(() => {
-            //mensaje de error en campo x
+            input.forEach(input => input.classList.add('input-error'));
+            errorMessageElement.textContent = 'Invalid username or password';
+            errorMessageElement.classList.remove('hidden');
         });
     }
 
@@ -63,6 +67,12 @@ class LoginForm extends WebComponent {
                 icon.classList.add('bi-eye');
             }
         });
+
+        this.subscribeAll('input:not([type="submit"])', 'input', e => {
+            this._getDOM().querySelector('.error-message').classList.add('hidden');
+            const input = e.target.closest('input');
+            input.classList.remove('input-error');
+        });
     }
 
     render() {
@@ -74,10 +84,10 @@ class LoginForm extends WebComponent {
                 <form>
                     <h2>TRANSCENDENCE</h2>
                     <h3>Sign In</h3>
+                    <p class="error-message hidden">Error message here</p>
                     <div class="input-field">
                         <h4>Username</h4>
                         <input type="text" id="sigin-username" placeholder="JohnDoe" required>
-                        <p class="error-message hidden">Error message here</p>
                     </div>
                     <div class="input-field">
                         <h4>Password</h4>
@@ -87,7 +97,6 @@ class LoginForm extends WebComponent {
                                 <i class='bi bi-eye'></i>
                             </span>
                         </div>
-                        <p class="error-message hidden ">Error message here</p>
                     </div>
                     <p class="forgotBtn forgot" style="padding: 10px; cursor:pointer; width:fit-content">Forgot Password?</p>
                     <div class="signButtons">
