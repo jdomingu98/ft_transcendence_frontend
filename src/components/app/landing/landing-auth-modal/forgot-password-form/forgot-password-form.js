@@ -15,8 +15,8 @@ class ForgotPasswordForm extends WebComponent {
         const errorMessageElement = this._getDOM().querySelector('.error-message');
         const input = errorMessageElement.previousElementSibling;
 
-        AuthService.forgotPassword({usernameOrEmail})
-            .then(() => { //test -> 400 bad request
+        AuthService.forgotPassword({username_or_email: usernameOrEmail})
+            .then(() => {
                 SnackbarService.addToast({title: 'Success', body: 'We have sent you an email with instructions',});
                 this.emit('CLOSE_MODAL');
             })
