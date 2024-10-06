@@ -42,6 +42,11 @@ class LoginForm extends WebComponent {
             this.doLogin();
         });
 
+        this.subscribe('.primary-btn-alt', 'click', e => {
+            e.preventDefault();
+            window.location.href = 'url';
+        });
+
         this.subscribe('.signupBtn', 'click', e => {
             e.preventDefault();
             this.emit('ON_SIGNUP_CLICK');
