@@ -1,4 +1,7 @@
 import WebComponent, { Component } from '#WebComponent';
+import AuthService from '#services/AuthService.js';
+import NavigatorService from '#services/NavigatorService';
+import { SnackbarService } from '#services/SnackbarService';
 
 import css from '../landing-auth-modal.css?inline';
 
@@ -7,6 +10,33 @@ export default Component ({
     styleCSS: css,
 },
 class RegisterForm extends WebComponent {
+
+    getFormValues() {
+        const data = {
+            username: this._getDOM().querySelector('#signup-username').value.trim(),
+            email: this._getDOM().querySelector('#signup-email').value.trim(),
+            password: this._getDOM().querySelector('#signup-password').value.trim(),
+            confirm_password: this._getDOM().querySelector('#signup-confirm-pwd').value.trim(),
+        };
+        return data;
+    }
+
+    doRegistration() { //TODO: check error and .env connection
+        const formData = this.getFormValues();
+        const inputs = this._getDOM().querySelectorAll('input:not([type="submit"])');
+
+        AuthService.register(formData).then(response => {
+            localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('refresh_token', response.refresh_token);
+            this.emit('CLOSE_MODAL');
+            SnackbarService.addToast({title: 'Success', body: 'You have successfully register. Redirecting, please wait a moment...'});
+            setTimeout(() => NavigatorService.goToHome(), 1000);
+        }).catch(() => {
+        /*    inputs.forEach(input => input.classList.add('input-error'));
+            errorMessageElement.textContent = 'Invalid username or password';
+            errorMessageElement.classList.remove('hidden');
+        */});
+    }
 
     bind() {
         this.subscribe('.signinBtn', 'click', e => {
@@ -28,6 +58,22 @@ class RegisterForm extends WebComponent {
                 icon.classList.remove('bi-eye-slash');
                 icon.classList.add('bi-eye');
             }
+        });
+
+        this.subscribe('.primary-btn', 'click', e => {
+            e.preventDefault();
+            this.doRegistration();
+        });
+
+        this.subscribeAll('input:not([type="submit"])', 'input', e => { //TODO: change to adapt to this form
+            this._getDOM().querySelector('.error-message').classList.add('hidden');
+            const input = e.target.closest('input');
+            input.classList.remove('input-error');
+        });
+
+        this.subscribe('.primary-btn-alt', 'click', e => {
+            e.preventDefault();
+            window.location.href = import.meta.env.VITE_FT_API_URL;
         });
     }
 
