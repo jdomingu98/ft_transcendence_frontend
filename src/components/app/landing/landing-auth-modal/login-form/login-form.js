@@ -1,5 +1,7 @@
 import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService.js';
+import NavigatorService from '#services/NavigatorService';
+import { SnackbarService } from '#services/SnackbarService';
 
 import css from '../landing-auth-modal.css?inline';
 
@@ -23,15 +25,15 @@ class LoginForm extends WebComponent {
                 localStorage.setItem('refresh_token', response.refresh_token);
                 this.emit('CLOSE_MODAL');
                 SnackbarService.addToast({title: 'Success', body: 'You have successfully logged in'});
-                NavigationService.goToHome();
+                setTimeout(() => NavigatorService.goToHome(), 1500);
             }
-        }).catch(error => {
+        }).catch(() => {
             //mensaje de error en campo x
-        })
+        });
     }
 
     bind() {
-        this.subscribe('.primary-btn', 'click', () => {
+        this.subscribe('.primary-btn', 'click', e => {
             e.preventDefault();
             this.doLogin();
         });
