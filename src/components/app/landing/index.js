@@ -6,6 +6,7 @@ import LandingDevCards from './landing-dev-cards.js';
 import LandingFooter from './landing-footer.js';
 import LandingMiddleInfoSection from './landing-middle-info-section.js';
 import LandingNavBar from './landing-navbar.js';
+import LandingOtpModal from './landing-opt-modal/landing-otp-modal.js';
 import LandingTopInfoSection from './landing-top-info-section.js';
 import LoginForm from './landing-auth-modal/login-form/login-form.js';
 import ModalCard from './landing-auth-modal/modal-card.js';
@@ -23,5 +24,6 @@ export {
     ModalCard,
     ForgotPasswordForm,
     LoginForm,
-    RegisterForm
+    RegisterForm,
+    LandingOtpModal
 };

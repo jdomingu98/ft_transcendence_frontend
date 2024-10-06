@@ -3,7 +3,6 @@ import { EMAIL_REGEX, PASSWORD_RREGEX, USERNAME_REGEX } from '#const';
 import WebComponent, { Component } from '#WebComponent';
 import NavigatorService from '#services/NavigatorService.js';
 import { SnackbarService } from '#services/SnackbarService';
-import { UserService } from '#services/UserService';
 import css from './register-section.css?inline';
 
 export default Component({
