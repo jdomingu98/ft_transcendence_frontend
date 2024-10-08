@@ -21,6 +21,10 @@ class LoginForm extends WebComponent {
             const two_factor = response.two_factor_enabled;
             if (two_factor) {
                 this.emit('CLOSE_MODAL');
+                SnackbarService.addToast({
+                    title: 'OTP Requested',
+                    body: 'We sent you an email with a code. Please check it out!'
+                });
                 this.emit('OPEN_OTP', username);
             } else {
                 localStorage.setItem('access_token', response.access_token);
