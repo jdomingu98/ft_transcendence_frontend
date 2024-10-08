@@ -31,8 +31,8 @@ class LandingOtpModal extends WebComponent {
             e.preventDefault();
             AuthService.verifyOTP(code).then(response => {
                 SnackbarService.addToast({
-                    title: 'OTP Verified',
-                    body: 'Redirecting to your profile, please wait a moment...'
+                    title: '{{ translator.translate("SNACKBAR.OTP_MODAL.TITLE") }}',
+                    body: '{{ translator.translate("SNACKBAR.OTP_MODAL.DESC") }}'
                 });
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);
@@ -51,13 +51,12 @@ class LandingOtpModal extends WebComponent {
                 <dialog id="otpModal" class="otp-modal top-50 position-fixed start-50 w-100 h-100">
                     <div class="position-relative d-flex justify-content-center align-items-center w-100 h-100">
                         <div class="otp-form top-0 d-flex row justify-content-center align-items-center">
-                            <h2 class="py-3 text-white text-center">OTP Verification Required</h2>
-                            <p class="intro text-white text-center">We have sent you an email with an one-time password.</br>
-                                Please enter the code in the following input</p>
+                            <h2 class="py-3 text-white text-center">{{ translator.translate('LANDING.OTP.TITLE') }}</h2>
+                            <p class="intro text-white text-center">${ this.translator.translate('LANDING.OTP.DESC') }</p>
                             <form class="d-flex row justify-content-center align-items-center w-100">
                                 <input type="text" id="otp-code" class="my-3 p-3" minlength="6" maxlength="6" placeholder="XXXXXX" required>
-                                <p class="mx-0 error-message hidden">Error message here</p>
-                                <button class="my-3 p-3 text-uppercase text-black">Submit</button>
+                                <p class="mx-0 error-message hidden"></p>
+                                <button class="my-3 p-3 text-uppercase text-black">{{ translator.translate('LANDING.OTP.BUTTON_TITLE') }}</button>
                             </form>
                         </div>
                     </div>
