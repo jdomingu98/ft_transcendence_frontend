@@ -25,7 +25,7 @@
 }
 
 .auth-modal::backdrop {
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .container {
