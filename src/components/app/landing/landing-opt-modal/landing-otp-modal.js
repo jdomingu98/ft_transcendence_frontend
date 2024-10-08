@@ -21,6 +21,7 @@ class LandingOtpModal extends WebComponent {
         const codeInput = this._getDOM().getElementById('otp-code');
         const errorMessageElement = this._getDOM().querySelector('.error-message');
         const code = codeInput.value.trim();
+        const username = this.getAttribute('username');
 
         this.subscribe('form input', 'input', () => {
             codeInput.classList.remove('input-error');
@@ -29,7 +30,7 @@ class LandingOtpModal extends WebComponent {
 
         this.subscribe('form button', 'click', e => {
             e.preventDefault();
-            AuthService.verifyOTP(code).then(response => {
+            AuthService.verifyOTP({username, code}).then(response => {
                 SnackbarService.addToast({
                     title: '{{ translator.translate("SNACKBAR.OTP_MODAL.TITLE") }}',
                     body: '{{ translator.translate("SNACKBAR.OTP_MODAL.DESC") }}'

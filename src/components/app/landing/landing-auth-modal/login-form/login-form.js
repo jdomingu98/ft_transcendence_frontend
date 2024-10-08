@@ -21,7 +21,7 @@ class LoginForm extends WebComponent {
             const two_factor = response.two_factor_enabled;
             if (two_factor) {
                 this.emit('CLOSE_MODAL');
-                this.emit('OPEN_OTP');
+                this.emit('OPEN_OTP', username);
             } else {
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);
