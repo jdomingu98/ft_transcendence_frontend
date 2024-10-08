@@ -12,16 +12,15 @@ export default Component ({
 },
 class LandingOtpModal extends WebComponent {
 
-    openModal() {
+    openModal(username) {
         const otpModal = this._getDOM().getElementById('otpModal');
+        this.username = username;
         otpModal.showModal();
     }
 
     bind() {
         const codeInput = this._getDOM().getElementById('otp-code');
         const errorMessageElement = this._getDOM().querySelector('.error-message');
-        const code = codeInput.value.trim();
-        const username = this.getAttribute('username');
 
         this.subscribe('form input', 'input', () => {
             codeInput.classList.remove('input-error');
@@ -30,10 +29,11 @@ class LandingOtpModal extends WebComponent {
 
         this.subscribe('form button', 'click', e => {
             e.preventDefault();
-            AuthService.verifyOTP({username, code}).then(response => {
+            const code = codeInput.value.trim();
+            AuthService.verifyOTP({username: this.username, code}).then(response => {
                 SnackbarService.addToast({
-                    title: '{{ translator.translate("SNACKBAR.OTP_MODAL.TITLE") }}',
-                    body: '{{ translator.translate("SNACKBAR.OTP_MODAL.DESC") }}'
+                    title: this.translator.translate('SNACKBAR.OTP_MODAL.TITLE'),
+                    body: this.translator.translate('SNACKBAR.OTP_MODAL.DESC')
                 });
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);

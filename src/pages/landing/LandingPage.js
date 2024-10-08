@@ -8,36 +8,29 @@ export default Component ({
 },
 class LandingPage extends WebComponent {
 
-    init() {
-        this.state = {
-            username: ''
-        };
-    }
-
     showModal(section) {
         const modal = this._getDOM().querySelector('landing-auth-modal');
         modal.openModal(section);
     }
 
-    showOTPModal() {
+    showOTPModal(username) {
         const otpModal = this._getDOM().querySelector('landing-otp-modal');
-        otpModal.openModal();
+        otpModal.openModal(username);
     }
 
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('landing-bottom-info-section', 'OPEN_MODAL', () => this.showModal('REGISTER'));
         this.subscribe('landing-call-to-action-card', 'OPEN_MODAL', () => this.showModal('REGISTER'));
-        this.subscribe('landing-auth-modal', 'OPEN_OTP', username => {
-            this.setState({ username });
-            this.showOTPModal();
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => {
+            this.showOTPModal(detail);
         });
     }
 
     render() {
         return `
             <landing-auth-modal></landing-auth-modal>
-            <landing-otp-modal [username]='state.username'></landing-otp-modal>
+            <landing-otp-modal></landing-otp-modal>
             <div
                 class="w-100 h-100 text-white d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
                 style="background-color: var(--app-primary-bg-color); font-family: var(--app-primary-text-font);"
