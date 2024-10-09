@@ -17,6 +17,11 @@ class MainSidebar extends WebComponent {
     init() {
         this.state = {
             sidebarLinks: [{
+                sidebarElementId: 'friendship-request',
+                iconClasses: 'bi bi-person-add',
+                sectionName: '{{ translator.translate("SIDEBAR.FRIENDSHIP_REQUEST") }}',
+                url: 'friendship-request'
+            }, {
                 sidebarElementId: 'game',
                 iconClasses: 'bi bi-joystick',
                 sectionName: '{{ translator.translate("SIDEBAR.PLAY_A_GAME") }}',
@@ -26,11 +31,6 @@ class MainSidebar extends WebComponent {
                 iconClasses: 'bi bi-trophy',
                 sectionName: '{{ translator.translate("SIDEBAR.TOURNAMENTS") }}',
                 url: 'tournament'
-            }, {
-                sidebarElementId: 'chat',
-                iconClasses: 'bi bi-chat-square',
-                sectionName: '{{ translator.translate("SIDEBAR.CHATS") }}',
-                url: 'chat'
             }, {
                 sidebarElementId: 'rank',
                 iconClasses: 'bi bi-graph-up-arrow',
@@ -58,7 +58,7 @@ class MainSidebar extends WebComponent {
                 {path: '/app/search', component: 'search-results'},
                 {path: '/app/game', component: 'game-page'},
                 {path: '/app/tournament', component: 'tournament-page'},
-                {path: '/app/chat', component: 'chat-page'},
+                {path: '/app/friendship-request', component: 'friendship-page'},
                 {path: '/app/rank', component: 'ranking-page'},
                 {path: '/app/history', component: 'history-page'},
                 {path: '/app/settings', component: 'settings-page'},
