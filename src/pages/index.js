@@ -6,4 +6,5 @@ import './sidebar/MainSidebar';
 import './profile/ProfilePage';
 import './search-results/SearchResults';
 import './ranking/RankingPage';
+import './settings/SettingsPage';
 import './update-password/UpdatePassword';
