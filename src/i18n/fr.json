@@ -1,4 +1,10 @@
 {
+  "SNACKBAR": {
+    "OTP_MODAL": {
+      "TITLE": "OTP Vérifié",
+      "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Jouer à un jeu",
@@ -65,6 +71,11 @@
     "REGISTER":{
       "ACCEPT":"J'accepte les <a href='/terms-conditions' class='terms-link' target='_blank'>Terms and Conditions</a>.",
       "OR": "- OU S'INSCRIRE AUPRÈS DE -"
+    },
+    "OTP": {
+      "TITLE": "Vérification OTP requise",
+      "DESC": "Nous vous avons envoyé un e-mail avec un mot de passe à usage unique.</br>Veuillez entrer le code dans le champ ci-dessous",
+      "BUTTON_TITLE": "Vérifier le code"
     }
   },
   "LEGAL_COMMON_DATA": {

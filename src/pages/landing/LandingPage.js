@@ -13,16 +13,18 @@ class LandingPage extends WebComponent {
         modal.openModal(section);
     }
 
-    showOTPModal() {
+    showOTPModal(username) {
         const otpModal = this._getDOM().querySelector('landing-otp-modal');
-        otpModal.openModal();
+        otpModal.openModal(username);
     }
 
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('landing-bottom-info-section', 'OPEN_MODAL', () => this.showModal('REGISTER'));
         this.subscribe('landing-call-to-action-card', 'OPEN_MODAL', () => this.showModal('REGISTER'));
-        this.subscribe('landing-auth-modal', 'OPEN_OTP', () => this.showOTPModal());
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => {
+            this.showOTPModal(detail);
+        });
     }
 
     render() {
