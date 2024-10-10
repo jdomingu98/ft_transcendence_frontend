@@ -250,6 +250,23 @@
       "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
     }
   },
+  "SETTINGS": {
+    "SECTIONS": {
+      "USER_MANAGEMENT": "Gestión de Usuarios",
+      "CHANGE_PASSWORD": "Cambiar Contraseña",
+      "TWO_FACTOR_AUTH": "Autenticación de Dos Factores",
+      "CHANGE_VISIBILITY": "Actualizar Visibilidad del Perfil",
+      "ABOUT": "Acerca de Transcendence",
+      "DELETE_ACCOUNT": "Eliminar Cuenta"
+    },
+    "USER_MANAGEMENT": {
+      "USERNAME": "Nombre de Usuario",
+      "USERNAME_PHOLD": "Tu nuevo nombre de usuario",
+      "PROFILE_IMG": "Imagen de Perfil",
+      "INPUT_FILE_PHOLD": "Subir imagen",
+      "PROFILE_IMG_PHOLD": "Subir imagen de perfil"
+    }
+  },
   "LANGUAGE": {
     "ES": "Español",
     "EN": "Inglés",
