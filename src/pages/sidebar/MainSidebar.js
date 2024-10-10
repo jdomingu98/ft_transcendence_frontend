@@ -35,7 +35,7 @@ class MainSidebar extends WebComponent {
                 sidebarElementId: 'rank',
                 iconClasses: 'bi bi-graph-up-arrow',
                 sectionName: '{{ translator.translate("SIDEBAR.RANKING") }}',
-                url: 'ranking'
+                url: 'rank'
             }, /*{
                 sidebarElementId: 'history',
                 iconClasses: 'bi bi-clock-history',
@@ -64,7 +64,8 @@ class MainSidebar extends WebComponent {
                 {path: '/app/privacy-policy', component: 'privacy-policy'},
                 {path: '/app/legal-notice', component: 'legal-notice'},
                 {path: '/app/terms-conditions', component: 'terms-conditions'}
-            ]
+            ],
+            selectedDefaultOption: window.location.pathname.split('/')[2]
         };
     }
 
@@ -82,12 +83,8 @@ class MainSidebar extends WebComponent {
         this.subscribe('#menu', 'click', () => this._getDOM().querySelector('#aside').classList.toggle('active'));
 
         this.subscribeAll('.options div', 'click', e => {
-            this._getDOM().querySelectorAll('.options div')
-                .forEach(opt => {
-                    opt.classList.remove('active');
-
-                });
-            e.currentTarget.classList.add('active');
+            this._getDOM().querySelectorAll('.options div').forEach(opt => opt.classList.remove('selected'));
+            e.currentTarget.classList.add('selected');
         });
 
         this.subscribeAll('.menu-options', 'click', ({ currentTarget }) => {
@@ -103,6 +100,10 @@ class MainSidebar extends WebComponent {
         });
 
         this.subscribe('#profile', 'click', () => Router.push(`/app/profile/${id}`));
+    }
+
+    afterViewInit() {
+        this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`).classList.add('selected');
     }
 
     render() {
