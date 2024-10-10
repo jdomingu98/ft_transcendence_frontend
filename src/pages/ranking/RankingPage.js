@@ -1,5 +1,3 @@
-import '/src/components/app/profile';
-
 import WebComponent, { Component } from '#WebComponent';
 
 import css from './RankingPage.css?inline';
