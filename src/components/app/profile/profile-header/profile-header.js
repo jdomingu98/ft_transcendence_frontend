@@ -27,12 +27,16 @@ class ProfileHeader extends WebComponent {
     }
 
     render() {
+        const templateUsername = this.getAttribute('username') || username;
+        const templatePicture = this.getAttribute('profilePicture') || srcProfilePicture;
+        const templateBanner = this.getAttribute('banner') || 'https://iintra.freekb.es/banners/jdomingu-1676213124.gif';
+
         return `
-            <div class="d-flex align-items-center profile-header">
+            <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
                 <div class="d-inline-flex p-3 mx-3 profile-glask">
-                    <img src='${srcProfilePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
+                    <img src='${templatePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
                     <div class="profile-info">
-                        <h2 class="m-0">${username}</h2>
+                        <h2 class="mx-0 mb-2">${templateUsername}</h2>
                         <p>{{ translator.translate("PROFILE.HEADER.POSITION") }}
                             <span class="fw-bold">${position}</span>
                         </p>
