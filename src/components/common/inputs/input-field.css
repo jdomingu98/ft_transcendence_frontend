@@ -1,0 +1,40 @@
+
+.text-input, .text-input:focus {
+    border: 1px solid var(--app-secondary-color) !important;
+}
+
+.file-select {
+    position: relative;
+    display: inline-block;
+}
+
+.file-select::before {
+    background-color: var(--app-secondary-bg-color);
+    border: 1px solid var(--app-secondary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: '${ SETTINGS.INPUT_FILE_PLACEHOLDER }'; /*Seleccionar imagen*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.file-select input[type="file"] {
+    opacity: 0;
+    display: inline-block;
+}
+
+#upload-profile-img::before {
+    content: '{{ SETTINGS.PROFILE_IMG_PLACEHOLDER }}';
+}
+
+input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    opacity: 60%;
+}

@@ -11,6 +11,7 @@ import {
 import { PrimaryButton, SecondaryButton } from './buttons';
 import AppSpinner from './spinner/app-spinner';
 import { DevCard } from './cards';
+import InputField from './inputs/input-field.js';
 import LanguageSelector from './selects/language-selector.js';
 import ProfileImg from './profile-img/profile-img.js';
 
@@ -28,4 +29,5 @@ export {
     CardBodyText,
     CardTitleText,
     ModalH1Text,
+    InputField
 };
