@@ -1,5 +1,4 @@
 import {
-    BodyText,
     H1Text,
     H2Text,
     ModalH1Text,
@@ -15,7 +14,6 @@ export {
     H1Text,
     H2Text,
     SubHeaderText,
-    BodyText,
     PrimaryButton,
     SecondaryButton,
     LanguageSelector,

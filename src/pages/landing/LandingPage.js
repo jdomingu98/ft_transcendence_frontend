@@ -26,7 +26,7 @@ class LandingPage extends WebComponent {
                         <div class="col-5">
                             <h1-text>{{ translator.translate('LANDING.PLAY.TITLE') }}</h1-text>
                             <div class="mt-3 col-7">
-                                <body-text>{{ translator.translate('LANDING.PLAY.SUBTITLE') }}</body-text>
+                                <p class="landing-body-text">{{ translator.translate('LANDING.PLAY.SUBTITLE') }}</p>
                             </div>
                             <div class="col col-11 d-flex mt-4 gap-3">
                                 <primary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.LOCAL_MODE") }}</primary-button>
@@ -42,7 +42,7 @@ class LandingPage extends WebComponent {
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.DISCOVER.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.DISCOVER.TITLE') }}</h2-text>
                             <div class="my-4 col-8">
-                                <body-text>{{ translator.translate('LANDING.DISCOVER.SUBTITLE') }}</body-text>
+                                <p class="landing-body-text">{{ translator.translate('LANDING.DISCOVER.SUBTITLE') }}</p>
                             </div>
                             <primary-button w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
                         </div>
@@ -53,7 +53,7 @@ class LandingPage extends WebComponent {
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.LEADER_BOARD.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.LEADER_BOARD.TITLE') }}</h2-text>
                             <div class="my-4 col-9">
-                                <body-text>${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</body-text>
+                                <p class="landing-body-text">${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</p>
                             </div>
                             <primary-button w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
                         </div>
@@ -72,7 +72,7 @@ class LandingPage extends WebComponent {
 
                     <landing-footer></landing-footer>
                 </div>
-                <div id="footer-gradient" class="col-12"></div>
+                <div class="footer-gradient" class="col-12"></div>
             </div>
         `;
     }
