@@ -8,7 +8,6 @@ import {
 
 import { PrimaryButton, SecondaryButton } from './buttons';
 import AppSpinner from './spinner/app-spinner';
-import { DevCard } from './cards';
 import LanguageSelector from './selects/language-selector.js';
 
 export {
