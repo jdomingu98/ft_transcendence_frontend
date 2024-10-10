@@ -1,12 +1,21 @@
-import WebComponent, { Component } from '#WebComponent';
-import { DEFAULT_DIMENSION_VALUE } from '/src/const/index.js';
-import { LANGUAGES } from '../../../const';
-import css from './language-selector.css?inline';
+import { DEFAULT_DIMENSION_VALUE, LANGUAGES } from '#const';
 
+import WebComponent, { Component } from '#WebComponent';
 
 export default Component ({
     tagName: 'language-selector',
-    styleCSS: css
+    styleCSS: `
+        #language {
+            border: 1px solid var(--app-secondary-color) !important;
+            font-size: 0,85rem;
+            font-family: var(--app-secondary-text-font);
+            cursor: pointer;
+        }
+        
+        select.form-select option {
+            background-color: var(--app-secondary-bg-color);
+        }
+    `,
 },
 
 class LanguageSelector extends WebComponent {

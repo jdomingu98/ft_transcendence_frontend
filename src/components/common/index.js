@@ -6,8 +6,8 @@ import {
 } from './texts/index.js';
 
 import { PrimaryButton, SecondaryButton } from './buttons';
-import AppSpinner from './spinner/app-spinner';
-import LanguageSelector from './selects/language-selector.js';
+import AppSpinner from './app-spinner';
+import LanguageSelector from './language-selector';
 
 export {
     AppSpinner,
