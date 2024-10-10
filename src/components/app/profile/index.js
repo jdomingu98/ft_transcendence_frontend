@@ -1,4 +1,3 @@
-import ProfileCard from './profile-card/profile-card';
 import ProfileHeader from './profile-header/profile-header';
 import ProfileHistory from './profile-history/profile-history';
 import ProfileSearch from './profile-search/profile-search';
@@ -8,6 +7,5 @@ export {
     ProfileSearch,
     ProfileHeader,
     ProfileStats,
-    ProfileHistory,
-    ProfileCard
+    ProfileHistory
 };
