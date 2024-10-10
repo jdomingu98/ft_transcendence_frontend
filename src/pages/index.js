@@ -8,3 +8,5 @@ import './search-results/SearchResults';
 import './ranking/RankingPage';
 import './settings/SettingsPage';
 import './update-password/UpdatePassword';
+import './oauth-redirect/OAuthRedirect';
+import './error-page/error-page';
