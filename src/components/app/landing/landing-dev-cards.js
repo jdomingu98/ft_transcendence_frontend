@@ -1,11 +1,39 @@
 import WebComponent, { Component } from '#WebComponent';
 import { DEFAULT_IMG_DIMENSION } from '#const';
 
-import css from './landing-dev-cards.css?inline';
-
 export default Component ({
     tagName: 'landing-dev-cards',
-    styleCSS: css
+    styleCSS: `
+        .card-content {
+            background-color: var(--app-secondary-bg-color);
+            border-radius: 20px;
+            height: 90%;
+            padding: 20px;
+            width: 90%;
+        }
+        
+        .profile {
+            background-size: cover;
+            background-position: 50% 50%;
+            margin-top: -75px;
+        }
+        
+        .dev-name {
+            font-size: 24px;
+            letter-spacing: 0.1em;
+            line-height: 27px;
+        }
+        
+        .role {
+            font-size: 22px;
+            line-height: 35px;
+            letter-spacing: 0.1em;
+        }
+        
+        p {
+            margin-bottom: 1rem !important;
+        }
+    `,
 },
 class LandingDevCards extends WebComponent {
     init() {
