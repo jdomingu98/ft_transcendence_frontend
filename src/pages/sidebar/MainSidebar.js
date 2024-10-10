@@ -1,6 +1,6 @@
 import WebComponent, { Component, Router } from '#WebComponent';
 
-//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '/src/const/index.js';
+//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
 
 import css from './MainSidebar.css?inline';
 

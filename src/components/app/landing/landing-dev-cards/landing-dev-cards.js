@@ -1,5 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
-import { DEFAULT_IMG_DIMENSION } from '/src/const/index.js';
+import { DEFAULT_IMG_DIMENSION } from '#const';
 
 import css from './landing-dev-cards.css?inline';
 
