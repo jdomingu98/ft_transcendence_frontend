@@ -1,6 +1,6 @@
-import LandingDevCards from './landing-dev-cards/landing-dev-cards.js';
-import LandingFooter from './landing-footer.js';
-import LandingNavBar from './landing-navbar.js';
+import LandingDevCards from './landing-dev-cards';
+import LandingFooter from './landing-footer';
+import LandingNavBar from './landing-navbar';
 
 export {
     LandingDevCards,
