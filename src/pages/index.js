@@ -6,6 +6,6 @@ import './sidebar/MainSidebar';
 import './profile/ProfilePage';
 import './search-results/SearchResults';
 import './ranking/RankingPage';
-import './update-password/UpdatePassword';
+import './reset-password/ResetPassword';
 import './oauth-redirect/OAuthRedirect';
 import './error-page/error-page';

@@ -1,30 +1,30 @@
 import WebComponent, { Component } from '#WebComponent';
 
-import css from './UpdatePassword.css?inline';
+import css from './ResetPassword.css?inline';
 
 export default Component ({
-    tagName: 'update-password',
+    tagName: 'reset-password',
     styleCSS: css
 },
 
-class UpdatePassword extends WebComponent {
+class ResetPassword extends WebComponent {
     render() {
         return `
             <section class="container-fluid parent">
-                <div class="col card d-flex text-center" style="">
+                <div class="col card d-flex text-center">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center mb-4">
-                        <modal-h1-text uppercase="true">Transcendence</modal-h1-text>
-                        <modal-h1-text color="var(--app-secondary-color)" bootstrap="mb-5">Change password</modal-h1-text>
-                        <form class="d-flex flex-column mt-5">
+                        <h1 class="fw-bold my-3 text-white text-uppercase">Transcendence</h1>
+                        <h2 class="fw-bold mb-5" style="color: var(--app-secondary-color);">Change password</h2>
+                        <form class="d-flex flex-column mt-4">
                             <div class="form-group">
                                 <label for="new-password">New Password</label>
                                 <input type="password" id="new-password" name="new-password">
                             </div>
-                            <div class="form-group mb-4" style="margin-top:5.5rem;">
+                            <div class="form-group mb-3" style="margin-top:5rem;">
                                 <label for="repeat-password">Password Confirmation</label>
                                 <input type="password" id="repeat-password" name="repeat-password">
                             </div>
-                            <primary-button color="#8D8DDA" w="330px" h="68px" bootstrap="mb-5 mt-4">Confirm</primary-button>
+                            <primary-button color="#8D8DDA" w="359px" h="70px" bootstrap="my-4">Confirm</primary-button>
                         </form>
                     </div>
                 </div>
