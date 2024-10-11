@@ -25,6 +25,6 @@
     "#WebComponent/*": "./lib/WebComponent/*/index.js",
     "#services/*": "./lib/services/*",
     "#common": "./src/components/common",
-    "#const": "./src/const/index.js"
+    "#const": "./src/const"
   }
 }
