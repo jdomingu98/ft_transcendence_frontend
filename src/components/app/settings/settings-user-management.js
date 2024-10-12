@@ -15,32 +15,16 @@ class SettingsUserManagement extends WebComponent {
 
     id = this.getAttribute('id');
 
-    /*bind() {
-        this.subscribe('#username-settings-field input-field', 'change', e => {
-            console.log("golis");
-            username = e.target.value.trim();
-            console.log(username);
-        });
-
-        this.subscribe('#picture-settings-field', 'change', e => {
-            profilePicture = e.target.value.trim();
-        });
-
-        this.subscribe('#banner-settings-field', 'change', e => {
-            banner = e.target.value.trim();
-        });
-    }*/
-
     render() {
         return `
-            <div style="margin-top: 1000px">
-                <div class="d-flex row justify-content-end align-items-center">
+            <div class="my-5">
+                <div class="d-flex row justify-content-center align-items-center">
                     <div id='${this.id}' class="d-flex row justify-content-center align-items-center my-5">
                         <h2-text color="var(--app-secondary-color)">User Management</h2-text>
                         <profile-header username="" picture="" banner=""></profile-header>
                     </div>
                     <input-field
-                        w="470px"
+                        w="400px"
                         h="54px"
                         title="Username"
                         placeholder="Your new username"
@@ -48,7 +32,7 @@ class SettingsUserManagement extends WebComponent {
                     >
                     </input-field>
                     <input-field
-                        w="470px"
+                        w="400px"
                         h="54px"
                         type="email"
                         title="Email"
@@ -57,7 +41,7 @@ class SettingsUserManagement extends WebComponent {
                     >
                     </input-field>
                     <input-field
-                        w="470px"
+                        w="400px"
                         h="54px"
                         id="picture-settings-field"
                         title="Profile Picture"
@@ -67,7 +51,7 @@ class SettingsUserManagement extends WebComponent {
                     >
                     </input-field>
                     <input-field
-                        w="470px"
+                        w="400px"
                         h="54px"
                         id="banner-settings-field"
                         title="Background Banner"
