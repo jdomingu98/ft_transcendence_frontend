@@ -1,5 +1,23 @@
 {
   "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "欢迎！",
+        "DESC": "我们已向您发送电子邮件以验证您的帐户"
+      },
+      "LOGIN": {
+        "TITLE": "欢迎回来！",
+        "DESC": "正在重定向到您的个人资料，请稍候..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "需要OTP验证",
+        "DESC": "我们已向您发送带有代码的电子邮件。请查看！"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "收到密码帮助",
+        "DESC": "我们已向您发送电子邮件，里面包含说明"
+      }
+    },
     "OTP_MODAL": {
       "TITLE": "OTP 验证成功",
       "DESC": "正在重定向到您的个人资料，请稍候..."
@@ -47,30 +65,33 @@
       "42_ACCOUNT": "42 个网络",
       "GET_STARTED": "开始",
       "LOGIN": "登录",
-      "SIGN_UP": "注册"
+      "SIGN_UP": "注册",
+      "FORGOT_PASSWORD": "发送说明"
     },
     "FORMS": {
       "USERNAME": "用户名",
-      "EMAIL": "邮箱",
+      "EMAIL": "电子邮件",
+      "EMAIL_OR_USERNAME": "电子邮件或用户名",
+      "EMAIL_USERNAME_PHOLDER": "确认身份",
       "PASSWORD": "密码",
-      "PASSWORD_CONFIRMATION": "确认密码"
+      "PASSWORD_PHOLDER": "您的密码",
+      "CONFIRM_PASSWORD": "确认密码",
+      "CONFIRM_PASSWORD_PHOLDER": "确认您的密码"
     },
-    "ERRORS":{
-      "EMPTY_FIELD":{
-        "USERNAME": "需要用户名",
-        "EMAIL": "需要电子邮件",
-        "PASSWORD": "需要密码",
-        "CONFIRM_PASSWORD": "需要确认密码"
-      },
-      "INVALID_USERNAME": "用户名必须为 3 个以上字符、字母数字或包含连字符",
-      "INVALID_EMAIL": "电子邮件格式无效",
-      "INVALID_PASSWORD": "密码必须为 8 个以上字符，1 个大写字母和 1 个特殊字符。",
-      "PASSWORDS_DONT_MATCH": "密码不匹配",
-      "CHECKBOX_TERMS": "请接受条款以继续。"
+    "ERROR": {
+      "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
     },
-    "REGISTER":{
-      "ACCEPT":"我接受<a href='/terms-conditions' class='terms-link' target='_blank'>条款和条件</a>。",
-      "OR": "- 或注册  -"
+    "REGISTER": {
+      "TERMS": "我同意<a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>条款和条件</a>",
+      "OPTION_TEXT": "- 或通过以下方式注册 -"
+    },
+    "LOGIN": {
+      "FORGOT_PASSWORD": "忘记密码了？",
+      "OPTION_TEXT": "- 或通过以下方式登录 -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "密码帮助",
+      "DESC": "输入您的电子邮件或用户名，我们将向您发送有关如何重置密码的说明。"
     },
     "OTP": {
       "TITLE": "需要 OTP 验证",

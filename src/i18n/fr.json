@@ -1,5 +1,23 @@
 {
   "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "Bienvenue!",
+        "DESC": "Nous vous avons envoyé un email pour vérifier votre compte"
+      },
+      "LOGIN": {
+        "TITLE": "Bon retour!",
+        "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "Vérification par OTP requise",
+        "DESC": "Nous vous avons envoyé un email avec un code. Veuillez le vérifier!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Assistance mot de passe reçue",
+        "DESC": "Nous vous avons envoyé un email avec des instructions"
+      }
+    },
     "OTP_MODAL": {
       "TITLE": "OTP Vérifié",
       "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
@@ -47,30 +65,33 @@
       "42_ACCOUNT": "42 réseau",
       "GET_STARTED": "Commencer",
       "LOGIN": "Se connecter",
-      "SIGN_UP": "S'inscrire"
+      "SIGN_UP": "S'inscrire",
+      "FORGOT_PASSWORD": "Envoyer les instructions"
     },
     "FORMS": {
       "USERNAME": "Nom d'utilisateur",
-      "EMAIL": "Adresse email",
+      "EMAIL": "Email",
+      "EMAIL_OR_USERNAME": "Email ou nom d'utilisateur",
+      "EMAIL_USERNAME_PHOLDER": "Identifiez-vous",
       "PASSWORD": "Mot de passe",
-      "PASSWORD_CONFIRMATION": "Confirmez le mot de passe"
+      "PASSWORD_PHOLDER": "Votre mot de passe",
+      "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirmez votre mot de passe"
     },
-    "ERRORS":{
-      "EMPTY_FIELD":{
-        "USERNAME": "Un nom d'utilisateur est requis",
-        "EMAIL": "Un courriel est nécessaire",
-        "PASSWORD": "Un mot de passe est nécessaire",
-        "CONFIRM_PASSWORD": "Un mot de passe de confirmation est requis"
-      },
-      "INVALID_USERNAME": "Le nom d'utilisateur doit avoir 3 caractères min, alphanumériques ou des tirets.",
-      "INVALID_EMAIL": "Format d'email non valide",
-      "INVALID_PASSWORD": "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.",
-      "PASSWORDS_DONT_MATCH": "Les mots de passe ne correspondent pas",
-      "CHECKBOX_TERMS": "Veuillez accepter les conditions pour continuer."
+    "ERROR": {
+      "PASS_RESET": "Aucun utilisateur ni email ne correspond à la donnée fournie"
     },
-    "REGISTER":{
-      "ACCEPT":"J'accepte les <a href='/terms-conditions' class='terms-link' target='_blank'>Terms and Conditions</a>.",
-      "OR": "- OU S'INSCRIRE AUPRÈS DE -"
+    "REGISTER": {
+      "TERMS": "J'accepte les <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Conditions Générales</a>",
+      "OPTION_TEXT": "- OU INSCRIVEZ-VOUS AVEC -"
+    },
+    "LOGIN": {
+      "FORGOT_PASSWORD": "Vous avez oublié votre mot de passe?",
+      "OPTION_TEXT": "- OU CONNECTEZ-VOUS AVEC -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Assistance mot de passe",
+      "DESC": "Entrez votre email ou nom d'utilisateur et nous vous enverrons des instructions pour réinitialiser votre mot de passe."
     },
     "OTP": {
       "TITLE": "Vérification OTP requise",

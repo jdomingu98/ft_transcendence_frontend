@@ -1,5 +1,23 @@
 {
   "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "Welcome!",
+        "DESC": "We have sent you an email to verify your account"
+      },
+      "LOGIN": {
+        "TITLE": "Welcome Back!",
+        "DESC": "Redirecting to your profile, please wait a moment..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "OTP Verification Required",
+        "DESC": "We sent you an email with a code. Please check it out!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Password Assistance Received",
+        "DESC": "We have sent you an email with instructions"
+      }
+    },
     "OTP_MODAL": {
       "TITLE": "OTP Verified",
       "DESC": "Redirecting to your profile, please wait a moment..."
@@ -47,30 +65,33 @@
       "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Get Started",
       "LOGIN": "Log in",
-      "SIGN_UP": "Sign Up"
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Send instructions"
     },
     "FORMS": {
       "USERNAME": "Username",
       "EMAIL": "Email",
+      "EMAIL_OR_USERNAME": "Email or Username",
+      "EMAIL_USERNAME_PHOLDER": "Identify yourself",
       "PASSWORD": "Password",
-      "PASSWORD_CONFIRMATION": "Confirm Password"
+      "PASSWORD_PHOLDER": "Your password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
     },
-    "ERRORS":{
-      "EMPTY_FIELD":{
-        "USERNAME": "A username is required",
-        "EMAIL": "A email is required",
-        "PASSWORD": "A password is required",
-        "CONFIRM_PASSWORD": "A confirm password is required"
-      },
-      "INVALID_USERNAME": "Username must be 3+ chars, alphanumeric or contain hyphens",
-      "INVALID_EMAIL": "Invalid email format",
-      "INVALID_PASSWORD": "Password must be 8+ chars, 1 uppercase and 1 special char.",
-      "PASSWORDS_DONT_MATCH": "Passwords don't match",
-      "CHECKBOX_TERMS": "Please accept the terms to continue."
+    "ERROR": {
+      "PASS_RESET": "No user or email matches the given input"
     },
-    "REGISTER":{
-      "ACCEPT":"I accept the <a href='/terms-conditions' class='terms-link' target='_blank'>Terms and Conditions</a>.",
-      "OR": "- OR REGISTER WITH -"
+    "REGISTER": {
+      "TERMS": "I agree to the <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Terms and Conditions</a>",
+      "OPTION_TEXT": "- OR REGISTER WITH -"
+    },
+    "LOGIN": {
+      "FORGOT_PASSWORD": "Forgot your password?",
+      "OPTION_TEXT": "- OR LOGIN WITH -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Password assistance",
+      "DESC": "Enter your email or username and we'll send you instructions on how to reset your password."
     },
     "OTP": {
       "TITLE": "OTP Verification Required",
