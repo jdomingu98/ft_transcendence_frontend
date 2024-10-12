@@ -2,18 +2,36 @@ import '/src/components/app/landing';
 import WebComponent, { Component } from '#WebComponent';
 import css from './LandingPage.css?inline';
 
-
-export default Component({
+export default Component ({
     tagName: 'landing-page',
     styleCSS: css
 },
-
 class LandingPage extends WebComponent {
+
+    showModal(section) {
+        const modal = this._getDOM().querySelector('landing-auth-modal');
+        modal.openModal(section);
+    }
+
+    showOTPModal(username) {
+        const otpModal = this._getDOM().querySelector('landing-otp-modal');
+        otpModal.openModal(username);
+    }
+
+    bind() {
+        this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
+        this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
+        this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
+    }
+
     render() {
         return `
+            <landing-auth-modal></landing-auth-modal>
+            <landing-otp-modal></landing-otp-modal>
             <div
-                class="text-white d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
-                style="width: 100%; height: 100%; background-color: var(--app-primary-bg-color); font-family: var(--app-primary-text-font);"
+                class="w-100 h-100 text-white d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
+                style="background-color: var(--app-primary-bg-color); font-family: var(--app-primary-text-font);"
             >
                 <div class="landing-container d-flex row">
                     <div class="col-12 p-0 position-absolute rounded-circle lights top-light"></div>
@@ -55,18 +73,18 @@ class LandingPage extends WebComponent {
                             <div class="my-4 col-9">
                                 <p class="landing-body-text">${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</p>
                             </div>
-                            <primary-button w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
+                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
                         </div>
                         <img loading="lazy" src="/src/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-6" style="width:450px; height:460px">
                     </section>
 
                     <landing-dev-cards></landing-dev-cards>
 
-                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px;height: 30rem;">
+                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
                             <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
                             <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
-                            <primary-button color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
+                            <primary-button id="call-action-register-modal" color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
                         </div>
                     </section>
 

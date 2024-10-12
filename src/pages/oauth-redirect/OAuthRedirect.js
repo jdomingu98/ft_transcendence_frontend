@@ -14,7 +14,7 @@ class OAuthRedirect extends WebComponent {
         if (!code)
             NavigatorService.goToErrorPage('ERROR.OAUTH.NO_CODE');
         else {
-            AuthService.oauthLogin(code)
+            AuthService.oAuthLogin(code)
                 .then(({ access_token, refresh_token }) => {
                     localStorage.setItem('access_token', access_token);
                     localStorage.setItem('refresh_token', refresh_token);
