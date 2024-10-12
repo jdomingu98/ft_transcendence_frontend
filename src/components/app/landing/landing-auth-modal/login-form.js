@@ -93,7 +93,7 @@ class LoginForm extends WebComponent {
                 <form>
                     <h2>TRANSCENDENCE</h2>
                     <h3>Sign In</h3>
-                    <p class="error-message hidden">Error message here</p>
+                    <p class="error-message hidden"></p>
                     <div class="input-field">
                         <h4>Username</h4>
                         <input type="text" id="sigin-username" placeholder="JohnDoe" required>

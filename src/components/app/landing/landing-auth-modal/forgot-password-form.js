@@ -60,7 +60,7 @@ class ForgotPasswordForm extends WebComponent {
                     <div class="input-field" style="margin-bottom: 10px;">
                         <h4>Email or Username</h4>
                         <input type="text" id="forgot-email" placeholder="Identify yourself" required>
-                        <p class="error-message hidden">Error message here</p>
+                        <p class="error-message hidden"></p>
                     </div>
                     <input type="submit" class="primary-btn" value="Send instructions">
                 </form>
