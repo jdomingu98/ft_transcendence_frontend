@@ -71,6 +71,16 @@ class LandingAuthModal extends WebComponent {
                 authModal.close();
             }
         });
+
+        this.subscribe('dialog', 'keydown', e => {
+            if (e.key === 'Tab' || e.key === 'Enter')
+                e.preventDefault();
+
+            if (e.key === 'Escape') {
+                this.cleanInputs();
+                authModal.close();
+            }
+        });
     }
 
     render() {
