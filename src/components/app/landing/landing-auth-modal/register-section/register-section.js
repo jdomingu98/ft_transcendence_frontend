@@ -1,8 +1,8 @@
 import '/src/components/app/landing';
 import { EMAIL_REGEX, PASSWORD_RREGEX, USERNAME_REGEX } from '#const';
 import WebComponent, { Component } from '#WebComponent';
-import NavigatorService from '#services/NavigatorService.js';
-import { SnackbarService } from '#services/SnackbarService';
+/*import NavigatorService from '#services/NavigatorService.js';
+import { SnackbarService } from '#services/SnackbarService';*/
 import css from './register-section.css?inline';
 
 export default Component({
@@ -166,7 +166,7 @@ class RegisterSection extends WebComponent {
         if (!this.validateForm(data))
             return ;
 
-        UserService.register(
+        /*UserService.register(
             data.username,
             data.email,
             data.password,
@@ -183,7 +183,7 @@ class RegisterSection extends WebComponent {
                     ...this.state,
                     isFetching: false,
                 });
-            });
+            });*/
     }
 
     bind() {
