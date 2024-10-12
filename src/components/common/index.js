@@ -10,10 +10,7 @@ import {
 
 import { PrimaryButton, SecondaryButton } from './buttons';
 import AppSpinner from './spinner/app-spinner';
-import BoxFormField from './forms/box-form-field/box-form-field.js';
 import { DevCard } from './cards';
-import ErrorAlert from './texts/error-alert.js';
-import FormField from './forms/form-field/form-field.js';
 import LanguageSelector from './selects/language-selector.js';
 import ProfileImg from './profile-img/profile-img.js';
 
@@ -23,8 +20,6 @@ export {
     H2Text,
     SubHeaderText,
     BodyText,
-    BoxFormField,
-    ErrorAlert,
     PrimaryButton,
     SecondaryButton,
     LanguageSelector,
@@ -32,6 +27,5 @@ export {
     ProfileImg,
     CardBodyText,
     CardTitleText,
-    ModalH1Text,
-    FormField,
+    ModalH1Text
 };
