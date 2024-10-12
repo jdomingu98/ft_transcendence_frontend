@@ -114,14 +114,14 @@
 
 .form form h2 {
     font-size: 1.6em;
-    color: #fff;
+    color: white;
     font-weight: 700;
     text-align: center;
 }
 
 .form form h3 {
     font-size: 1.4em;
-    color: #ABD9D9;
+    color: var(--app-secondary-color);
     margin: 15px auto;
     font-weight: 600;
     text-align: center;
@@ -133,7 +133,7 @@
 
 .form form h4 {
     font-size: 0.85em;
-    color: #ABD9D9;
+    color: var(--app-secondary-color);
     margin-bottom: 10px;
     font-weight: 600;
     text-transform: uppercase;
@@ -143,7 +143,7 @@
     padding: 10px;
     margin-bottom: 5px;
     width: 100%;
-    border: 1px solid #ABD9D9;
+    border: 1px solid var(--app-secondary-color);
     outline: none;
     font-size: 0.75em;
     letter-spacing: 0.1em;
@@ -151,37 +151,35 @@
 }
 
 .form form input[type="checkbox"] {
-    margin: 0;
-    margin-right: 10px;
-    width: 10px;
+    margin: 0px 10px 0px 0px;
 }
 
 .form form input[type="submit"], .form form button {
-    background: #03a9f4;
     border: none;
-    color: #fff;
+    color: white;
     cursor: pointer;
     font-weight: 500;
     border-radius: 20px;
+    text-transform: uppercase;
 }
 
 .form form input[type="text"],
 .form form input[type="password"],
 .form form input[type="email"] {
-    background: #13124F;
-    color: #fff;
+    background: var(--app-secondary-bg-color);
+    color: white;
     font-weight: 500;
 }
 
 .form form input[type="text"]::placeholder,
 .form form input[type="password"]::placeholder,
 .form form input[type="email"]::placeholder {
-    color: #fff;
+    color: white;
     opacity: 0.5;
 }
 
 .forgot {
-    color: #fff;
+    color: white;
     letter-spacing: 0.05em;
     font-size: 0.7em;
     margin-bottom: 10px !important;
@@ -189,10 +187,11 @@
     opacity: 0.7;
 }
 
-label {
-    color: #fff;
+.checkbox-label {
+    color: white;
     letter-spacing: 0.05em;
     font-size: 0.7em;
+    user-select: none;
 }
 
 .form.signinform .signButtons,
@@ -207,15 +206,15 @@ label {
 
 .secondary-btn {
     background-color: transparent !important;
-    border: 1px solid #ABD9D9 !important;
+    border: 1px solid var(--app-secondary-color) !important;
 }
 
 .primary-btn {
-    background-color: #8D8DDA !important;
+    background-color: var(--app-primary-color) !important;
 }
 
 .primary-btn-alt {
-    background-color: #ABD9D9 !important;
+    background-color: var(--app-secondary-color) !important;
     color: black !important;
     font-weight: 800 !important;
 }
@@ -274,12 +273,12 @@ dialog[open] {
 }
 
 .input-error {
-    border: 2px solid #DA8D8D !important;
+    border: 2px solid var(--app-red-color) !important;
     transition: border 0.5s ease-in-out;
 }
 
 .error-message {
-    color: #DA8D8D;
+    color: var(--app-red-color);
     font-size: 0.8em;
     margin: 10px 0 20px 0;
     font-weight: 600;
