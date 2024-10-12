@@ -145,8 +145,7 @@
     width: 100%;
     border: 1px solid #ABD9D9;
     outline: none;
-    font-size: 0.65em;
-    text-transform: uppercase;
+    font-size: 0.75em;
     letter-spacing: 0.1em;
     border-radius: 10px;
 }
