@@ -61,10 +61,12 @@
       "LOCAL_MODE": "try local mode",
       "CREATE_TOURNAMENT": "Create a tournament",
       "DISCOVER": "Meet new people",
+      "REGISTER": "Register",
       "REGISTER_NOW": "Register now",
       "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Get Started",
       "LOGIN": "Log in",
+      "LOGIN_NOW": "Log in now",
       "SIGN_UP": "Sign Up",
       "FORGOT_PASSWORD": "Send instructions"
     },
@@ -79,6 +81,7 @@
       "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
     },
     "ERROR": {
+      "INVALID_LOGIN": "Invalid username or password",
       "PASS_RESET": "No user or email matches the given input"
     },
     "REGISTER": {
@@ -86,6 +89,7 @@
       "OPTION_TEXT": "- OR REGISTER WITH -"
     },
     "LOGIN": {
+      "SIGN_IN": "Sign In",
       "FORGOT_PASSWORD": "Forgot your password?",
       "OPTION_TEXT": "- OR LOGIN WITH -"
     },

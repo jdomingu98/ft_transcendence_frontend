@@ -61,10 +61,12 @@
       "LOCAL_MODE": "试试本地模式",
       "CREATE_TOURNAMENT": "创建锦标赛",
       "DISCOVER": "结识新朋友",
+      "REGISTER": "注册",
       "REGISTER_NOW": "立即注册",
       "42_ACCOUNT": "42 个网络",
       "GET_STARTED": "开始",
       "LOGIN": "登录",
+      "LOGIN_NOW": "现在登录",     
       "SIGN_UP": "注册",
       "FORGOT_PASSWORD": "发送说明"
     },
@@ -79,6 +81,7 @@
       "CONFIRM_PASSWORD_PHOLDER": "确认您的密码"
     },
     "ERROR": {
+      "INVALID_LOGIN": "用户名或密码无效",
       "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
     },
     "REGISTER": {
@@ -86,6 +89,7 @@
       "OPTION_TEXT": "- 或通过以下方式注册 -"
     },
     "LOGIN": {
+      "SIGN_IN": "登录",
       "FORGOT_PASSWORD": "忘记密码了？",
       "OPTION_TEXT": "- 或通过以下方式登录 -"
     },

@@ -61,10 +61,12 @@
       "LOCAL_MODE": "Probar en local",
       "CREATE_TOURNAMENT": "crear un torneo",
       "DISCOVER": "Conocer gente nueva",
+      "REGISTER": "Registrarse",
       "REGISTER_NOW": "Regístrate ahora",
       "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Empezar",
       "LOGIN": "Entrar",
+      "LOGIN_NOW": "Entrar ahora",
       "SIGN_UP": "Regístrate",
       "FORGOT_PASSWORD": "Enviar instrucciones"
     },
@@ -79,19 +81,21 @@
       "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
     },
     "ERROR": {
-      "PASS_RESET": "No hay usuario ni email que coincidan con el dato proporcionado"
+      "INVALID_LOGIN": "Usuario o contraseña inválidos",
+      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
     },
     "REGISTER": {
       "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
       "OPTION_TEXT": "- O REGÍSTRATE CON -"
     },
     "LOGIN": {
+      "SIGN_IN": "Iniciar sesión",
       "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
       "OPTION_TEXT": "- O INICIA SESIÓN CON -"
     },
     "FORGOT_PASSWORD": {
       "TITLE": "Asistencia de contraseña",
-      "DESC": "Introduce tu correo o nombre de usuario y te enviaremos instrucciones sobre cómo restablecer tu contraseña."
+      "DESC": "Introduce tu correo o usuario y te enviaremos instrucciones sobre cómo restablecer tu contraseña."
     },
     "OTP": {
       "TITLE": "Se requiere verificación OTP",

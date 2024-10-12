@@ -61,10 +61,12 @@
       "LOCAL_MODE": "essayer le mode local",
       "CREATE_TOURNAMENT": "Créer un tournoi",
       "DISCOVER": "Rencontrer de </br>nouvelles personnes",
+      "REGISTER": "S'inscrire",
       "REGISTER_NOW": "S'inscrire maintenant",
       "42_ACCOUNT": "42 réseau",
       "GET_STARTED": "Commencer",
       "LOGIN": "Se connecter",
+      "LOGIN_NOW": "Connectez-vous maintenant",
       "SIGN_UP": "S'inscrire",
       "FORGOT_PASSWORD": "Envoyer les instructions"
     },
@@ -79,13 +81,15 @@
       "CONFIRM_PASSWORD_PHOLDER": "Confirmez votre mot de passe"
     },
     "ERROR": {
-      "PASS_RESET": "Aucun utilisateur ni email ne correspond à la donnée fournie"
+      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
+      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
     },
     "REGISTER": {
       "TERMS": "J'accepte les <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Conditions Générales</a>",
       "OPTION_TEXT": "- OU INSCRIVEZ-VOUS AVEC -"
     },
     "LOGIN": {
+      "SIGN_IN": "Se connecter",
       "FORGOT_PASSWORD": "Vous avez oublié votre mot de passe?",
       "OPTION_TEXT": "- OU CONNECTEZ-VOUS AVEC -"
     },
