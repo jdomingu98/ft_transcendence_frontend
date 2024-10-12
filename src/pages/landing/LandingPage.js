@@ -20,8 +20,8 @@ class LandingPage extends WebComponent {
 
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
-        this.subscribe('landing-bottom-info-section', 'OPEN_MODAL', () => this.showModal('REGISTER'));
-        this.subscribe('landing-call-to-action-card', 'OPEN_MODAL', () => this.showModal('REGISTER'));
+        this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
+        this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => {
             this.showOTPModal(detail);
         });
@@ -54,15 +54,27 @@ class LandingPage extends WebComponent {
                         [desc]="translator.translate('LANDING.DISCOVER.SUBTITLE')">
                     </landing-middle-info-section>
 
-                    <landing-bottom-info-section
-                        [subHeader]="translator.translate('LANDING.LEADER_BOARD.HEADER')"
-                        [title]="translator.translate('LANDING.LEADER_BOARD.TITLE')"
-                        [desc]="translator.translate('LANDING.LEADER_BOARD.SUBTITLE')">
-                    </landing-bottom-info-section>
+                    <section class="d-flex col align-items-center my-5 gap-5">
+                        <div class="col col-6">
+                            <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.LEADER_BOARD.HEADER') }}</sub-header-text>
+                            <h2-text>{{ translator.translate('LANDING.LEADER_BOARD.TITLE') }}</h2-text>
+                            <div class="my-4 col-9">
+                                <body-text>${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</body-text>
+                            </div>
+                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
+                        </div>
+                        <landing-mobile></landing-mobile>
+                    </section>
 
                     <landing-dev-cards></landing-dev-cards>
 
-                    <landing-call-to-action-card></landing-call-to-action-card>
+                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
+                            <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
+                            <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
+                            <primary-button id="call-action-register-modal" color="black" w="260px" h="90px">{{ translator.translate('LANDING.BUTTONS.GET_STARTED') }}</primary-button>
+                        </div>
+                    </section>
 
                     <landing-footer></landing-footer>
                 </div>

@@ -8,6 +8,7 @@ export default Component ({
 
 class PrimaryButton extends WebComponent {
     render() {
+        const id = this.getAttribute('id') || '';
         const width = this.getAttribute('w') || DEFAULT_DIMENSION_VALUE;
         const height = this.getAttribute('h') || DEFAULT_DIMENSION_VALUE;
         const color = this.getAttribute('color') || BUTTON_DEFAULT_PRIMARY_COLOR;
@@ -18,6 +19,7 @@ class PrimaryButton extends WebComponent {
 
         return `
             <button
+                id="${id}"
                 class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill ${className}"
                 style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em;"
             >

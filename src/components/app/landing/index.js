@@ -1,7 +1,5 @@
 import ForgotPasswordForm from './landing-auth-modal/forgot-password-form/forgot-password-form.js';
 import LandingAuthModal from './landing-auth-modal/landing-auth-modal.js';
-import LandingBottomInfoSection from './landing-bottom-info-section.js';
-import LandingCallToActionCard from './landing-call-to-action-card.js';
 import LandingDevCards from './landing-dev-cards.js';
 import LandingFooter from './landing-footer.js';
 import LandingMiddleInfoSection from './landing-middle-info-section.js';
@@ -14,8 +12,6 @@ import RegisterForm from './landing-auth-modal/register-form/register-form.js';
 
 export {
     LandingAuthModal,
-    LandingBottomInfoSection,
-    LandingCallToActionCard,
     LandingDevCards,
     LandingFooter,
     LandingMiddleInfoSection,
