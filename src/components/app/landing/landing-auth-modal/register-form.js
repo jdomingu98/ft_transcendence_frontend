@@ -3,7 +3,7 @@ import AuthService from '#services/AuthService.js';
 import NavigatorService from '#services/NavigatorService';
 import { SnackbarService } from '#services/SnackbarService';
 
-import css from '../landing-auth-modal.css?inline';
+import css from './landing-auth-modal.css?inline';
 
 export default Component ({
     tagName: 'register-form',

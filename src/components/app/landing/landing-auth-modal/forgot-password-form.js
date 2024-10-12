@@ -2,7 +2,7 @@ import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService.js';
 import { SnackbarService } from '#services/SnackbarService';
 
-import css from '../landing-auth-modal.css?inline';
+import css from './landing-auth-modal.css?inline';
 
 export default Component ({
     tagName: 'forgot-password-form',
