@@ -85,8 +85,13 @@ class RegisterForm extends WebComponent {
             }
         });
 
-        this.subscribe('#checkbox-field', 'click', () => {
-            const checkbox = this._getDOM().querySelector('#terms');
+        this.subscribe('input[type="checkbox"]', 'click', e => {
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        });
+
+        this.subscribe('#checkbox-field, .checkbox-label', 'click', () => {
+            const checkbox = this._getDOM().querySelector('input[type="checkbox"]');
             checkbox.checked = !checkbox.checked;
         });
 
@@ -142,9 +147,10 @@ class RegisterForm extends WebComponent {
                         </div>
                         <p class="error-message hidden"></p>
                     </div>
+                    
                     <div id="checkbox-field" class="d-flex align-items-center py-3">
-                        <input type="checkbox" id="terms" required />
-                        <label for="terms">${ this.translator.translate('LANDING.REGISTER.TERMS') }</label>
+                        <input type="checkbox" id="terms" value="terms" required />
+                        <p class="checkbox-label">${ this.translator.translate('LANDING.REGISTER.TERMS') }</p>
                     </div>
                     <div class="signButtons">
                         <input type="submit" class="primary-btn me-3" [value]="translator.translate('LANDING.BUTTONS.REGISTER_NOW')">
