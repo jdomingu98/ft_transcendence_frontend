@@ -22,9 +22,7 @@ class LandingPage extends WebComponent {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
-        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => {
-            this.showOTPModal(detail);
-        });
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
     }
 
     render() {
