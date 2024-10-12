@@ -139,7 +139,7 @@
     text-transform: uppercase;
 }
 
-.form form input, .form form button {
+.form form input:not([type="checkbox"]), .form form button {
     padding: 10px;
     margin-bottom: 5px;
     width: 100%;
@@ -221,12 +221,6 @@ label {
     font-weight: 800 !important;
 }
 
-.checkbox {
-    display: flex;
-    align-items: center;
-    margin: 15px 0;
-}
-
 .intro {
     color: white;
     font-family: 'Roboto', sans-serif;
@@ -299,4 +293,8 @@ dialog[open] {
 .hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+#checkbox-field, #checkbox-field * {
+    cursor: pointer;
 }
