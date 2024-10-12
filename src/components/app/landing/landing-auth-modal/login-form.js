@@ -22,20 +22,23 @@ class LoginForm extends WebComponent {
             if (two_factor) {
                 this.emit('CLOSE_MODAL');
                 SnackbarService.addToast({
-                    title: 'OTP Requested',
-                    body: 'We sent you an email with a code. Please check it out!'
+                    title: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN_OTP.TITLE'),
+                    body: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN_OTP.DESC')
                 });
                 this.emit('OPEN_OTP', username);
             } else {
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);
                 this.emit('CLOSE_MODAL');
-                SnackbarService.addToast({title: 'Success', body: 'You have successfully logged in'});
+                SnackbarService.addToast({
+                    title: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.TITLE'),
+                    body: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.DESC')
+                });
                 setTimeout(() => NavigatorService.goToHome(), 1000);
             }
         }).catch(() => {
             input.forEach(input => input.classList.add('input-error'));
-            errorMessageElement.textContent = 'Invalid username or password';
+            errorMessageElement.textContent = this.translator.translate('LANDING.ERROR.INVALID_LOGIN');
             errorMessageElement.classList.remove('hidden');
         });
     }
@@ -92,28 +95,28 @@ class LoginForm extends WebComponent {
                 </div>
                 <form>
                     <h2>TRANSCENDENCE</h2>
-                    <h3>Sign In</h3>
+                    <h3>{{ translator.translate('LANDING.LOGIN.SIGN_IN') }}</h3>
                     <p class="error-message hidden"></p>
                     <div class="input-field">
-                        <h4>Username</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.USERNAME') }}</h4>
                         <input type="text" id="sigin-username" placeholder="JohnDoe" required>
                     </div>
                     <div class="input-field">
-                        <h4>Password</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.PASSWORD') }}</h4>
                         <div class="password-container">
-                            <input type="password" id="signin-password" placeholder="Your password" required>
+                            <input type="password" id="signin-password" [placeholder]="translator.translate('LANDING.FORMS.PASSWORD_PHOLDER')" required>
                             <span class="togglePassword">
                                 <i class='bi bi-eye'></i>
                             </span>
                         </div>
                     </div>
-                    <p class="forgotBtn forgot" style="padding: 10px; cursor:pointer; width:fit-content">Forgot Password?</p>
+                    <p class="forgotBtn forgot p-2" style="cursor:pointer; width:fit-content">{{ translator.translate('LANDING.LOGIN.FORGOT_PASSWORD') }}</p>
                     <div class="signButtons">
-                        <input type="submit" class="primary-btn" style="margin-right: 10px;" value="Log In Now">
-                        <button class="signupBtn secondary-btn">Register</button>
+                        <input type="submit" class="primary-btn me-3" [value]="translator.translate('LANDING.BUTTONS.LOGIN_NOW')">
+                        <button class="signupBtn secondary-btn">{{ translator.translate('LANDING.BUTTONS.REGISTER') }}</button>
                     </div>
-                    <p class="forgot text-center mt-3">- OR LOGIN WITH -</p>
-                    <button class="primary-btn-alt">42 account</button>
+                    <p class="forgot text-center mt-3">{{ translator.translate('LANDING.LOGIN.OPTION_TEXT') }}</p>
+                    <button class="primary-btn-alt">{{ translator.translate('LANDING.BUTTONS.42_ACCOUNT') }}</button>
                 </form>
             </div>
             `;

@@ -39,7 +39,10 @@ class RegisterForm extends WebComponent {
         };
 
         AuthService.register(formData).then( () => {
-            SnackbarService.addToast({ title: 'Welcome!', body: 'We have sent you an email to verify your account' });
+            SnackbarService.addToast({
+                title: this.translator.translate('SNACKBAR.AUTH_MODAL.REGISTER.TITLE'),
+                body: this.translator.translate('SNACKBAR.AUTH_MODAL.REGISTER.DESC')
+            });
             this.emit('CLOSE_MODAL');
         }).catch( e => {
             this.cleanInputs();
@@ -108,21 +111,21 @@ class RegisterForm extends WebComponent {
                 </div>
                 <form>
                     <h2 part="h2-register">TRANSCENDENCE</h2>
-                    <h3>Sign Up</h3>
+                    <h3>{{ translator.translate('LANDING.BUTTONS.SIGN_UP') }}</h3>
                     <div class="input-field">
-                        <h4>Username</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.USERNAME') }}</h4>
                         <input type="text" id="signup-username" placeholder="JohnDoe" required>
                         <p class="error-message hidden"></p>
                     </div>
                     <div class="input-field">
-                        <h4>Email Address</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.EMAIL') }}</h4>
                         <input type="email" id="signup-email" placeholder="johndoe@gmail.com" required>
                         <p class="error-message hidden"></p>
                     </div>
                     <div class="input-field">
-                        <h4>Password</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.PASSWORD') }}</h4>
                         <div class="password-container">
-                            <input type="password" id="signup-password" placeholder="Your password" required>
+                            <input type="password" id="signup-password" [placeholder]="translator.translate('LANDING.FORMS.PASSWORD_PHOLDER')" required>
                             <span class="togglePassword">
                                 <i class='bi bi-eye'></i>
                             </span>
@@ -130,9 +133,9 @@ class RegisterForm extends WebComponent {
                         <p class="error-message hidden"></p>
                     </div>
                     <div class="input-field">
-                        <h4>Confirm Password</h4>
+                        <h4>{{ translator.translate('LANDING.FORMS.CONFIRM_PASSWORD') }}</h4>
                         <div class="password-container">
-                            <input type="password" id="signup-repeat_password" placeholder="Confirm your password" required>
+                            <input type="password" id="signup-repeat_password" [placeholder]="translator.translate('LANDING.FORMS.CONFIRM_PASSWORD_PHOLDER')" required>
                             <span class="togglePassword">
                                 <i class='bi bi-eye'></i>
                             </span>
@@ -141,14 +144,14 @@ class RegisterForm extends WebComponent {
                     </div>
                     <div id="checkbox-field" class="d-flex align-items-center py-3">
                         <input type="checkbox" id="terms" required />
-                        <label for="terms">I agree to the terms and conditions</label>
+                        <label for="terms">${ this.translator.translate('LANDING.REGISTER.TERMS') }</label>
                     </div>
                     <div class="signButtons">
-                        <input type="submit" class="primary-btn" style="margin-right: 10px;" value="Register now">
-                        <button class="signinBtn secondary-btn">Log In</button>
+                        <input type="submit" class="primary-btn me-3" [value]="translator.translate('LANDING.BUTTONS.REGISTER_NOW')">
+                        <button class="signinBtn secondary-btn">{{ translator.translate('LANDING.BUTTONS.LOGIN') }}</button>
                     </div>
-                    <p class="forgot text-center mt-2">- OR REGISTER WITH -</p>
-                    <button class="primary-btn-alt">42 account</button>
+                    <p class="forgot text-center mt-2">{{ translator.translate('LANDING.REGISTER.OPTION_TEXT') }}</p>
+                    <button class="primary-btn-alt">{{ translator.translate('LANDING.BUTTONS.42_ACCOUNT') }}</button>
                 </form>
             </div>
             `;
