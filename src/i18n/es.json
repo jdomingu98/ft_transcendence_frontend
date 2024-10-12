@@ -254,8 +254,8 @@
     "SECTIONS": {
       "USER_MANAGEMENT": "Gestión de Usuarios",
       "CHANGE_PASSWORD": "Cambiar Contraseña",
-      "TWO_FACTOR_AUTH": "Autenticación de Dos Factores",
-      "CHANGE_VISIBILITY": "Actualizar Visibilidad del Perfil",
+      "TWO_FACTOR_AUTH": "Autenticación </br>de Dos Factores",
+      "CHANGE_VISIBILITY": "Actualizar Visibilidad </br>del Perfil",
       "ABOUT": "Acerca de Transcendence",
       "DELETE_ACCOUNT": "Eliminar Cuenta"
     },

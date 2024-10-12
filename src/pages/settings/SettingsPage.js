@@ -25,12 +25,12 @@ class SettingsPage extends WebComponent {
             }, {
                 sidebarElementId: 'settings-two-factor',
                 iconClass: 'bi-key',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.TWO_FACTOR_AUTH") }}',
+                sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }`,
                 url: '#two-factor'
             }, {
                 sidebarElementId: 'settings-visibility',
                 iconClass: 'bi-file-lock',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.CHANGE_VISIBILITY") }}',
+                sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.CHANGE_VISIBILITY') }`,
                 url: '#visibility'
             }, {
                 sidebarElementId: 'settings-about',
@@ -107,8 +107,8 @@ class SettingsPage extends WebComponent {
                         ${ this.mapSidebarSettingsLinksToDiv() }
                     </div>
                 </aside>
-                <div class="d-flex col justify-content-center align-items-center">
-                    <div class="d-flex row">
+                <div class="w-50 d-flex col justify-content-center align-items-center">
+                    <div class="d-flex row justify-content-center align-items-center">
                         <settings-user-management id="user-management"></settings-user-management>
                         <!--<settings-change-password id="change-password"></settings-change-password>
                         <settings-two-factor id="two-factor"></settings-two-factor>
