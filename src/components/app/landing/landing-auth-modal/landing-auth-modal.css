@@ -298,3 +298,8 @@ dialog[open] {
 #checkbox-field, #checkbox-field * {
     cursor: pointer;
 }
+
+.terms-link {
+    text-decoration: none;
+    color: var(--app-blue-color);
+}
