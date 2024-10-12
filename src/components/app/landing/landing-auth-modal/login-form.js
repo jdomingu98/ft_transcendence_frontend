@@ -51,7 +51,7 @@ class LoginForm extends WebComponent {
 
         this.subscribe('.primary-btn-alt', 'click', e => {
             e.preventDefault();
-            window.location.href = import.meta.env.VITE_FT_API_URL;
+            NavigatorService.goTo42LoginPage();
         });
 
         this.subscribe('.signupBtn', 'click', e => {
