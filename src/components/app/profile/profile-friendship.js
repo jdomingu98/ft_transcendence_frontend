@@ -83,7 +83,7 @@ class ProfileFriendship extends WebComponent {
 
     render() {
         return `
-            <div class="container p-3" style="border-collapse: separate">
+            <div class="container p-3">
                 <h4 class="fw-bold text-white mb-5">Friends List</h4>
                 <div class="row">
                     ${ this.makeFriendshipGrid() }
