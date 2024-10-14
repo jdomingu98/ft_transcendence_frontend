@@ -47,9 +47,10 @@ class ProfileHeader extends WebComponent {
                                     {{ translator.translate("LEADERBOARD.PTS") }}
                                 </p>
                             </div>
-                            <primary-button id='${friendId}' w="200px" h="100px">
-                                ${ myProfile ? '{{ translator.translate("PROFILE.HEADER.FRIEND.LIST_FRIENDS") }}' : '{{ translator.translate("PROFILE.HEADER.FRIEND.ADD_FRIEND") }}' }
-                            </primary-button>
+                            ${!myProfile ? `
+                                <primary-button id='${friendId}' w="200px" h="100px">
+                                    {{ translator.translate("PROFILE.HEADER.FRIEND.ADD_FRIEND") }}
+                                </primary-button>` : ''}
                         </div>
                         <div class="d-flex align-items-center mt-2" style="gap: 5px;">
                             <div class="rounded-circle " style="width:16px; height:16px; background-color: var(--app-green-color);"></div>
