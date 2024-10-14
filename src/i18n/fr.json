@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "Bienvenue!",
+        "DESC": "Nous vous avons envoyé un email pour vérifier votre compte"
+      },
+      "LOGIN": {
+        "TITLE": "Bon retour!",
+        "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "Vérification par OTP requise",
+        "DESC": "Nous vous avons envoyé un email avec un code. Veuillez le vérifier!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Assistance mot de passe reçue",
+        "DESC": "Nous vous avons envoyé un email avec des instructions"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP Vérifié",
+      "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Jouer à un jeu",
@@ -37,8 +61,46 @@
       "LOCAL_MODE": "essayer le mode local",
       "CREATE_TOURNAMENT": "Créer un tournoi",
       "DISCOVER": "Rencontrer de </br>nouvelles personnes",
-      "REGISTER_NOW": "Inscrivez-vous maintenant",
-      "GET_STARTED": "Commencer"
+      "REGISTER": "S'inscrire",
+      "REGISTER_NOW": "S'inscrire maintenant",
+      "42_ACCOUNT": "42 réseau",
+      "GET_STARTED": "Commencer",
+      "LOGIN": "Se connecter",
+      "LOGIN_NOW": "Connectez-vous maintenant",
+      "SIGN_UP": "S'inscrire",
+      "FORGOT_PASSWORD": "Envoyer les instructions"
+    },
+    "FORMS": {
+      "USERNAME": "Nom d'utilisateur",
+      "EMAIL": "Email",
+      "EMAIL_OR_USERNAME": "Email ou nom d'utilisateur",
+      "EMAIL_USERNAME_PHOLDER": "Identifiez-vous",
+      "PASSWORD": "Mot de passe",
+      "PASSWORD_PHOLDER": "Votre mot de passe",
+      "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirmez votre mot de passe"
+    },
+    "ERROR": {
+      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
+      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
+    },
+    "REGISTER": {
+      "TERMS": "J'accepte les <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Conditions Générales</a>",
+      "OPTION_TEXT": "- OU INSCRIVEZ-VOUS AVEC -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "Se connecter",
+      "FORGOT_PASSWORD": "Vous avez oublié votre mot de passe?",
+      "OPTION_TEXT": "- OU CONNECTEZ-VOUS AVEC -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Assistance mot de passe",
+      "DESC": "Entrez votre email ou nom d'utilisateur et nous vous enverrons des instructions pour réinitialiser votre mot de passe."
+    },
+    "OTP": {
+      "TITLE": "Vérification OTP requise",
+      "DESC": "Nous vous avons envoyé un e-mail avec un mot de passe à usage unique.</br>Veuillez entrer le code dans le champ ci-dessous",
+      "BUTTON_TITLE": "Vérifier le code"
     }
   },
   "LEGAL_COMMON_DATA": {

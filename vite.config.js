@@ -1,17 +1,15 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig(() => {
+
+export default defineConfig( () => {
     return {
         server: {
-            proxy: {
+            proxy:{
                 '/api': {
                     target: 'http://localhost:8000',
                     changeOrigin: true,
-                }
-            },
-            build: {
-                outDir: 'dist',
-            },
-        },
+                },
+            }
+        }
     };
 });

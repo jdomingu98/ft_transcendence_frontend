@@ -1,6 +1,6 @@
 import WebComponent, { Component, Router } from '#WebComponent';
 
-//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '/src/const/index.js';
+//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
 
 import css from './MainSidebar.css?inline';
 
@@ -96,7 +96,8 @@ class MainSidebar extends WebComponent {
             let route = `/app/${option.sidebarElementId}`;
 
             if (option.sidebarElementId === 'logout') {
-                // sessionStorage.removeItem('token');
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
                 route = '/';
             }
             Router.push(route);

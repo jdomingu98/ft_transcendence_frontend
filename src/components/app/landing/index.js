@@ -1,17 +1,19 @@
-import LandingBottomInfoSection from './landing-bottom-info-section.js';
-import LandingCallToActionCard from './landing-call-to-action-card.js';
-import LandingDevCards from './landing-dev-cards.js';
-import LandingFooter from './landing-footer.js';
-import LandingMiddleInfoSection from './landing-middle-info-section.js';
-import LandingNavBar from './landing-navbar.js';
-import LandingTopInfoSection from './landing-top-info-section.js';
+import ForgotPasswordForm from './landing-auth-modal/forgot-password-form';
+import LandingAuthModal from './landing-auth-modal/landing-auth-modal';
+import LandingDevCards from './landing-dev-cards';
+import LandingFooter from './landing-footer';
+import LandingNavBar from './landing-navbar';
+import LandingOtpModal from './landing-opt-modal/landing-otp-modal';
+import LoginForm from './landing-auth-modal/login-form';
+import RegisterForm from './landing-auth-modal/register-form';
 
 export {
-    LandingCallToActionCard,
+    LandingAuthModal,
     LandingDevCards,
     LandingFooter,
-    LandingTopInfoSection,
-    LandingMiddleInfoSection,
-    LandingBottomInfoSection,
-    LandingNavBar
+    LandingNavBar,
+    ForgotPasswordForm,
+    LoginForm,
+    RegisterForm,
+    LandingOtpModal
 };

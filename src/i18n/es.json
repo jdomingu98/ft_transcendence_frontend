@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "¡Bienvenido!",
+        "DESC": "Te hemos enviado un email para verificar tu cuenta"
+      },
+      "LOGIN": {
+        "TITLE": "¡Bienvenido de nuevo!",
+        "DESC": "Redirigiendo a tu perfil, por favor espera un momento..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "Se requiere verificación por OTP",
+        "DESC": "Te hemos enviado un email con un código. ¡Por favor, revísalo!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Asistencia de contraseña recibida",
+        "DESC": "Te hemos enviado un email con instrucciones"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP Verificado",
+      "DESC": "Redirigiendo a tu perfil, por favor espera un momento..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Jugar Partida",
@@ -37,8 +61,46 @@
       "LOCAL_MODE": "Probar en local",
       "CREATE_TOURNAMENT": "crear un torneo",
       "DISCOVER": "Conocer gente nueva",
+      "REGISTER": "Registrarse",
       "REGISTER_NOW": "Regístrate ahora",
-      "GET_STARTED": "Empezar"
+      "42_ACCOUNT": "42 Network",
+      "GET_STARTED": "Empezar",
+      "LOGIN": "Entrar",
+      "LOGIN_NOW": "Entrar ahora",
+      "SIGN_UP": "Regístrate",
+      "FORGOT_PASSWORD": "Enviar instrucciones"
+    },
+    "FORMS": {
+      "USERNAME": "Nombre de usuario",
+      "EMAIL": "Correo electrónico",
+      "EMAIL_OR_USERNAME": "Correo o nombre de usuario",
+      "EMAIL_USERNAME_PHOLDER": "Identifícate",
+      "PASSWORD": "Contraseña",
+      "PASSWORD_PHOLDER": "Tu contraseña",
+      "CONFIRM_PASSWORD": "Confirmar contraseña",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
+    },
+    "ERROR": {
+      "INVALID_LOGIN": "Usuario o contraseña inválidos",
+      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
+    },
+    "REGISTER": {
+      "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
+      "OPTION_TEXT": "- O REGÍSTRATE CON -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "Iniciar sesión",
+      "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+      "OPTION_TEXT": "- O INICIA SESIÓN CON -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Asistencia de contraseña",
+      "DESC": "Introduce tu correo o usuario y te enviaremos instrucciones sobre cómo restablecer tu contraseña."
+    },
+    "OTP": {
+      "TITLE": "Se requiere verificación OTP",
+      "DESC": "Te hemos enviado un email con una contraseña de un solo uso.</br>Por favor, inserte el código en el siguiente campo de entrada",
+      "BUTTON_TITLE": "Verificar código"
     }
   },
   "LEGAL_COMMON_DATA": {

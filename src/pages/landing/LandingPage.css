@@ -10,6 +10,7 @@
     height: 680px;
     filter: blur(306px);
     z-index: 0;
+    background: var(--app-secondary-color);
 }
 
 .top-light {
@@ -21,18 +22,22 @@
 .middle-light {
     top: 540px;
     left: 1140px;
-    background: var(--app-secondary-color);
 }
 
 .bottom-light {
     top: 1770px;
     left: -390px;
-    background: var(--app-secondary-color);
 }
 
-#footer-gradient {
+.footer-gradient {
     background: var(--app-landing-footer-gradient);
     width: 100%;
     height: 10px;
     margin-top: 1rem;
+}
+
+.landing-body-text {
+    font-family: var(--app-secondary-text-font);
+    font-size: 1.13rem;
+    letter-spacing: 0.1em;
 }
