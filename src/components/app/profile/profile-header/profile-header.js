@@ -10,7 +10,9 @@ const points = '10042';
 const srcProfilePicture = '/src/resources/devs/jdomingu.png'; //DEFAULT_PROFILE_IMG;
 
 const myProfile = window.location.pathname === '/app/profile/me';
-const friendId = myProfile ? 'friend-list' : 'add-friend';
+
+let isFriendRequested = false;
+let isFriend = true;
 
 export default Component ({
     tagName: 'profile-header',
@@ -30,27 +32,59 @@ class ProfileHeader extends WebComponent {
         };
     }
 
+    bind() {
+        this.subscribe('#heart', 'click', () => {
+            const heartIcon = this._getDOM().getElementById('heart');
+            if (!isFriend && !isFriendRequested) {
+
+                heartIcon.classList.add('friend-icon');
+                //Update enum in database
+                isFriendRequested = true;
+            } else if (isFriendRequested) {
+                heartIcon.classList.remove('friend-icon');
+                //Update enum in database
+                isFriendRequested = false;
+            } else {
+                //Delete friend
+                heartIcon.classList.add('hidden');
+                heartIcon.classList.remove('friend-icon');
+                setTimeout(() => {
+                    heartIcon.classList.remove('bi-heart-fill');
+                    heartIcon.classList.add('bi-heart');
+
+                    heartIcon.classList.remove('hidden');
+                }, 300);
+                //Update enum in database
+                isFriend = false;
+                isFriendRequested = false;
+            }
+        });
+    }
+
     render() {
         return `
             <div class="d-flex align-items-center profile-header">
                 <div class="d-inline-flex p-3 mx-3 profile-glask">
-                    <img src='${srcProfilePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
+                    <div class="position-relative">
+                        <img src='${srcProfilePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
+                        ${ !myProfile ? `
+                                <div class="position-absolute top-0" style="left:65%; font-size: 1.2rem; cursor: pointer;">
+                                    ${ isFriend ? '<i id="heart" class="bi bi-heart-fill friend p-1"></i>' : '<i id="heart" class=" friend bi bi-heart p-1"></i>'}
+                                </div>
+                            ` : ''}
+                    </div>
                     <div class="profile-info">
                         <h2 class="mx-0 my-1">${username}</h2>
                         <div class="d-flex col">
-                            <div class="mx-0 my-2 d-flex row gap-1 pr-0">
-                                <p>{{ translator.translate("PROFILE.HEADER.POSITION") }}
+                            <div class="mx-0 my-2 d-flex row gap-1">
+                                <p class="px-0">{{ translator.translate("PROFILE.HEADER.POSITION") }}
                                     <span class="fw-bold">${position}</span>
                                 </p>
-                                <p> {{ translator.translate("PROFILE.HEADER.POINTS") }}
+                                <p class="px-0"> {{ translator.translate("PROFILE.HEADER.POINTS") }}
                                     <span class="fw-bold">${points}</span>
                                     {{ translator.translate("LEADERBOARD.PTS") }}
                                 </p>
                             </div>
-                            ${!myProfile ? `
-                                <primary-button id='${friendId}' w="200px" h="100px">
-                                    {{ translator.translate("PROFILE.HEADER.FRIEND.ADD_FRIEND") }}
-                                </primary-button>` : ''}
                         </div>
                         <div class="d-flex align-items-center mt-2" style="gap: 5px;">
                             <div class="rounded-circle " style="width:16px; height:16px; background-color: var(--app-green-color);"></div>
