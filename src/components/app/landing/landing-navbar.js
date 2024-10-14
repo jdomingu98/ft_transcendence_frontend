@@ -1,16 +1,18 @@
 import WebComponent, { Component } from '#WebComponent';
 
-
 export default Component ({
-    tagName: 'landing-navbar'
+    tagName: 'landing-navbar',
 },
 
 class LandingNavBar extends WebComponent {
+
+    bind() {
+        this.subscribe('primary-button', 'click', () => this.emit('OPEN_MODAL'));
+    }
+
     render() {
         return `
-            <nav
-                class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center"
-            >
+            <nav class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center">
                 <router-link
                     class="nav-link link-light text-decoration-none col-4"
                     style="font-size:24px; z-index: 1;"

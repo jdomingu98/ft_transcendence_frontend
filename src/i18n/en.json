@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "Welcome!",
+        "DESC": "We have sent you an email to verify your account"
+      },
+      "LOGIN": {
+        "TITLE": "Welcome Back!",
+        "DESC": "Redirecting to your profile, please wait a moment..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "OTP Verification Required",
+        "DESC": "We sent you an email with a code. Please check it out!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Password Assistance Received",
+        "DESC": "We have sent you an email with instructions"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP Verified",
+      "DESC": "Redirecting to your profile, please wait a moment..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Play a game",
@@ -37,8 +61,46 @@
       "LOCAL_MODE": "try local mode",
       "CREATE_TOURNAMENT": "Create a tournament",
       "DISCOVER": "Meet new people",
+      "REGISTER": "Register",
       "REGISTER_NOW": "Register now",
-      "GET_STARTED": "Get Started"
+      "42_ACCOUNT": "42 Network",
+      "GET_STARTED": "Get Started",
+      "LOGIN": "Log in",
+      "LOGIN_NOW": "Log in now",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Send instructions"
+    },
+    "FORMS": {
+      "USERNAME": "Username",
+      "EMAIL": "Email",
+      "EMAIL_OR_USERNAME": "Email or Username",
+      "EMAIL_USERNAME_PHOLDER": "Identify yourself",
+      "PASSWORD": "Password",
+      "PASSWORD_PHOLDER": "Your password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
+    },
+    "ERROR": {
+      "INVALID_LOGIN": "Invalid username or password",
+      "PASS_RESET": "No user or email matches the given input"
+    },
+    "REGISTER": {
+      "TERMS": "I agree to the <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Terms and Conditions</a>",
+      "OPTION_TEXT": "- OR REGISTER WITH -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "Sign In",
+      "FORGOT_PASSWORD": "Forgot your password?",
+      "OPTION_TEXT": "- OR LOGIN WITH -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Password assistance",
+      "DESC": "Enter your email or username and we'll send you instructions on how to reset your password."
+    },
+    "OTP": {
+      "TITLE": "OTP Verification Required",
+      "DESC": "We have sent you an email with an one-time password.</br>Please enter the code in the following input",
+      "BUTTON_TITLE": "Verify code"
     }
   },
   "LEGAL_COMMON_DATA": {

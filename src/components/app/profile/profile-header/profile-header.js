@@ -1,6 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
 
-//import { DEFAULT_PROFILE_IMG } from '/src/const/index.js';
+//import { DEFAULT_PROFILE_IMG } from '#const';
 
 import css from './profile-header.css?inline';
 

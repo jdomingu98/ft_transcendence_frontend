@@ -30,7 +30,7 @@ class AppRoot extends WebComponent {
                     { path: '/legal-notice', component: 'legal-notice' },
                     { path: '/terms-conditions', component: 'terms-conditions' },
                     { path: '/app', component: 'main-sidebar'},
-                    { path: '/reset-password/:token', component: 'update-password' },
+                    { path: '/reset-password', component: 'reset-password' },
                     { path: '/redirect', component: 'oauth-redirect' },
                     { path: '/error', component: 'error-page' },
                 ]">
