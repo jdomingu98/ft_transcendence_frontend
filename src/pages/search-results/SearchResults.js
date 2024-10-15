@@ -95,8 +95,8 @@ class SearchResults extends WebComponent {
     }
 
     bind() {
-        this.subscribeAll('.card img', 'click', e => {
-            const username = e.target.alt; // Get the username from the image alt attribute
+        this.subscribeAll('.card', 'click', e => {
+            const username = e.currentTarget.querySelector('.card-body h5').textContent;
             const userData = this.state.searchResults.filter(result => result.username === username);
             NavigatorService.goToProfile(userData[0].id);
         });
