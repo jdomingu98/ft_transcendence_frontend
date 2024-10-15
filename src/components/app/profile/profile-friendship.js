@@ -93,8 +93,8 @@ class ProfileFriendship extends WebComponent {
     }
 
     bind() {
-        this.subscribeAll('.card img', 'click', e => {
-            const username = e.target.alt; // Get the username from the image alt attribute
+        this.subscribeAll('.card', 'click', e => {
+            const username = e.currentTarget.querySelector('.card-body h5').textContent;
             const userData = this.state.friendList.filter(friend => friend.username === username);
             NavigatorService.goToProfile(userData[0].id);
         });
