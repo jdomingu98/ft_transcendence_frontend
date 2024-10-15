@@ -4,7 +4,7 @@ import WebComponent, { Component, Router } from '#WebComponent';
 
 import css from './MainSidebar.css?inline';
 
-const id = 2;
+// const id = 2; -> id of /me profile
 const profilePicture = '/src/resources/devs/jdomingu.png';
 
 export default Component ({
