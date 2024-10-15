@@ -1,4 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 
 const currentPage = 10;
 const maxPages = 10;
@@ -26,42 +27,52 @@ class ProfileFriendship extends WebComponent {
                 {
                     username: 'cMoraleS',
                     profileImg: '/src/resources/devs/cmorales.jpg',
+                    id: 1
                 },
                 {
                     username: 'jdomingu98',
                     profileImg: '/src/resources/devs/jdomingu.png',
+                    id: 2
                 },
                 {
                     username: 'aTRuJiLl',
                     profileImg: '/src/resources/devs/atrujill.jpg',
+                    id: 3
                 },
                 {
                     username: 'castor-afanoso',
                     profileImg: '/src/resources/devs/aruzafa-.jpg',
+                    id: 4
                 },
                 {
-                    username: 'cMoraleS',
+                    username: 'cMoraleSs',
                     profileImg: '/src/resources/devs/cmorales.jpg',
+                    id: 5
                 },
                 {
-                    username: 'jdomingu98',
+                    username: 'jdomingu9',
                     profileImg: '/src/resources/devs/jdomingu.png',
+                    id: 6
                 },
                 {
-                    username: 'aTRuJiLl',
+                    username: 'aTRuJiL',
                     profileImg: '/src/resources/devs/atrujill.jpg',
+                    id: 7
                 },
                 {
-                    username: 'castor-afanoso',
+                    username: 'castorAfanoso',
                     profileImg: '/src/resources/devs/aruzafa-.jpg',
+                    id: 8
                 },
                 {
-                    username: 'cMoraleS',
+                    username: 'cMorale',
                     profileImg: '/src/resources/devs/cmorales.jpg',
+                    id: 9
                 },
                 {
-                    username: 'jdomingu98',
+                    username: 'jdomingu',
                     profileImg: '/src/resources/devs/jdomingu.png',
+                    id: 10
                 }
             ]
         };
@@ -71,14 +82,22 @@ class ProfileFriendship extends WebComponent {
         return this.state.friendList.map( friend =>
             `
                 <div class="col-md-2">
-                    <div class="card" style="background-color: var(--app-secondary-bg-color)">
+                    <div class="card mt-3" style="cursor: pointer; background-color: var(--app-primary-color)">
                         <img src="${friend.profileImg}" alt="${friend.username}" style="object-fit: cover">
-                        <div class="card-body">
-                            <h5 class="card-title text-truncate text-white text-center">${friend.username}</h5>
+                        <div class="card-body p-2">
+                            <h5 class="card-title text-truncate text-white text-center" style="margin-top: 0.5rem">${friend.username}</h5>
                         </div>
                     </div>
                 </div>
             `).join('');
+    }
+
+    bind() {
+        this.subscribeAll('.card img', 'click', e => {
+            const username = e.target.alt; // Get the username from the image alt attribute
+            const userData = this.state.friendList.filter(friend => friend.username === username);
+            NavigatorService.goToProfile(userData[0].id);
+        });
     }
 
     render() {
