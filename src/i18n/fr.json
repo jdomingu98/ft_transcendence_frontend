@@ -261,10 +261,6 @@
     "HEADER": {
       "POSITION": "Poste: ",
       "POINTS": "Points: ",
-      "FRIEND": {
-        "ADD_FRIEND": "Ajouter un ami",
-        "LIST_FRIENDS": "Afficher la liste des amis"
-      },
       "STATUS": {
         "CONNECTED": "Connecté",
         "DISCONNECTED": "Déconnecté",
@@ -273,6 +269,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Statistiques Globales",
       "GOALS_SCORED": "Buts Marqués",
       "GOALS_AGAINST": "Objectifs Contre",
       "GOALS_STOPPED": "Objectifs Arrêtés",
@@ -280,7 +277,9 @@
       "WINRATE": "Taux de </br>Victoire", 
       "STREAK": "Série de </br>Victoires Maximale"
     },
+    "FRIENDS_LIST_TITLE": "Liste d'Amis",
     "MATCH_HISTORY": {
+      "TITLE": "Historique des Matchs",
       "TABLE_HEAD": {
         "RESULT": "Résultat",
         "OPPONENT": "Adversaire",

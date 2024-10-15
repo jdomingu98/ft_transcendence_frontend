@@ -99,7 +99,7 @@ class ProfileStats extends WebComponent {
     render() {
         return `
             <div class="container mt-3 p-3 pb-0">
-                <h4 class="fw-bold mb-4">Global Stats</h4>
+                <h4 class="fw-bold mb-4">{{ translator.translate("PROFILE.STATS.TITLE") }}</h4>
             </div>
             <div class="d-grid mt-3 py-3 gap-3 stats-container">
                 ${ this.mapStatsToDiv() }

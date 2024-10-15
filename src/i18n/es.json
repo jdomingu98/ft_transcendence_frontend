@@ -261,10 +261,6 @@
     "HEADER": {
       "POSITION": "Posición: ",
       "POINTS": "Puntos: ",
-      "FRIEND": {
-        "ADD_FRIEND": "Añadir amigo",
-        "LIST_FRIENDS": "Mostrar lista de amigos"
-      },
       "STATUS": {
         "CONNECTED": "Disponible",
         "DISCONNECTED": "No disponible",
@@ -273,6 +269,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Estadísticas Globales",
       "GOALS_SCORED": "Goles Marcados",
       "GOALS_AGAINST": "Goles Recibidos",
       "GOALS_STOPPED": "Goles Parados",
@@ -280,7 +277,9 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
+    "FRIENDS_LIST_TITLE": "Lista de Amigos",
     "MATCH_HISTORY": {
+      "TITLE": "Historial de Partidas",
       "TABLE_HEAD": {
         "RESULT": "Resultado",
         "OPPONENT": "Oponente",

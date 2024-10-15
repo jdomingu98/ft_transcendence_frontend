@@ -261,10 +261,6 @@
     "HEADER": {
       "POSITION": "Position: ",
       "POINTS": "Points: ",
-      "FRIEND": {
-        "ADD_FRIEND": "Add friend",
-        "LIST_FRIENDS": "Show friend list"
-      },
       "STATUS": {
         "CONNECTED": "Connected",
         "DISCONNECTED": "Disconnected",
@@ -273,6 +269,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Global Stats",
       "GOALS_SCORED": "Goals Scored",
       "GOALS_AGAINST": "Goals Against",
       "GOALS_STOPPED": "Goals Stopped",
@@ -280,7 +277,9 @@
       "WINRATE": "Win Rate", 
       "STREAK": "Max Win Streak"
     },
+    "FRIENDS_LIST_TITLE": "Friends List",
     "MATCH_HISTORY": {
+      "TITLE": "Match History",
       "TABLE_HEAD": {
         "RESULT": "Result",
         "OPPONENT": "Opponent",
