@@ -9,6 +9,7 @@
     border-radius: 5px;
     animation: growBar 1.5s forwards ease-in-out;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .position[data-rank="first"] {
