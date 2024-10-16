@@ -307,8 +307,10 @@
     "OAUTH": {
       "NO_CODE": "Oups, pourquoi es-tu ici? 🤔"
     },
-    "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
-    "USER_NOT_VERIFIED": "Utilisateur non vérifié",
+    "USER": {
+      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
+      "NOT_VERIFIED": "Utilisateur non vérifié"
+    },
     "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
   },
   "LANGUAGE": {
