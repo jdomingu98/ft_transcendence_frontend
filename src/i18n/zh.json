@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "确认密码",
       "CONFIRM_PASSWORD_PHOLDER": "确认您的密码"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "用户名或密码无效",
-      "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
-    },
     "REGISTER": {
       "TERMS": "我同意<a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>条款和条件</a>",
       "OPTION_TEXT": "- 或通过以下方式注册 -"
@@ -310,7 +306,10 @@
     },
     "OAUTH": {
       "NO_CODE": "哎呀，你怎么会在这里？ 🤔"
-    }
+    },
+    "INVALID_LOGIN": "用户名或密码无效",
+    "USER_NOT_VERIFIED": "用户未验证",
+    "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
   },
   "LANGUAGE": {
     "ES": "西班牙语",
