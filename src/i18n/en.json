@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirm Password",
       "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Invalid username or password",
-      "PASS_RESET": "No user or email matches the given input"
-    },
     "REGISTER": {
       "TERMS": "I agree to the <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Terms and Conditions</a>",
       "OPTION_TEXT": "- OR REGISTER WITH -"
@@ -314,6 +310,11 @@
     },
     "OAUTH": {
       "NO_CODE": "Oops, why are you here? 🤔"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Invalid username or password",
+      "NOT_VERIFIED": "User not verified",
+      "PASS_RESET": "No user or email matches the given input"
     }
   },
   "LANGUAGE": {

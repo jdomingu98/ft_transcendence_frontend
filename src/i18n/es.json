@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirmar contraseña",
       "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Usuario o contraseña inválidos",
-      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
-    },
     "REGISTER": {
       "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
       "OPTION_TEXT": "- O REGÍSTRATE CON -"
@@ -314,6 +310,11 @@
     },
     "OAUTH": {
       "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Usuario o contraseña inválidos",
+      "NOT_VERIFIED": "Usuario no verificado",
+      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
     }
   },
   "LANGUAGE": {
