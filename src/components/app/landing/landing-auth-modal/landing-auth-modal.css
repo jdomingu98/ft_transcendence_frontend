@@ -301,15 +301,3 @@ dialog[open] {
     text-decoration: none;
     color: var(--app-blue-color);
 }
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px var(--app-secondary-bg-color) inset !important;
-    -webkit-text-fill-color: white !important;
-    background-color: var(--app-secondary-bg-color) !important;
-}
-
-input:-webkit-autofill::first-line {
-    font-family: 'Outfit', sans-serif;
-}

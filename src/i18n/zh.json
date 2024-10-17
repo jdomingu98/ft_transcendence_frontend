@@ -251,7 +251,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "玩游戏",
     "TOURNAMENTS": "锦标赛",
-    "CHATS": "聊天",
+    "FRIENDSHIP_REQUEST": "友谊请求",
     "RANKING": "排名",
     "SETTINGS": "设置",
     "LOGOUT": "退出登录"
@@ -260,6 +260,7 @@
     "SEARCH": "搜索用户...",
     "HEADER": {
       "POSITION": "职位: ",
+      "POINTS": "点数: ",
       "STATUS": {
         "CONNECTED": "已连接",
         "DISCONNECTED": "断开",
@@ -268,6 +269,7 @@
       }
     },
     "STATS": {
+      "TITLE": "全球统计",
       "GOALS_SCORED": "进球数",
       "GOALS_AGAINST": "反对目标",
       "GOALS_STOPPED": "目标停止",
@@ -275,7 +277,9 @@
       "WINRATE": "中奖率", 
       "STREAK": "最大连胜"
     },
+    "FRIENDS_LIST_TITLE": "好友列表",
     "MATCH_HISTORY": {
+      "TITLE": "比赛记录",
       "TABLE_HEAD": {
         "RESULT": "结果",
         "OPPONENT": "对手",

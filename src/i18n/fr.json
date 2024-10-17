@@ -251,7 +251,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jouer à un jeu",
     "TOURNAMENTS": "Tournois",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Demandes d'amitié",
     "RANKING": "Classement",
     "SETTINGS": "Paramètres",
     "LOGOUT": "Déconnexion"
@@ -260,6 +260,7 @@
     "SEARCH": "Recherche d'utilisateurs...",
     "HEADER": {
       "POSITION": "Poste: ",
+      "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connecté",
         "DISCONNECTED": "Déconnecté",
@@ -268,6 +269,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Statistiques Globales",
       "GOALS_SCORED": "Buts Marqués",
       "GOALS_AGAINST": "Objectifs Contre",
       "GOALS_STOPPED": "Objectifs Arrêtés",
@@ -275,7 +277,9 @@
       "WINRATE": "Taux de </br>Victoire", 
       "STREAK": "Série de </br>Victoires Maximale"
     },
+    "FRIENDS_LIST_TITLE": "Liste d'Amis",
     "MATCH_HISTORY": {
+      "TITLE": "Historique des Matchs",
       "TABLE_HEAD": {
         "RESULT": "Résultat",
         "OPPONENT": "Adversaire",
