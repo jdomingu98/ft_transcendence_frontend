@@ -309,9 +309,9 @@
     },
     "USER": {
       "INVALID_LOGIN": "用户名或密码无效",
-      "NOT_VERIFIED": "用户未验证"
-    },
-    "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
+      "NOT_VERIFIED": "用户未验证",
+      "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
+    }
   },
   "LANGUAGE": {
     "ES": "西班牙语",

@@ -309,9 +309,9 @@
     },
     "USER": {
       "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
-      "NOT_VERIFIED": "Utilisateur non vérifié"
-    },
-    "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
+      "NOT_VERIFIED": "Utilisateur non vérifié",
+      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
+    }
   },
   "LANGUAGE": {
     "ES": "Espagnol",

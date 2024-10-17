@@ -309,9 +309,9 @@
     },
     "USER": {
       "INVALID_LOGIN": "Usuario o contraseña inválidos",
-      "NOT_VERIFIED": "Usuario no verificado"
-    },
-    "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
+      "NOT_VERIFIED": "Usuario no verificado",
+      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
+    }
   },
   "LANGUAGE": {
     "ES": "Español",

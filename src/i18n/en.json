@@ -309,9 +309,9 @@
     },
     "USER": {
       "INVALID_LOGIN": "Invalid username or password",
-      "NOT_VERIFIED": "User not verified"
-    },
-    "PASS_RESET": "No user or email matches the given input"
+      "NOT_VERIFIED": "User not verified",
+      "PASS_RESET": "No user or email matches the given input"
+    }
   },
   "LANGUAGE": {
     "ES": "Spanish",
