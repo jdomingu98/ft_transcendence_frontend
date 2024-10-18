@@ -308,9 +308,36 @@
       "TITLE": "¡Oh, no!, esto es pong-barazoso...",
       "DESCRIPTION": "Parece que nuestras pelotas de pong se han perdido en el ciberespacio."
     },
+    "USERNAME": {
+      "ALREADY_EXISTS": "Este nombre de usuario ya está en uso",
+      "INVALID": "El nombre de usuario debe ser alfanumérico, puede incluir guiones y tener entre 3 y 20 caracteres"
+    },
+    "EMAIL": {
+      "ALREADY_EXITS": "Este correo electrónico ya está en uso",
+      "INVALID": "Formato de correo electrónico no válido"
+    },
+    "PASSWORD": {
+      "DONT_MATCH": "Las contraseñas no coinciden",
+      "TOO_SIMILAR": "La contraseña y el nombre de usuario son demasiado similares",
+      "TOO_SHORT": "La contraseña debe tener al menos 8 caracteres",
+      "TOO_COMMON": "La contraseña es demasiado común",
+      "ENTIRELY_NUMERIC": "La contraseña no puede ser solo números"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Nombre de usuario o contraseña no válidos",
+      "NOT_VERIFIED": "El usuario no está verificado",
+      "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con los datos proporcionados",
+      "NOT_FOUND": "Usuario no encontrado"
+    },
     "OAUTH": {
-      "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
-    }
+      "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",
+      "TOKEN": "Error inesperado al procesar el token de oauth",
+      "USER_INFO": "Error inesperado al recuperar la información del usuario",
+      "EMAIL_EXISTS": "El correo electrónico ya está en uso en otra cuenta"
+    },
+    "INVALID_TOKEN": "Token no válido",
+    "EXPIRED_TOKEN": "Token expirado",
+    "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
   },
   "LANGUAGE": {
     "ES": "Español",
