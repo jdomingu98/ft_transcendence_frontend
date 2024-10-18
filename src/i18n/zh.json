@@ -313,7 +313,7 @@
       "INVALID": "用户名必须是字母数字，可以包含连字符，长度为3到20个字符"
     },
     "EMAIL": {
-      "ALREADY_EXITS": "该电子邮件已被使用",
+      "ALREADY_EXISTS": "该电子邮件已被使用",
       "INVALID": "无效的电子邮件格式"
     },
     "PASSWORD": {

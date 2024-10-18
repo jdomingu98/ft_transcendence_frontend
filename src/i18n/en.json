@@ -313,7 +313,7 @@
       "INVALID": "Username must be alphanumeric, may include hyphens, and be 3-20 characters long"
     },
     "EMAIL": {
-      "ALREADY_EXITS": "This email is already in use",
+      "ALREADY_EXISTS": "This email is already in use",
       "INVALID": "Invalid email format"
     },
     "PASSWORD": {

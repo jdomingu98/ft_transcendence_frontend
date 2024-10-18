@@ -313,7 +313,7 @@
       "INVALID": "El nombre de usuario debe ser alfanumérico, puede incluir guiones y tener entre 3 y 20 caracteres"
     },
     "EMAIL": {
-      "ALREADY_EXITS": "Este correo electrónico ya está en uso",
+      "ALREADY_EXISTS": "Este correo electrónico ya está en uso",
       "INVALID": "Formato de correo electrónico no válido"
     },
     "PASSWORD": {

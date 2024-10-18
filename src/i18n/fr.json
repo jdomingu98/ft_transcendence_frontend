@@ -313,7 +313,7 @@
       "INVALID": "Le nom d'utilisateur doit être alphanumérique, peut inclure des tirets, et faire entre 3 et 20 caractères"
     },
     "EMAIL": {
-      "ALREADY_EXITS": "Cet email est déjà utilisé",
+      "ALREADY_EXISTS": "Cet email est déjà utilisé",
       "INVALID": "Format d'email invalide"
     },
     "PASSWORD": {
