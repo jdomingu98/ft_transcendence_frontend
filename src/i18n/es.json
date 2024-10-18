@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirmar contraseña",
       "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Usuario o contraseña inválidos",
-      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
-    },
     "REGISTER": {
       "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
       "OPTION_TEXT": "- O REGÍSTRATE CON -"
@@ -251,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jugar partida",
     "TOURNAMENTS": "Torneos",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Solicitudes de amistad",
     "RANKING": "Clasificación",
     "SETTINGS": "Ajustes",
     "LOGOUT": "Cerrar sesión"
@@ -260,6 +256,7 @@
     "SEARCH": "Buscar usuarios...",
     "HEADER": {
       "POSITION": "Posición: ",
+      "POINTS": "Puntos: ",
       "STATUS": {
         "CONNECTED": "Disponible",
         "DISCONNECTED": "No disponible",
@@ -268,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Estadísticas Globales",
       "GOALS_SCORED": "Goles Marcados",
       "GOALS_AGAINST": "Goles Recibidos",
       "GOALS_STOPPED": "Goles Parados",
@@ -275,7 +273,9 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
+    "FRIENDS_LIST_TITLE": "Lista de Amigos",
     "MATCH_HISTORY": {
+      "TITLE": "Historial de Partidas",
       "TABLE_HEAD": {
         "RESULT": "Resultado",
         "OPPONENT": "Oponente",

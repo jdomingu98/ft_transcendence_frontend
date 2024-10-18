@@ -27,6 +27,11 @@ class ProfilePage extends WebComponent {
                 </div>
                 <div class="w-100 mx-auto my-3 pb-4 profile-container">
                     <div class="mt-4">
+                        <profile-friendship></profile-friendship>
+                    </div>
+                </div>
+                <div class="w-100 mx-auto my-3 pb-4 profile-container">
+                    <div class="mt-4">
                         <profile-history></profile-history>
                     </div>
                 </div>

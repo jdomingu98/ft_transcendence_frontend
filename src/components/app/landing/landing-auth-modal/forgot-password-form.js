@@ -25,7 +25,7 @@ class ForgotPasswordForm extends WebComponent {
             })
             .catch(() => {
                 input.classList.add('input-error');
-                errorMessageElement.textContent = this.translator.translate('LANDING.ERROR.PASS_RESET');
+                errorMessageElement.textContent = this.translator.translate('ERROR.USER.PASS_RESET');
                 errorMessageElement.classList.remove('hidden');
             });
     }

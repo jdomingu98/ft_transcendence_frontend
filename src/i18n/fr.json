@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirmer le mot de passe",
       "CONFIRM_PASSWORD_PHOLDER": "Confirmez votre mot de passe"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
-      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
-    },
     "REGISTER": {
       "TERMS": "J'accepte les <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Conditions Générales</a>",
       "OPTION_TEXT": "- OU INSCRIVEZ-VOUS AVEC -"
@@ -251,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jouer à un jeu",
     "TOURNAMENTS": "Tournois",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Demandes d'amitié",
     "RANKING": "Classement",
     "SETTINGS": "Paramètres",
     "LOGOUT": "Déconnexion"
@@ -260,6 +256,7 @@
     "SEARCH": "Recherche d'utilisateurs...",
     "HEADER": {
       "POSITION": "Poste: ",
+      "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connecté",
         "DISCONNECTED": "Déconnecté",
@@ -268,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Statistiques Globales",
       "GOALS_SCORED": "Buts Marqués",
       "GOALS_AGAINST": "Objectifs Contre",
       "GOALS_STOPPED": "Objectifs Arrêtés",
@@ -275,7 +273,9 @@
       "WINRATE": "Taux de </br>Victoire", 
       "STREAK": "Série de </br>Victoires Maximale"
     },
+    "FRIENDS_LIST_TITLE": "Liste d'Amis",
     "MATCH_HISTORY": {
+      "TITLE": "Historique des Matchs",
       "TABLE_HEAD": {
         "RESULT": "Résultat",
         "OPPONENT": "Adversaire",
@@ -330,7 +330,7 @@
       "NOT_FOUND": "Utilisateur non trouvé"
     },
     "OAUTH": {
-      "NO_CODE": "Oups, pourquoi es-tu ici? 🤔",
+      "NO_CODE": "Oups, pong-quoi es-tu ici? 🤔",
       "TOKEN": "Erreur inattendue lors du traitement du token oauth",
       "USER_INFO": "Erreur inattendue lors de la récupération des informations utilisateur",
       "EMAIL_EXISTS": "L'email est utilisé dans un autre compte"

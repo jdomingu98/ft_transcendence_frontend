@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirm Password",
       "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Invalid username or password",
-      "PASS_RESET": "No user or email matches the given input"
-    },
     "REGISTER": {
       "TERMS": "I agree to the <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Terms and Conditions</a>",
       "OPTION_TEXT": "- OR REGISTER WITH -"
@@ -251,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Play a game",
     "TOURNAMENTS": "Tournaments",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Friendship requests",
     "RANKING": "Ranking",
     "SETTINGS": "Settings",
     "LOGOUT": "Log out"
@@ -260,6 +256,7 @@
     "SEARCH": "Search users...",
     "HEADER": {
       "POSITION": "Position: ",
+      "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connected",
         "DISCONNECTED": "Disconnected",
@@ -268,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Global Stats",
       "GOALS_SCORED": "Goals Scored",
       "GOALS_AGAINST": "Goals Against",
       "GOALS_STOPPED": "Goals Stopped",
@@ -275,7 +273,9 @@
       "WINRATE": "Win Rate", 
       "STREAK": "Max Win Streak"
     },
+    "FRIENDS_LIST_TITLE": "Friends List",
     "MATCH_HISTORY": {
+      "TITLE": "Match History",
       "TABLE_HEAD": {
         "RESULT": "Result",
         "OPPONENT": "Opponent",
