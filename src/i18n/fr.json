@@ -338,11 +338,5 @@
     "INVALID_TOKEN": "Token invalide",
     "EXPIRED_TOKEN": "Token expiré",
     "OTP_CODE": "Code incorrect inséré. Veuillez réessayer"
-  },
-  "LANGUAGE": {
-    "ES": "Espagnol",
-    "EN": "Anglais",
-    "FR": "Français",
-    "ZH": "Chinois simplifié"
   }
 }

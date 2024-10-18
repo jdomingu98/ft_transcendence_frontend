@@ -37,7 +37,7 @@ class LandingNavBar extends WebComponent {
                 >
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
                 </router-link>
-                <language-selector class="col-2" w="130px" h="35px"></language-selector>
+                <language-selector class="col-2" w="140px" h="35px"></language-selector>
                 <primary-button w="165px" h="45px">
                     {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
                 </primary-button>

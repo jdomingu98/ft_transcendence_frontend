@@ -16,10 +16,10 @@ const DEFAULT_BANNER_IMG = 'https://placehold.co/1000x200/png';
 const DEFAULT_SIDEBAR_PROFILE_IMG = 'https://placehold.co/50/png';
 
 export const LANGUAGES = [
-    { language: 'es', flag:  '🇪🇸', url: '/src/i18n/es.json', default: true },
-    { language: 'en', flag:  '🇺🇸', url: '/src/i18n/en.json' },
-    { language: 'fr', flag:  '🇫🇷', url: '/src/i18n/fr.json' },
-    { language: 'zh', flag:  '🇨🇳', url: '/src/i18n/zh.json' }
+    { language: 'es', flag:  '🇪🇸', url: '/src/i18n/es.json', name: 'Español', default: true },
+    { language: 'en', flag:  '🇺🇸', url: '/src/i18n/en.json', name: 'English'},
+    { language: 'fr', flag:  '🇫🇷', url: '/src/i18n/fr.json', name: 'Français'},
+    { language: 'zh', flag:  '🇨🇳', url: '/src/i18n/zh.json', name: '简体中文'}
 ];
 
 export {
