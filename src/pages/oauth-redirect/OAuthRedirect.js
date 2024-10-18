@@ -1,7 +1,7 @@
 import WebComponent, { Component, Router } from '#WebComponent';
 import AuthService from '#services/AuthService';
 import NavigatorService from '#services/NavigatorService';
-import { ToastService } from '#services/ToastService.js';
+import { SnackbarService } from '#services/SnackbarService.js';
 import css from './OAuthRedirect.css?inline';
 
 export default Component({
@@ -18,7 +18,7 @@ class OAuthRedirect extends WebComponent {
                 .then(({ access_token, refresh_token }) => {
                     localStorage.setItem('access_token', access_token);
                     localStorage.setItem('refresh_token', refresh_token);
-                    ToastService.addToast({ title: 'Login con 42', body: 'Ud. se ha logueado exitosamente' });
+                    SnackbarService.addToast({ title: 'Login con 42', body: 'Ud. se ha logueado exitosamente' });
                     NavigatorService.goToHome();
                 })
                 .catch(({ error }) => NavigatorService.goToErrorPage(error));
