@@ -309,14 +309,19 @@
       "DESCRIPTION": "It seems our pong balls got lost in cyberspace."
     },
     "USERNAME": {
+      "REQUIRED": "Username is required",
+      "LENGTH": "Username must be 3-20 characters long",
       "ALREADY_EXISTS": "This username is already in use",
-      "INVALID": "Username must be alphanumeric, may include hyphens, and be 3-20 characters long"
+      "INVALID": "Username must be alphanumeric and may include hyphens"
     },
     "EMAIL": {
+      "REQUIRED": "Email is required",
       "ALREADY_EXISTS": "This email is already in use",
       "INVALID": "Invalid email format"
     },
     "PASSWORD": {
+      "REQUIRED": "Password is required",
+      "REQUIRED_CONFIRM": "Confirm password is required",
       "DONT_MATCH": "Passwords don't match",
       "TOO_SIMILAR": "Password and username are too similar",
       "TOO_SHORT": "Password must have 8 characters at least",
@@ -327,6 +332,7 @@
       "INVALID_LOGIN": "Invalid username or password",
       "NOT_VERIFIED": "User is not verified",
       "PASS_RESET": "No user or email matches the given input",
+      "CHECKBOX": "You must accept the terms and conditions",
       "NOT_FOUND": "User not found"
     },
     "OAUTH": {

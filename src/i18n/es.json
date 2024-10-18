@@ -309,14 +309,19 @@
       "DESCRIPTION": "Parece que nuestras pelotas de pong se han perdido en el ciberespacio."
     },
     "USERNAME": {
-      "ALREADY_EXISTS": "Este nombre de usuario ya está en uso",
-      "INVALID": "El nombre de usuario debe ser alfanumérico, puede incluir guiones y tener entre 3 y 20 caracteres"
+      "REQUIRED": "El usuario es obligatorio",
+      "LENGTH": "El usuario debe tener entre 3 y 20 caracteres",
+      "ALREADY_EXISTS": "Este usuario ya está en uso",
+      "INVALID": "El usuario debe ser alfanumérico y puede incluir guiones"
     },
     "EMAIL": {
+      "REQUIRED": "El correo electrónico es obligatorio",
       "ALREADY_EXISTS": "Este correo electrónico ya está en uso",
       "INVALID": "Formato de correo electrónico no válido"
     },
     "PASSWORD": {
+      "REQUIRED": "La contraseña es obligatoria",
+      "REQUIRED_CONFIRM": "Confirmar contraseña es obligatorio",
       "DONT_MATCH": "Las contraseñas no coinciden",
       "TOO_SIMILAR": "La contraseña y el nombre de usuario son demasiado similares",
       "TOO_SHORT": "La contraseña debe tener al menos 8 caracteres",
@@ -326,7 +331,8 @@
     "USER": {
       "INVALID_LOGIN": "Nombre de usuario o contraseña no válidos",
       "NOT_VERIFIED": "El usuario no está verificado",
-      "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con los datos proporcionados",
+      "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
+      "CHECKBOX": "Debes aceptar los términos y condiciones",
       "NOT_FOUND": "Usuario no encontrado"
     },
     "OAUTH": {

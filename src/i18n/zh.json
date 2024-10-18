@@ -309,14 +309,19 @@
       "DESCRIPTION": "看起来我们的乒乓球在网络空间迷路了。"
     },
     "USERNAME": {
+      "REQUIRED": "用户名是必填项",
+      "LENGTH": "用户名长度必须为3到20个字符",
       "ALREADY_EXISTS": "该用户名已被使用",
-      "INVALID": "用户名必须是字母数字，可以包含连字符，长度为3到20个字符"
+      "INVALID": "用户名必须是字母数字组合，可以包含连字符"
     },
     "EMAIL": {
+      "REQUIRED": "电子邮件是必填项",
       "ALREADY_EXISTS": "该电子邮件已被使用",
       "INVALID": "无效的电子邮件格式"
     },
     "PASSWORD": {
+      "REQUIRED": "密码是必填项",
+      "REQUIRED_CONFIRM": "确认密码是必填项",
       "DONT_MATCH": "密码不匹配",
       "TOO_SIMILAR": "密码和用户名太相似",
       "TOO_SHORT": "密码至少需要8个字符",
@@ -327,6 +332,7 @@
       "INVALID_LOGIN": "用户名或密码无效",
       "NOT_VERIFIED": "用户未验证",
       "PASS_RESET": "没有与提供的输入匹配的用户或电子邮件",
+      "CHECKBOX": "您必须接受条款和条件",
       "NOT_FOUND": "用户未找到"
     },
     "OAUTH": {
