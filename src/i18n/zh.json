@@ -308,14 +308,36 @@
       "TITLE": "哦，不，这有点尴-乓。。。",
       "DESCRIPTION": "看起来我们的乒乓球在网络空间迷路了。"
     },
-    "OAUTH": {
-      "NO_CODE": "哎呀，你怎么会在这里？ 🤔"
+    "USERNAME": {
+      "ALREADY_EXISTS": "该用户名已被使用",
+      "INVALID": "用户名必须是字母数字，可以包含连字符，长度为3到20个字符"
+    },
+    "EMAIL": {
+      "ALREADY_EXITS": "该电子邮件已被使用",
+      "INVALID": "无效的电子邮件格式"
+    },
+    "PASSWORD": {
+      "DONT_MATCH": "密码不匹配",
+      "TOO_SIMILAR": "密码和用户名太相似",
+      "TOO_SHORT": "密码至少需要8个字符",
+      "TOO_COMMON": "密码过于常见",
+      "ENTIRELY_NUMERIC": "密码不能仅由数字组成"
     },
     "USER": {
       "INVALID_LOGIN": "用户名或密码无效",
       "NOT_VERIFIED": "用户未验证",
-      "PASS_RESET": "没有用户或电子邮件与提供的数据匹配"
-    }
+      "PASS_RESET": "没有与提供的输入匹配的用户或电子邮件",
+      "NOT_FOUND": "用户未找到"
+    },
+    "OAUTH": {
+      "NO_CODE": "哎呀，你怎么会在这里？ 🤔",
+      "TOKEN": "处理oauth令牌时发生意外错误",
+      "USER_INFO": "检索用户信息时发生意外错误",
+      "EMAIL_EXISTS": "该电子邮件已被其他账户使用"
+    },
+    "INVALID_TOKEN": "无效的令牌",
+    "EXPIRED_TOKEN": "令牌已过期",
+    "OTP_CODE": "插入的代码不正确。请再试一次"
   },
   "LANGUAGE": {
     "ES": "西班牙语",

@@ -308,14 +308,36 @@
       "TITLE": "Oh non, c'est pong-barrassant...",
       "DESCRIPTION": "Il semble que nos balles de pong se soient perdues dans le cyberespace."
     },
-    "OAUTH": {
-      "NO_CODE": "Oups, pourquoi es-tu ici? 🤔"
+    "USERNAME": {
+      "ALREADY_EXISTS": "Ce nom d'utilisateur est déjà utilisé",
+      "INVALID": "Le nom d'utilisateur doit être alphanumérique, peut inclure des tirets, et faire entre 3 et 20 caractères"
+    },
+    "EMAIL": {
+      "ALREADY_EXITS": "Cet email est déjà utilisé",
+      "INVALID": "Format d'email invalide"
+    },
+    "PASSWORD": {
+      "DONT_MATCH": "Les mots de passe ne correspondent pas",
+      "TOO_SIMILAR": "Le mot de passe et le nom d'utilisateur sont trop similaires",
+      "TOO_SHORT": "Le mot de passe doit comporter au moins 8 caractères",
+      "TOO_COMMON": "Le mot de passe est trop courant",
+      "ENTIRELY_NUMERIC": "Le mot de passe ne peut pas être uniquement numérique"
     },
     "USER": {
       "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
-      "NOT_VERIFIED": "Utilisateur non vérifié",
-      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
-    }
+      "NOT_VERIFIED": "L'utilisateur n'est pas vérifié",
+      "PASS_RESET": "Aucun utilisateur ou email ne correspond aux informations fournies",
+      "NOT_FOUND": "Utilisateur non trouvé"
+    },
+    "OAUTH": {
+      "NO_CODE": "Oups, pong-quoi es-tu ici? 🤔",
+      "TOKEN": "Erreur inattendue lors du traitement du token oauth",
+      "USER_INFO": "Erreur inattendue lors de la récupération des informations utilisateur",
+      "EMAIL_EXISTS": "L'email est utilisé dans un autre compte"
+    },
+    "INVALID_TOKEN": "Token invalide",
+    "EXPIRED_TOKEN": "Token expiré",
+    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer"
   },
   "LANGUAGE": {
     "ES": "Espagnol",
