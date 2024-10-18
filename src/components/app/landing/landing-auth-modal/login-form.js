@@ -38,7 +38,7 @@ class LoginForm extends WebComponent {
             }
         }).catch(e => {
             input.forEach(input => input.classList.add('input-error'));
-            errorMessageElement.textContent = this.translator.translate(e.error);
+            errorMessageElement.textContent = this.translator.translate(e.error[0]);
             errorMessageElement.classList.remove('hidden');
         });
     }
