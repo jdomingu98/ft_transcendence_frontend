@@ -1,4 +1,6 @@
-import WebComponent, { Component, Router } from '#WebComponent';
+import WebComponent, { Component } from '#WebComponent';
+import AuthService from '#services/AuthService';
+import NavigatorService from '#services/NavigatorService';
 
 //import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
 
@@ -94,17 +96,20 @@ class MainSidebar extends WebComponent {
         this.subscribeAll('.menu-options', 'click', ({ currentTarget }) => {
             const option = this.state.sidebarLinks.find(({ sidebarElementId }) => sidebarElementId === currentTarget.id);
 
-            let route = `/app/${option.sidebarElementId}`;
-
-            if (option.sidebarElementId === 'logout') {
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('refresh_token');
-                route = '/';
+            if (option.sidebarElementId !== 'logout') {
+                NavigatorService.goToSidebarElementPage(option.sidebarElementId);
+                return;
             }
-            Router.push(route);
+
+            AuthService.logout({ token: localStorage.getItem('access_token') })
+                .then(() => {
+                    localStorage.removeItem('access_token');
+                    localStorage.removeItem('refresh_token');
+                    NavigatorService.goToLandingPage();
+                }).catch(e => NavigatorService.goToErrorPage(e.error[0]));
         });
 
-        this.subscribe('#profile', 'click', () => Router.push('/app/profile/me'));
+        this.subscribe('#profile', 'click', () => NavigatorService.goToHome());
     }
 
     render() {
