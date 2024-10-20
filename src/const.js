@@ -22,6 +22,8 @@ export const LANGUAGES = [
     { language: 'zh', flag:  '🇨🇳', url: '/src/i18n/zh.json', name: '简体中文'}
 ];
 
+const DECISION_THRESHOLD = 300;
+
 export {
     BUTTON_DEFAULT_MSG,
     DEFAULT_DIMENSION_VALUE,
@@ -30,5 +32,6 @@ export {
     BUTTON_DEFAULT_SECONDARY_COLOR,
     DEFAULT_PROFILE_IMG,
     DEFAULT_BANNER_IMG,
-    DEFAULT_SIDEBAR_PROFILE_IMG
+    DEFAULT_SIDEBAR_PROFILE_IMG,
+    DECISION_THRESHOLD
 };

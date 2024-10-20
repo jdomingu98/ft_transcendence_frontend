@@ -1,0 +1,133 @@
+.friendship-container {
+    display: grid;
+    place-content: center;
+    max-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    padding-top: 64px;
+}
+
+.card-background {
+    position: absolute;
+    background: var(--app-secondary-bg-color);
+    inset: 0;
+    z-index: -10;
+    border-radius: 10px;
+}
+
+.shadow {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+aside {
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    position: relative;
+}
+
+section {
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    & > span {
+        display: grid;
+        place-content: center;
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        height: 100%;
+        z-index: -1;
+    }
+
+    & article {
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, .2);
+        cursor: grab;
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
+        &.go-left {
+            transform: translateX(-100%) !important;
+        }
+
+        &.go-right {
+            transform: translateX(100%) !important;
+        }
+
+        &.go-left, &.go-right {
+            transition: transform .5s ease;
+        }
+
+        &.reset {
+            transition: transform .5s ease;
+            transform: translateX(0) !important;
+        }
+
+        & .choice {
+            border-radius: 8px;
+            border: 4px solid;
+            z-index: 9999;
+            position: absolute;
+            top: 32px;
+            right: 16px;
+            opacity: 0;
+            padding: 4px 8px;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            width: fit-content;
+
+            &.reject {
+                border-color: var(--app-red-color);
+                color: var(--app-red-color);
+                transition: opacity .5s ease;
+            }
+
+            &.accept {
+                border-color: var(--app-green-color);
+                color: var(--app-green-color);
+                left: 16px;
+                transition: opacity .5s ease;
+            }
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        & h2 {
+            color: white;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            width: 100%;
+            padding: 16px;
+            z-index: 3;
+            background: linear-gradient(to top,
+                #000000AA 15%,
+                #00000088 30%,
+                transparent 40%);
+        }
+    }
+}

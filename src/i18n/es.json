@@ -294,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Aceptar",
+    "REJECT": "Rechazar",
+    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad...<br/>Vuelve más tarde"
+  },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",
     "POSITION": "Tu posición actual",
