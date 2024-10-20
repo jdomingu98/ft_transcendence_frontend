@@ -5,6 +5,7 @@ import './legal-docs/TermsConditions';
 import './sidebar/MainSidebar';
 import './profile/ProfilePage';
 import './search-results/SearchResults';
+import './friendship/FriendshipPage';
 import './ranking/RankingPage';
 import './reset-password/ResetPassword';
 import './oauth-redirect/OAuthRedirect';
