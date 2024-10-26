@@ -19,34 +19,32 @@ export default Component ({
 
 class ProfileStats extends WebComponent {
 
-    init() {
-        this.state = {
-            stats: [{
-                statName: '{{ translator.translate("PROFILE.STATS.GOALS_SCORED") }}',
-                statValue: playerData.goalsScored,
-                statColor: 'var(--app-green-color)',
-            }, {
-                statName: '{{ translator.translate("PROFILE.STATS.GOALS_AGAINST") }}',
-                statValue: playerData.goalsAgainst,
-                statColor: 'var(--app-red-color)'
-            }, {
-                statName: '{{ translator.translate("PROFILE.STATS.GOALS_STOPPED") }}',
-                statValue: playerData.goalsStopped,
-                statColor: 'var(--app-blue-color)'
-            }, {
-                statName: '{{ translator.translate("PROFILE.STATS.TIME_PLAYED") }}',
-                statValue: playerData.timePlayed,
-                statColor: 'white'
-            }, {
-                statName: `${ this.translator.translate('PROFILE.STATS.WINRATE')}`,
-                statValue: playerData.soloWr,
-                statCode: 'wr'
-            }, {
-                statName: `${ this.translator.translate('PROFILE.STATS.STREAK')}`,
-                statValue: playerData.maxWinStreak,
-                statCode: 'streak'
-            }]
-        };
+    getStats() {
+        return [{
+            statName: '{{ translator.translate("PROFILE.STATS.GOALS_SCORED") }}',
+            statValue: playerData.goalsScored,
+            statColor: 'var(--app-green-color)',
+        }, {
+            statName: '{{ translator.translate("PROFILE.STATS.GOALS_AGAINST") }}',
+            statValue: playerData.goalsAgainst,
+            statColor: 'var(--app-red-color)'
+        }, {
+            statName: '{{ translator.translate("PROFILE.STATS.GOALS_STOPPED") }}',
+            statValue: playerData.goalsStopped,
+            statColor: 'var(--app-blue-color)'
+        }, {
+            statName: '{{ translator.translate("PROFILE.STATS.TIME_PLAYED") }}',
+            statValue: playerData.timePlayed,
+            statColor: 'white'
+        }, {
+            statName: `${ this.translator.translate('PROFILE.STATS.WINRATE')}`,
+            statValue: playerData.soloWr,
+            statCode: 'wr'
+        }, {
+            statName: `${ this.translator.translate('PROFILE.STATS.STREAK')}`,
+            statValue: playerData.maxWinStreak,
+            statCode: 'streak'
+        }];
     }
 
     afterViewInit() {
@@ -58,7 +56,7 @@ class ProfileStats extends WebComponent {
     }
 
     mapStatsToDiv() {
-        return this.state.stats.map(stat => {
+        return this.getStats().map(stat => {
             if (stat.statCode === 'wr') {
                 return`
                     <div class="stat">
