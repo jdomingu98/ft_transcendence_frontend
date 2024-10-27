@@ -294,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Accepter",
+    "REJECT": "Rejeter",
+    "NO_MORE_REQUESTS": "Il n'y a plus de demandes d'ami...<br/>Revenez plus tard"
+  },
   "LEADERBOARD": {
     "TITLE": "Les 10 meilleurs joueurs de Pong",
     "POSITION": "Votre position actuelle",

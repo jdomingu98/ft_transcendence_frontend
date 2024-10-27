@@ -294,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "接受",
+    "REJECT": "拒绝",
+    "NO_MORE_REQUESTS": "没有更多的好友请求了...<br/>稍后再来"
+  },
   "LEADERBOARD": {
     "TITLE": "前 10 名乒乓球玩家",
     "POSITION": "你当前的位置",
