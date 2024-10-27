@@ -27,13 +27,14 @@ class InputField extends WebComponent {
 
     renderFileInput(id, width, height, name, ariaLabel) {
         return `
-            <div class="file-select">
+            <div class="file-select" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.INPUT_FILE_PHOLD')">
                 <input
                     id= "${id}"
                     type="file"
                     class="rounded mx-auto p-3"
                     style="width:${width}; height:${height};"
                     name="${name}"
+                    [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.PROFILE_IMG_PHOLD')"
                     aria-label="${ariaLabel}"
                 >
                 </input>

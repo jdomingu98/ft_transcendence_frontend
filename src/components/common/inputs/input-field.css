@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    content: '${ SETTINGS.INPUT_FILE_PLACEHOLDER }'; /*Seleccionar imagen*/
+    content: attr(data-content);
     position: absolute;
     left: 0;
     right: 0;
@@ -29,8 +29,8 @@
     display: inline-block;
 }
 
-#upload-profile-img::before {
-    content: '{{ SETTINGS.PROFILE_IMG_PLACEHOLDER }}';
+.file-select input[type="file"] #upload-profile-img::before {
+    content: attr(data-content) !important;
 }
 
 input::placeholder {
