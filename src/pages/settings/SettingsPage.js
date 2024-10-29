@@ -101,21 +101,23 @@ class SettingsPage extends WebComponent {
 
     render() {
         return `
-            <div class="w-100 h-100 d-flex">
-                <aside class="position-relative col-md-4 d-flex justify-content-center gap-5">
-                    <div class="options-settings position-fixed top-50 d-flex row justify-content-start rounded p-3 settings-sidebar">
+            <div class="w-100 h-100 container">
+                <aside class="d-flex flex-column justify-content-center settings-sidebar position-sticky sticky p-3 rounded">
+                    <div class=" options-settings">
                         ${ this.mapSidebarSettingsLinksToDiv() }
                     </div>
                 </aside>
-                <div class="w-50 d-flex col justify-content-center align-items-center">
-                    <div class="d-flex row justify-content-center align-items-center">
-                        <settings-user-management id="user-management"></settings-user-management>
-                        <!--<settings-change-password id="change-password"></settings-change-password>
-                        <settings-two-factor id="two-factor"></settings-two-factor>
-                        <settings-visibility id="visibility"></settings-visibility>
-                        <settings-about id="about"></settings-about>
-                        <settings-delete-account id="delete-account"></settings-delete-account> -->
-                    </div>
+                <div class="d-flex flex-column justify-content-center align-items-center settings-content">
+                    <settings-user-management id="user-management"></settings-user-management>
+                    <settings-user-management id="user-management"></settings-user-management>
+                    <settings-user-management id="user-management"></settings-user-management>
+                    <settings-user-management id="user-management"></settings-user-management>
+                    <settings-user-management id="user-management"></settings-user-management>
+                    <!--<settings-change-password id="change-password"></settings-change-password>
+                    <settings-two-factor id="two-factor"></settings-two-factor>
+                    <settings-visibility id="visibility"></settings-visibility>
+                    <settings-about id="about"></settings-about>
+                    <settings-delete-account id="delete-account"></settings-delete-account> -->
                 </div>
             </div>
         `;

@@ -1,12 +1,21 @@
 .settings-sidebar {
-    left: 25%;
-    width: 400px;
+    min-width: 400px;
     height: 600px;
     font-size: 1.2rem;
-    transform: translateY(-50%);
     background-color: var(--app-secondary-bg-color);
-    z-index: 1000;
+    z-index: 42;
 }
+
+.sticky {
+    top: 80px;
+    transform: translateY(20%);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 40px;
+  }
 
 i {
     font-size: 1.6rem !important;
@@ -25,4 +34,8 @@ i {
 
 .selected span {
     color: #8DBEDA !important;
+}
+
+.settings-content {
+    max-width: 1000px;
 }
