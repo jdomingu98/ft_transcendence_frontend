@@ -101,9 +101,9 @@ class SettingsPage extends WebComponent {
 
     render() {
         return `
-            <div class="w-100 h-100 container">
+            <div class="w-100 h-100 settings-container">
                 <aside class="d-flex flex-column justify-content-center settings-sidebar position-sticky sticky p-3 rounded">
-                    <div class=" options-settings">
+                    <div class="options-settings">
                         ${ this.mapSidebarSettingsLinksToDiv() }
                     </div>
                 </aside>
