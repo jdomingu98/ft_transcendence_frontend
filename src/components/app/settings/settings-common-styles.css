@@ -1,0 +1,68 @@
+input:not([type="file"]), button {
+    width: 85%;
+    height: 62px;
+    border: 2px solid var(--app-secondary-color);
+    outline: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+}
+
+button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    background: var(--app-secondary-bg-color);
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    font-weight: 500;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+    opacity: 0.4;
+}
+
+input[type="file"] {
+    position: relative;
+    display: inline-block;
+    width: 85%;
+}
+
+input[type="file"]::before {
+    background-color: var(--app-secondary-bg-color);
+    border: 2px solid var(--app-secondary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: attr(data-content);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-transform: capitalize;
+
+}
+
+.file-selected {
+    opacity: 0.6;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
