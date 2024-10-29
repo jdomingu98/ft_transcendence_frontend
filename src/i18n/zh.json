@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "欢迎！",
+        "DESC": "我们已向您发送电子邮件以验证您的帐户"
+      },
+      "LOGIN": {
+        "TITLE": "欢迎回来！",
+        "DESC": "正在重定向到您的个人资料，请稍候..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "需要OTP验证",
+        "DESC": "我们已向您发送带有代码的电子邮件。请查看！"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "收到密码帮助",
+        "DESC": "我们已向您发送电子邮件，里面包含说明"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP 验证成功",
+      "DESC": "正在重定向到您的个人资料，请稍候..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "玩游戏",
@@ -37,8 +61,42 @@
       "LOCAL_MODE": "试试本地模式",
       "CREATE_TOURNAMENT": "创建锦标赛",
       "DISCOVER": "结识新朋友",
+      "REGISTER": "注册",
       "REGISTER_NOW": "立即注册",
-      "GET_STARTED": "开始"
+      "42_ACCOUNT": "42 个网络",
+      "GET_STARTED": "开始",
+      "LOGIN": "登录",
+      "LOGIN_NOW": "现在登录",     
+      "SIGN_UP": "注册",
+      "FORGOT_PASSWORD": "发送说明"
+    },
+    "FORMS": {
+      "USERNAME": "用户名",
+      "EMAIL": "电子邮件",
+      "EMAIL_OR_USERNAME": "电子邮件或用户名",
+      "EMAIL_USERNAME_PHOLDER": "确认身份",
+      "PASSWORD": "密码",
+      "PASSWORD_PHOLDER": "您的密码",
+      "CONFIRM_PASSWORD": "确认密码",
+      "CONFIRM_PASSWORD_PHOLDER": "确认您的密码"
+    },
+    "REGISTER": {
+      "TERMS": "我同意<a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>条款和条件</a>",
+      "OPTION_TEXT": "- 或通过以下方式注册 -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "登录",
+      "FORGOT_PASSWORD": "忘记密码了？",
+      "OPTION_TEXT": "- 或通过以下方式登录 -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "密码帮助",
+      "DESC": "输入您的电子邮件或用户名，我们将向您发送有关如何重置密码的说明。"
+    },
+    "OTP": {
+      "TITLE": "需要 OTP 验证",
+      "DESC": "我们已向您发送了一封包含一次性密码的电子邮件。</br>请在以下输入框中输入验证码",
+      "BUTTON_TITLE": "验证代码"
     }
   },
   "LEGAL_COMMON_DATA": {
@@ -189,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "玩游戏",
     "TOURNAMENTS": "锦标赛",
-    "CHATS": "聊天",
+    "FRIENDSHIP_REQUEST": "友谊请求",
     "RANKING": "排名",
     "SETTINGS": "设置",
     "LOGOUT": "退出登录"
@@ -198,6 +256,7 @@
     "SEARCH": "搜索用户...",
     "HEADER": {
       "POSITION": "职位: ",
+      "POINTS": "点数: ",
       "STATUS": {
         "CONNECTED": "已连接",
         "DISCONNECTED": "断开",
@@ -206,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "全球统计",
       "GOALS_SCORED": "进球数",
       "GOALS_AGAINST": "反对目标",
       "GOALS_STOPPED": "目标停止",
@@ -213,7 +273,9 @@
       "WINRATE": "中奖率", 
       "STREAK": "最大连胜"
     },
+    "FRIENDS_LIST_TITLE": "好友列表",
     "MATCH_HISTORY": {
+      "TITLE": "比赛记录",
       "TABLE_HEAD": {
         "RESULT": "结果",
         "OPPONENT": "对手",
@@ -232,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "接受",
+    "REJECT": "拒绝",
+    "NO_MORE_REQUESTS": "没有更多的好友请求了...<br/>稍后再来"
+  },
   "LEADERBOARD": {
     "TITLE": "前 10 名乒乓球玩家",
     "POSITION": "你当前的位置",
@@ -246,9 +313,42 @@
       "TITLE": "哦，不，这有点尴-乓。。。",
       "DESCRIPTION": "看起来我们的乒乓球在网络空间迷路了。"
     },
+    "USERNAME": {
+      "REQUIRED": "用户名是必填项",
+      "LENGTH": "用户名长度必须为3到20个字符",
+      "ALREADY_EXISTS": "该用户名已被使用",
+      "INVALID": "用户名必须是字母数字组合，可以包含连字符"
+    },
+    "EMAIL": {
+      "REQUIRED": "电子邮件是必填项",
+      "ALREADY_EXISTS": "该电子邮件已被使用",
+      "INVALID": "无效的电子邮件格式"
+    },
+    "PASSWORD": {
+      "REQUIRED": "密码是必填项",
+      "REQUIRED_CONFIRM": "确认密码是必填项",
+      "DONT_MATCH": "密码不匹配",
+      "TOO_SIMILAR": "密码和用户名太相似",
+      "TOO_SHORT": "密码至少需要8个字符",
+      "TOO_COMMON": "密码过于常见",
+      "ENTIRELY_NUMERIC": "密码不能仅由数字组成"
+    },
+    "USER": {
+      "INVALID_LOGIN": "用户名或密码无效",
+      "NOT_VERIFIED": "用户未验证",
+      "PASS_RESET": "没有与提供的输入匹配的用户或电子邮件",
+      "CHECKBOX": "您必须接受条款和条件",
+      "NOT_FOUND": "用户未找到"
+    },
     "OAUTH": {
-      "NO_CODE": "哎呀，你怎么会在这里？ 🤔"
-    }
+      "NO_CODE": "哎呀，你怎么会在这里？ 🤔",
+      "TOKEN": "处理oauth令牌时发生意外错误",
+      "USER_INFO": "检索用户信息时发生意外错误",
+      "EMAIL_EXISTS": "该电子邮件已被其他账户使用"
+    },
+    "INVALID_TOKEN": "无效的令牌",
+    "EXPIRED_TOKEN": "令牌已过期",
+    "OTP_CODE": "插入的代码不正确。请再试一次"
   },
   "SETTINGS": {
     "SECTIONS": {
@@ -266,11 +366,5 @@
       "INPUT_FILE_PHOLD": "上传图片",
       "PROFILE_IMG_PHOLD": "上传头像"
     }
-  },
-  "LANGUAGE": {
-    "ES": "西班牙语",
-    "EN": "英语",
-    "FR": "法语",
-    "ZH": "简体中文"
   }
 }

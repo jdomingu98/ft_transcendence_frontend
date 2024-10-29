@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "Welcome!",
+        "DESC": "We have sent you an email to verify your account"
+      },
+      "LOGIN": {
+        "TITLE": "Welcome Back!",
+        "DESC": "Redirecting to your profile, please wait a moment..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "OTP Verification Required",
+        "DESC": "We sent you an email with a code. Please check it out!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Password Assistance Received",
+        "DESC": "We have sent you an email with instructions"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP Verified",
+      "DESC": "Redirecting to your profile, please wait a moment..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Play a game",
@@ -37,8 +61,42 @@
       "LOCAL_MODE": "try local mode",
       "CREATE_TOURNAMENT": "Create a tournament",
       "DISCOVER": "Meet new people",
+      "REGISTER": "Register",
       "REGISTER_NOW": "Register now",
-      "GET_STARTED": "Get Started"
+      "42_ACCOUNT": "42 Network",
+      "GET_STARTED": "Get Started",
+      "LOGIN": "Log in",
+      "LOGIN_NOW": "Log in now",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Send instructions"
+    },
+    "FORMS": {
+      "USERNAME": "Username",
+      "EMAIL": "Email",
+      "EMAIL_OR_USERNAME": "Email or Username",
+      "EMAIL_USERNAME_PHOLDER": "Identify yourself",
+      "PASSWORD": "Password",
+      "PASSWORD_PHOLDER": "Your password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirm your password"
+    },
+    "REGISTER": {
+      "TERMS": "I agree to the <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Terms and Conditions</a>",
+      "OPTION_TEXT": "- OR REGISTER WITH -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "Sign In",
+      "FORGOT_PASSWORD": "Forgot your password?",
+      "OPTION_TEXT": "- OR LOGIN WITH -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Password assistance",
+      "DESC": "Enter your email or username and we'll send you instructions on how to reset your password."
+    },
+    "OTP": {
+      "TITLE": "OTP Verification Required",
+      "DESC": "We have sent you an email with an one-time password.</br>Please enter the code in the following input",
+      "BUTTON_TITLE": "Verify code"
     }
   },
   "LEGAL_COMMON_DATA": {
@@ -189,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Play a game",
     "TOURNAMENTS": "Tournaments",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Friendship requests",
     "RANKING": "Ranking",
     "SETTINGS": "Settings",
     "LOGOUT": "Log out"
@@ -198,6 +256,7 @@
     "SEARCH": "Search users...",
     "HEADER": {
       "POSITION": "Position: ",
+      "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connected",
         "DISCONNECTED": "Disconnected",
@@ -206,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Global Stats",
       "GOALS_SCORED": "Goals Scored",
       "GOALS_AGAINST": "Goals Against",
       "GOALS_STOPPED": "Goals Stopped",
@@ -213,7 +273,9 @@
       "WINRATE": "Win Rate", 
       "STREAK": "Max Win Streak"
     },
+    "FRIENDS_LIST_TITLE": "Friends List",
     "MATCH_HISTORY": {
+      "TITLE": "Match History",
       "TABLE_HEAD": {
         "RESULT": "Result",
         "OPPONENT": "Opponent",
@@ -232,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Accept",
+    "REJECT": "Reject",
+    "NO_MORE_REQUESTS": "There are no more friend requests...<br/>Come back later"
+  },
   "LEADERBOARD": {
     "TITLE": "Top 10 Pong Players",
     "POSITION": "Your current position",
@@ -246,9 +313,42 @@
       "TITLE": "Oh no, this is pong-barrassing...",
       "DESCRIPTION": "It seems our pong balls got lost in cyberspace."
     },
+    "USERNAME": {
+      "REQUIRED": "Username is required",
+      "LENGTH": "Username must be 3-20 characters long",
+      "ALREADY_EXISTS": "This username is already in use",
+      "INVALID": "Username must be alphanumeric and may include hyphens"
+    },
+    "EMAIL": {
+      "REQUIRED": "Email is required",
+      "ALREADY_EXISTS": "This email is already in use",
+      "INVALID": "Invalid email format"
+    },
+    "PASSWORD": {
+      "REQUIRED": "Password is required",
+      "REQUIRED_CONFIRM": "Confirm password is required",
+      "DONT_MATCH": "Passwords don't match",
+      "TOO_SIMILAR": "Password and username are too similar",
+      "TOO_SHORT": "Password must have 8 characters at least",
+      "TOO_COMMON": "Password is too common",
+      "ENTIRELY_NUMERIC": "Password can't be only numbers"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Invalid username or password",
+      "NOT_VERIFIED": "User is not verified",
+      "PASS_RESET": "No user or email matches the given input",
+      "CHECKBOX": "You must accept the terms and conditions",
+      "NOT_FOUND": "User not found"
+    },
     "OAUTH": {
-      "NO_CODE": "Oops, why are you here? 🤔"
-    }
+      "NO_CODE": "Oops, why are you here? 🤔",
+      "TOKEN": "Unexpected error while processing oauth token",
+      "USER_INFO": "Unexpected error while retrieving user info",
+      "EMAIL_EXISTS": "The email is used in other account"
+    },
+    "INVALID_TOKEN": "Invalid token",
+    "EXPIRED_TOKEN": "Token expired",
+    "OTP_CODE": "Incorrect code inserted. Please try again"
   },
   "SETTINGS": {
     "SECTIONS": {
@@ -266,11 +366,5 @@
       "INPUT_FILE_PHOLD": "Upload image",
       "PROFILE_IMG_PHOLD": "Upload profile image"
     }
-  },
-  "LANGUAGE": {
-    "ES": "Spanish",
-    "EN": "English",
-    "FR": "French",
-    "ZH": "Simplified Chinese"
   }
 }

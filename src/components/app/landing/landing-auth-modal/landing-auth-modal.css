@@ -1,0 +1,302 @@
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+
+.auth-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 20px;
+    border: none;
+    background: url('src/resources/paddle.jpg') no-repeat center center/cover;
+    z-index: 1000;
+}
+
+.auth-modal::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBx {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #13124F;
+    z-index: 2000;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.slide .formBx {
+    left: 50%;
+    border-radius: 0 20px 20px 0;
+}
+
+.form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background: #13124F;
+}
+
+.form.signinform {
+    top: 100%;
+    transition-delay: 0s;
+}
+
+.slide .formBx ::part(signinform) {
+    top: 0;
+    transition-delay: 1s;
+}
+
+.form.signupform {
+    top: 0;
+    transition-delay: 1s;
+}
+
+.slide .formBx ::part(signupform) {
+    top: -100%;
+    transition-delay: 0s;
+}
+
+.form.forgotform {
+    left: 100%;
+    transition-delay: 0s;
+}
+
+.slide-forgot .formBx ::part(forgotform) {
+    left: 0;
+    transition-delay: 1s;
+}
+
+.slide-forgot .formBx ::part(signinform) {
+    left: -100%;
+    transition-delay: 0s;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.form form h2 {
+    font-size: 1.6em;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form form h3 {
+    font-size: 1.4em;
+    color: var(--app-secondary-color);
+    margin: 10px auto;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input-field {
+    margin-top: 15px;
+}
+
+.form form h4 {
+    font-size: 0.85em;
+    color: var(--app-secondary-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form form input:not([type="checkbox"]), .form form button {
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    border: 1px solid var(--app-secondary-color);
+    outline: none;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+}
+
+.form form input[type="checkbox"] {
+    margin: 0px 10px 0px 0px;
+}
+
+.form form input[type="submit"], .form form button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.form form input[type="text"],
+.form form input[type="password"],
+.form form input[type="email"] {
+    background: var(--app-secondary-bg-color);
+    color: white;
+    font-weight: 500;
+}
+
+.form form input[type="text"]::placeholder,
+.form form input[type="password"]::placeholder,
+.form form input[type="email"]::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+.forgot {
+    color: white;
+    letter-spacing: 0.05em;
+    font-size: 0.7em;
+    margin-bottom: 10px !important;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.checkbox-label {
+    color: white;
+    letter-spacing: 0.05em;
+    font-size: 0.7em;
+    user-select: none;
+}
+
+.form.signinform .signButtons,
+.form.signupform .signButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form.signupform .signButtons {
+    margin: 10px 0;
+}
+
+.secondary-btn {
+    background-color: transparent !important;
+    border: 1px solid var(--app-secondary-color) !important;
+}
+
+.primary-btn {
+    background-color: var(--app-primary-color) !important;
+}
+
+.primary-btn-alt {
+    background-color: var(--app-secondary-color) !important;
+    color: black !important;
+    font-weight: 800 !important;
+}
+
+.intro {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.75em;
+    margin: 15px 0;
+}
+
+.icons-toolbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 0px 10px;
+}
+
+.icons-toolbar i {
+    margin-bottom: 10px;
+}
+
+i {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.6em;
+    color: white;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.togglePassword {
+    position: absolute;
+    font-size: 1em;
+    right: 10px;
+}
+
+dialog {
+    transition: opacity .3s ease,
+        display .3s ease allow-discrete;
+    opacity: 0;
+}
+
+dialog[open] {
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.input-error {
+    border: 2px solid var(--app-red-color) !important;
+    transition: border 0.5s ease-in-out;
+}
+
+.error-message {
+    color: var(--app-red-color);
+    font-size: 0.8em;
+    margin: 10px 0 15px 0;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in, visibility 1s ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#checkbox-field, #checkbox-field * {
+    cursor: pointer;
+}
+
+.terms-link {
+    text-decoration: none;
+    color: var(--app-blue-color);
+}

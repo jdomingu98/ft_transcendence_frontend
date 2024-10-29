@@ -1,4 +1,28 @@
 {
+  "SNACKBAR": {
+    "AUTH_MODAL": {
+      "REGISTER": {
+        "TITLE": "¡Bienvenido!",
+        "DESC": "Te hemos enviado un email para verificar tu cuenta"
+      },
+      "LOGIN": {
+        "TITLE": "¡Bienvenido de nuevo!",
+        "DESC": "Redirigiendo a tu perfil, por favor espera un momento..."
+      },
+      "LOGIN_OTP": {
+        "TITLE": "Se requiere verificación por OTP",
+        "DESC": "Te hemos enviado un email con un código. ¡Por favor, revísalo!"
+      },
+      "FORGOT_PASSWORD": {
+        "TITLE": "Asistencia de contraseña recibida",
+        "DESC": "Te hemos enviado un email con instrucciones"
+      }
+    },
+    "OTP_MODAL": {
+      "TITLE": "OTP Verificado",
+      "DESC": "Redirigiendo a tu perfil, por favor espera un momento..."
+    }
+  },
   "LANDING": {
     "NAVBAR": {
       "PLAY": "Jugar Partida",
@@ -37,8 +61,42 @@
       "LOCAL_MODE": "Probar en local",
       "CREATE_TOURNAMENT": "crear un torneo",
       "DISCOVER": "Conocer gente nueva",
+      "REGISTER": "Registrarse",
       "REGISTER_NOW": "Regístrate ahora",
-      "GET_STARTED": "Empezar"
+      "42_ACCOUNT": "42 Network",
+      "GET_STARTED": "Empezar",
+      "LOGIN": "Entrar",
+      "LOGIN_NOW": "Entrar ahora",
+      "SIGN_UP": "Regístrate",
+      "FORGOT_PASSWORD": "Enviar instrucciones"
+    },
+    "FORMS": {
+      "USERNAME": "Nombre de usuario",
+      "EMAIL": "Correo electrónico",
+      "EMAIL_OR_USERNAME": "Correo o nombre de usuario",
+      "EMAIL_USERNAME_PHOLDER": "Identifícate",
+      "PASSWORD": "Contraseña",
+      "PASSWORD_PHOLDER": "Tu contraseña",
+      "CONFIRM_PASSWORD": "Confirmar contraseña",
+      "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
+    },
+    "REGISTER": {
+      "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
+      "OPTION_TEXT": "- O REGÍSTRATE CON -"
+    },
+    "LOGIN": {
+      "SIGN_IN": "Iniciar sesión",
+      "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+      "OPTION_TEXT": "- O INICIA SESIÓN CON -"
+    },
+    "FORGOT_PASSWORD": {
+      "TITLE": "Asistencia de contraseña",
+      "DESC": "Introduce tu correo o usuario y te enviaremos instrucciones sobre cómo restablecer tu contraseña."
+    },
+    "OTP": {
+      "TITLE": "Se requiere verificación OTP",
+      "DESC": "Te hemos enviado un email con una contraseña de un solo uso.</br>Por favor, inserte el código en el siguiente campo de entrada",
+      "BUTTON_TITLE": "Verificar código"
     }
   },
   "LEGAL_COMMON_DATA": {
@@ -189,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jugar partida",
     "TOURNAMENTS": "Torneos",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Solicitudes de amistad",
     "RANKING": "Clasificación",
     "SETTINGS": "Ajustes",
     "LOGOUT": "Cerrar sesión"
@@ -198,6 +256,7 @@
     "SEARCH": "Buscar usuarios...",
     "HEADER": {
       "POSITION": "Posición: ",
+      "POINTS": "Puntos: ",
       "STATUS": {
         "CONNECTED": "Disponible",
         "DISCONNECTED": "No disponible",
@@ -206,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Estadísticas Globales",
       "GOALS_SCORED": "Goles Marcados",
       "GOALS_AGAINST": "Goles Recibidos",
       "GOALS_STOPPED": "Goles Parados",
@@ -213,7 +273,9 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
+    "FRIENDS_LIST_TITLE": "Lista de Amigos",
     "MATCH_HISTORY": {
+      "TITLE": "Historial de Partidas",
       "TABLE_HEAD": {
         "RESULT": "Resultado",
         "OPPONENT": "Oponente",
@@ -232,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Aceptar",
+    "REJECT": "Rechazar",
+    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad...<br/>Vuelve más tarde"
+  },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",
     "POSITION": "Tu posición actual",
@@ -246,9 +313,42 @@
       "TITLE": "¡Oh, no!, esto es pong-barazoso...",
       "DESCRIPTION": "Parece que nuestras pelotas de pong se han perdido en el ciberespacio."
     },
+    "USERNAME": {
+      "REQUIRED": "El usuario es obligatorio",
+      "LENGTH": "El usuario debe tener entre 3 y 20 caracteres",
+      "ALREADY_EXISTS": "Este usuario ya está en uso",
+      "INVALID": "El usuario debe ser alfanumérico y puede incluir guiones"
+    },
+    "EMAIL": {
+      "REQUIRED": "El correo electrónico es obligatorio",
+      "ALREADY_EXISTS": "Este correo electrónico ya está en uso",
+      "INVALID": "Formato de correo electrónico no válido"
+    },
+    "PASSWORD": {
+      "REQUIRED": "La contraseña es obligatoria",
+      "REQUIRED_CONFIRM": "Confirmar contraseña es obligatorio",
+      "DONT_MATCH": "Las contraseñas no coinciden",
+      "TOO_SIMILAR": "La contraseña y el nombre de usuario son demasiado similares",
+      "TOO_SHORT": "La contraseña debe tener al menos 8 caracteres",
+      "TOO_COMMON": "La contraseña es demasiado común",
+      "ENTIRELY_NUMERIC": "La contraseña no puede ser solo números"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Nombre de usuario o contraseña no válidos",
+      "NOT_VERIFIED": "El usuario no está verificado",
+      "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
+      "CHECKBOX": "Debes aceptar los términos y condiciones",
+      "NOT_FOUND": "Usuario no encontrado"
+    },
     "OAUTH": {
-      "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
-    }
+      "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",
+      "TOKEN": "Error inesperado al procesar el token de oauth",
+      "USER_INFO": "Error inesperado al recuperar la información del usuario",
+      "EMAIL_EXISTS": "El correo electrónico ya está en uso en otra cuenta"
+    },
+    "INVALID_TOKEN": "Token no válido",
+    "EXPIRED_TOKEN": "Token expirado",
+    "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
   },
   "SETTINGS": {
     "SECTIONS": {
@@ -266,11 +366,5 @@
       "INPUT_FILE_PHOLD": "Subir imagen",
       "PROFILE_IMG_PHOLD": "Subir imagen de perfil"
     }
-  },
-  "LANGUAGE": {
-    "ES": "Español",
-    "EN": "Inglés",
-    "FR": "Francés",
-    "ZH": "Chino Simplificado"
   }
 }

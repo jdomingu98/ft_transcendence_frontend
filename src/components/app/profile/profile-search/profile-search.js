@@ -1,4 +1,5 @@
 import WebComponent, { Component, Router } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 
 import css from './profile-search.css?inline';
 
@@ -18,9 +19,8 @@ class ProfileSearch extends WebComponent {
 
     redirectToSearchPage() {
         const searchTerm = this.shadowRoot.querySelector('#input-control').value.trim();
-        if (searchTerm && searchTerm !== this.state.searchTerm) {
-            Router.push(`/app/search?username=${encodeURIComponent(searchTerm)}`);
-        }
+        if (searchTerm && searchTerm !== this.state.searchTerm)
+            NavigatorService.searchUser(encodeURIComponent(searchTerm));
     }
 
     bind() {

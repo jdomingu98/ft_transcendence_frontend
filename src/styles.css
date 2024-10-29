@@ -40,7 +40,6 @@ input, button, textarea, select {
 p {
   text-wrap: pretty;
   margin: 0 !important;
-  font-family: var(--app-secondary-text-font), sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,4 +60,16 @@ img, video, svg {
     scroll-behavior: auto !important;
     transition: none;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--app-secondary-bg-color) inset !important;
+    -webkit-text-fill-color: white !important;
+    background-color: var(--app-secondary-bg-color) !important;
+}
+
+input:-webkit-autofill::first-line {
+    font-family: 'Outfit', sans-serif;
 }
