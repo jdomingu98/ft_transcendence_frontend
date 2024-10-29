@@ -122,7 +122,7 @@
 .form form h3 {
     font-size: 1.4em;
     color: var(--app-secondary-color);
-    margin: 15px auto;
+    margin: 10px auto;
     font-weight: 600;
     text-align: center;
 }
@@ -232,7 +232,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
 }
 
 .icons-toolbar i {
@@ -280,12 +280,11 @@ dialog[open] {
 .error-message {
     color: var(--app-red-color);
     font-size: 0.8em;
-    margin: 10px 0 20px 0;
+    margin: 10px 0 15px 0;
     font-weight: 600;
     opacity: 1;
     visibility: visible;
     transition: opacity 1s ease-in, visibility 1s ease;
-    display: block;
 }
 
 .hidden {
@@ -300,16 +299,4 @@ dialog[open] {
 .terms-link {
     text-decoration: none;
     color: var(--app-blue-color);
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px var(--app-secondary-bg-color) inset !important;
-    -webkit-text-fill-color: white !important;
-    background-color: var(--app-secondary-bg-color) !important;
-}
-
-input:-webkit-autofill::first-line {
-    font-family: 'Outfit', sans-serif;
 }

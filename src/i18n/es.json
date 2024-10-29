@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirmar contraseña",
       "CONFIRM_PASSWORD_PHOLDER": "Confirma tu contraseña"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Usuario o contraseña inválidos",
-      "PASS_RESET": "No existe usuario o email que coincida con el dato proporcionado"
-    },
     "REGISTER": {
       "TERMS": "Acepto los <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Términos y Condiciones</a>",
       "OPTION_TEXT": "- O REGÍSTRATE CON -"
@@ -251,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jugar partida",
     "TOURNAMENTS": "Torneos",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Solicitudes de amistad",
     "RANKING": "Clasificación",
     "SETTINGS": "Ajustes",
     "LOGOUT": "Cerrar sesión"
@@ -260,6 +256,7 @@
     "SEARCH": "Buscar usuarios...",
     "HEADER": {
       "POSITION": "Posición: ",
+      "POINTS": "Puntos: ",
       "STATUS": {
         "CONNECTED": "Disponible",
         "DISCONNECTED": "No disponible",
@@ -268,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Estadísticas Globales",
       "GOALS_SCORED": "Goles Marcados",
       "GOALS_AGAINST": "Goles Recibidos",
       "GOALS_STOPPED": "Goles Parados",
@@ -275,7 +273,9 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
+    "FRIENDS_LIST_TITLE": "Lista de Amigos",
     "MATCH_HISTORY": {
+      "TITLE": "Historial de Partidas",
       "TABLE_HEAD": {
         "RESULT": "Resultado",
         "OPPONENT": "Oponente",
@@ -294,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Aceptar",
+    "REJECT": "Rechazar",
+    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad...<br/>Vuelve más tarde"
+  },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",
     "POSITION": "Tu posición actual",
@@ -308,14 +313,41 @@
       "TITLE": "¡Oh, no!, esto es pong-barazoso...",
       "DESCRIPTION": "Parece que nuestras pelotas de pong se han perdido en el ciberespacio."
     },
+    "USERNAME": {
+      "REQUIRED": "El usuario es obligatorio",
+      "LENGTH": "El usuario debe tener entre 3 y 20 caracteres",
+      "ALREADY_EXISTS": "Este usuario ya está en uso",
+      "INVALID": "El usuario debe ser alfanumérico y puede incluir guiones"
+    },
+    "EMAIL": {
+      "REQUIRED": "El correo electrónico es obligatorio",
+      "ALREADY_EXISTS": "Este correo electrónico ya está en uso",
+      "INVALID": "Formato de correo electrónico no válido"
+    },
+    "PASSWORD": {
+      "REQUIRED": "La contraseña es obligatoria",
+      "REQUIRED_CONFIRM": "Confirmar contraseña es obligatorio",
+      "DONT_MATCH": "Las contraseñas no coinciden",
+      "TOO_SIMILAR": "La contraseña y el nombre de usuario son demasiado similares",
+      "TOO_SHORT": "La contraseña debe tener al menos 8 caracteres",
+      "TOO_COMMON": "La contraseña es demasiado común",
+      "ENTIRELY_NUMERIC": "La contraseña no puede ser solo números"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Nombre de usuario o contraseña no válidos",
+      "NOT_VERIFIED": "El usuario no está verificado",
+      "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
+      "CHECKBOX": "Debes aceptar los términos y condiciones",
+      "NOT_FOUND": "Usuario no encontrado"
+    },
     "OAUTH": {
-      "NO_CODE": "Uy, ¿porqué estás aquí? 🤔"
-    }
-  },
-  "LANGUAGE": {
-    "ES": "Español",
-    "EN": "Inglés",
-    "FR": "Francés",
-    "ZH": "Chino Simplificado"
+      "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",
+      "TOKEN": "Error inesperado al procesar el token de oauth",
+      "USER_INFO": "Error inesperado al recuperar la información del usuario",
+      "EMAIL_EXISTS": "El correo electrónico ya está en uso en otra cuenta"
+    },
+    "INVALID_TOKEN": "Token no válido",
+    "EXPIRED_TOKEN": "Token expirado",
+    "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
   }
 }

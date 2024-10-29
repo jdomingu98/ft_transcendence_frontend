@@ -80,10 +80,6 @@
       "CONFIRM_PASSWORD": "Confirmer le mot de passe",
       "CONFIRM_PASSWORD_PHOLDER": "Confirmez votre mot de passe"
     },
-    "ERROR": {
-      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
-      "PASS_RESET": "Aucun utilisateur ni email ne correspond aux données fournies"
-    },
     "REGISTER": {
       "TERMS": "J'accepte les <a href='/terms-conditions' class='terms-link' rel='noreferrer' target='_blank'>Conditions Générales</a>",
       "OPTION_TEXT": "- OU INSCRIVEZ-VOUS AVEC -"
@@ -251,7 +247,7 @@
   "SIDEBAR": {
     "PLAY_A_GAME": "Jouer à un jeu",
     "TOURNAMENTS": "Tournois",
-    "CHATS": "Chats",
+    "FRIENDSHIP_REQUEST": "Demandes d'amitié",
     "RANKING": "Classement",
     "SETTINGS": "Paramètres",
     "LOGOUT": "Déconnexion"
@@ -260,6 +256,7 @@
     "SEARCH": "Recherche d'utilisateurs...",
     "HEADER": {
       "POSITION": "Poste: ",
+      "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connecté",
         "DISCONNECTED": "Déconnecté",
@@ -268,6 +265,7 @@
       }
     },
     "STATS": {
+      "TITLE": "Statistiques Globales",
       "GOALS_SCORED": "Buts Marqués",
       "GOALS_AGAINST": "Objectifs Contre",
       "GOALS_STOPPED": "Objectifs Arrêtés",
@@ -275,7 +273,9 @@
       "WINRATE": "Taux de </br>Victoire", 
       "STREAK": "Série de </br>Victoires Maximale"
     },
+    "FRIENDS_LIST_TITLE": "Liste d'Amis",
     "MATCH_HISTORY": {
+      "TITLE": "Historique des Matchs",
       "TABLE_HEAD": {
         "RESULT": "Résultat",
         "OPPONENT": "Adversaire",
@@ -294,6 +294,11 @@
       }
     }
   },
+  "FRIENDSHIP": {
+    "ACCEPT": "Accepter",
+    "REJECT": "Rejeter",
+    "NO_MORE_REQUESTS": "Il n'y a plus de demandes d'ami...<br/>Revenez plus tard"
+  },
   "LEADERBOARD": {
     "TITLE": "Les 10 meilleurs joueurs de Pong",
     "POSITION": "Votre position actuelle",
@@ -308,14 +313,41 @@
       "TITLE": "Oh non, c'est pong-barrassant...",
       "DESCRIPTION": "Il semble que nos balles de pong se soient perdues dans le cyberespace."
     },
+    "USERNAME": {
+      "REQUIRED": "Le nom d'utilisateur est obligatoire",
+      "LENGTH": "Le nom d'utilisateur doit faire entre 3 et 20 caractères",
+      "ALREADY_EXISTS": "Ce nom d'utilisateur est déjà utilisé",
+      "INVALID": "Le nom d'utilisateur doit être alphanumérique et peut inclure des tirets"
+    },
+    "EMAIL": {
+      "REQUIRED": "L'email est obligatoire",
+      "ALREADY_EXISTS": "Cet email est déjà utilisé",
+      "INVALID": "Format d'email invalide"
+    },
+    "PASSWORD": {
+      "REQUIRED": "Le mot de passe est obligatoire",
+      "REQUIRED_CONFIRM": "La confirmation du mot de passe est obligatoire",
+      "DONT_MATCH": "Les mots de passe ne correspondent pas",
+      "TOO_SIMILAR": "Le mot de passe et le nom d'utilisateur sont trop similaires",
+      "TOO_SHORT": "Le mot de passe doit comporter au moins 8 caractères",
+      "TOO_COMMON": "Le mot de passe est trop courant",
+      "ENTIRELY_NUMERIC": "Le mot de passe ne peut pas être uniquement numérique"
+    },
+    "USER": {
+      "INVALID_LOGIN": "Nom d'utilisateur ou mot de passe invalide",
+      "NOT_VERIFIED": "L'utilisateur n'est pas vérifié",
+      "PASS_RESET": "Aucun utilisateur ou email ne correspond aux informations fournies",
+      "CHECKBOX": "Vous devez accepter les termes et conditions",
+      "NOT_FOUND": "Utilisateur non trouvé"
+    },
     "OAUTH": {
-      "NO_CODE": "Oups, pourquoi es-tu ici? 🤔"
-    }
-  },
-  "LANGUAGE": {
-    "ES": "Espagnol",
-    "EN": "Anglais",
-    "FR": "Français",
-    "ZH": "Chinois simplifié"
+      "NO_CODE": "Oups, pong-quoi es-tu ici? 🤔",
+      "TOKEN": "Erreur inattendue lors du traitement du token oauth",
+      "USER_INFO": "Erreur inattendue lors de la récupération des informations utilisateur",
+      "EMAIL_EXISTS": "L'email est utilisé dans un autre compte"
+    },
+    "INVALID_TOKEN": "Token invalide",
+    "EXPIRED_TOKEN": "Token expiré",
+    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer"
   }
 }

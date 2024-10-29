@@ -23,7 +23,7 @@ class LanguageSelector extends WebComponent {
         this.state = {
             languages: LANGUAGES.map(language => ({
                 ...language,
-                name: `${language.flag} ${this.translator.translate(`LANGUAGE.${language.language.toUpperCase()}`)}`
+                name: `${language.flag} ${language.name}`
             }))
         };
     }

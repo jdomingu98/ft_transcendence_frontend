@@ -36,9 +36,9 @@ class LoginForm extends WebComponent {
                 });
                 setTimeout(() => NavigatorService.goToHome(), 1000);
             }
-        }).catch(() => {
+        }).catch(e => {
             input.forEach(input => input.classList.add('input-error'));
-            errorMessageElement.textContent = this.translator.translate('LANDING.ERROR.INVALID_LOGIN');
+            errorMessageElement.textContent = this.translator.translate(e.error[0]);
             errorMessageElement.classList.remove('hidden');
         });
     }

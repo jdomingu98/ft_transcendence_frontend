@@ -58,6 +58,9 @@ class ProfileHistory extends WebComponent {
 
     render() {
         return `
+            <div class="container p-3">
+                <h4 class="mb-4 fw-bold text-white">{{ translator.translate("PROFILE.MATCH_HISTORY.TITLE") }}</h4>
+            </div>
             <table class="w-100 mb-2 text-center" style="border-collapse: separate;">
                 <thead>
                     <tr>

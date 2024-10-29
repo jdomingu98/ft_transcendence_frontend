@@ -56,7 +56,7 @@ class RegisterForm extends WebComponent {
                         errorMessage = this._getDOM().querySelector('.password-container + .error-message');
 
                     input.classList.add('input-error');
-                    errorMessage.textContent = e[key][0];
+                    errorMessage.textContent = this.translator.translate(e[key][0]);
                     errorMessage.classList.remove('hidden');
                 }
             });

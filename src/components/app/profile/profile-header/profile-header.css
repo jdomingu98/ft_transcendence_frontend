@@ -24,3 +24,26 @@
     margin-top: 5px;
     font-size: 14px;
 }
+
+i {
+    -webkit-text-stroke: 1px;
+    cursor: pointer;
+}
+
+.friend-icon {
+    -webkit-text-stroke: 1px red;
+
+}
+
+.bi-heart-fill {
+    color: red;
+}
+
+.friend {
+    transition: -webkit-text-stroke 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+}

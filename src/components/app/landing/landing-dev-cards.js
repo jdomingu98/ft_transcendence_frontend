@@ -51,7 +51,7 @@ class LandingDevCards extends WebComponent {
             }, {
                 src: 'src/resources/devs/cmorales.jpg',
                 name: 'cmorales',
-                firstRole: 'frontend developer',
+                firstRole: 'fullstack developer',
                 secondRole: '',
             }, {
                 src: 'src/resources/devs/jdomingu.png',
