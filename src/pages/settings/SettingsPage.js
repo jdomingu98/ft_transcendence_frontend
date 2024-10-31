@@ -28,11 +28,6 @@ class SettingsPage extends WebComponent {
                 sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }`,
                 url: '#two-factor'
             }, {
-                sidebarElementId: 'settings-visibility',
-                iconClass: 'bi-file-lock',
-                sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.CHANGE_VISIBILITY') }`,
-                url: '#visibility'
-            }, {
                 sidebarElementId: 'settings-about',
                 iconClass: 'bi-info-circle',
                 sectionName: '{{ translator.translate("SETTINGS.SECTIONS.ABOUT") }}',
@@ -80,12 +75,6 @@ class SettingsPage extends WebComponent {
             divToScroll.scrollIntoView({ behavior: 'smooth' });
         });
 
-        this.subscribe('#settings-visibility', 'click', () => {
-            const visibility = this._getDOM().querySelector('settings-visibility');
-            const divToScroll = visibility.shadowRoot.getElementById('visibility');
-            divToScroll.scrollIntoView({ behavior: 'smooth' });
-        });
-
         this.subscribe('#settings-about', 'click', () => {
             const about = this._getDOM().querySelector('settings-about');
             const divToScroll = about.shadowRoot.getElementById('about');
@@ -108,8 +97,6 @@ class SettingsPage extends WebComponent {
                     </div>
                 </aside>
                 <div class="d-flex flex-column justify-content-center align-items-center settings-content">
-                    <settings-user-management id="user-management"></settings-user-management>
-                    <settings-user-management id="user-management"></settings-user-management>
                     <settings-user-management id="user-management"></settings-user-management>
                     <settings-user-management id="user-management"></settings-user-management>
                     <settings-user-management id="user-management"></settings-user-management>

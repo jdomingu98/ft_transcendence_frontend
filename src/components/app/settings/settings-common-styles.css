@@ -66,3 +66,44 @@ input[type="file"]::before {
     font-size: 0.9rem;
     letter-spacing: 0.05em;
 }
+
+.paragraph {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 28px;
+}
+
+.primary-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    width: 85%;
+    height: 62px;
+    color: black;
+    letter-spacing: 0.1em;
+}
+
+.primary-red-btn {
+    background-color: var(--app-red-color) !important;
+}
+
+.primary-green-btn {
+    background-color: var(--app-secondary-color) !important;
+}
+
+.password-container {
+    position: relative;
+}
+
+.text-error {
+    color: var(--app-red-color) !important;
+    opacity: 1;
+}
+
+#visibility-selector {
+    width: 85%;
+    height: 62px;
+    border: 2px solid var(--app-secondary-color);
+    background-color: var(--app-secondary-bg-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}

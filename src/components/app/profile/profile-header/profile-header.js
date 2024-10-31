@@ -70,7 +70,7 @@ class ProfileHeader extends WebComponent {
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
                 <div class="d-inline-flex p-3 mx-3 profile-glask">
                     <div class="position-relative">
-                        <img src='${srcProfilePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
+                        <img src='${templatePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
                         ${ !myProfile ? `
                                 <div class="position-absolute top-0" style="left:65%; font-size: 1.2rem; cursor: pointer;">
                                     ${ isFriend ? '<i id="heart" class="bi bi-heart-fill friend p-1"></i>' : '<i id="heart" class=" friend bi bi-heart p-1"></i>'}
@@ -78,7 +78,7 @@ class ProfileHeader extends WebComponent {
                             ` : ''}
                     </div>
                     <div class="profile-info">
-                        <h2 class="mx-0 my-1">${username}</h2>
+                        <h2 class="mx-0 my-1">${templateUsername}</h2>
                         <div class="d-flex col">
                             <div class="mx-0 my-2 d-flex row gap-1">
                                 <p class="px-0">{{ translator.translate("PROFILE.HEADER.POSITION") }}
