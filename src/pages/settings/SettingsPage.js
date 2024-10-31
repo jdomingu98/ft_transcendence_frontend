@@ -98,13 +98,10 @@ class SettingsPage extends WebComponent {
                 </aside>
                 <div class="d-flex flex-column justify-content-center align-items-center settings-content">
                     <settings-user-management id="user-management"></settings-user-management>
-                    <settings-user-management id="user-management"></settings-user-management>
-                    <settings-user-management id="user-management"></settings-user-management>
-                    <!--<settings-change-password id="change-password"></settings-change-password>
-                    <settings-two-factor id="two-factor"></settings-two-factor>
-                    <settings-visibility id="visibility"></settings-visibility>
+                    <settings-change-password id="change-password"></settings-change-password>
+                    <settings-two-factor-auth id="two-factor"></settings-two-factor-auth>
                     <settings-about id="about"></settings-about>
-                    <settings-delete-account id="delete-account"></settings-delete-account> -->
+                    <settings-delete-account id="delete-account"></settings-delete-account>
                 </div>
             </div>
         `;

@@ -94,6 +94,20 @@ input[type="file"]::before {
     position: relative;
 }
 
+.togglePassword {
+    position: absolute;
+    font-size: 1rem;
+    top: 20%;
+    left: 80%;
+}
+
+i {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.6em;
+    color: white;
+}
+
 .text-error {
     color: var(--app-red-color) !important;
     opacity: 1;
