@@ -363,8 +363,8 @@
       "USERNAME": "Username",
       "USERNAME_PHOLD": "Your new username",
       "PROFILE_IMG": "Profile Image",
-      "INPUT_FILE_PHOLD": "Upload image",
-      "PROFILE_IMG_PHOLD": "Upload profile image"
+      "PROFILE_IMG_PHOLD": "Upload profile image",
+      "BACKGROUND_IMG_PHOLD": "Upload background banner"
     }
   }
 }
