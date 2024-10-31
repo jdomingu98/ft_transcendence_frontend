@@ -70,7 +70,7 @@ class SettingsPage extends WebComponent {
         });
 
         this.subscribe('#settings-two-factor', 'click', () => {
-            const twoFactor = this._getDOM().querySelector('settings-two-factor');
+            const twoFactor = this._getDOM().querySelector('settings-two-factor-auth');
             const divToScroll = twoFactor.shadowRoot.getElementById('two-factor');
             divToScroll.scrollIntoView({ behavior: 'smooth' });
         });
