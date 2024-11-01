@@ -33,7 +33,7 @@ class SettingsChangePassword extends WebComponent {
                 <div id='${this.id}'>
                     <h2-text color="var(--app-secondary-color)">Change Password</h2-text>
                 </div>
-                <div class="mb-5">
+                <div class="my-4">
                     <div class="my-3">
                         <sub-header-text color="var(--app-secondary-color)">new Password</sub-header-text>
                     </div>
@@ -49,13 +49,13 @@ class SettingsChangePassword extends WebComponent {
                         <sub-header-text color="var(--app-secondary-color)">Confirm new password</sub-header-text>
                     </div>
                     <div class="w-100 password-container">
-                        <input type="password" class="p-3" name="confirm-password-settings" placeholder="********" aria-label="Confirm password input field">
+                        <input type="password" class="p-3" name="confirm-password-settings" [placeholder]="translator.translate('LANDING.FORMS.CONFIRM_PASSWORD_PHOLDER')" aria-label="Confirm password input field">
                         <span class="togglePassword">
                             <i class='bi bi-eye'></i>
                         </span>
                     </div>
                 </div>
-                <primary-button w="85%" h="62px">Save Changes</primary-button>
+                <primary-button w="85%" h="62px">Update password</primary-button>
             </div>
         `;
     }
