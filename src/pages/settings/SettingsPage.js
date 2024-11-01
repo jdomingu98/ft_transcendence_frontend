@@ -10,39 +10,9 @@ export default Component ({
 },
 
 class SettingsPage extends WebComponent {
-    init() {
-        this.state = {
-            sidebarSettingsLinks: [{
-                sidebarElementId: 'settings-user-management',
-                iconClass: 'bi-person-circle',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.USER_MANAGEMENT") }}',
-                url: '#user-management'
-            }, {
-                sidebarElementId: 'settings-change-password',
-                iconClass: 'bi-shield-lock',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.CHANGE_PASSWORD") }}',
-                url: '#change-password'
-            }, {
-                sidebarElementId: 'settings-two-factor',
-                iconClass: 'bi-key',
-                sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }`,
-                url: '#two-factor'
-            }, {
-                sidebarElementId: 'settings-about',
-                iconClass: 'bi-info-circle',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.ABOUT") }}',
-                url: '#about-transcendence'
-            }, {
-                sidebarElementId: 'settings-delete-account',
-                iconClass: 'bi-trash',
-                sectionName: '{{ translator.translate("SETTINGS.SECTIONS.DELETE_ACCOUNT") }}',
-                url: '#delete-account'
-            }],
-        };
-    }
 
     mapSidebarSettingsLinksToDiv() {
-        return this.state.sidebarSettingsLinks.map( link =>
+        return this.getSidebarElements().map( link =>
             `
                 <div id="${link.sidebarElementId}" class="p-3 mb-3 d-flex align-items-center">
                     <i class='me-3 bi ${link.iconClass}'></i>
@@ -50,6 +20,35 @@ class SettingsPage extends WebComponent {
                 </div>
             `).join('');
     }
+
+    getSidebarElements() {
+        return [{
+            sidebarElementId: 'settings-user-management',
+            iconClass: 'bi-person-circle',
+            sectionName: '{{ translator.translate("SETTINGS.SECTIONS.USER_MANAGEMENT") }}',
+            url: '#user-management'
+        }, {
+            sidebarElementId: 'settings-change-password',
+            iconClass: 'bi-shield-lock',
+            sectionName: '{{ translator.translate("SETTINGS.SECTIONS.CHANGE_PASSWORD") }}',
+            url: '#change-password'
+        }, {
+            sidebarElementId: 'settings-two-factor',
+            iconClass: 'bi-key',
+            sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }`,
+            url: '#two-factor'
+        }, {
+            sidebarElementId: 'settings-about',
+            iconClass: 'bi-info-circle',
+            sectionName: '{{ translator.translate("SETTINGS.SECTIONS.ABOUT") }}',
+            url: '#about-transcendence'
+        }, {
+            sidebarElementId: 'settings-delete-account',
+            iconClass: 'bi-trash',
+            sectionName: '{{ translator.translate("SETTINGS.SECTIONS.DELETE_ACCOUNT") }}',
+            url: '#delete-account'
+        }];
+    };
 
     bind() {
         this.subscribeAll('.options-settings div', 'click', e => {
@@ -86,6 +85,8 @@ class SettingsPage extends WebComponent {
             const divToScroll = deleteAccount.shadowRoot.getElementById('delete-account');
             divToScroll.scrollIntoView({ behavior: 'smooth' });
         });
+
+        this.getSidebarElements();
     }
 
     render() {
