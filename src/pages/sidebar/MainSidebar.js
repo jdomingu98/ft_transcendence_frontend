@@ -110,7 +110,10 @@ class MainSidebar extends WebComponent {
     }
 
     afterViewInit() {
-        this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`).classList.add('selected');
+        const defaultOption = this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`);
+
+        if (defaultOption)
+            defaultOption.classList.add('selected');
     }
 
     render() {

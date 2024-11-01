@@ -12,20 +12,20 @@ class SettingsAbout extends WebComponent {
 
     render() {
         return `
-            <div class="mt-5 row">
+            <div class="my-5 row">
                 <div id='${this.id}'>
                     <h2-text color="var(--app-secondary-color)">About Transcendence</h2-text>
                 </div>
-                <div class="mt-3 mb-5 text-white" style="width:85%; font-size: 1.2rem">
+                <div class="my-4 text-white" style="width:85%; font-size: 1.2rem">
                     <p class="paragraph mb-4">Please, feel free to check any document of this website.</p>
                     <p class="paragraph mb-4">It's important to you to read those because they explained what personal data are used and where, when and how are they managed.</p>
                     <p class="paragraph mb-4">You can see them by clicking the following links:</p>
-                    <ul>
-                        <li><a rel="noreferrer" href="#">Privacy Policy</a></li>
-                        <li><a rel="noreferrer" href="#">Legal Advise</a></li>
-                        <li><a rel="noreferrer" href="#">Terms and Conditions</a></li>
+                    <ul class="mb-4">
+                        <li><a class="paragraph mb-5" style="color: var(--app-blue-color)" rel="noreferrer" target="_blank" href="privacy-policy">Privacy Policy</a></li>
+                        <li><a class="paragraph mb-5" style="color: var(--app-blue-color)" rel="noreferrer" target="_blank" href="legal-notice">Legal Notice</a></li>
+                        <li><a class="paragraph mb-5" style="color: var(--app-blue-color)" rel="noreferrer" target="_blank" href="terms-conditions">Terms and Conditions</a></li>
                     </ul>
-                    <p class="paragraph mb-4">If after reading you still have doubts, feel free to send an email at the direction listed in the Privacy Policy section</p>
+                    <p class="paragraph">If after reading you still have doubts, feel free to send an email at the direction listed in the Privacy Policy section</p>
                 </div>
             </div>
         `;
