@@ -64,7 +64,7 @@ class ProfileHeader extends WebComponent {
     render() {
         const templateUsername = this.getAttribute('username') || username;
         const templatePicture = this.getAttribute('profilePicture') || srcProfilePicture;
-        const templateBanner = this.getAttribute('banner') || 'https://iintra.freekb.es/banners/jdomingu-1676213124.gif';
+        const templateBanner = this.getAttribute('banner') || '/src/resources/default-banner.webp';
 
         return `
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
