@@ -1,15 +1,15 @@
 import WebComponent, { Component } from '#WebComponent';
 
-//import { DEFAULT_PROFILE_IMG } from '#const';
+import { DEFAULT_PROFILE_IMG } from '#const';
 
 import css from './profile-header.css?inline';
 
 const username = 'jDomingu98';
 const position = '42';
 const points = '10042';
-const srcProfilePicture = '/src/resources/devs/jdomingu.png'; //DEFAULT_PROFILE_IMG;
+const srcProfilePicture = DEFAULT_PROFILE_IMG;
 
-const myProfile = window.location.pathname === '/app/profile/me';
+const myProfile = window.location.pathname === '/app/me' || window.location.pathname === '/app/settings';
 
 let isFriendRequested = false;
 let isFriend = true;

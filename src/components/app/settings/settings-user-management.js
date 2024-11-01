@@ -22,16 +22,16 @@ class SettingsUserManagement extends WebComponent {
     }
 
     bind() {
-        this.subscribe('input[name="username-settings"]', 'input', e => this.state.username = e.target.value.trim());
+        this.subscribe('input[name="username-settings"]', 'input', e => this.setState({...this.state, username: e.target.value.trim()}));
 
-        this.subscribe('input[name="email-settings"]', 'input', e => this.state.email = e.target.value.trim());
+        this.subscribe('input[name="email-settings"]', 'input', e => this.setState({...this.state, email: e.target.value.trim()}));
 
         this.subscribe('input[name="profile-picture-settings"]', 'change', e => {
             const selectedFile = this._getDOM().getElementById('profile-filename');
             if (e.target.files[0].type === 'image/png' || e.target.files[0].type === 'image/jpeg' || e.target.files[0].type === 'image/gif') {
-                this.state.profilePicture = e.target.files[0].name;
+                this.setState({...this.state, profilePicture: e.target.files[0]});
                 selectedFile.classList.remove('text-error');
-                selectedFile.textContent = `Selected file: ${this.state.profilePicture}`;
+                selectedFile.textContent = `Selected file: ${this.state.profilePicture.name}`;
             }
             else {
                 selectedFile.textContent = 'Please select a valid image file';
@@ -42,9 +42,9 @@ class SettingsUserManagement extends WebComponent {
         this.subscribe('input[name="banner-settings"]', 'change', e => {
             const selectedFile = this._getDOM().getElementById('banner-filename');
             if (e.target.files[0].type === 'image/png' || e.target.files[0].type === 'image/jpeg' || e.target.files[0].type === 'image/gif') {
-                this.state.banner = e.target.files[0].name;
+                this.setState({...this.state, banner: e.target.files[0]});
                 selectedFile.classList.remove('text-error');
-                selectedFile.textContent = `Selected file: ${this.state.banner}`;
+                selectedFile.textContent = `Selected file: ${this.state.banner.name}`;
             } else {
                 selectedFile.textContent = 'Please select a valid image file';
                 selectedFile.classList.add('text-error');
@@ -60,13 +60,17 @@ class SettingsUserManagement extends WebComponent {
             <div class="my-3 row">
                 <div id='${this.id}' class="d-flex flex-column my-5 gap-4" style="width: 85%">
                     <h2-text color="var(--app-secondary-color)">User Management</h2-text>
-                    <profile-header username="${this.state.username}" profilePicture="${this.state.profilePicture}" banner="${this.state.banner}"></profile-header>
+                    <profile-header
+                        username="${this.state.username}"
+                        profilePicture="${this.state.profilePicture && URL.createObjectURL(this.state.profilePicture)}"
+                        banner="${this.state.banner && URL.createObjectURL(this.state.banner)}">
+                    </profile-header>
                 </div>
                 <div class="mb-5">
                     <div class="my-3">
                         <sub-header-text color="var(--app-secondary-color)">Username</sub-header-text>
                     </div>
-                    <input type="text" class="p-3" name="username-settings" placeholder="Your new username" aria-label="Username input field"></input>
+                    <input type="text" class="p-3" minlength="3" maxlength="20" name="username-settings" placeholder="Your new username" aria-label="Username input field"></input>
                 </div>
                 <div class="mb-5">
                     <div class="my-3">
@@ -79,7 +83,7 @@ class SettingsUserManagement extends WebComponent {
                         <sub-header-text color="var(--app-secondary-color)">Profile Picture</sub-header-text>
                         <p id="profile-filename" class="mt-2 text-white file-selected">No file selected</p>
                     </div>
-                    <input type="file" class="p-3" name="profile-picture-settings" aria-label="Profile picture input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.PROFILE_IMG_PHOLD')"></input>
+                    <input type="file" id="profile-img" class="p-3" name="profile-picture-settings" aria-label="Profile picture input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.PROFILE_IMG_PHOLD')"></input>
                 </div>
                 <div class="mb-5">
                     <div class="my-3">
