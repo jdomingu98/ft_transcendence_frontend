@@ -55,7 +55,7 @@ class MainSidebar extends WebComponent {
                 url: ''
             }],
             routes: [
-                {path: '/app/profile/me', component: 'profile-page'},
+                {path: '/app/me', component: 'profile-page'},
                 {path: '/app/profile/:id', component: 'profile-page'},
                 {path: '/app/search', component: 'search-results'},
                 {path: '/app/game', component: 'game-page'},
