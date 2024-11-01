@@ -102,7 +102,7 @@ class SettingsPage extends WebComponent {
                     <settings-change-password id="change-password"></settings-change-password>
                     <settings-two-factor-auth id="two-factor"></settings-two-factor-auth>
                     <settings-about id="about"></settings-about>
-                    <settings-delete-account id="delete-account"></settings-delete-account>
+                    <settings-delete-account sectionId="delete-account" userId="2"></settings-delete-account>
                 </div>
             </div>
         `;

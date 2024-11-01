@@ -1,5 +1,8 @@
 
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
+import { SnackbarService } from '#services/SnackbarService';
+import UserService from '#services/UserService';
 import css from './settings-common-styles.css?inline';
 
 export default Component ({
@@ -8,12 +11,35 @@ export default Component ({
 },
 class SettingsDeleteAccount extends WebComponent {
 
-    id = this.getAttribute('id');
+    sectionId = this.getAttribute('sectionId');
+    userId = this.getAttribute('userId');
+
+    deleteUser() {
+        UserService.delete(this.userId)
+            .then(() => {
+                SnackbarService.addToast({
+                    title: this.translator.translate('Cuenta borrada con éxito'),
+                    body: this.translator.translate('Esperamos volver a verte pronto')
+                });
+                localStorage.clear();
+                NavigatorService.goToLandingPage();
+            })
+            .catch(() => {
+                SnackbarService.addToast({
+                    title: this.translator.translate('Error al borrar la cuenta'),
+                    body: this.translator.translate('Por favor, inténtalo más tarde')
+                });
+            });
+    }
+
+    bind() {
+        this.subscribe('button', 'click', () => this.deleteUser());
+    }
 
     render() {
         return `
             <div class="mt-3 mb-5 row">
-                <div id='${this.id}'>
+                <div id='${this.sectionId}'>
                     <h2-text color="var(--app-secondary-color)">Delete Account</h2-text>
                 </div>
                 <div class="my-4 text-white" style="width:85%; font-size: 1.2rem">
