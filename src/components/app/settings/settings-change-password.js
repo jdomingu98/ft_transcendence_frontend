@@ -9,7 +9,7 @@ export default Component ({
 
 class SettingsChangePassword extends WebComponent {
 
-    id = this.getAttribute('id');
+    sectionId = this.getAttribute('sectionId');
 
     bind() {
         this.subscribeAll('.togglePassword', 'click', e => {
@@ -30,7 +30,7 @@ class SettingsChangePassword extends WebComponent {
     render() {
         return `
             <div class="my-5 row">
-                <div id='${this.id}'>
+                <div id='${this.sectionId}'>
                     <h2-text color="var(--app-secondary-color)">Change Password</h2-text>
                 </div>
                 <div class="my-4">

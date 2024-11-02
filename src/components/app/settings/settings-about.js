@@ -8,12 +8,12 @@ export default Component ({
 },
 class SettingsAbout extends WebComponent {
 
-    id = this.getAttribute('id');
+    sectionId = this.getAttribute('sectionId');
 
     render() {
         return `
             <div class="my-5 row">
-                <div id='${this.id}'>
+                <div id='${this.sectionId}'>
                     <h2-text color="var(--app-secondary-color)">About Transcendence</h2-text>
                 </div>
                 <div class="my-4 text-white" style="width:85%; font-size: 1.2rem">
