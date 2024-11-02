@@ -1,5 +1,7 @@
 
 import WebComponent, { Component } from '#WebComponent';
+import AuthService from '#services/AuthService';
+import { SnackbarService } from '#services/SnackbarService';
 import css from './settings-common-styles.css?inline';
 
 export default Component ({
@@ -10,6 +12,28 @@ export default Component ({
 class SettingsChangePassword extends WebComponent {
 
     sectionId = this.getAttribute('sectionId');
+
+    init() {
+        this.state = {
+            new_password: '',
+            repeat_new_password: '',
+            change_password_token: localStorage.getItem('access_token')
+        };
+    }
+
+    updatePassword() {
+        AuthService.changePassword(this.state)
+            .then(() => {
+                SnackbarService.addToast({
+                    title: this.translator.translate('Update password'),
+                    body: this.translator.translate('Password has been updated successfully')
+                });
+            })
+            .catch( e => {
+                //errores random sobre campos
+                console.log(e);
+            });
+    };
 
     bind() {
         this.subscribeAll('.togglePassword', 'click', e => {
@@ -25,6 +49,16 @@ class SettingsChangePassword extends WebComponent {
                 icon.classList.add('bi-eye');
             }
         });
+
+        this.subscribe('input[name="password-settings"]', 'input', e => {
+            this.setState({ ...this.state, new_password: e.target.value });
+        });
+
+        this.subscribe('input[name="confirm-password-settings"]', 'input', e => {
+            this.setState({ ...this.state, repeat_new_password: e.target.value });
+        });
+
+        this.subscribe('primary-button', 'click', () => this.updatePassword());
     }
 
     render() {
