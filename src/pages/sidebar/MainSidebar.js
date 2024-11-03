@@ -1,19 +1,15 @@
 import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService';
+import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
 import NavigatorService from '#services/NavigatorService';
-
-//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
+import UserService from '#services/UserService';
 
 import css from './MainSidebar.css?inline';
-
-// const id = 2; -> id of /me profile
-const profilePicture = '/src/resources/devs/jdomingu.png';
 
 export default Component ({
     tagName: 'main-sidebar',
     styleCSS: css
 },
-
 class MainSidebar extends WebComponent {
 
     init() {
@@ -68,10 +64,21 @@ class MainSidebar extends WebComponent {
                 {path: '/app/legal-notice', component: 'legal-notice'},
                 {path: '/app/terms-conditions', component: 'terms-conditions'}
             ],
-            selectedDefaultOption: window.location.pathname.split('/')[2]
+            selectedDefaultOption: window.location.pathname.split('/')[2],
+            profile_img: this.getProfileImage()
         };
     }
 
+    getProfileImage() {
+        UserService.getMyInfo()
+            .then(({ profile_img }) => {
+                console.log(profile_img);
+                if (profile_img)
+                    this.setState({ ...this.state, profile_img });
+                else
+                    this.setState({ ...this.state, profile_img: DEFAULT_SIDEBAR_PROFILE_IMG });
+            });
+    }
     mapSidebarLinksToDiv() {
         return this.state.sidebarLinks.map( link =>
             `
@@ -122,7 +129,7 @@ class MainSidebar extends WebComponent {
                 <aside id="aside" class="sidebar">
                     <div class="head">
                         <div id="profile" class="profile">
-                            <img src='${profilePicture}' class="profile-picture" alt="profile picture">
+                            <img src='${this.state.profile_img}' class="profile-picture" alt="profile picture">
                             <p>TRANSCENDENCE</p>
                         </div>
                         <i id="menu" class='bi bi-list'></i>
