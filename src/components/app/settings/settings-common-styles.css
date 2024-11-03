@@ -108,11 +108,6 @@ i {
     color: white;
 }
 
-.text-error {
-    color: var(--app-red-color) !important;
-    opacity: 1;
-}
-
 #visibility-selector {
     width: 85%;
     height: 62px;
@@ -124,4 +119,24 @@ i {
 
 ul li { 
     margin-bottom: 1rem;  
+}
+
+.error-message {
+    color: var(--app-red-color) !important;
+    font-size: 0.8em;
+    margin: 10px 0 15px 0;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in, visibility 1s ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.input-error {
+    border: 2px solid var(--app-red-color) !important;
+    transition: border 0.5s ease-in-out;
 }

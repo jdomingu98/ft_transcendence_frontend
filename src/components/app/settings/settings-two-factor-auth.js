@@ -11,19 +11,25 @@ export default Component ({
 class SettingsTwoFactorAuth extends WebComponent {
 
     sectionId = this.getAttribute('sectionId');
-    userId = this.getAttribute('userId');
 
     init() {
         this.state = {
-            enabled: this.getAttribute('enabled')
+            user: this.getMyData()
         };
     }
 
+    getMyData() {
+        UserService.getMyInfo().then( user => this.setState({...this.state, user }));
+    }
+
     toggleTwoFactorAuth() {
-        UserService.patch({id: this.userId, two_factor_enabled: !this.state.enabled })
+        const formData = new FormData();
+        formData.append('two_factor_enabled', !this.state.user.two_factor_enabled);
+
+        UserService.patch(this.state.user.id, formData)
             .then(() => {
-                this.setState({ enabled: !this.state.enabled });
-                if (this.state.enabled) {
+                this.setState({...this.state, user: { ...this.state.user, two_factor_enabled: !this.state.user.two_factor_enabled } });
+                if (this.state.user.two_factor_enabled) {
                     SnackbarService.addToast({
                         title: this.translator.translate('2FA has been activated'),
                         body: this.translator.translate('One-time passwords will be sent to your email')
@@ -41,7 +47,7 @@ class SettingsTwoFactorAuth extends WebComponent {
                     body: this.translator.translate('Por favor, inténtalo más tarde')
                 });
             });
-    };
+    }
 
     bind() {
         this.subscribe('button', 'click', () => this.toggleTwoFactorAuth());
@@ -59,7 +65,7 @@ class SettingsTwoFactorAuth extends WebComponent {
                     <p class="paragraph mb-4">In case of activation, the email provided in the registration form will be used to send the security codes.</p>
                 </div>
                 <div>
-                    ${ this.state.enabled ? '<button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Deactivate Two-Factor Authentication</button>' : '<button class="primary-green-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Activate Two-Factor Authentication</button>'}
+                    ${ this.state.user.two_factor_enabled ? '<button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Deactivate Two-Factor Authentication</button>' : '<button class="primary-green-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Activate Two-Factor Authentication</button>'}
                 </div>
             </div>
         `;

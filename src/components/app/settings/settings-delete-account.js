@@ -12,10 +12,19 @@ export default Component ({
 class SettingsDeleteAccount extends WebComponent {
 
     sectionId = this.getAttribute('sectionId');
-    userId = this.getAttribute('userId');
+
+    init() {
+        this.state = {
+            id: this.getMyId()
+        };
+    }
+
+    getMyId() {
+        UserService.getMyInfo().then(({ id }) => this.setState({ ...this.state, id }));
+    };
 
     deleteUser() {
-        UserService.delete(this.userId)
+        UserService.delete(this.state.id)
             .then(() => {
                 SnackbarService.addToast({
                     title: this.translator.translate('Cuenta borrada con éxito'),
