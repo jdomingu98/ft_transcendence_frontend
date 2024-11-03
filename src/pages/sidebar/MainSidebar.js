@@ -71,13 +71,7 @@ class MainSidebar extends WebComponent {
 
     getProfileImage() {
         UserService.getMyInfo()
-            .then(({ profile_img }) => {
-                console.log(profile_img);
-                if (profile_img)
-                    this.setState({ ...this.state, profile_img });
-                else
-                    this.setState({ ...this.state, profile_img: DEFAULT_SIDEBAR_PROFILE_IMG });
-            });
+            .then(({ profile_img }) => this.setState({ ...this.state, profile_img: profile_img ?? DEFAULT_SIDEBAR_PROFILE_IMG }));
     }
     mapSidebarLinksToDiv() {
         return this.state.sidebarLinks.map( link =>
