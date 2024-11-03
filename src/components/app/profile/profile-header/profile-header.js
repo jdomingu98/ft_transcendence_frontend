@@ -1,13 +1,11 @@
+import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG } from '#const';
+
 import WebComponent, { Component } from '#WebComponent';
-
-import { DEFAULT_PROFILE_IMG } from '#const';
-
 import css from './profile-header.css?inline';
 
 const username = 'jDomingu98';
 const position = '42';
 const points = '10042';
-const srcProfilePicture = DEFAULT_PROFILE_IMG;
 
 const myProfile = window.location.pathname === '/app/me' || window.location.pathname === '/app/settings';
 
@@ -25,9 +23,7 @@ class ProfileHeader extends WebComponent {
         this.state = {
             status: [{
                 connected: 'CONNECTED',
-                disconnected: 'DISCONNECTED',
-                searching: 'SEARCHING',
-                playing: 'PLAYING'
+                disconnected: 'DISCONNECTED'
             }]
         };
     }
@@ -63,8 +59,8 @@ class ProfileHeader extends WebComponent {
 
     render() {
         const templateUsername = this.getAttribute('username') || username;
-        const templatePicture = this.getAttribute('profilePicture') || srcProfilePicture;
-        const templateBanner = this.getAttribute('banner') || '/src/resources/default-banner.webp';
+        const templatePicture = this.getAttribute('profilePicture') || DEFAULT_PROFILE_IMG;
+        const templateBanner = this.getAttribute('banner') || DEFAULT_BANNER_IMG;
 
         return `
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
