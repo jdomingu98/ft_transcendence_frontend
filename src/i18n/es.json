@@ -349,5 +349,22 @@
     "INVALID_TOKEN": "Token no válido",
     "EXPIRED_TOKEN": "Token expirado",
     "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
+  },
+  "SETTINGS": {
+    "SECTIONS": {
+      "USER_MANAGEMENT": "Gestión de Usuarios",
+      "CHANGE_PASSWORD": "Cambiar Contraseña",
+      "TWO_FACTOR_AUTH": "Autenticación </br>de Dos Factores",
+      "CHANGE_VISIBILITY": "Actualizar Visibilidad </br>del Perfil",
+      "ABOUT": "Acerca de Transcendence",
+      "DELETE_ACCOUNT": "Eliminar Cuenta"
+    },
+    "USER_MANAGEMENT": {
+      "USERNAME": "Nombre de Usuario",
+      "USERNAME_PHOLD": "Tu nuevo nombre de usuario",
+      "PROFILE_IMG": "Imagen de Perfil",
+      "INPUT_FILE_PHOLD": "Subir imagen",
+      "PROFILE_IMG_PHOLD": "Subir imagen de perfil"
+    }
   }
 }

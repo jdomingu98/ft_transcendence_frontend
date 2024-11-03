@@ -349,5 +349,22 @@
     "INVALID_TOKEN": "无效的令牌",
     "EXPIRED_TOKEN": "令牌已过期",
     "OTP_CODE": "插入的代码不正确。请再试一次"
+  },
+  "SETTINGS": {
+    "SECTIONS": {
+      "USER_MANAGEMENT": "用户管理",
+      "CHANGE_PASSWORD": "更改密码",
+      "TWO_FACTOR_AUTH": "两步验证",
+      "CHANGE_VISIBILITY": "更新资料可见性",
+      "ABOUT": "关于 Transcendence",
+      "DELETE_ACCOUNT": "删除账户"
+    },
+    "USER_MANAGEMENT": {
+      "USERNAME": "用户名",
+      "USERNAME_PHOLD": "您的新用户名",
+      "PROFILE_IMG": "头像",
+      "INPUT_FILE_PHOLD": "上传图片",
+      "PROFILE_IMG_PHOLD": "上传头像"
+    }
   }
 }

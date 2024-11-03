@@ -1,0 +1,41 @@
+.settings-sidebar {
+    max-width: 400px;
+    height: 600px;
+    font-size: 1.2rem;
+    background-color: var(--app-secondary-bg-color);
+    z-index: 42;
+}
+
+.sticky {
+    top: 80px;
+    transform: translateY(20%);
+}
+
+.settings-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    place-items: stretch center;
+}
+
+i {
+    font-size: 1.6rem !important;
+    color: var(--app-secondary-color);
+}
+
+.options-settings div {
+    cursor: pointer;
+}
+
+.options-settings div:hover {
+    background-color: rgba(171, 217, 217, 0.25);
+    border-radius: 10px;
+    transition: background-color .4s ease-in-out;
+}
+
+.selected span {
+    color: #8DBEDA !important;
+}
+
+.settings-content {
+    max-width: 1000px;
+}
