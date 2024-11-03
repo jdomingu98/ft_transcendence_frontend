@@ -259,9 +259,7 @@
       "POINTS": "点数: ",
       "STATUS": {
         "CONNECTED": "已连接",
-        "DISCONNECTED": "断开",
-        "SEARCHING": "搜索匹配",
-        "PLAYING": "比赛"
+        "DISCONNECTED": "断开"
       }
     },
     "STATS": {

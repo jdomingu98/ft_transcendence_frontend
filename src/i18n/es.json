@@ -259,9 +259,7 @@
       "POINTS": "Puntos: ",
       "STATUS": {
         "CONNECTED": "Disponible",
-        "DISCONNECTED": "No disponible",
-        "SEARCHING": "Buscando partida",
-        "PLAYING": "Jugando partida"
+        "DISCONNECTED": "No disponible"
       }
     },
     "STATS": {

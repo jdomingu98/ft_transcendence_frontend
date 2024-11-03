@@ -259,9 +259,7 @@
       "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connected",
-        "DISCONNECTED": "Disconnected",
-        "SEARCHING": "Searching Match",
-        "PLAYING": "Playing Match"
+        "DISCONNECTED": "Disconnected"
       }
     },
     "STATS": {
