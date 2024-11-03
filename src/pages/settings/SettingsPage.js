@@ -1,25 +1,13 @@
 import '/src/components/app/settings';
 
 import WebComponent, { Component } from '#WebComponent';
-
 import css from './SettingsPage.css?inline';
 
 export default Component ({
     tagName: 'settings-page',
     styleCSS: css
 },
-
 class SettingsPage extends WebComponent {
-
-    mapSidebarSettingsLinksToDiv() {
-        return this.getSidebarElements().map( link =>
-            `
-                <div id="${link.sidebarElementId}" class="p-3 mb-3 d-flex align-items-center">
-                    <i class='me-3 bi ${link.iconClass}'></i>
-                    <span class="text-uppercase text-white option">${link.sectionName}</span>
-                </div>
-            `).join('');
-    }
 
     getSidebarElements() {
         return [{
@@ -50,7 +38,19 @@ class SettingsPage extends WebComponent {
         }];
     };
 
+    mapSidebarSettingsLinksToDiv() {
+        return this.getSidebarElements().map( link =>
+            `
+                <div id="${link.sidebarElementId}" class="p-3 mb-3 d-flex align-items-center">
+                    <i class='me-3 bi ${link.iconClass}'></i>
+                    <span class="text-uppercase text-white option">${link.sectionName}</span>
+                </div>
+            `).join('');
+    }
+
     bind() {
+        this.getSidebarElements();
+
         this.subscribeAll('.options-settings div', 'click', e => {
             this._getDOM().querySelectorAll('.options-settings div').forEach(opt => opt.classList.remove('selected'));
             e.currentTarget.classList.add('selected');
@@ -85,8 +85,6 @@ class SettingsPage extends WebComponent {
             const divToScroll = deleteAccount.shadowRoot.getElementById('delete-account');
             divToScroll.scrollIntoView({ behavior: 'smooth' });
         });
-
-        this.getSidebarElements();
     }
 
     render() {
@@ -98,11 +96,11 @@ class SettingsPage extends WebComponent {
                     </div>
                 </aside>
                 <div class="d-flex flex-column justify-content-center align-items-center settings-content">
-                    <settings-user-management id="user-management"></settings-user-management>
+                    <settings-user-management sectionId="user-management"></settings-user-management>
                     <settings-change-password sectionId="change-password"></settings-change-password>
-                    <settings-two-factor-auth sectionId="two-factor" userId="2" enabled="true"></settings-two-factor-auth>
+                    <settings-two-factor-auth sectionId="two-factor"></settings-two-factor-auth>
                     <settings-about sectionId="about"></settings-about>
-                    <settings-delete-account sectionId="delete-account" userId="2"></settings-delete-account>
+                    <settings-delete-account sectionId="delete-account"></settings-delete-account>
                 </div>
             </div>
         `;
