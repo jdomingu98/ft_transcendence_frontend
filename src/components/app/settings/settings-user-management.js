@@ -2,13 +2,8 @@
 import WebComponent, { Component } from '#WebComponent';
 import { SnackbarService }from '#services/SnackbarService';
 import UserService from '#services/UserService';
+import { VISIBILITY } from '#const';
 import css from './settings-common-styles.css?inline';
-
-const VISIBILITY = {
-    PUBLIC: 1,
-    PRIVATE: 2,
-    ANONYMOUS: 3
-};
 
 export default Component ({
     tagName: 'settings-user-management',
