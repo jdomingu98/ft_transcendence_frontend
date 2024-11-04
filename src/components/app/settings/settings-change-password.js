@@ -34,8 +34,8 @@ class SettingsChangePassword extends WebComponent {
         AuthService.changePassword(this.state.data)
             .then(() => {
                 SnackbarService.addToast({
-                    title: this.translator.translate('Update password'),
-                    body: this.translator.translate('Password has been updated successfully')
+                    title: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.TITLE'),
+                    body: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.DESC')
                 });
             })
             .catch( e => {
