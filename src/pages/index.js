@@ -10,3 +10,4 @@ import './ranking/RankingPage';
 import './reset-password/ResetPassword';
 import './oauth-redirect/OAuthRedirect';
 import './error-page/error-page';
+import './pong-game/GamePage';
