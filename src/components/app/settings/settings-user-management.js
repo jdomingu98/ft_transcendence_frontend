@@ -152,7 +152,7 @@ class SettingsUserManagement extends WebComponent {
                         {{ translator.translate('SETTINGS.SECTIONS.USER_MANAGEMENT') }}
                     </h2-text>
                     <profile-header
-                        username="${ this.state.user.username }"
+                        [username]="state.user.username"
                         profilePicture="${ profilePicture }"
                         banner="${ banner }">
                     </profile-header>

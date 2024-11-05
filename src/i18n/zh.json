@@ -21,6 +21,40 @@
     "OTP_MODAL": {
       "TITLE": "OTP 验证成功",
       "DESC": "正在重定向到您的个人资料，请稍候..."
+    },
+    "SETTINGS": {
+      "USER_MANAGEMENT_DONE": {
+          "TITLE": "资料已更新",
+          "DESC": "您的资料已成功更新"
+      },
+      "USER_MANAGEMENT_ERROR": {
+          "TITLE": "资料更新失败",
+          "DESC": "更新您的资料时发生错误"
+      },
+      "CHANGE_PASSWORD_DONE": {
+          "TITLE": "密码已更新",
+          "DESC": "您的密码已成功更新"
+      },
+      "TWO_FACTOR_AUTH_ACTIVATION": {
+          "TITLE": "双重身份验证已激活",
+          "DESC": "您的账户现在已使用双重身份验证保护"
+      },
+      "TWO_FACTOR_AUTH_DEACTIVATION": {
+          "TITLE": "双重身份验证已停用",
+          "DESC": "您的账户不再受双重身份验证保护"
+      },
+      "TWO_FACTOR_AUTH_ERROR": {
+          "TITLE": "双重身份验证错误",
+          "DESC": "更新双重身份验证设置时发生错误"
+      },
+      "DELETE_ACCOUNT_DONE": {
+          "TITLE": "账户已删除",
+          "DESC": "希望很快能再次见到您！"
+      },
+      "DELETE_ACCOUNT_ERROR": {
+          "TITLE": "删除账户失败",
+          "DESC": "删除您的账户时发生错误"
+      }
     }
   },
   "LANDING": {
@@ -352,17 +386,53 @@
     "SECTIONS": {
       "USER_MANAGEMENT": "用户管理",
       "CHANGE_PASSWORD": "更改密码",
-      "TWO_FACTOR_AUTH": "两步验证",
-      "CHANGE_VISIBILITY": "更新资料可见性",
+      "TWO_FACTOR_AUTH": "双重身份验证",
       "ABOUT": "关于 Transcendence",
       "DELETE_ACCOUNT": "删除账户"
     },
     "USER_MANAGEMENT": {
-      "USERNAME": "用户名",
-      "USERNAME_PHOLD": "您的新用户名",
-      "PROFILE_IMG": "头像",
-      "INPUT_FILE_PHOLD": "上传图片",
-      "PROFILE_IMG_PHOLD": "上传头像"
+      "USERNAME_PHOLDER": "您的新用户名",
+      "EMAIL_PHOLDER": "您的新电子邮箱地址",
+      "PROFILE_PICTURE": "个人资料图片",
+      "PROFILE_PICTURE_PHOLDER": "上传个人资料图片",
+      "BACKGROUND_IMG": "背景图片",
+      "BACKGROUND_IMG_PHOLDER": "上传背景图片",
+      "NO_FILE_SELECTED": "未选择文件",
+      "SELECTED_FILE": "已选择文件：",
+      "INVALID_IMG_TYPE": "请选择有效的图像文件",
+      "PROFILE_VISIBILITY": "个人资料可见性",
+      "PUBLIC": "公开：所有用户都可以查看您的个人资料信息",
+      "PRIVATE": "私密：只有您的好友可以查看您的个人资料信息",
+      "ANONYMOUS": "匿名：您的个人资料信息对所有用户隐藏",
+      "LANGUAGE": "默认语言",
+      "SAVE": "更新您的偏好设置"
+    },
+    "CHANGE_PASSWORD": {
+      "NEW_PASSWORD": "新密码",
+      "NEW_PASSWORD_PHOLDER": "您的新密码",
+      "CONFIRM_NEW_PASSWORD": "确认新密码",
+      "CONFIRM_NEW_PASSWORD_PHOLDER": "确认您的新密码",
+      "SAVE": "更新密码"
+    },
+    "TWO_FACTOR_AUTH": {
+      "FIRST_PARAGRAPH": "我们强烈建议您激活双重身份验证，以进一步保护您的账户。",
+      "SECOND_PARAGRAPH": "点击以下按钮，您可以激活或停用此账户安全的额外步骤。更改请求将立即应用。",
+      "THIRD_PARAGRAPH": "激活时，将使用注册表单中提供的电子邮件发送安全代码。",
+      "ACTIVATE": "激活双重身份验证",
+      "DEACTIVATE": "停用双重身份验证"
+    },
+    "ABOUT": {
+      "FIRST_PARAGRAPH": "请随意查看本网站的任何文档。",
+      "SECOND_PARAGRAPH": "阅读这些文档很重要，因为它们解释了个人数据的使用、管理地点、时间和方式。",
+      "THIRD_PARAGRAPH": "您可以通过点击以下链接查看它们：",
+      "FOURTH_PARAGRAPH": "如果阅读后您仍有疑问，请随时向隐私政策部分列出的电子邮件发送邮件。"
+    },
+    "DELETE_ACCOUNT": {
+      "FIRST_PARAGRAPH": "如果有什么不满意，我们感到很遗憾。",
+      "SECOND_PARAGRAPH": "在您离开网站之前，请注意您需要重新注册才能再次访问该网站，因为您的所有信息将被删除。",
+      "THIRD_PARAGRAPH": "希望未来能再次见到您，",
+      "TEAM": "Transcendence团队",
+      "DELETE": "永久删除账户"
     }
   }
 }

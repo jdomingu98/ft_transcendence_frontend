@@ -95,7 +95,7 @@ class SettingsPage extends WebComponent {
                         ${ this.mapSidebarSettingsLinksToDiv() }
                     </div>
                 </aside>
-                <div class="d-flex flex-column justify-content-center align-items-center settings-content">
+                <div class="d-flex flex-column settings-content">
                     <settings-user-management sectionId="user-management"></settings-user-management>
                     <settings-change-password sectionId="change-password"></settings-change-password>
                     <settings-two-factor-auth sectionId="two-factor"></settings-two-factor-auth>

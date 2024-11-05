@@ -21,6 +21,40 @@
     "OTP_MODAL": {
       "TITLE": "OTP Vérifié",
       "DESC": "Redirection vers votre profil, veuillez patienter un moment..."
+    },
+    "SETTINGS": {
+      "USER_MANAGEMENT_DONE": {
+          "TITLE": "Profil Mis à Jour",
+          "DESC": "Votre profil a été mis à jour avec succès"
+      },
+      "USER_MANAGEMENT_ERROR": {
+          "TITLE": "Échec de la Mise à Jour du Profil",
+          "DESC": "Une erreur est survenue lors de la mise à jour de votre profil"
+      },
+      "CHANGE_PASSWORD_DONE": {
+          "TITLE": "Mot de Passe Mis à Jour",
+          "DESC": "Votre mot de passe a été mis à jour avec succès"
+      },
+      "TWO_FACTOR_AUTH_ACTIVATION": {
+          "TITLE": "Authentification à Deux Facteurs Activée",
+          "DESC": "Votre compte est maintenant protégé par une authentification à deux facteurs"
+      },
+      "TWO_FACTOR_AUTH_DEACTIVATION": {
+          "TITLE": "Authentification à Deux Facteurs Désactivée",
+          "DESC": "Votre compte n'est plus protégé par une authentification à deux facteurs"
+      },
+      "TWO_FACTOR_AUTH_ERROR": {
+          "TITLE": "Erreur d'Authentification à Deux Facteurs",
+          "DESC": "Une erreur est survenue lors de la mise à jour de vos paramètres d'authentification à deux facteurs"
+      },
+      "DELETE_ACCOUNT_DONE": {
+          "TITLE": "Compte Supprimé",
+          "DESC": "Nous espérons vous revoir bientôt !"
+      },
+      "DELETE_ACCOUNT_ERROR": {
+          "TITLE": "Échec de la Suppression du Compte",
+          "DESC": "Une erreur est survenue lors de la suppression de votre compte"
+      }
     }
   },
   "LANDING": {
@@ -350,19 +384,55 @@
   },
   "SETTINGS": {
     "SECTIONS": {
-      "USER_MANAGEMENT": "Gestion des Utilisateurs",
+      "USER_MANAGEMENT": "Gestion de l'Utilisateur",
       "CHANGE_PASSWORD": "Changer le Mot de Passe",
       "TWO_FACTOR_AUTH": "Authentification à Deux Facteurs",
-      "CHANGE_VISIBILITY": "Mettre à Jour la Visibilité du Profil",
-      "ABOUT": "À Propos de Transcendence",
+      "ABOUT": "À propos de Transcendence",
       "DELETE_ACCOUNT": "Supprimer le Compte"
     },
     "USER_MANAGEMENT": {
-      "USERNAME": "Nom d'Utilisateur",
-      "USERNAME_PHOLD": "Votre nouveau nom d'utilisateur",
-      "PROFILE_IMG": "Image de Profil",
-      "INPUT_FILE_PHOLD": "Télécharger une image",
-      "PROFILE_IMG_PHOLD": "Télécharger l'image de profil"
+      "USERNAME_PHOLDER": "Votre nouveau nom d'utilisateur",
+      "EMAIL_PHOLDER": "Votre nouvelle adresse e-mail",
+      "PROFILE_PICTURE": "Image de Profil",
+      "PROFILE_PICTURE_PHOLDER": "Télécharger l'image de profil",
+      "BACKGROUND_IMG": "Image de Fond",
+      "BACKGROUND_IMG_PHOLDER": "Télécharger l'image de fond",
+      "NO_FILE_SELECTED": "Aucun fichier sélectionné",
+      "SELECTED_FILE": "Fichier sélectionné : ",
+      "INVALID_IMG_TYPE": "Veuillez sélectionner un fichier d'image valide",
+      "PROFILE_VISIBILITY": "Visibilité du Profil",
+      "PUBLIC": "Public : Tous les utilisateurs peuvent voir vos informations de profil",
+      "PRIVATE": "Privé : Seuls vos amis peuvent voir vos informations de profil",
+      "ANONYMOUS": "Anonyme : Vos informations de profil sont cachées à tous les utilisateurs",
+      "LANGUAGE": "Langue par Défaut",
+      "SAVE": "Mettre à jour vos préférences"
+    },
+    "CHANGE_PASSWORD": {
+      "NEW_PASSWORD": "Nouveau Mot de Passe",
+      "NEW_PASSWORD_PHOLDER": "Votre nouveau mot de passe",
+      "CONFIRM_NEW_PASSWORD": "Confirmer le Nouveau Mot de Passe",
+      "CONFIRM_NEW_PASSWORD_PHOLDER": "Confirmez votre nouveau mot de passe",
+      "SAVE": "Mettre à Jour le Mot de Passe"
+    },
+    "TWO_FACTOR_AUTH": {
+      "FIRST_PARAGRAPH": "Nous vous recommandons fortement d'activer la méthode d'authentification à deux facteurs pour protéger davantage votre compte.",
+      "SECOND_PARAGRAPH": "En cliquant sur le bouton ci-dessous, vous pouvez activer ou désactiver cette étape supplémentaire de sécurité. La demande de changement sera appliquée instantanément.",
+      "THIRD_PARAGRAPH": "En cas d'activation, l'e-mail fourni dans le formulaire d'inscription sera utilisé pour envoyer les codes de sécurité.",
+      "ACTIVATE": "Activer l'Authentification à Deux Facteurs",
+      "DEACTIVATE": "Désactiver l'Authentification à Deux Facteurs"
+    },
+    "ABOUT": {
+      "FIRST_PARAGRAPH": "N'hésitez pas à consulter tout document de ce site.",
+      "SECOND_PARAGRAPH": "Il est important de lire ces documents car ils expliquent quelles données personnelles sont utilisées, où, quand et comment elles sont gérées.",
+      "THIRD_PARAGRAPH": "Vous pouvez les consulter en cliquant sur les liens suivants :",
+      "FOURTH_PARAGRAPH": "Si après lecture vous avez encore des doutes, n'hésitez pas à envoyer un e-mail à l'adresse mentionnée dans la section Politique de Confidentialité."
+    },
+    "DELETE_ACCOUNT": {
+      "FIRST_PARAGRAPH": "Nous sommes désolés si quelque chose n'était pas à votre goût.",
+      "SECOND_PARAGRAPH": "Avant de quitter le site, veuillez noter que vous devrez vous réinscrire pour accéder de nouveau au site, car toutes vos données seront supprimées.",
+      "THIRD_PARAGRAPH": "Nous espérons vous revoir bientôt,",
+      "TEAM": "L'équipe de Transcendence",
+      "DELETE": "Supprimer le Compte Définitivement"
     }
   }
 }
