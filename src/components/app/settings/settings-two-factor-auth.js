@@ -31,20 +31,20 @@ class SettingsTwoFactorAuth extends WebComponent {
                 this.setState({...this.state, user: { ...this.state.user, two_factor_enabled: !this.state.user.two_factor_enabled } });
                 if (this.state.user.two_factor_enabled) {
                     SnackbarService.addToast({
-                        title: this.translator.translate('2FA has been activated'),
-                        body: this.translator.translate('One-time passwords will be sent to your email')
+                        title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.DESC')
                     });
                 } else {
                     SnackbarService.addToast({
-                        title: this.translator.translate('2FA has been deactivated'),
-                        body: this.translator.translate('You should activate it for security reasons')
+                        title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.DESC')
                     });
                 }
             })
             .catch(() => {
                 SnackbarService.addToast({
-                    title: this.translator.translate('Error al enivar la solicitud'),
-                    body: this.translator.translate('Por favor, inténtalo más tarde')
+                    title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.TITLE'),
+                    body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.DESC')
                 });
             });
     }
@@ -57,15 +57,29 @@ class SettingsTwoFactorAuth extends WebComponent {
         return `
             <div class="my-5 row">
                 <div id='${this.sectionId}'>
-                    <h2-text color="var(--app-secondary-color)">Two-factor authentication</h2-text>
+                    <h2-text color="var(--app-secondary-color)">
+                        {{ translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }}
+                    </h2-text>
                 </div>
                 <div class="my-4 text-white" style="width:85%; font-size: 1.2rem">
-                    <p class="paragraph mb-4">We strongly recommend you to activate the two-factor authenticacion method to protect your account even further.</p>
-                    <p class="paragraph mb-4">By selecting or deselecting the checkbox, the change request will be applied instantly.</p>
-                    <p class="paragraph mb-4">In case of activation, the email provided in the registration form will be used to send the security codes.</p>
+                    <p class="paragraph mb-4">
+                        {{ translator.translate('SETTINGS.TWO_FACTOR_AUTH.FIRST_PARAGRAPH') }}
+                    </p>
+                    <p class="paragraph mb-4">
+                        {{ translator.translate('SETTINGS.TWO_FACTOR_AUTH.SECOND_PARAGRAPH') }}
+                    </p>
+                    <p class="paragraph mb-4">
+                        {{ translator.translate('SETTINGS.TWO_FACTOR_AUTH.THIRD_PARAGRAPH') }}
+                    </p>
                 </div>
                 <div>
-                    ${ this.state.user.two_factor_enabled ? '<button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Deactivate Two-Factor Authentication</button>' : '<button class="primary-green-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Activate Two-Factor Authentication</button>'}
+                    ${ this.state.user.two_factor_enabled ? `
+                        <button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">
+                            {{ translator.translate('SETTINGS.TWO_FACTOR_AUTH.DEACTIVATE') }}
+                        </button>` : `
+                        <button class="primary-green-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">
+                            {{ translator.translate('SETTINGS.TWO_FACTOR_AUTH.ACTIVATE') }}
+                        </button>` }
                 </div>
             </div>
         `;

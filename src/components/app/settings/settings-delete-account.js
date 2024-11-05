@@ -27,16 +27,16 @@ class SettingsDeleteAccount extends WebComponent {
         UserService.delete(this.state.id)
             .then(() => {
                 SnackbarService.addToast({
-                    title: this.translator.translate('Cuenta borrada con éxito'),
-                    body: this.translator.translate('Esperamos volver a verte pronto')
+                    title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.TITLE'),
+                    body: this.translator.translate('SNAKCBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
                 });
                 localStorage.clear();
                 NavigatorService.goToLandingPage();
             })
             .catch(() => {
                 SnackbarService.addToast({
-                    title: this.translator.translate('Error al borrar la cuenta'),
-                    body: this.translator.translate('Por favor, inténtalo más tarde')
+                    title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.TITLE'),
+                    body: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.DESC')
                 });
             });
     }
@@ -49,15 +49,27 @@ class SettingsDeleteAccount extends WebComponent {
         return `
             <div class="mt-3 mb-5 row">
                 <div id='${this.sectionId}'>
-                    <h2-text color="var(--app-secondary-color)">Delete Account</h2-text>
+                    <h2-text color="var(--app-secondary-color)">
+                        {{ translator.translate('SETTINGS.SECTIONS.DELETE_ACCOUNT') }}
+                    </h2-text>
                 </div>
                 <div class="my-4 text-white" style="width:85%; font-size: 1.2rem">
-                    <p class="paragraph mb-4">We are sorry if something wasn’t to your liking.</p>
-                    <p class="paragraph mb-4">Before you leave the site, please note that you will need to re-register to access the site again, as all your details will be deleted.</p>
-                    <p class="paragraph mb-5">Hope we will see you soon in the future,</p>
-                    <p class="paragraph">The Transcendence team</p>
+                    <p class="paragraph mb-4">
+                        {{ translator.translate('SETTINGS.DELETE_ACCOUNT.FIRST_PARAGRAPH') }}
+                    </p>
+                    <p class="paragraph mb-4">
+                        {{ translator.translate('SETTINGS.DELETE_ACCOUNT.SECOND_PARAGRAPH') }}
+                    </p>
+                    <p class="paragraph mb-5">
+                        {{ translator.translate('SETTINGS.DELETE_ACCOUNT.THIRD_PARAGRAPH') }}
+                    </p>
+                    <p class="paragraph">
+                        {{ translator.translate('SETTINGS.DELETE_ACCOUNT.TEAM') }}
+                    </p>
                 </div>
-                <button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">Delete account permanently</button>
+                <button class="primary-red-btn primary-btn px-0 border-0 fw-bold text-uppercase rounded-pill">
+                    {{ translator.translate('SETTINGS.DELETE_ACCOUNT.DELETE') }}
+                </button>
             </div>
         `;
     }
