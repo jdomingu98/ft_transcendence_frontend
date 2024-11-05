@@ -103,6 +103,7 @@ class MainSidebar extends WebComponent {
                 .then(() => {
                     localStorage.removeItem('access_token');
                     localStorage.removeItem('refresh_token');
+                    localStorage.removeItem('user');
                     NavigatorService.goToLandingPage();
                 }).catch(e => e && NavigatorService.goToErrorPage(e.error[0]));
         });

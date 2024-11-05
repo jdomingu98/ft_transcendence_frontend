@@ -30,7 +30,9 @@ class SettingsDeleteAccount extends WebComponent {
                     title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.TITLE'),
                     body: this.translator.translate('SNAKCBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
                 });
-                localStorage.clear();
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('user');
                 NavigatorService.goToLandingPage();
             })
             .catch(() => {
