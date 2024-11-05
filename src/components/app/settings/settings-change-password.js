@@ -39,17 +39,23 @@ class SettingsChangePassword extends WebComponent {
                 });
             })
             .catch( e => {
-                console.log(e);
                 this.cleanInputs();
-                let input;
-                if (e.password) {
+                let input, errorMessage;
+                if (e?.new_password || e?.error) {
+                    errorMessage = this._getDOM().querySelector('#password + .error-message');
                     input = this._getDOM().querySelector('input[name="password-settings"]');
-                    this._getDOM().querySelector('#password + .error-message').textContent = this.translator.translate(e.password);
-                } else {
-                    input = this._getDOM().querySelector('input[name="confirm-password-settings"]');
-                    this._getDOM().querySelector('#confirm-password + .error-message').textContent = this.translator.translate(e.confirm_password);
+                    input.classList.add('input-error');
+                    errorMessage.textContent = this.translator.translate(e?.new_password ? 'ERROR.PASSWORD.REQUIRED' : e?.error[0]);
+                    errorMessage.classList.remove('hidden');
                 }
-                input.classList.add('input-error');
+                if (e?.repeat_new_password) {
+                    errorMessage = this._getDOM().querySelector('#confirm-password + .error-message');
+                    input = this._getDOM().querySelector('input[name="confirm-password-settings"]');
+                    input.classList.add('input-error');
+                    input.classList.remove('hidden');
+                    errorMessage.textContent = this.translator.translate('ERROR.PASSWORD.REQUIRED_CONFIRM');
+                    errorMessage.classList.remove('hidden');
+                }
             });
     };
 
