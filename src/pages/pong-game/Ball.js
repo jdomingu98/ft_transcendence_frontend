@@ -1,17 +1,17 @@
 export default class Ball {
     constructor(x, y, radius, canvasWidth) {
+        const absoluteMinSpeed = 4;
         this.x = x;
         this.y = y;
         this.radius = radius;
-
         this.maxAngle = 60;
         this.color = '#8DBEDA';
         this.canvasWidth = canvasWidth;
-        this.velocity = { x: this.canvasWidth * 0.003, y: 0};
+        this.velocity = { x: Math.max(this.canvasWidth * 0.005, absoluteMinSpeed), y: 0 };
         this.initialSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
         this.speed = this.initialSpeed;
-        this.speedMultiplier = 1.01;
-        this.maxSpeed = this.initialSpeed * 2.4;
+        this.speedMultiplier = 1.1;
+        this.maxSpeed = window.devicePixelRatio === 2 ? this.initialSpeed * 2.2 : this.initialSpeed * 2.5;
     }
 
     move(wall_height) {

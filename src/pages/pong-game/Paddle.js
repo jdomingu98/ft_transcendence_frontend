@@ -1,5 +1,6 @@
 export default class Paddle {
     constructor(x, y, width, height,canvasWidth, color ) {
+        const absoluteMinSpeed = 5;
         this.x = x;
         this.y = y;
         this.init_pos = {x: this.x, y: this.y};
@@ -7,7 +8,7 @@ export default class Paddle {
         this.height = height;
         this.color = color || '#8D8DDA';
         this.border_radius = 8;
-        this.velocity = { x: 2, y:canvasWidth * 0.002};
+        this.velocity = { x: 0, y: Math.max(canvasWidth * 0.003, absoluteMinSpeed) };
         this.score = 0;
     }
 
