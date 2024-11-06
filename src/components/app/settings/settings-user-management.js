@@ -30,7 +30,7 @@ class SettingsUserManagement extends WebComponent {
     }
 
     bind() {
-        this.subscribe('input[name="username-settings"]', 'input', e => {
+        this.subscribe('#username-settings', 'input', e => {
             this.setState({
                 ...this.state,
                 user: {
@@ -40,7 +40,7 @@ class SettingsUserManagement extends WebComponent {
             });
         });
 
-        this.subscribe('input[name="profile-picture-settings"]', 'change', e => {
+        this.subscribe('#profile-img', 'change', e => {
             const selectedFile = this._getDOM().getElementById('profile-filename');
             if (this.isValidImageType(e.target.files[0].type)) {
                 this.setState({...this.state, profileFile: e.target.files[0]});
@@ -53,7 +53,7 @@ class SettingsUserManagement extends WebComponent {
             }
         });
 
-        this.subscribe('input[name="banner-settings"]', 'change', e => {
+        this.subscribe('#banner-img', 'change', e => {
             const selectedFile = this._getDOM().getElementById('banner-filename');
             if (this.isValidImageType(e.target.files[0].type)) {
                 this.setState({...this.state, bannerFile: e.target.files[0]});
@@ -146,7 +146,7 @@ class SettingsUserManagement extends WebComponent {
                             {{ translator.translate('LANDING.FORMS.USERNAME') }}
                         </sub-header-text>
                     </div>
-                    <input type="text" id="username-settings" class="p-3" minlength="3" maxlength="20" name="username-settings" [placeholder]="translator.translate('SETTINGS.USER_MANAGEMENT.USERNAME_PHOLDER')" aria-label="Username input field">
+                    <input type="text" id="username-settings" class="p-3" minlength="3" maxlength="20" [placeholder]="translator.translate('SETTINGS.USER_MANAGEMENT.USERNAME_PHOLDER')" aria-label="Username input field">
                     <p class="error-message hidden"></p>
                 </div>
                 <div class="mb-5">
@@ -156,7 +156,7 @@ class SettingsUserManagement extends WebComponent {
                         </sub-header-text>
                         <p id="profile-filename" class="mt-2 text-white file-selected">${this.getOptionText(this.state.profileFile) }</p>
                     </div>
-                    <input type="file" id="profile-img" class="p-3" name="profile-picture-settings" aria-label="Profile picture input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.PROFILE_PICTURE_PHOLDER')">
+                    <input type="file" id="profile-img" class="p-3" aria-label="Profile picture input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.PROFILE_PICTURE_PHOLDER')">
                 </div>
                 <div class="mb-5">
                     <div class="my-3">
@@ -165,7 +165,7 @@ class SettingsUserManagement extends WebComponent {
                         </sub-header-text>
                         <p id="banner-filename" class="mt-2 text-white file-selected">${ this.getOptionText(this.state.bannerFile) }</p>
                     </div>
-                    <input type="file" class="p-3" name="banner-settings" aria-label="Banner input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.BACKGROUND_IMG_PHOLDER')">
+                    <input id="banner-img" type="file" class="p-3" aria-label="Banner input field" [data-content]="translator.translate('SETTINGS.USER_MANAGEMENT.BACKGROUND_IMG_PHOLDER')">
                 </div>
                 <div class="mb-5">
                     <div class="my-3">
