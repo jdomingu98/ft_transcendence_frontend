@@ -7,6 +7,7 @@ import './profile/ProfilePage';
 import './search-results/SearchResults';
 import './friendship/FriendshipPage';
 import './ranking/RankingPage';
+import './settings/SettingsPage';
 import './reset-password/ResetPassword';
 import './oauth-redirect/OAuthRedirect';
 import './error-page/error-page';

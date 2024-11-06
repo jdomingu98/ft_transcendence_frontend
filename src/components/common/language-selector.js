@@ -7,7 +7,6 @@ export default Component ({
     styleCSS: `
         #language {
             border: 1px solid var(--app-secondary-color) !important;
-            font-size: 0,85rem;
             font-family: var(--app-secondary-text-font);
             cursor: pointer;
         }

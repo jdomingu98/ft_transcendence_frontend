@@ -1,19 +1,15 @@
 import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService';
+import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
 import NavigatorService from '#services/NavigatorService';
-
-//import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
+import UserService from '#services/UserService';
 
 import css from './MainSidebar.css?inline';
-
-// const id = 2; -> id of /me profile
-const profilePicture = '/src/resources/devs/jdomingu.png';
 
 export default Component ({
     tagName: 'main-sidebar',
     styleCSS: css
 },
-
 class MainSidebar extends WebComponent {
 
     init() {
@@ -37,7 +33,7 @@ class MainSidebar extends WebComponent {
                 sidebarElementId: 'rank',
                 iconClasses: 'bi bi-graph-up-arrow',
                 sectionName: '{{ translator.translate("SIDEBAR.RANKING") }}',
-                url: 'ranking'
+                url: 'rank'
             }, /*{
                 sidebarElementId: 'history',
                 iconClasses: 'bi bi-clock-history',
@@ -55,7 +51,7 @@ class MainSidebar extends WebComponent {
                 url: ''
             }],
             routes: [
-                {path: '/app/profile/me', component: 'profile-page'},
+                {path: '/app/me', component: 'profile-page'},
                 {path: '/app/profile/:id', component: 'profile-page'},
                 {path: '/app/search', component: 'search-results'},
                 {path: '/app/game', component: 'game-page'},
@@ -67,10 +63,16 @@ class MainSidebar extends WebComponent {
                 {path: '/app/privacy-policy', component: 'privacy-policy'},
                 {path: '/app/legal-notice', component: 'legal-notice'},
                 {path: '/app/terms-conditions', component: 'terms-conditions'}
-            ]
+            ],
+            selectedDefaultOption: window.location.pathname.split('/')[2],
+            profile_img: this.getProfileImage()
         };
     }
 
+    getProfileImage() {
+        UserService.getMyInfo()
+            .then(({ profile_img }) => this.setState({ ...this.state, profile_img: profile_img ?? DEFAULT_SIDEBAR_PROFILE_IMG }));
+    }
     mapSidebarLinksToDiv() {
         return this.state.sidebarLinks.map( link =>
             `
@@ -85,12 +87,8 @@ class MainSidebar extends WebComponent {
         this.subscribe('#menu', 'click', () => this._getDOM().querySelector('#aside').classList.toggle('active'));
 
         this.subscribeAll('.options div', 'click', e => {
-            this._getDOM().querySelectorAll('.options div')
-                .forEach(opt => {
-                    opt.classList.remove('active');
-
-                });
-            e.currentTarget.classList.add('active');
+            this._getDOM().querySelectorAll('.options div').forEach(opt => opt.classList.remove('selected'));
+            e.currentTarget.classList.add('selected');
         });
 
         this.subscribeAll('.menu-options', 'click', ({ currentTarget }) => {
@@ -105,11 +103,19 @@ class MainSidebar extends WebComponent {
                 .then(() => {
                     localStorage.removeItem('access_token');
                     localStorage.removeItem('refresh_token');
+                    localStorage.removeItem('user');
                     NavigatorService.goToLandingPage();
                 }).catch(e => e && NavigatorService.goToErrorPage(e.error[0]));
         });
 
         this.subscribe('#profile', 'click', () => NavigatorService.goToHome());
+    }
+
+    afterViewInit() {
+        const defaultOption = this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`);
+
+        if (defaultOption)
+            defaultOption.classList.add('selected');
     }
 
     render() {
@@ -118,7 +124,7 @@ class MainSidebar extends WebComponent {
                 <aside id="aside" class="sidebar">
                     <div class="head">
                         <div id="profile" class="profile">
-                            <img src='${profilePicture}' class="profile-picture" alt="profile picture">
+                            <img src='${this.state.profile_img}' class="profile-picture" alt="profile picture">
                             <p>TRANSCENDENCE</p>
                         </div>
                         <i id="menu" class='bi bi-list'></i>
