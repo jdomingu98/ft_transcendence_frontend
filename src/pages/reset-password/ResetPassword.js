@@ -29,7 +29,7 @@ class ResetPassword extends WebComponent {
     }
 
     updatePassword() {
-        AuthService.changePassword(this.state.data)
+        AuthService.changeRequestPassword(this.state.data)
             .then(() => {
                 SnackbarService.addToast({
                     title: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.TITLE'),
