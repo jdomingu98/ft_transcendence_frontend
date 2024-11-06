@@ -40,14 +40,6 @@ class SettingsUserManagement extends WebComponent {
             });
         });
 
-        this.subscribe('input[name="email-settings"]', 'input', e => this.setState({
-            ...this.state,
-            user: {
-                ...this.state.user,
-                email: e.target.value.trim()
-            }
-        }));
-
         this.subscribe('input[name="profile-picture-settings"]', 'change', e => {
             const selectedFile = this._getDOM().getElementById('profile-filename');
             if (this.isValidImageType(e.target.files[0].type)) {
@@ -85,12 +77,10 @@ class SettingsUserManagement extends WebComponent {
 
             const errorFieldsMap = {
                 username: 'username-settings',
-                email: 'email-settings',
             };
 
             const formData = new FormData();
             formData.append('username', this.state.user.username);
-            formData.append('email', this.state.user.email);
             formData.append('visibility', this.state.user.visibility);
 
             if (this.state.profileFile)
@@ -164,15 +154,6 @@ class SettingsUserManagement extends WebComponent {
                         </sub-header-text>
                     </div>
                     <input type="text" id="username-settings" class="p-3" minlength="3" maxlength="20" name="username-settings" [placeholder]="translator.translate('SETTINGS.USER_MANAGEMENT.USERNAME_PHOLDER')" aria-label="Username input field">
-                    <p class="error-message hidden"></p>
-                </div>
-                <div class="mb-5">
-                    <div class="my-3">
-                        <sub-header-text color="var(--app-secondary-color)">
-                            {{ translator.translate('LANDING.FORMS.EMAIL') }}
-                        </sub-header-text>
-                    </div>
-                    <input type="email" id="email-settings" class="p-3" name="email-settings" [placeholder]="translator.translate('SETTINGS.USER_MANAGEMENT.EMAIL_PHOLDER')" aria-label="Email input field">
                     <p class="error-message hidden"></p>
                 </div>
                 <div class="mb-5">
