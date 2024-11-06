@@ -16,7 +16,7 @@ class RegisterForm extends WebComponent {
             username: this._getDOM().querySelector('#signup-username').value.trim(),
             email: this._getDOM().querySelector('#signup-email').value.trim(),
             password: this._getDOM().querySelector('#signup-password').value.trim(),
-            repeat_password: this._getDOM().querySelector('#signup-repeat_password').value.trim(),
+            repeat_password: this._getDOM().querySelector('#signup-repeat-password').value.trim(),
         };
         return data;
     }
@@ -35,7 +35,7 @@ class RegisterForm extends WebComponent {
             username: 'signup-username',
             email: 'signup-email',
             password: 'signup-password',
-            repeat_password: 'signup-repeat_password',
+            repeat_password: 'signup-repeat-password',
         };
 
         AuthService.register(formData).then( () => {
@@ -53,7 +53,10 @@ class RegisterForm extends WebComponent {
                     let errorMessage = this._getDOM().querySelector(`#${errorFieldsMap[key]} + .error-message`);
 
                     if (key === 'password' || key === 'repeat_password')
-                        errorMessage = this._getDOM().querySelector('.password-container + .error-message');
+                        errorMessage = this._getDOM().querySelector('#register-password + .error-message');
+
+                    if (key === 'repeat_password')
+                        errorMessage = this._getDOM().querySelector('#register-repeat-password + .error-message');
 
                     input.classList.add('input-error');
                     errorMessage.textContent = this.translator.translate(e[key][0]);
@@ -129,7 +132,7 @@ class RegisterForm extends WebComponent {
                     </div>
                     <div class="input-field">
                         <h4>{{ translator.translate('LANDING.FORMS.PASSWORD') }}</h4>
-                        <div class="password-container">
+                        <div id="register-password" class="password-container">
                             <input type="password" id="signup-password" [placeholder]="translator.translate('LANDING.FORMS.PASSWORD_PHOLDER')" required>
                             <span class="togglePassword">
                                 <i class='bi bi-eye'></i>
@@ -139,8 +142,8 @@ class RegisterForm extends WebComponent {
                     </div>
                     <div class="input-field">
                         <h4>{{ translator.translate('LANDING.FORMS.CONFIRM_PASSWORD') }}</h4>
-                        <div class="password-container">
-                            <input type="password" id="signup-repeat_password" [placeholder]="translator.translate('LANDING.FORMS.CONFIRM_PASSWORD_PHOLDER')" required>
+                        <div id="register-repeat-password" class="password-container">
+                            <input type="password" id="signup-repeat-password" [placeholder]="translator.translate('LANDING.FORMS.CONFIRM_PASSWORD_PHOLDER')" required>
                             <span class="togglePassword">
                                 <i class='bi bi-eye'></i>
                             </span>
