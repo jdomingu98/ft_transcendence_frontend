@@ -49,7 +49,7 @@ export default Component ({
 class ErrorPage extends WebComponent {
     init() {
         this.state = {
-            message: Router.state?.message ?? 'ERROR.PAGE.DEFAULT',
+            message: Router.state?.message ?? 'ERROR.PAGE.DESCRIPTION',
         };
     }
 
