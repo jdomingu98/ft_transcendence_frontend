@@ -105,8 +105,12 @@ class RegisterForm extends WebComponent {
             this.emit('CLOSE_MODAL');
         }).catch( e => {
             this.cleanInputs();
-            Object.keys(errorFieldsMap).forEach(key => e[key] && e[key].length > 0 &&
-                this.markInputAsError(errorFieldsMap[key], e[key][0]));
+            Object.keys(errorFieldsMap).forEach(key => {
+                if (key === 'password')
+                    this.markInputAsError(errorFieldsMap[key], e.password[0], {isPasswordField: true, id: 'password'});
+                else if (key === 'username' || key === 'email')
+                    this.markInputAsError(errorFieldsMap[key], e[key][0]);
+            });
         });
     }
 
