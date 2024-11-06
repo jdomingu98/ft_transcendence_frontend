@@ -1,5 +1,6 @@
 import WebComponent, { Component, Router } from '#WebComponent';
 import AuthService from '#services/AuthService';
+import NavigatorService from '#services/NavigatorService';
 import { SnackbarService } from '#services/SnackbarService';
 
 import css from './ResetPassword.css?inline';
@@ -58,6 +59,9 @@ class ResetPassword extends WebComponent {
     };
 
     bind() {
+        if (!this.state.data.change_password_token)
+            NavigatorService.goToErrorPage();
+
         this.subscribeAll('.togglePassword', 'click', e => {
             const input = e.target.closest('.password-container').querySelector('input');
             const icon = e.target.closest('.togglePassword').querySelector('i');
