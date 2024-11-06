@@ -24,7 +24,9 @@ class ResetPassword extends WebComponent {
                                 <label for="repeat-password">Password Confirmation</label>
                                 <input type="password" id="repeat-password" name="repeat-password">
                             </div>
-                            <primary-button w="359px" h="70px" className="my-4">Confirm</primary-button>
+                            <div class="my-4">
+                                <primary-button w="360px" h="70px">Confirm</primary-button>
+                            </div>
                         </form>
                     </div>
                 </div>

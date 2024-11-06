@@ -8,11 +8,12 @@ export default Component ({
 class H2Text extends WebComponent {
     render() {
         const content = this.innerHTML || '';
+        const color = this.getAttribute('color') || 'white';
 
         return `
             <h2 
                 class="text-capitalize fw-bold"
-                style="font-size: 3.45rem;"
+                style="font-size: 3.45rem; color: ${color};"
             >
                     ${content}
             </h2>
