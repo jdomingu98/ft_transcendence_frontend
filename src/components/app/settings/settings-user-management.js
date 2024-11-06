@@ -75,10 +75,6 @@ class SettingsUserManagement extends WebComponent {
 
         this.subscribe('primary-button', 'click', () => {
 
-            const errorFieldsMap = {
-                username: 'username-settings',
-            };
-
             const formData = new FormData();
             formData.append('username', this.state.user.username);
             formData.append('visibility', this.state.user.visibility);
@@ -104,17 +100,14 @@ class SettingsUserManagement extends WebComponent {
                         title: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.TITLE'),
                         body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.DESC'),
                     });
+                    if (e?.username) {
+                        const input = this._getDOM().getElementById('#username-settings');
+                        const errorMessage = this._getDOM().querySelector('#username-settings + .error-message');
 
-                    Object.keys(errorFieldsMap).forEach(key => {
-                        if (e[key] && e[key].length > 0) {
-                            const input = this._getDOM().querySelector(`#${errorFieldsMap[key]}`);
-                            const errorMessage = this._getDOM().querySelector(`#${errorFieldsMap[key]} + .error-message`);
-
-                            input.classList.add('input-error');
-                            errorMessage.textContent = this.translator.translate(e[key][0]);
-                            errorMessage.classList.remove('hidden');
-                        }
-                    });
+                        input.classList.add('input-error');
+                        errorMessage.textContent = this.translator.translate(e.username[0]);
+                        errorMessage.classList.remove('hidden');
+                    }
                 });
         });
     }
