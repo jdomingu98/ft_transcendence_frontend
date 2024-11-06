@@ -1,4 +1,4 @@
-import WebComponent, { Component } from '#WebComponent';
+import WebComponent, { Component, Router } from '#WebComponent';
 import AuthService from '#services/AuthService';
 import { SnackbarService } from '#services/SnackbarService';
 
@@ -16,7 +16,7 @@ class ResetPassword extends WebComponent {
             data: {
                 new_password: '',
                 repeat_new_password: '',
-                change_password_token: localStorage.getItem('access_token')
+                change_password_token: Router.getQuery().token || ''
             }
         };
     }
