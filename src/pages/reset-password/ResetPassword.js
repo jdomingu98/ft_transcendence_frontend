@@ -87,22 +87,44 @@ class ResetPassword extends WebComponent {
 
     render() {
         return `
-            <section class="container-fluid parent">
-                <div class="col card d-flex text-center">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center mb-4">
-                        <h1 class="fw-bold my-3 text-white text-uppercase">Transcendence</h1>
-                        <h2 class="fw-bold mb-5" style="color: var(--app-secondary-color);">Change password</h2>
-                        <form class="d-flex flex-column mt-4">
-                            <div class="form-group">
-                                <label for="new-password">New Password</label>
-                                <input type="password" id="new-password" name="password-reset">
+            <section class="reset-container">
+                <div class="card rounded">
+                    <div class="card-body d-flex flex-column mx-auto my-4">
+                        <h1 class="fw-bolder my-4 text-white text-uppercase text-center title">Transcendence</h1>
+                        <h2 class="fw-bold mb-4 text-center subtitle">
+                            {{ translator.translate('SETTINGS.SECTIONS.CHANGE_PASSWORD') }}
+                        </h2>
+                        <div class="my-4">
+                            <div class="my-3">
+                                <sub-header-text color="var(--app-secondary-color)">
+                                    {{ translator.translate('SETTINGS.CHANGE_PASSWORD.NEW_PASSWORD') }}
+                                </sub-header-text>
                             </div>
-                            <div class="form-group mb-3" style="margin-top:5rem;">
-                                <label for="repeat-password">Confirm new Password</label>
-                                <input type="password" id="repeat-password" name="confirm-password-reset">
+                            <div id="password" class="w-100 password-container">
+                                <input type="password" class="p-3" name="password-settings" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.NEW_PASSWORD_PHOLDER')" aria-label="Password input field">
+                                <span class="togglePassword">
+                                    <i class='bi bi-eye'></i>
+                                </span>
                             </div>
-                            <primary-button w="359px" h="70px" className="my-4">Update password</primary-button>
-                        </form>
+                            <p class="error-message hidden"></p>
+                        </div>
+                        <div class="mb-5">
+                            <div class="my-3">
+                                <sub-header-text color="var(--app-secondary-color)">
+                                    {{ translator.translate('SETTINGS.CHANGE_PASSWORD.CONFIRM_NEW_PASSWORD') }}
+                                </sub-header-text>
+                            </div>
+                            <div id="confirm-password" class="w-100 password-container">
+                                <input type="password" class="p-3" name="confirm-password-settings" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.CONFIRM_NEW_PASSWORD_PHOLDER')" aria-label="Confirm password input field">
+                                <span class="togglePassword">
+                                    <i class='bi bi-eye'></i>
+                                </span>
+                            </div>
+                            <p class="error-message hidden"></p>
+                        </div>
+                        <primary-button w="100%" h="62px">
+                            {{ translator.translate('SETTINGS.CHANGE_PASSWORD.SAVE') }}
+                        </primary-button>
                     </div>
                 </div>
             </section>
