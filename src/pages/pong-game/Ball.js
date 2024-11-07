@@ -1,25 +1,31 @@
+import { calculateSpeed } from './PongUtils';
+
 export default class Ball {
-    constructor(x, y, radius, canvasWidth) {
-        const absoluteMinSpeed = 4;
+    constructor(x, y, radius, gameAreaWidth, canvasWidth) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.maxAngle = 60;
+        this.maxAngle = canvasWidth > 650 ? 50 : 25;
         this.color = '#8DBEDA';
-        this.canvasWidth = canvasWidth;
-        this.velocity = { x: Math.max(this.canvasWidth * 0.005, absoluteMinSpeed), y: 0 };
+        this.gameAreaWidth = gameAreaWidth;
+        this.elementVelocity = 8.4;
+        this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity), y: 0 };
         this.initialSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
         this.speed = this.initialSpeed;
-        this.speedMultiplier = 1.1;
-        this.maxSpeed = window.devicePixelRatio === 2 ? this.initialSpeed * 2.2 : this.initialSpeed * 2.5;
+        this.speedMultiplier = 1.05;
+        this.maxSpeed = this.initialSpeed * 2;
     }
 
-    move(wall_height) {
+    set_angle(angle) {
+        this.angle = angle;
+    }
+
+    move(wall_height, deltaTime) {
         const bottom = this.y + this.radius;
         const top = this.y - this.radius;
 
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
+        this.x += this.velocity.x * deltaTime;
+        this.y += this.velocity.y * deltaTime;
 
         if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0))
             this.velocity.y *= -1;
@@ -29,7 +35,7 @@ export default class Ball {
         this.x = width / 2;
         this.y = height / 2;
         this.speed = this.initialSpeed;
-        this.velocity = { x: this.canvasWidth * 0.004 * direction, y: 0};
+        this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity) * direction, y: 0 };
     }
 
     increaseSpeed() {

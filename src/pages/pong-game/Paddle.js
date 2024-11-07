@@ -1,6 +1,7 @@
+import { calculateSpeed } from './PongUtils';
+
 export default class Paddle {
-    constructor(x, y, width, height,canvasWidth, color ) {
-        const absoluteMinSpeed = 5;
+    constructor(x, y, width, height, gameAreaWidth, color ) {
         this.x = x;
         this.y = y;
         this.init_pos = {x: this.x, y: this.y};
@@ -8,7 +9,8 @@ export default class Paddle {
         this.height = height;
         this.color = color || '#8D8DDA';
         this.border_radius = 8;
-        this.velocity = { x: 0, y: Math.max(canvasWidth * 0.003, absoluteMinSpeed) };
+        this.elementVelocity = 5.5;
+        this.velocity = { x: 0, y: calculateSpeed(gameAreaWidth, this.elementVelocity) };
         this.score = 0;
     }
 
@@ -19,20 +21,12 @@ export default class Paddle {
         this.y = y;
     }
 
-    getHalfWidth() {
-        return this.width / 2;
-    }
-
-    getHalfHeight() {
-        return this.height / 2;
-    }
-
     getCenterPaddle() {
-        return {x: this.x + this.getHalfWidth(), y: this.y + this.getHalfHeight()};
+        return {x: this.x + this.width / 2, y: this.y + this.height / 2};
     }
 
-    move(direction, wall_height) {
-        this.y += direction * this.velocity.y;
+    move(direction, wall_height, deltaTime) {
+        this.y += direction * this.velocity.y * deltaTime;
         if (this.y < 0) {
             this.y = 0;
         } else if (this.y + this.height > wall_height) {

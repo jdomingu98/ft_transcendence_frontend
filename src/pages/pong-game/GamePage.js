@@ -27,7 +27,7 @@ class GamePage extends WebComponent {
         const ballRadius = 20;
         this.paddle1 = new Paddle(this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width);
         this.paddle2 = new Paddle(this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width, '#ABD9D9');
-        this.ball = new Ball(this.canvas.width / 2, this.canvas.height / 2, ballRadius, this.canvas.width);
+        this.ball = new Ball(this.canvas.width / 2, this.canvas.height / 2, ballRadius, this.canvas.width, this.canvas.clientWidth);
     }
 
     setDataElements(){
@@ -41,6 +41,7 @@ class GamePage extends WebComponent {
         this.setDataElements();
         this.paddle1.set(this.paddleWidth, this.paddleHeight, this.paddlePosX, this.paddlePosY);
         this.paddle2.set(this.paddleWidth, this.paddleHeight, this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY);
+        this.canvas.clientWidth > 650 ? this.ball.set_angle(50) : this.ball.set_angle(20);
         this.paint();
     }
 
@@ -52,20 +53,18 @@ class GamePage extends WebComponent {
         this.ball.render(this.ctx, this.canvas.clientWidth);
     }
 
-    move(paddle, upKey, downKey) {
-        if (this.keysPressed.get(upKey)) {
-            paddle.move(-1, this.canvas.height);
-        }
-        if (this.keysPressed.get(downKey)) {
-            paddle.move(1, this.canvas.height);
-        }
+    play(btnPause){
+        this.pauseBg.classList.add('hidden');
+        btnPause.classList.remove('hidden');
+        this.score.forEach(score => score.style.opacity = 0.85);
+        this.isPause = false;
     }
 
-    initGame(){
-        this.ctx = this.canvas.getContext('2d');
-        this.keysPressed = new Map();
-        this.setDataElements();
-        this.createElements();
+    pause(btnPause){
+        this.pauseBg.classList.remove('hidden');
+        btnPause.classList.add('hidden');
+        this.score.forEach(score => score.style.opacity = 0.5);
+        this.isPause = true;
     }
 
     upScore() {
@@ -89,24 +88,6 @@ class GamePage extends WebComponent {
         this.paddle2.reset();
     }
 
-    gameMovement() {
-        this.upScore();
-        this.move(this.paddle1, KEY_W, KEY_S);
-        this.move(this.paddle2, KEY_O, KEY_L);
-        this.ball.move(this.canvas.height);
-        ballPaddleCollision(this.ball, this.paddle1);
-        ballPaddleCollision(this.ball, this.paddle2);
-
-    }
-
-    gameLoop() {
-        requestAnimationFrame(() => this.gameLoop());
-        if(!this.isPause){
-            this.gameMovement();
-        }
-        this.paint();
-    }
-
     startTimer() {
         this.timerInterval = setInterval(() => {
             if(!this.isPause){
@@ -120,18 +101,42 @@ class GamePage extends WebComponent {
         }, 1000);
     }
 
-    play(btnPause){
-        this.pauseBg.classList.add('hidden');
-        btnPause.classList.remove('hidden');
-        this.score.forEach(score => score.style.opacity = 0.85);
-        this.isPause = false;
+    move(paddle, upKey, downKey, deltaTime) {
+        if (this.keysPressed.get(upKey)) {
+            paddle.move(-1, this.canvas.height, deltaTime);
+        }
+        if (this.keysPressed.get(downKey)) {
+            paddle.move(1, this.canvas.height, deltaTime);
+        }
     }
 
-    pause(btnPause){
-        this.pauseBg.classList.remove('hidden');
-        btnPause.classList.add('hidden');
-        this.score.forEach(score => score.style.opacity = 0.5);
-        this.isPause = true;
+    initGame(){
+        this.ctx = this.canvas.getContext('2d');
+        this.keysPressed = new Map();
+        this.setDataElements();
+        this.createElements();
+    }
+
+
+    gameMovement(deltaTime) {
+        this.upScore();
+        this.move(this.paddle1, KEY_W, KEY_S, deltaTime);
+        this.move(this.paddle2, KEY_O, KEY_L, deltaTime);
+        this.ball.move(this.canvas.height, deltaTime);
+        ballPaddleCollision(this.ball, this.paddle1);
+        ballPaddleCollision(this.ball, this.paddle2);
+
+    }
+
+    gameLoop(time) {
+        if (!this.lastTime) this.lastTime = time;
+        const deltaTime = (time - this.lastTime) / 1000;
+        this.lastTime = time;
+        if(!this.isPause){
+            this.gameMovement(deltaTime);
+            this.paint();
+        }
+        requestAnimationFrame((time) => this.gameLoop(time));
     }
 
     afterViewInit() {
@@ -142,9 +147,10 @@ class GamePage extends WebComponent {
             this.timerInterval = null;
             this.isPause = false;
             this.remainingTime = INITIAL_REMAINING_TIME;
+            this.lastTime = 0;
             this.initGame();
             this.startTimer();
-            this.gameLoop();
+            requestAnimationFrame((time) => this.gameLoop(time));
         }
     }
 

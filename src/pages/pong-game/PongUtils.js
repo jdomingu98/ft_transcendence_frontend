@@ -5,8 +5,8 @@ function gradeToRadians(angle)
 
 function paddleBouncedBall(ball, paddle, sign)
 {
-    const dy = ball.y - paddle.getCenterPaddle().y;
-    let angle = (ball.maxAngle * dy) / (paddle.height / 2);
+    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.height / 2); ;
+    let angle = (ball.maxAngle * dy);
     angle = gradeToRadians(angle);
     if(sign === -1)
         ball.velocity.x = -Math.abs(ball.speed * Math.cos(angle));
@@ -52,4 +52,9 @@ export function timerDisplay(remainingTime){
     const sec = remainingTime % 60;
     const formattedTime = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
     return formattedTime;
+}
+
+export function calculateSpeed(canvasWidth, pongObjectVelocity) {
+    const referenceWidth = 20;
+    return (canvasWidth / referenceWidth) * pongObjectVelocity;
 }
