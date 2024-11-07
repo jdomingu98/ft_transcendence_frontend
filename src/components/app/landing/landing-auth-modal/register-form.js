@@ -209,7 +209,7 @@ class RegisterForm extends WebComponent {
                         <button class="signinBtn secondary-btn">{{ translator.translate('LANDING.BUTTONS.LOGIN') }}</button>
                     </div>
                     <p class="forgot text-center mt-2">{{ translator.translate('LANDING.REGISTER.OPTION_TEXT') }}</p>
-                    <button class="primary-btn-alt">{{ translator.translate('LANDING.BUTTONS.42_ACCOUNT') }}</button>
+                    <button class="primary-btn-alt">42 Network</button>
                 </form>
             </div>
             `;
