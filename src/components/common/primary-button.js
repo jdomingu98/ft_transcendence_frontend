@@ -22,6 +22,7 @@ class PrimaryButton extends WebComponent {
                 id="${id}"
                 class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill ${className}"
                 style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em;"
+                aria-label="primary-button"
             >
                 <sub-header-text fs="${fontSize}" color="${txt_color}">${buttonText}</sub-header-text>
             </button>
