@@ -1,5 +1,9 @@
 {
   "SNACKBAR": {
+    "OAUTH_REDIRECT": {
+      "TITLE": "Inicio de sesión con 42 Network",
+      "DESC": "Ud. se ha conectado exitosamente"
+    },
     "AUTH_MODAL": {
       "REGISTER": {
         "TITLE": "¡Bienvenido!",

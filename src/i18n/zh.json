@@ -1,5 +1,9 @@
 {
   "SNACKBAR": {
+    "OAUTH_REDIRECT": {
+      "TITLE": "使用 42 Network 登录",
+      "DESC": "您已成功登录"
+    },
     "AUTH_MODAL": {
       "REGISTER": {
         "TITLE": "欢迎！",
