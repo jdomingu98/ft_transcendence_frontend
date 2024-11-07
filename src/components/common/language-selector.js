@@ -6,14 +6,14 @@ export default Component ({
     tagName: 'language-selector',
     styleCSS: `
         #language {
-            border: 1px solid var(--app-secondary-color) !important;
-            font-size: 0,85rem;
+            border: 2px solid var(--app-secondary-color) !important;
+            font-size: 0.85rem;
             font-family: var(--app-secondary-text-font);
             cursor: pointer;
         }
         
         select.form-select option {
-            background-color: var(--app-secondary-bg-color);
+            background-color: var(--app-primary-color);
         }
     `,
 },
