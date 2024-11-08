@@ -101,7 +101,7 @@ class SettingsUserManagement extends WebComponent {
                         body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.DESC'),
                     });
                     if (e?.username) {
-                        const input = this._getDOM().getElementById('#username-settings');
+                        const input = this._getDOM().getElementById('username-settings');
                         const errorMessage = this._getDOM().querySelector('#username-settings + .error-message');
 
                         input.classList.add('input-error');
