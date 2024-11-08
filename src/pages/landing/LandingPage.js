@@ -1,6 +1,5 @@
 import '/src/components/app/landing';
 import WebComponent, { Component } from '#WebComponent';
-import NavigatorService from '#services/NavigatorService';
 import css from './LandingPage.css?inline';
 
 export default Component ({
