@@ -42,6 +42,10 @@ class LanguageSelector extends WebComponent {
         };
     }
 
+    afterViewInit() {
+        this._getDOM().querySelector('#language').value = this.translator.getLanguage();
+    }
+
     render() {
         const width = this.getAttribute('w') || DEFAULT_DIMENSION_VALUE;
         const height = this.getAttribute('h') || DEFAULT_DIMENSION_VALUE;
