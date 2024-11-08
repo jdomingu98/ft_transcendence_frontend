@@ -3,7 +3,6 @@ import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG } from '#const';
 import WebComponent, { Component } from '#WebComponent';
 import css from './profile-header.css?inline';
 
-const username = 'jDomingu98';
 const position = '42';
 const points = '10042';
 
@@ -18,7 +17,6 @@ export default Component ({
 },
 
 class ProfileHeader extends WebComponent {
-
     init() {
         this.state = {
             status: [{
@@ -58,13 +56,17 @@ class ProfileHeader extends WebComponent {
     }
 
     render() {
-        const templateUsername = this.getAttribute('username') || username;
+        const templateUsername = this.getAttribute('username') || '';
         const templatePicture = this.getAttribute('profilePicture') || DEFAULT_PROFILE_IMG;
         const templateBanner = this.getAttribute('banner') || DEFAULT_BANNER_IMG;
+        const isLoading = this.getAttribute('isLoading') || false;
 
         return `
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
                 <div class="d-inline-flex p-3 mx-3 profile-glask">
+                ${ isLoading ? `
+                    <app-spinner size="8.1rem"></app-spinner>
+                ` : `
                     <div class="position-relative">
                         <img src='${templatePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
                         ${ !myProfile ? `
@@ -74,6 +76,7 @@ class ProfileHeader extends WebComponent {
                             ` : ''}
                     </div>
                     <div class="profile-info">
+                   
                         <h2 class="mx-0 my-1">${templateUsername}</h2>
                         <div class="d-flex col">
                             <div class="mx-0 my-2 d-flex row gap-1">
@@ -93,6 +96,7 @@ class ProfileHeader extends WebComponent {
                                 </p>
                         </div>
                     </div>
+                `}
                 </div>
             </div>
         `;

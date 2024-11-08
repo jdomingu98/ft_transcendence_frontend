@@ -10,7 +10,7 @@ class AppSpinner extends WebComponent {
         const size = this.getAttribute('size') || this.DEFAULT_SIZE;
         return `
             <div style="width: ${size}; height: ${size};">
-                <img src="src/resources/loading-paddle.gif" style="width:100%" />
+                <img src="/src/resources/loading-paddle.gif" style="width:100%" />
             </div>
         `;
     }
