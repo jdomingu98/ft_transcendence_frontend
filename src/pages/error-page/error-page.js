@@ -49,13 +49,17 @@ export default Component ({
 class ErrorPage extends WebComponent {
     init() {
         this.state = {
-            message: Router.state?.message ?? 'ERROR.PAGE.DEFAULT',
+            message: Router.state?.message ?? 'ERROR.PAGE.DESCRIPTION',
         };
     }
 
     bind() {
         this.subscribe('#back-button', 'click', () => Router.goBack());
-        this.subscribe('#home-button', 'click', () => NavigatorService.goToHome());
+        this.subscribe('#home-button', 'click', () => {
+            localStorage.getItem('access_token') || localStorage.getItem('refresh_token')
+                ? NavigatorService.goToHome()
+                : NavigatorService.goToLandingPage();
+        });
     }
 
     render() {
