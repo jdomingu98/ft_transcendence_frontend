@@ -16,9 +16,9 @@ class OAuthRedirect extends WebComponent {
             NavigatorService.goToErrorPage('ERROR.OAUTH.NO_CODE');
         else {
             AuthService.oAuthLogin(code)
-                .then(({ access_token, refresh_token, two_factor_enabled }) => {
+                .then(({ access_token, refresh_token, two_factor_enabled, username }) => {
                     two_factor_enabled
-                        ? this.showOTPModal('username')
+                        ? this.showOTPModal(username)
                         : this.loginSuccessfully(access_token, refresh_token);
                 })
                 .catch(({ error }) => NavigatorService.goToErrorPage(error));
