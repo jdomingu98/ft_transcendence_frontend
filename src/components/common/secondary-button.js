@@ -15,8 +15,8 @@ class SecondaryButton extends WebComponent {
 
         return `
             <button
-                class="btn btn-secondary border bg-transparent rounded-pill"
-                style="width: ${width}; height: ${height}; border-color: ${color} !important;"
+                class="btn btn-secondary bg-transparent rounded-pill"
+                style="width: ${width}; height: ${height}; border: 2px solid ${color};"
             >
                 <sub-header-text>${buttonText}<sub-header-text>
             </button>

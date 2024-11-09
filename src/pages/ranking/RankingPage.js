@@ -81,7 +81,7 @@ class RankingPage extends WebComponent {
                         <div class="card text-white rounded py-3" style="background-color: var(--app-secondary-bg-color);">
                             <h2-text>{{ translator.translate('LEADERBOARD.POSITION') }}</h2-text>
                             <div class="text-capitalize fw-bold" style="font-size: 3.45rem;">
-                                <span style="color: var(--app-primary-color)">
+                                <span style="color: var(--app-purple-light-color)">
                                     #${this.state.userPosition}
                                 </span> - 
                                 <span style="color: var(--app-secondary-color)">

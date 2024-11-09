@@ -18,11 +18,25 @@ class LandingPage extends WebComponent {
         otpModal.openModal(username);
     }
 
+    setMetaDescription() {
+        let metaDescription = document.querySelector('meta[name="description"]');
+
+        if (!metaDescription) {
+            metaDescription = document.createElement('meta');
+            metaDescription.name = 'description';
+            document.head.appendChild(metaDescription);
+        }
+
+        metaDescription.content = 'Discover our landing page, where you can register, discover features, and explore the leaderboard. Join us and start your journey!';
+    }
+
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
+
+        this.setMetaDescription();
     }
 
     render() {
