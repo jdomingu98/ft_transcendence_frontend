@@ -408,6 +408,7 @@
       "SAVE": "Mettre à jour vos préférences"
     },
     "CHANGE_PASSWORD": {
+      "DISCLAIMER": "Si vous vous êtes connecté avec 42 Network, vous pouvez définir un mot de passe de votre choix et vous connecter normalement la prochaine fois sans authentification OAuth",
       "NEW_PASSWORD": "Nouveau Mot de Passe",
       "NEW_PASSWORD_PHOLDER": "Votre nouveau mot de passe",
       "CONFIRM_NEW_PASSWORD": "Confirmer le Nouveau Mot de Passe",

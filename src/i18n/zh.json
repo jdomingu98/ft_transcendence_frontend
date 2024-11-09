@@ -408,6 +408,7 @@
       "SAVE": "更新您的偏好设置"
     },
     "CHANGE_PASSWORD": {
+      "DISCLAIMER": "如果您使用 42 Network 登录，您可以设置您选择的密码，下次可以正常登录，而无需 OAuth 认证",
       "NEW_PASSWORD": "新密码",
       "NEW_PASSWORD_PHOLDER": "您的新密码",
       "CONFIRM_NEW_PASSWORD": "确认新密码",

@@ -408,6 +408,7 @@
       "SAVE": "Actualizar tus preferencias"
     },
     "CHANGE_PASSWORD": {
+      "DISCLAIMER": "Si has iniciado sesión con 42 Network, puedes establecer una contraseña de tu elección e iniciar sesión normalmente la próxima vez sin autenticación OAuth",
       "NEW_PASSWORD": "Nueva Contraseña",
       "NEW_PASSWORD_PHOLDER": "Tu nueva contraseña",
       "CONFIRM_NEW_PASSWORD": "Confirmar Nueva Contraseña",

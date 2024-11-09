@@ -95,6 +95,9 @@ class SettingsChangePassword extends WebComponent {
                         {{ translator.translate('SETTINGS.SECTIONS.CHANGE_PASSWORD') }}
                     </h2-text>
                 </div>
+                <p class="paragraph mt-3 text-white" style="width: 85%">
+                    {{ translator.translate('SETTINGS.CHANGE_PASSWORD.DISCLAIMER') }}
+                </p>
                 <div class="my-4">
                     <div class="my-3">
                         <sub-header-text color="var(--app-secondary-color)">

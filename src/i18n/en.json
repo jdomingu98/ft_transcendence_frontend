@@ -408,6 +408,7 @@
       "SAVE": "Update your preferences"
     },
     "CHANGE_PASSWORD": {
+      "DISCLAIMER": "If you logged in with 42 Network, you can set a password of your choice and log in normally next time without OAuth authentication",
       "NEW_PASSWORD": "New Password",
       "NEW_PASSWORD_PHOLDER": "Your new password",
       "CONFIRM_NEW_PASSWORD": "Confirm New Password",
