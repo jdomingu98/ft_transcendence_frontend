@@ -1,28 +1,47 @@
-function gradeToRadians(angle)
-{
+/**
+ * @param {number} angle - Angle in degrees.
+ * @returns {number} Angle in radians.
+ * @description Converts an angle from degrees to radians.
+ */
+
+function gradeToRadians(angle) {
     return angle * (Math.PI / 180);
 }
 
-function paddleBouncedBall(ball, paddle, sign)
-{
-    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.height / 2); ;
+/**
+ * @param {Object} ball - Instance of the Ball class representing the ball.
+ * @param {Object} paddle - Instance of the Paddle class representing the paddle.
+ * @param {number} sign - Indicates the direction of velocity on the X-axis; 1 for right paddle, -1 for left paddle.
+ * @description Calculates and updates the ball's velocity when it bounces off the paddle, adjusting direction and angle based on the point of impact.
+ */
+
+function paddleBouncedBall(ball, paddle, sign) {
+    //Normalize the distance from the center of the paddle to the point of impact.
+    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.height / 2);
     let angle = (ball.maxAngle * dy);
     angle = gradeToRadians(angle);
-    if(sign === -1)
+
+    if (sign === -1)
         ball.velocity.x = -Math.abs(ball.speed * Math.cos(angle));
     else
         ball.velocity.x = Math.abs(ball.speed * Math.cos(angle));
+
     ball.velocity.y = ball.speed * Math.sin(angle);
     ball.increaseSpeed();
 }
+
+/**
+ * @param {Object} ball - Instance of the Ball class representing the ball.
+ * @param {Object} paddle - Instance of the Paddle class representing the paddle.
+ * @description Checks for a collision between the ball and the paddle. If a collision occurs adjust the ball's direction.
+ */
 
 export function ballPaddleCollision(ball, paddle) {
     if (ball.x - ball.radius < paddle.x + paddle.width &&
         ball.x - ball.radius > paddle.x &&
         ball.y + ball.radius > paddle.y &&
         ball.y - ball.radius < paddle.y + paddle.height &&
-        ball.velocity.x < 0)
-    {
+        ball.velocity.x < 0) {
         paddleBouncedBall(ball, paddle, 1);
     }
 
@@ -30,11 +49,17 @@ export function ballPaddleCollision(ball, paddle) {
         ball.x + ball.radius < paddle.x + paddle.width &&
         ball.y + ball.radius > paddle.y &&
         ball.y - ball.radius < paddle.y + paddle.height &&
-        ball.velocity.x > 0)
-    {
+        ball.velocity.x > 0) {
         paddleBouncedBall(ball, paddle, -1);
     }
 }
+
+/**
+ * @param {CanvasRenderingContext2D} ctx - Canvas context where the line is drawn.
+ * @param {number} width - Width of the canvas.
+ * @param {number} height - Height of the canvas.
+ * @description Draws a line at the center of the game field.
+ */
 
 export function drawFieldLine(ctx, width, height) {
     ctx.strokeStyle = '#FFFFFF';
@@ -47,12 +72,26 @@ export function drawFieldLine(ctx, width, height) {
     ctx.globalAlpha = 1.0;
 }
 
-export function timerDisplay(remainingTime){
+/**
+ * @param {number} remainingTime - Remaining time in seconds.
+ * @returns {string} Formatted time as a string in MM:SS format.
+ * @description Formats the remaining time in minutes and seconds for display in the game.
+ */
+
+export function timerDisplay(remainingTime) {
     const min = Math.floor(remainingTime / 60);
     const sec = remainingTime % 60;
     const formattedTime = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
     return formattedTime;
 }
+
+/**
+ * Calculates the speed of game objects based on the canvas width, adjusting for consistent gameplay across different resolutions.
+ * @param {number} canvasWidth - Width of the game canvas.
+ * @param {number} pongObjectVelocity - Base velocity of the game object.
+ * @returns {number} Adjusted speed of the object based on canvas width.
+ * @description Calculates the speed of game objects based on the canvas width, adjusting for consistent gameplay across different resolutions.
+ */
 
 export function calculateSpeed(canvasWidth, pongObjectVelocity) {
     const referenceWidth = 20;

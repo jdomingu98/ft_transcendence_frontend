@@ -14,7 +14,7 @@ const MIN_PADDLE_WIDTH =35;
 const MAX_PADDLE_WIDTH = 45;
 const MIN_PADDLE_HEIGHT = 240;
 const MAX_PADDLE_HEIGHT = 285;
-const INITIAL_REMAINING_TIME = 300;
+const INITIAL_REMAINING_TIME = 3;
 
 export default Component({
     tagName: 'game-page',
@@ -23,6 +23,10 @@ export default Component({
 
 class GamePage extends WebComponent {
 
+    /**
+     * @description Initializes the paddles and ball with their respective positions and dimensions.
+     */
+
     createElements() {
         const ballRadius = 20;
         this.paddle1 = new Paddle(this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width);
@@ -30,20 +34,34 @@ class GamePage extends WebComponent {
         this.ball = new Ball(this.canvas.width / 2, this.canvas.height / 2, ballRadius, this.canvas.width, this.canvas.clientWidth);
     }
 
-    setDataElements(){
+    /**
+     * @description Adjusts the dimensions and positions of the paddles based on the current canvas size.
+     * Ensures that paddles don't exceed certain minimum and maximum sizes.
+     */
+
+    setDataElements() {
         this.paddleWidth = Math.max(MIN_PADDLE_WIDTH, Math.min(this.canvas.clientWidth * 0.016, MAX_PADDLE_WIDTH));
         this.paddleHeight = Math.max(MIN_PADDLE_HEIGHT, Math.min(this.canvas.clientHeight * 0.5, MAX_PADDLE_HEIGHT));
         this.paddlePosX = this.canvas.width * 0.05;
         this.paddlePosY = (this.canvas.height - this.paddleHeight) / 2;
     }
 
+    /**
+     * @description Recalculates the positions and dimensions of the paddles and ball, and redraws the game field.
+     */
+
     updateElements() {
         this.setDataElements();
         this.paddle1.set(this.paddleWidth, this.paddleHeight, this.paddlePosX, this.paddlePosY);
         this.paddle2.set(this.paddleWidth, this.paddleHeight, this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY);
+        // Adjust the ball's angle based on the canvas width.
         this.canvas.clientWidth > 650 ? this.ball.set_angle(50) : this.ball.set_angle(20);
         this.paint();
     }
+
+    /**
+     * @description Clears the canvas and redraws the game field, paddles, and ball at their current positions.
+     */
 
     paint() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -53,19 +71,34 @@ class GamePage extends WebComponent {
         this.ball.render(this.ctx, this.canvas.clientWidth);
     }
 
-    play(btnPause){
+    /**
+     * @param {HTMLElement} btnPause - The button used to pause the game.
+     * @description Resumes the game, hides the pause background, and changes the pause state.
+     */
+
+    play(btnPause) {
         this.pauseBg.classList.add('hidden');
         btnPause.classList.remove('hidden');
         this.score.forEach(score => score.style.opacity = 0.85);
         this.isPause = false;
     }
 
-    pause(btnPause){
+    /**
+     * @param {HTMLElement} btnPause - The button used to pause the game.
+     * @description Pauses the game, shows the pause background, and changes the pause state.
+     */
+
+    pause(btnPause) {
         this.pauseBg.classList.remove('hidden');
         btnPause.classList.add('hidden');
         this.score.forEach(score => score.style.opacity = 0.5);
         this.isPause = true;
     }
+
+    /**
+     * @description Checks if the ball has crossed the boundaries of the field, assigns the score to the appropriate paddle,
+     * and respawns the ball at the center.
+     */
 
     upScore() {
         let scoringPaddle, scoringElement, direction;
@@ -88,11 +121,16 @@ class GamePage extends WebComponent {
         this.paddle2.reset();
     }
 
+    /**
+     * @description Starts the timer for the game, decrementing the time every second and updating the display.
+     */
+
     startTimer() {
         this.timerInterval = setInterval(() => {
-            if(!this.isPause){
+            if (!this.isPause) {
                 if (this.remainingTime > 0) {
                     this.remainingTime--;
+                    // Update the timer display.
                     this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                 } else {
                     this.pause(this._getDOM().querySelector('.pause'));
@@ -100,6 +138,14 @@ class GamePage extends WebComponent {
             }
         }, 1000);
     }
+
+    /**
+     * @param {Paddle} paddle - The paddle to move (either paddle1 or paddle2).
+     * @param {number} upKey - The key code for moving the paddle up.
+     * @param {number} downKey - The key code for moving the paddle down.
+     * @param {number} deltaTime - The time difference between frames to smooth the movement.
+     * @description Moves the paddle up or down based on the keys pressed and smooths the movement based on deltaTime.
+     */
 
     move(paddle, upKey, downKey, deltaTime) {
         if (this.keysPressed.get(upKey)) {
@@ -110,13 +156,21 @@ class GamePage extends WebComponent {
         }
     }
 
-    initGame(){
+    /**
+     * @description Initializes the game, setting up the context, keyboard input, and the initial state of the game.
+     */
+
+    initGame() {
         this.ctx = this.canvas.getContext('2d');
         this.keysPressed = new Map();
         this.setDataElements();
         this.createElements();
     }
 
+    /**
+     * @param {number} deltaTime - The time difference between frames to smooth the movement.
+     * @description Handles the core game logic, including updating the score, moving paddles, and checking for collisions.
+     */
 
     gameMovement(deltaTime) {
         this.upScore();
@@ -125,19 +179,27 @@ class GamePage extends WebComponent {
         this.ball.move(this.canvas.height, deltaTime);
         ballPaddleCollision(this.ball, this.paddle1);
         ballPaddleCollision(this.ball, this.paddle2);
-
     }
+
+    /**
+     * @param {number} time - The current timestamp provided by requestAnimationFrame.
+     * @description The main game loop, which repeats every frame to update the game state and render the scene.
+     */
 
     gameLoop(time) {
         if (!this.lastTime) this.lastTime = time;
         const deltaTime = (time - this.lastTime) / 1000;
         this.lastTime = time;
-        if(!this.isPause){
+        if (!this.isPause) {
             this.gameMovement(deltaTime);
             this.paint();
         }
         requestAnimationFrame((time) => this.gameLoop(time));
     }
+
+    /**
+     * @description Initializes the game after the DOM is ready: sets up the game.
+     */
 
     afterViewInit() {
         this.canvas = this._getDOM().querySelector('.pongCanvas');
