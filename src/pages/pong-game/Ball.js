@@ -32,7 +32,7 @@ export default class Ball {
      */
 
     set_angle(angle) {
-        this.angle = angle;
+        this.maxAngle = angle;
     }
 
     /**

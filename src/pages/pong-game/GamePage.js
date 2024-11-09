@@ -18,7 +18,7 @@ const MAX_PADDLE_WIDTH = 45;
 const MIN_PADDLE_HEIGHT = 240;
 const MAX_PADDLE_HEIGHT = 285;
 const INITIAL_REMAINING_TIME = 300;
-const MAX_GOALS = 2;
+const MAX_GOALS = 7;
 
 export default Component({
     tagName: 'game-page',
@@ -175,7 +175,7 @@ class GamePage extends WebComponent {
             user_a: username,
             user_b: 'Pepe',
             num_goals_scored: this.paddle1.score,
-            num_goals_agsainst: this.paddle2.score,
+            num_goals_against: this.paddle2.score,
             num_goals_stopped_a: this.paddle1.goals_stopped,
             num_goals_stopped_b: this.paddle2.goals_stopped,
             start_date: startDate,

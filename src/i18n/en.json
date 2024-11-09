@@ -1,5 +1,9 @@
 {
   "SNACKBAR": {
+    "OAUTH_REDIRECT": {
+      "TITLE": "Login with 42 Network",
+      "DESC": "You have successfully logged in"
+    },
     "AUTH_MODAL": {
       "REGISTER": {
         "TITLE": "Welcome!",
@@ -103,7 +107,6 @@
       "DISCOVER": "Meet new people",
       "REGISTER": "Register",
       "REGISTER_NOW": "Register now",
-      "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Get Started",
       "LOGIN": "Log in",
       "LOGIN_NOW": "Log in now",
