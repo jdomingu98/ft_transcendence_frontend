@@ -42,6 +42,8 @@ export function ballPaddleCollision(ball, paddle) {
         ball.y + ball.radius > paddle.y &&
         ball.y - ball.radius < paddle.y + paddle.height &&
         ball.velocity.x < 0) {
+        // Increment the goals stopped by the paddle.
+        paddle.goals_stopped++;
         paddleBouncedBall(ball, paddle, 1);
     }
 
@@ -50,6 +52,7 @@ export function ballPaddleCollision(ball, paddle) {
         ball.y + ball.radius > paddle.y &&
         ball.y - ball.radius < paddle.y + paddle.height &&
         ball.velocity.x > 0) {
+        paddle.goals_stopped++;
         paddleBouncedBall(ball, paddle, -1);
     }
 }

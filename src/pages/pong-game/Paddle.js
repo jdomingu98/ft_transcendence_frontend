@@ -22,6 +22,7 @@ export default class Paddle {
         // Const used to calculate initial velocity.
         this.elementVelocity = 5.5;
         this.velocity = { x: 0, y: calculateSpeed(gameAreaWidth, this.elementVelocity) };
+        this.goals_stopped = 0;
         this.score = 0;
     }
 

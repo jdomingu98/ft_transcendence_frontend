@@ -2,7 +2,10 @@ import '/src/components/app/profile';
 import WebComponent, { Component } from '#WebComponent';
 import {ballPaddleCollision,drawFieldLine, timerDisplay} from './PongUtils';
 import Ball from './Ball';
+import GameService from '#services/GameService';
 import Paddle from './Paddle';
+import { SnackbarService } from '#services/SnackbarService.js';
+import UserService from '#services/UserService.js';
 import css from './GamePage.css?inline';
 
 const KEY_O = 79;
@@ -14,7 +17,8 @@ const MIN_PADDLE_WIDTH =35;
 const MAX_PADDLE_WIDTH = 45;
 const MIN_PADDLE_HEIGHT = 240;
 const MAX_PADDLE_HEIGHT = 285;
-const INITIAL_REMAINING_TIME = 3;
+const INITIAL_REMAINING_TIME = 300;
+const MAX_GOALS = 2;
 
 export default Component({
     tagName: 'game-page',
@@ -116,6 +120,7 @@ class GamePage extends WebComponent {
         }
         this.ball.respawnBall(this.canvas.width, this.canvas.height, direction);
         scoringPaddle.score++;
+        if(scoringPaddle.score >= MAX_GOALS) this.finishGame();
         this._getDOM().querySelector(scoringElement).innerHTML = scoringPaddle.score;
         this.paddle1.reset();
         this.paddle2.reset();
@@ -133,7 +138,7 @@ class GamePage extends WebComponent {
                     // Update the timer display.
                     this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                 } else {
-                    this.pause(this._getDOM().querySelector('.pause'));
+                    this.finishGame();
                 }
             }
         }, 1000);
@@ -157,6 +162,29 @@ class GamePage extends WebComponent {
     }
 
     /**
+     * @param {number} id - The user's ID.
+     * @param {string} username - The user's username.
+     * @param {string} startDate - The start date of the game.
+     * @returns {Object} The data object containing the game information.
+     * @description Creates a data object with the game information to send to the server.
+     */
+
+    getData(id, username, startDate){
+        const data = {
+            user: id,
+            user_a: username,
+            user_b: 'Pepe',
+            num_goals_scored: this.paddle1.score,
+            num_goals_agsainst: this.paddle2.score,
+            num_goals_stopped_a: this.paddle1.goals_stopped,
+            num_goals_stopped_b: this.paddle2.goals_stopped,
+            start_date: startDate,
+            time_played: INITIAL_REMAINING_TIME - this.remainingTime
+        };
+        return data;
+    }
+
+    /**
      * @description Initializes the game, setting up the context, keyboard input, and the initial state of the game.
      */
 
@@ -165,6 +193,26 @@ class GamePage extends WebComponent {
         this.keysPressed = new Map();
         this.setDataElements();
         this.createElements();
+    }
+
+    /**
+     * @description Ends the game, clearing the timer interval and displaying the final score.
+     */
+    finishGame() {
+        this.pause(this._getDOM().querySelector('.pause'));
+        let startDate = new Date();
+        startDate = startDate.toISOString().slice(0, 19);
+        if(localStorage.getItem('access_token')){
+            UserService.getMyInfo().then(({id, username}) => {
+                const data = this.getData(id, username, startDate);
+                GameService.saveMatch(data).catch(() => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
+                        body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')
+                    });
+                });
+            });
+        }
     }
 
     /**

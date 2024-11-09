@@ -55,6 +55,12 @@
           "TITLE": "Error al Eliminar la Cuenta",
           "DESC": "Ocurrió un error al eliminar tu cuenta"
       }
+    },
+    "LOCAL_MATCH":{
+      "ERROR_SENDING_DATA": {
+        "TITLE": "Error al enviar los datos",
+        "DESC": "Ocurrió un error al enviar los datos de la partida"
+      }
     }
   },
   "LANDING": {
