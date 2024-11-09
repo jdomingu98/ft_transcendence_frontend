@@ -116,7 +116,7 @@ class LoginForm extends WebComponent {
                         <button class="signupBtn secondary-btn">{{ translator.translate('LANDING.BUTTONS.REGISTER') }}</button>
                     </div>
                     <p class="forgot text-center mt-3">{{ translator.translate('LANDING.LOGIN.OPTION_TEXT') }}</p>
-                    <button class="primary-btn-alt">{{ translator.translate('LANDING.BUTTONS.42_ACCOUNT') }}</button>
+                    <button class="primary-btn-alt">42 Network</button>
                 </form>
             </div>
             `;

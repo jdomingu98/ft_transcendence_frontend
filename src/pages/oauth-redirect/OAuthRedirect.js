@@ -9,6 +9,7 @@ export default Component({
     styleCSS: css,
 },
 class OAuthRedirect extends WebComponent {
+
     init() {
         const { code } = Router.getQuery();
         if (!code)
@@ -18,7 +19,10 @@ class OAuthRedirect extends WebComponent {
                 .then(({ access_token, refresh_token }) => {
                     localStorage.setItem('access_token', access_token);
                     localStorage.setItem('refresh_token', refresh_token);
-                    SnackbarService.addToast({ title: 'Login con 42', body: 'Ud. se ha logueado exitosamente' });
+                    SnackbarService.addToast({
+                        title: 'SNACKBAR.OAUTH_REDIRECT.TITLE',
+                        body: 'SNACKBAR.OAUTH_REDIRECT.DESC'
+                    });
                     NavigatorService.goToHome();
                 })
                 .catch(({ error }) => NavigatorService.goToErrorPage(error));
