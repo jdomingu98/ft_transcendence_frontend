@@ -34,7 +34,7 @@ class LoginForm extends WebComponent {
                     title: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.TITLE'),
                     body: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.DESC')
                 });
-                setTimeout(() => NavigatorService.goToHome(), 1000);
+                setTimeout(() => NavigatorService.goToHome(), 3000);
             }
         }).catch(e => {
             input.forEach(input => input.classList.add('input-error'));

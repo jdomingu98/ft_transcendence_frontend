@@ -33,14 +33,14 @@
 
 .head i {
     font-size: 30px;
-    color: #8D8DDA;
+    color: var(--app-purple-light-color);
     cursor: pointer;
 }
 
 .head img {
     width: 50px;
     border-radius: 50%;
-    border: 3px solid #8D8DDA;
+    border: 3px solid var(--app-purple-light-color);
 }
 
 .profile {
@@ -71,14 +71,14 @@
     transition: all .4s ease-in-out;
 }
 
-.options div.active {
-    color: #8DBEDA;
+.selected span {
+    color: #8DBEDA !important;
 }
 
 .options i {
     font-size: 1.4rem;
     margin-right: 10px;
-    color: #8D8DDA;
+    color: var(--app-purple-light-color);
 }
 
 div.content {

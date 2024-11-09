@@ -33,14 +33,18 @@ class LandingNavBar extends WebComponent {
                     class="nav-link link-light text-decoration-none col-2"
                     rel="noreferrer"
                     href="/tournament"
-                    style="font-size: 20px;z-index: 1;"
+                    style="font-size: 20px; z-index: 1;"
                 >
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
                 </router-link>
-                <language-selector class="col-2" w="140px" h="35px"></language-selector>
-                <primary-button w="165px" h="45px">
-                    {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
-                </primary-button>
+                <div style="z-index: 1">
+                    <language-selector class="col-2" w="140px" h="35px"></language-selector>
+                </div>
+                <div style="z-index: 1">
+                    <primary-button w="165px" h="45px">
+                        {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
+                    </primary-button>
+                </div>
             </nav>
         `;
     }
