@@ -71,8 +71,8 @@
     transition: all .4s ease-in-out;
 }
 
-.options div.active {
-    color: #8DBEDA;
+.selected span {
+    color: #8DBEDA !important;
 }
 
 .options i {

@@ -7,7 +7,6 @@ export default Component ({
     styleCSS: `
         #language {
             border: 2px solid var(--app-secondary-color) !important;
-            font-size: 0.85rem;
             font-family: var(--app-secondary-text-font);
             cursor: pointer;
         }
@@ -41,6 +40,10 @@ class LanguageSelector extends WebComponent {
         return () => {
             unsubscribe();
         };
+    }
+
+    afterViewInit() {
+        this._getDOM().querySelector('#language').value = this.translator.getLanguage();
     }
 
     render() {

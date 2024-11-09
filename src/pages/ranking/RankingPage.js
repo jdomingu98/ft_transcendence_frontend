@@ -1,5 +1,7 @@
 import WebComponent, { Component } from '#WebComponent';
+import { DEFAULT_PROFILE_IMG } from '#const';
 import NavigatorService from '#services/NavigatorService';
+import UserService from '#services/UserService';
 
 import css from './RankingPage.css?inline';
 
@@ -9,94 +11,24 @@ export default Component ({
 },
 
 class RankingPage extends WebComponent {
-
     init() {
         this.state = {
-            topTen: [{
-                username: 'ARUZAFA-',
-                profileImg: '/src/resources/devs/aruzafa-.jpg',
-                points: 10042,
-                position: 1,
-                rank: 'first',
-                id: 1
-            },
-            {
-                username: 'ATRUJILL',
-                profileImg: '/src/resources/devs/atrujill.jpg',
-                points: 7890,
-                position: 2,
-                rank: 'second',
-                id: 2
-            },
-            {
-                username: 'CMORALES',
-                profileImg: '/src/resources/devs/cmorales.jpg',
-                points: 4042,
-                position: 3,
-                rank: 'third',
-                id: 3
-            },
-            {
-                username: 'JDOMINGU',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 2024,
-                position: 4,
-                rank: 'rest',
-                id: 4
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 5,
-                rank: 'rest',
-                id: 5
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 6,
-                rank: 'rest',
-                id: 6
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 7,
-                rank: 'rest',
-                id: 7
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 8,
-                rank: 'rest',
-                id: 8
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 9,
-                rank: 'rest',
-                id: 9
-            },
-            {
-                username: 'ANONYMOUS',
-                profileImg: '/src/resources/devs/jdomingu.png',
-                points: 1514,
-                position: 10,
-                rank: 'rest',
-                id: 10
-            }],
-            currentPos: {
-                position: 42,
-                points: 100
-            }
+            topTen: [],
+            userPosition: 0,
+            userPoints: 0,
         };
+        UserService.getLeaderBoard().then(leaderBoardInfo => this.setState({
+            topTen: leaderBoardInfo.leaderboard,
+            userPosition: leaderBoardInfo.position,
+            userPoints: leaderBoardInfo.punctuation
+        }));
+    }
+
+    getRank(id) {
+        if (id === 0) return 'first';
+        if (id === 1) return 'second';
+        if (id === 2) return 'third';
+        return 'rest';
     }
 
     bind() {
@@ -121,19 +53,19 @@ class RankingPage extends WebComponent {
     }
 
     createLeaderboard() {
-        return this.state.topTen.map( index => `
-            <div class="position" data-rank="${index.rank}">
+        return this.state.topTen.map((user, index) => `
+            <div class="position" data-rank="${this.getRank(index)}">
                 <div class="d-flex justify-content-between align-items-center w-100 h-100 hidden">
-                    <img src="${index.profileImg}" alt="${index.username}" class="profile-picture">
+                    <img src="${user.profile_img ?? DEFAULT_PROFILE_IMG}" alt="${user.username}" class="profile-picture">
                     <div class="d-flex justify-content-evenly align-items-center flex-grow-1">
-                        <p class="fw-bold">${index.username}</p>
+                        <p class="fw-bold">${user.username}</p>
                         <span>
-                            <p class="fw-bold points" style="display: inline-block">${index.points}</p>
+                            <p class="fw-bold points" style="display: inline-block">${user.punctuation}</p>
                             <p style="display: inline-block">{{ translator.translate('LEADERBOARD.PTS') }}</p>
                         </span>
                     </div>
                     <div class="d-flex justify-content-end align-items-center">
-                        <p class="rank-position px-3">#${index.position}</p>
+                        <p class="rank-position px-3">#${index + 1}</p>
                     </div>
                 </div>
             </div>`
@@ -148,17 +80,17 @@ class RankingPage extends WebComponent {
                     <div class="text-center pb-5">
                         <div class="card text-white rounded py-3" style="background-color: var(--app-secondary-bg-color);">
                             <h2-text>{{ translator.translate('LEADERBOARD.POSITION') }}</h2-text>
-                            <h2-text>
+                            <div class="text-capitalize fw-bold" style="font-size: 3.45rem;">
                                 <span style="color: var(--app-purple-light-color)">
-                                    #${this.state.currentPos.position}
+                                    #${this.state.userPosition}
                                 </span> - 
                                 <span style="color: var(--app-secondary-color)">
-                                ${this.state.currentPos.points}
+                                    {{ state.userPoints }}
                                 </span>
                                 <span style="color: var(--app-secondary-color)">
                                     {{ translator.translate('LEADERBOARD.PTS') }}
                                 </span>
-                            </h2-text>
+                            </div>
                         </div>
                     </div>
                     ${ this.createLeaderboard() }
