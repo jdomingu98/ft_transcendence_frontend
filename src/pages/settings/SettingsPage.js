@@ -1,6 +1,7 @@
 import '/src/components/app/settings';
 
 import WebComponent, { Component } from '#WebComponent';
+import UserService from '#services/UserService';
 import css from './SettingsPage.css?inline';
 
 export default Component ({
@@ -9,38 +10,50 @@ export default Component ({
 },
 class SettingsPage extends WebComponent {
 
+    init() {
+        this.state = { user: null };
+        UserService.getMyInfo().then(user => this.setState({...this.state, user }));
+    }
+
     getSidebarElements() {
         return [{
             sidebarElementId: 'settings-user-management',
             iconClass: 'bi-person-circle',
             sectionName: '{{ translator.translate("SETTINGS.SECTIONS.USER_MANAGEMENT") }}',
-            url: '#user-management'
+            url: '#user-management',
+            show: true,
         }, {
             sidebarElementId: 'settings-change-password',
             iconClass: 'bi-shield-lock',
             sectionName: '{{ translator.translate("SETTINGS.SECTIONS.CHANGE_PASSWORD") }}',
-            url: '#change-password'
+            url: '#change-password',
+            show: true,
         }, {
             sidebarElementId: 'settings-two-factor',
             iconClass: 'bi-key',
             sectionName: `${ this.translator.translate('SETTINGS.SECTIONS.TWO_FACTOR_AUTH') }`,
-            url: '#two-factor'
+            url: '#two-factor',
+            show: !this.state.user?.is42,
         }, {
             sidebarElementId: 'settings-about',
             iconClass: 'bi-info-circle',
             sectionName: '{{ translator.translate("SETTINGS.SECTIONS.ABOUT") }}',
-            url: '#about-transcendence'
+            url: '#about-transcendence',
+            show: true,
         }, {
             sidebarElementId: 'settings-delete-account',
             iconClass: 'bi-trash',
             sectionName: '{{ translator.translate("SETTINGS.SECTIONS.DELETE_ACCOUNT") }}',
-            url: '#delete-account'
+            url: '#delete-account',
+            show: true,
         }];
     };
 
     mapSidebarSettingsLinksToDiv() {
-        return this.getSidebarElements().map( link =>
-            `
+        return this.getSidebarElements()
+            .filter(({ show }) => show)
+            .map( link =>
+                `
                 <div id="${link.sidebarElementId}" class="p-3 mb-3 d-flex align-items-center">
                     <i class='me-3 bi ${link.iconClass}'></i>
                     <span class="text-uppercase text-white option">${link.sectionName}</span>
@@ -98,7 +111,7 @@ class SettingsPage extends WebComponent {
                 <div class="d-flex flex-column settings-content">
                     <settings-user-management sectionId="user-management"></settings-user-management>
                     <settings-change-password sectionId="change-password"></settings-change-password>
-                    <settings-two-factor-auth sectionId="two-factor"></settings-two-factor-auth>
+                    ${!this.state.user?.is42 ? '<settings-two-factor-auth sectionId="two-factor"></settings-two-factor-auth>': ''}
                     <settings-about sectionId="about"></settings-about>
                     <settings-delete-account sectionId="delete-account"></settings-delete-account>
                 </div>
