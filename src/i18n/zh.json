@@ -59,6 +59,12 @@
           "TITLE": "删除账户失败",
           "DESC": "删除您的账户时发生错误"
       }
+    },
+    "LOCAL_MATCH":{
+      "ERROR_SENDING_DATA": {
+        "TITLE": "错误",
+        "DESC": "发送的信息与我们的记录不匹配"
+      }
     }
   },
   "LANDING": {

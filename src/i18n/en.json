@@ -59,6 +59,12 @@
         "TITLE": "Account Deletion Failed",
         "DESC": "An error occurred while deleting your account"
       }
+    },
+    "LOCAL_MATCH":{
+      "ERROR_SENDING_DATA": {
+        "TITLE": "Error Sending Data",
+        "DESC": "An error occurred while sending the match data"
+      }
     }
   },
   "LANDING": {

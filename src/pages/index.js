@@ -10,4 +10,5 @@ import './ranking/RankingPage';
 import './settings/SettingsPage';
 import './reset-password/ResetPassword';
 import './oauth-redirect/OAuthRedirect';
+import './pong-game/GamePage';
 import './error-page/ErrorPage';
