@@ -15,5 +15,5 @@ export {
     ForgotPasswordForm,
     LoginForm,
     RegisterForm,
-    LandingOtpModal
+    LandingOtpModal,
 };

@@ -1,3 +1,4 @@
+import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService';
 import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
@@ -54,7 +55,7 @@ class MainSidebar extends WebComponent {
                 {path: '/app/me', component: 'profile-page'},
                 {path: '/app/profile/:id', component: 'profile-page'},
                 {path: '/app/search', component: 'search-results'},
-                {path: '/app/game', component: 'game-page'},
+                {path: '/app/game', component: 'pong-sidebar'},
                 {path: '/app/tournament', component: 'tournament-page'},
                 {path: '/app/friendship-request', component: 'friendship-page'},
                 {path: '/app/rank', component: 'ranking-page'},
@@ -73,6 +74,7 @@ class MainSidebar extends WebComponent {
         UserService.getMyInfo()
             .then(({ profile_img }) => this.setState({ ...this.state, profile_img: profile_img ?? DEFAULT_SIDEBAR_PROFILE_IMG }));
     }
+
     mapSidebarLinksToDiv() {
         return this.state.sidebarLinks.map( link =>
             `

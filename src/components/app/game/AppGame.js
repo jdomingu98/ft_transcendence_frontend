@@ -6,14 +6,14 @@ import GameService from '#services/GameService';
 import Paddle from './Paddle';
 import { SnackbarService } from '#services/SnackbarService.js';
 import UserService from '#services/UserService.js';
-import css from './GamePage.css?inline';
+import css from './AppGame.css?inline';
 
-const KEY_O = 79;
-const KEY_L = 76;
+const KEY_ARROW_UP = 38;
+const KEY_ARROW_DOWN = 40;
 const KEY_W = 87;
 const KEY_S = 83;
 
-const MIN_PADDLE_WIDTH =35;
+const MIN_PADDLE_WIDTH = 35;
 const MAX_PADDLE_WIDTH = 45;
 const MIN_PADDLE_HEIGHT = 240;
 const MAX_PADDLE_HEIGHT = 285;
@@ -21,16 +21,26 @@ const INITIAL_REMAINING_TIME = 300;
 const MAX_GOALS = 7;
 
 export default Component({
-    tagName: 'game-page',
+    tagName: 'app-game',
     styleCSS: css
 },
+class AppGame extends WebComponent {
 
-class GamePage extends WebComponent {
+    get btnPause() {
+        return this._getDOM().querySelector('.pause');
+    }
+
+    get btnPlay() {
+        return this._getDOM().querySelector('.play');
+    }
+
+    get backgroundPause() {
+        return this._getDOM().querySelector('.background-pause');
+    }
 
     /**
      * @description Initializes the paddles and ball with their respective positions and dimensions.
      */
-
     createElements() {
         const ballRadius = 20;
         this.paddle1 = new Paddle(this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width);
@@ -42,7 +52,6 @@ class GamePage extends WebComponent {
      * @description Adjusts the dimensions and positions of the paddles based on the current canvas size.
      * Ensures that paddles don't exceed certain minimum and maximum sizes.
      */
-
     setDataElements() {
         this.paddleWidth = Math.max(MIN_PADDLE_WIDTH, Math.min(this.canvas.clientWidth * 0.016, MAX_PADDLE_WIDTH));
         this.paddleHeight = Math.max(MIN_PADDLE_HEIGHT, Math.min(this.canvas.clientHeight * 0.5, MAX_PADDLE_HEIGHT));
@@ -53,7 +62,6 @@ class GamePage extends WebComponent {
     /**
      * @description Recalculates the positions and dimensions of the paddles and ball, and redraws the game field.
      */
-
     updateElements() {
         this.setDataElements();
         this.paddle1.set(this.paddleWidth, this.paddleHeight, this.paddlePosX, this.paddlePosY);
@@ -66,7 +74,6 @@ class GamePage extends WebComponent {
     /**
      * @description Clears the canvas and redraws the game field, paddles, and ball at their current positions.
      */
-
     paint() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         drawFieldLine(this.ctx, this.canvas.width, this.canvas.height);
@@ -79,31 +86,28 @@ class GamePage extends WebComponent {
      * @param {HTMLElement} btnPause - The button used to pause the game.
      * @description Resumes the game, hides the pause background, and changes the pause state.
      */
-
-    play(btnPause) {
-        this.pauseBg.classList.add('hidden');
-        btnPause.classList.remove('hidden');
-        this.score.forEach(score => score.style.opacity = 0.85);
-        this.isPause = false;
+    togglePause(pause) {
+        this.pause = pause;
+        if (this.isPause) {
+            this.score.forEach(score => score.style.opacity = 0.85);
+            this.isPause = false;
+            this.btnPause.classList.add('hidden');
+            this.backgroundPause.classList.add('hidden');
+            this.btnPlay.classList.remove('hidden');
+        } else {
+            this.score.forEach(score => score.style.opacity = 0.5);
+            this.isPause = true;
+            this.btnPause.classList.remove('hidden');
+            this.backgroundPause.classList.remove('hidden');
+            this.btnPlay.classList.add('hidden');
+        }
     }
 
-    /**
-     * @param {HTMLElement} btnPause - The button used to pause the game.
-     * @description Pauses the game, shows the pause background, and changes the pause state.
-     */
-
-    pause(btnPause) {
-        this.pauseBg.classList.remove('hidden');
-        btnPause.classList.add('hidden');
-        this.score.forEach(score => score.style.opacity = 0.5);
-        this.isPause = true;
-    }
 
     /**
      * @description Checks if the ball has crossed the boundaries of the field, assigns the score to the appropriate paddle,
      * and respawns the ball at the center.
      */
-
     upScore() {
         let scoringPaddle, scoringElement, direction;
 
@@ -129,7 +133,6 @@ class GamePage extends WebComponent {
     /**
      * @description Starts the timer for the game, decrementing the time every second and updating the display.
      */
-
     startTimer() {
         this.timerInterval = setInterval(() => {
             if (!this.isPause) {
@@ -151,7 +154,6 @@ class GamePage extends WebComponent {
      * @param {number} deltaTime - The time difference between frames to smooth the movement.
      * @description Moves the paddle up or down based on the keys pressed and smooths the movement based on deltaTime.
      */
-
     move(paddle, upKey, downKey, deltaTime) {
         if (this.keysPressed.get(upKey)) {
             paddle.move(-1, this.canvas.height, deltaTime);
@@ -164,13 +166,12 @@ class GamePage extends WebComponent {
     /**
      * @param {number} id - The user's ID.
      * @param {string} username - The user's username.
-     * @param {string} startDate - The start date of the game.
      * @returns {Object} The data object containing the game information.
      * @description Creates a data object with the game information to send to the server.
      */
-
-    getData(id, username, startDate){
-        const data = {
+    getData(id, username) {
+        const startDate = this.startDate.toISOString().slice(0, 19);
+        return ({
             user: id,
             user_a: username,
             user_b: 'Pepe',
@@ -180,14 +181,12 @@ class GamePage extends WebComponent {
             num_goals_stopped_b: this.paddle2.goals_stopped,
             start_date: startDate,
             time_played: INITIAL_REMAINING_TIME - this.remainingTime
-        };
-        return data;
+        });
     }
 
     /**
      * @description Initializes the game, setting up the context, keyboard input, and the initial state of the game.
      */
-
     initGame() {
         this.ctx = this.canvas.getContext('2d');
         this.keysPressed = new Map();
@@ -199,19 +198,14 @@ class GamePage extends WebComponent {
      * @description Ends the game, clearing the timer interval and displaying the final score.
      */
     finishGame() {
-        this.pause(this._getDOM().querySelector('.pause'));
-        let startDate = new Date();
-        startDate = startDate.toISOString().slice(0, 19);
-        if(localStorage.getItem('access_token')){
-            UserService.getMyInfo().then(({id, username}) => {
-                const data = this.getData(id, username, startDate);
-                GameService.saveMatch(data).catch(() => {
-                    SnackbarService.addToast({
-                        title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
-                        body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')
-                    });
-                });
-            });
+        this.togglePause(true);
+        if (localStorage.getItem('access_token')) {
+            UserService.getMyInfo()
+                .then(({ id, username }) => GameService.saveMatch(this.getData(id, username)))
+                .catch(() => SnackbarService.addToast({
+                    title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
+                    body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')
+                }));
         }
     }
 
@@ -219,11 +213,10 @@ class GamePage extends WebComponent {
      * @param {number} deltaTime - The time difference between frames to smooth the movement.
      * @description Handles the core game logic, including updating the score, moving paddles, and checking for collisions.
      */
-
     gameMovement(deltaTime) {
         this.upScore();
         this.move(this.paddle1, KEY_W, KEY_S, deltaTime);
-        this.move(this.paddle2, KEY_O, KEY_L, deltaTime);
+        this.move(this.paddle2, KEY_ARROW_UP, KEY_ARROW_DOWN, deltaTime);
         this.ball.move(this.canvas.height, deltaTime);
         ballPaddleCollision(this.ball, this.paddle1);
         ballPaddleCollision(this.ball, this.paddle2);
@@ -233,7 +226,6 @@ class GamePage extends WebComponent {
      * @param {number} time - The current timestamp provided by requestAnimationFrame.
      * @description The main game loop, which repeats every frame to update the game state and render the scene.
      */
-
     gameLoop(time) {
         if (!this.lastTime) this.lastTime = time;
         const deltaTime = (time - this.lastTime) / 1000;
@@ -248,62 +240,70 @@ class GamePage extends WebComponent {
     /**
      * @description Initializes the game after the DOM is ready: sets up the game.
      */
-
     afterViewInit() {
         this.canvas = this._getDOM().querySelector('.pongCanvas');
         if (this.canvas) {
-            this.pauseBg = this._getDOM().querySelector('.background-pause');
             this.score = this._getDOM().querySelectorAll('.score');
             this.timerInterval = null;
             this.isPause = false;
             this.remainingTime = INITIAL_REMAINING_TIME;
             this.lastTime = 0;
+            this.startDate = new Date();
             this.initGame();
             this.startTimer();
             requestAnimationFrame((time) => this.gameLoop(time));
         }
     }
 
-    bind(){
-        const btnPlay = this._getDOM().querySelector('.play');
-        const btnPause = this._getDOM().querySelector('.pause');
-        this.subscribe(btnPlay, 'click', () => this.play(btnPause));
-        this.subscribe(btnPause, 'click', () => this.pause(btnPause));
-        this.subscribe(window, 'keydown', e => {
-            this.keysPressed.set(e.keyCode, true);
-        });
-        this.subscribe(window, 'keyup', e => {
-            this.keysPressed.set(e.keyCode, false);
-        });
+    getRandomPlayer() {
+        const images = [
+            {src: '/src/resources/players/image0.png', name: 'Crazy dev'},
+            {src: '/src/resources/players/image1.png', name: 'Awesome grandma'},
+            {src: '/src/resources/players/image2.png', name: 'Jonathan'},
+            {src: '/src/resources/players/image3.png', name: 'Fat cat'},
+        ];
+        return images[Math.floor(Math.random() * images.length)];
+    }
+
+    getHeader(player) {
+        return `<div class="d-flex justify-content-between align-items-center">
+            <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
+                <img src="/src/resources/devs/cmorales.jpg" alt="Player 1">
+                <span class="text-white text-uppercase mt-3">Player 1</span>
+            </div>
+            <div class="info-mid">
+                <span class="text-white text-uppercase" id="timer-marker">05:00</span>
+            </div>
+            <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
+                <span class="text-white text-uppercase mt-3">${player.name}</span>
+                <img src="${player.src}" alt="Player 2">
+            </div>
+        </div>`;
+    }
+
+    bind() {
+        this.subscribeAll('.btn-game', 'click', () => this.togglePause(!this.isPause));
+        this.subscribe(window, 'keydown', e => this.keysPressed.set(e.keyCode, true));
+        this.subscribe(window, 'keyup', e => this.keysPressed.set(e.keyCode, false));
         this.subscribe(window, 'resize', () => this.updateElements());
     }
 
     render() {
+        const player = this.getRandomPlayer();
         return `
-            <div class="container">
-                <div class="position-relative">
-                    <div class="background-pause hidden">
-                        <button class="btn-game play" ><i class="bi bi-play-fill"></i></button>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center p-0 info-board">
-                        <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
-                            <img src="/src/resources/devs/cmorales.jpg" alt="Player 1">
-                            <span class="text-white text-uppercase mt-3">Player 1</span>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="pongtainer">
+                    ${this.getHeader(player)}
+                    <div class="position-relative">
+                        <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
+                        <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
+                            <span class="score" id="score-1">0</span>
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden"><i class="bi bi-pause"></i></button>
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game play"><i class="bi bi-play-fill"></i></button>
+                            <span class="score" id="score-2">0</span>
                         </div>
-                        <div class="info-mid">
-                            <span class="text-white text-uppercase" id="timer-marker">05:00</span>
-                        </div>
-                        <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
-                            <span class="text-white text-uppercase mt-3">Player 2</span>
-                            <img src="/src/resources/devs/atrujill.jpg" alt="Player 2">
-                        </div>
+                        <canvas class="pongCanvas" width="1920" height="1080"></canvas>
                     </div>
-                    <div class="d-flex flex-r d-flex score-board">
-                        <span class="score" id="score-1">0</span>
-                        <button class="btn-game pause"><i class="bi bi-pause"></i></button>
-                        <span class="score" id="score-2">0</span>
-                    </div>
-                    <canvas class="pongCanvas" width="1920" height="1080"></canvas>
                 </div>
             </div>
         `;

@@ -1,10 +1,3 @@
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 canvas {
     display: block;
     margin: 0 auto;
@@ -15,17 +8,17 @@ canvas {
     min-height: 400px;
 }
 
+.pongtainer {
+    width: 80%;
+}
+
 .hidden {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease;
 }
 
-.background-pause{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.background-pause {
     border-radius: 20px;
     width: 100%;
     height: 100%;
@@ -35,12 +28,6 @@ canvas {
     letter-spacing: 6px;
     display: grid;
     place-items: center;
-}
-
-.info-board {
-    position: absolute;
-    width: 100%;
-    top: -95px;
 }
 
 .info-mid span {
@@ -64,29 +51,21 @@ canvas {
 }
 
 .score-board {
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-    font-size: 48px;
+    top: 4rem;
+    font-size: 3rem;
     color: #FFFFFF;
-    height: 100px;
     font-weight: bold;
-    letter-spacing: 6px;
-    align-items: center;
-    justify-content: space-around;
-    width: 65%;
-    display: flex;
+    width: 20rem;
 }
 
 .score {
     width: 80px;
-    font-size: 70px;
+    font-size: 4.5rem;
     opacity: 0.85;
     text-align: center;
 }
 
-.btn-game{
+.btn-game {
     border: 3px solid #ffffff81;
     border-radius: 50%;
     display: flex;
@@ -95,27 +74,19 @@ canvas {
     background-color: var(--app-primary-bg-color);
     color: var(--app-secondary-color);
     transition: all 0.3s;
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+}
+
+.btn-game i {
+    margin-left: 5px;
 }
 
 .btn-game:hover{
     background-color: var(--app-secondary-bg-color);
 }
 
-.pause{
-    width: 50px;
-    height: 50px;
-    font-size: 35px;
-}
-
-.play{
-    width:110px; 
-    height:110px; 
-    font-size:75px;
-}
-
-.play i{
-    margin-left: 5px;
-}
 
 @media screen and (max-width: 1140px) {
     .player-icon span {
@@ -131,15 +102,9 @@ canvas {
         font-size: 40px;
     }
 
-    .pause{
+    .btn-game {
         width: 40px;
         height: 40px;
         font-size: 30px;
-    }
-
-    .play{
-        width:70px; 
-        height:70px; 
-        font-size:45px;
     }
 }
