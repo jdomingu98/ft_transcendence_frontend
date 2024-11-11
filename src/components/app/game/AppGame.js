@@ -131,6 +131,32 @@ class AppGame extends WebComponent {
     }
 
     /**
+     *@description Fucntion that starts the golden goal mode.
+     */
+    golden_goal(){
+        clearInterval(this.timerInterval);
+        const golden_goal_title = this._getDOM().querySelector('.golden-goal');
+        const max_goals_draw = this.paddle1.score;
+        golden_goal_title.style.display = 'inline-block';
+        this.ball.set_color_ball('#FFD700');
+        this.checkGoldenGoal(max_goals_draw);
+    }
+
+    /**
+     * @description Function that checks if the game is in golden goal mode.
+     * @param {number} goals_draw - The number of goals scored when the match was a draw.
+     */
+    checkGoldenGoal(goals_draw) {
+        this.goldenGoalInterval = setInterval(() => {
+            if (this.paddle1.score > goals_draw || this.paddle2.score > goals_draw) {
+                clearInterval(this.goldenGoalInterval);
+                this.finishGame();
+            }
+        }, 100);
+    }
+
+
+    /**
      * @description Starts the timer for the game, decrementing the time every second and updating the display.
      */
     startTimer() {
@@ -141,7 +167,10 @@ class AppGame extends WebComponent {
                     // Update the timer display.
                     this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                 } else {
-                    this.finishGame();
+                    if(this.paddle1.score === this.paddle2.score){
+                        this.golden_goal();
+                    }
+                    else this.finishGame();
                 }
             }
         }, 1000);
@@ -266,15 +295,15 @@ class AppGame extends WebComponent {
     }
 
     getHeader(player) {
-        return `<div class="d-flex justify-content-between align-items-center">
-            <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
+        return `<div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1">
+            <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
                 <img src="/src/resources/devs/cmorales.jpg" alt="Player 1">
                 <span class="text-white text-uppercase mt-3">Player 1</span>
             </div>
             <div class="info-mid">
                 <span class="text-white text-uppercase" id="timer-marker">05:00</span>
             </div>
-            <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
+            <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
                 <span class="text-white text-uppercase mt-3">${player.name}</span>
                 <img src="${player.src}" alt="Player 2">
             </div>
@@ -296,6 +325,7 @@ class AppGame extends WebComponent {
                     ${this.getHeader(player)}
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
+                        <div class="golden-goal"><span>GOLDEN GOAL</span></div>
                         <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
                             <span class="score" id="score-1">0</span>
                             <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden"><i class="bi bi-pause"></i></button>
