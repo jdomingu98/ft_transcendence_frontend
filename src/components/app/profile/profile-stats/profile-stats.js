@@ -63,7 +63,7 @@ class ProfileStats extends WebComponent {
                 `;
             } else if (stat.statCode === 'streak') {
                 return `
-                    ${ stat.statValue ?? 0 > 2 ? `<div class="stat">
+                    ${ (stat.statValue ?? 0) > 2 ? `<div class="stat">
                         <h3>${stat.statName}</h3>
                         <div class="d-flex position-relative">
                             <img src="/src/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
