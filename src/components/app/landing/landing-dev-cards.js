@@ -65,7 +65,7 @@ class LandingDevCards extends WebComponent {
     developersToHTML() {
         return this.state.devsInfo.map( dev =>
             `
-                <div class="col d-flex px-0 my-5 justify-content-center">
+                <div class="col col-md-6 col-xl-3  d-flex px-0 my-5 justify-content-center ">
                     <div class="card mt-4 border-0 card-content text-uppercase">
                         <div class="mx-auto rounded-circle profile" style="width:${DEFAULT_IMG_DIMENSION}; height:${ DEFAULT_IMG_DIMENSION}; background-image: url(${dev.src})"></div>
                         <div class="card-body">
@@ -83,7 +83,7 @@ class LandingDevCards extends WebComponent {
     render() {
         return `
             <aside class="my-5">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center mb-4 mb-lg-2">
                     <sub-header-text color="var(--app-secondary-color)">
                     {{ translator.translate('LANDING.TEAM.HEADER') }}
                     </sub-header-text>
@@ -92,7 +92,7 @@ class LandingDevCards extends WebComponent {
                     </h2-text>
                 </div>
 
-                <div class="col-12 d-flex"> 
+                <div class="col-12 d-flex flex-wrap"> 
                     ${this.developersToHTML()}
                 </div>
             </aside>

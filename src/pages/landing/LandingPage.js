@@ -54,47 +54,47 @@ class LandingPage extends WebComponent {
 
                     <landing-navbar class="col-12 p-0"></landing-navbar>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
-                        <div class="col-5">
+                    <section class="d-flex flex-column flex-lg-row col-12 p-0 justify-content-center justify-content-lg-evenly align-items-center my-5">
+                        <div class="col-12 col-lg-5 text-center text-lg-start">
                             <h1-text>{{ translator.translate('LANDING.PLAY.TITLE') }}</h1-text>
-                            <div class="mt-3 col-7">
+                            <div class="mt-3 col-12 col-lg-7">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.PLAY.SUBTITLE') }}</p>
                             </div>
-                            <div class="col col-11 d-flex mt-4 gap-3">
+                            <div class="d-flex flex-column flex-md-row mt-5 mt-lg-4 gap-5 gap-lg-3 justify-content-center justify-content-lg-start">
                                 <primary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.LOCAL_MODE") }}</primary-button>
                                 <secondary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.CREATE_TOURNAMENT") }}</secondary-button>
                             </div>
                         </div>
-                        <img src="/src/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-6" style="width:551px; height:443px">
+                        <img src="/src/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-12 col-lg-6 mt-5 mt-lg-0" style="width:100%; max-width: 551px; height: auto;">
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5">
-                        <img loading="lazy" src="/src/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" style="width: 565px; height: 508px">
-                        <div class="col-5">
+                    <section class="d-flex flex-column flex-lg-row col-12 p-0 justify-content-center justify-content-lg-evenly align-items-center my-5 gap-5">
+                        <img loading="lazy" src="/src/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" class="col-12 col-lg-6 order-2 order-lg-1" style="width:100%; max-width: 565px; height: auto;">
+                        <div class="col-12 col-lg-5 text-center text-lg-start order-1 order-lg-2 mb-2 mb-lg-0">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.DISCOVER.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.DISCOVER.TITLE') }}</h2-text>
-                            <div class="my-4 col-8">
+                            <div class="my-4 col-12 col-lg-8">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.DISCOVER.SUBTITLE') }}</p>
                             </div>
                             <primary-button w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
                         </div>
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
-                        <div class="col-5">
+                    <section class="d-flex flex-column flex-lg-row col-12 p-0 justify-content-center justify-content-lg-evenly align-items-center my-3 my-lg-5">
+                        <div class="col-12 col-lg-5 text-center text-lg-start mb-5 mb-lg-0">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.LEADER_BOARD.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.LEADER_BOARD.TITLE') }}</h2-text>
-                            <div class="my-4 col-9">
+                            <div class="my-4 col-12 col-lg-9">
                                 <p class="landing-body-text">${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</p>
                             </div>
-                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
+                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}</primary-button>
                         </div>
-                        <img loading="lazy" src="/src/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-6" style="width:450px; height:460px">
+                        <img loading="lazy" src="/src/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-12 col-lg-6" style="width:100%; max-width: 450px; height: auto;">
                     </section>
 
                     <landing-dev-cards></landing-dev-cards>
 
-                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;">
+                    <section class="col d-flex flex-column text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: auto; min-height: 30rem;">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
                             <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
                             <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
