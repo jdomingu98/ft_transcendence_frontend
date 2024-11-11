@@ -2,16 +2,6 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './profile-stats.css?inline';
 
-const playerData = {
-    goalsScored: '123',
-    goalsAgainst: '32',
-    goalsStopped: '569',
-    soloWr: '40',
-    timePlayed: '125h',
-    maxWinStreak: '16'
-};
-
-
 export default Component ({
     tagName: 'profile-stats',
     styleCSS: css
@@ -21,10 +11,6 @@ class ProfileStats extends WebComponent {
 
     get playerStats() {
         return this.getAttribute('stats');
-    }
-
-    get isLoading() {
-        return this.getAttribute('isLoading');
     }
 
     getStats() {
@@ -54,27 +40,11 @@ class ProfileStats extends WebComponent {
             statValue: playerData?.maxWinStreak,
             statCode: 'streak'
         }];
-    }
 
-    afterViewInit() {
-        const soloWRValue = playerData.soloWr;
-        const circle = this._getDOM().querySelector('.circle-progress');
-        setTimeout(() => {
-            circle.style.strokeDashoffset = 157 - (157 * soloWRValue) / 100;
-        });
     }
 
     mapStatsToDiv() {
-        const loading = this.isLoading;
         return this.getStats().map(stat => {
-            if (loading) {
-                return `
-                    <div class="stat d-flex flex-column align-items-center">
-                        <h3>${stat.statName}</h3>
-                        <app-spinner size="5rem"></app-spinner>
-                    </div>
-                `;
-            }
             if (stat.statCode === 'wr') {
                 return`
                     <div class="stat">
@@ -85,27 +55,28 @@ class ProfileStats extends WebComponent {
                         >
                             <svg width="60" height="60" style="transform: rotate(-90deg);">
                                 <circle cx="30" cy="30" r="25" class="circle-bg" />
-                                <circle cx="30" cy="30" r="25" class="circle-progress" />
+                                <circle cx="30" cy="30" r="25" class="circle-progress" style="stroke-dashoffset: ${157 - (157 * (stat.statValue ?? 0)) / 100}" />
                             </svg>
-                            <p class="position-absolute text-white mb-2 solo-wr-value" style="font-size: 1.3rem">${stat.statValue}</p>
+                            <p class="position-absolute text-white mb-2 solo-wr-value" style="font-size: 1.3rem">${stat.statValue ?? 0}</p>
                         </div>
                     </div>
                 `;
             } else if (stat.statCode === 'streak') {
-                return`
-                    <div class="stat">
+                return `
+                    ${ stat.statValue ?? 0 > 2 ? `<div class="stat">
                         <h3>${stat.statName}</h3>
                         <div class="d-flex position-relative">
                             <img src="/src/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
-                            <p class="position-absolute text-black win-streak">${stat.statValue}</p>
+                            <p class="position-absolute text-black win-streak">${stat.statValue ?? 0}</p>
                         </div>
                     </div>
+                    ` : ''}
                 `;
             }
             return`
                     <div class="stat">
                         <h3>${stat.statName}</h3>
-                        <p style="color: ${stat.statColor}">${stat.statValue}</p>
+                        <p style="color: ${stat.statColor}">${stat.statValue ?? 0}</p>
                     </div>
                 `;
 

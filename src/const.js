@@ -30,6 +30,11 @@ const VISIBILITY = {
     ANONYMOUS: 3
 };
 
+const UserStatus = {
+    CONNECTED: 'CONNECTED',
+    DISCONNECTED: 'DISCONNECTED',
+};
+
 export {
     BUTTON_DEFAULT_MSG,
     BUTTON_DEFAULT_PRIMARY_COLOR,
@@ -41,5 +46,6 @@ export {
     DEFAULT_PROFILE_IMG,
     DEFAULT_SIDEBAR_PROFILE_IMG,
     LANGUAGES,
-    VISIBILITY
+    VISIBILITY,
+    UserStatus,
 };

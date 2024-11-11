@@ -1,12 +1,9 @@
 import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG } from '#const';
 
 import WebComponent, { Component } from '#WebComponent';
+import { UserStatus } from '../../../../const';
 import css from './profile-header.css?inline';
 
-const position = '42';
-const points = '10042';
-
-const myProfile = window.location.pathname === '/app/me' || window.location.pathname === '/app/settings';
 
 let isFriendRequested = false;
 let isFriend = true;
@@ -15,15 +12,13 @@ export default Component ({
     tagName: 'profile-header',
     styleCSS: css
 },
-
 class ProfileHeader extends WebComponent {
-    init() {
-        this.state = {
-            status: [{
-                connected: 'CONNECTED',
-                disconnected: 'DISCONNECTED'
-            }]
-        };
+    getStatusColor(status) {
+        return status === UserStatus.CONNECTED ? 'var(--app-green-color)' : '#DDDDDD';
+    }
+
+    get myProfile() {
+        return window.location.pathname === '/app/me' || window.location.pathname === '/app/settings';
     }
 
     bind() {
@@ -56,20 +51,19 @@ class ProfileHeader extends WebComponent {
     }
 
     render() {
-        const templateUsername = this.getAttribute('username') || '';
-        const templatePicture = this.getAttribute('profilePicture') || DEFAULT_PROFILE_IMG;
-        const templateBanner = this.getAttribute('banner') || DEFAULT_BANNER_IMG;
-        const isLoading = this.getAttribute('isLoading') || false;
+        const templateUsername = this.getAttribute('username') ?? '';
+        const templatePicture = this.getAttribute('profilePicture') ?? DEFAULT_PROFILE_IMG;
+        const templateBanner = this.getAttribute('banner') ?? DEFAULT_BANNER_IMG;
+        const connected = this.getAttribute('connected') ? UserStatus.CONNECTED : UserStatus.DISCONNECTED;
+        const position = this.getAttribute('position') ?? '';
+        const points = this.getAttribute('points') ?? '';
 
         return `
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
                 <div class="d-inline-flex p-3 mx-3 profile-glask">
-                ${ isLoading ? `
-                    <app-spinner size="8.1rem"></app-spinner>
-                ` : `
                     <div class="position-relative">
                         <img src='${templatePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
-                        ${ !myProfile ? `
+                        ${ !this.myProfile ? `
                                 <div class="position-absolute top-0" style="left:65%; font-size: 1.2rem; cursor: pointer;">
                                     ${ isFriend ? '<i id="heart" class="bi bi-heart-fill friend p-1"></i>' : '<i id="heart" class=" friend bi bi-heart p-1"></i>'}
                                 </div>
@@ -90,13 +84,12 @@ class ProfileHeader extends WebComponent {
                             </div>
                         </div>
                         <div class="d-flex align-items-center mt-2" style="gap: 5px;">
-                            <div class="rounded-circle " style="width:16px; height:16px; background-color: var(--app-green-color);"></div>
+                            <div class="rounded-circle " style="width:16px; height:16px; background-color:  ${this.getStatusColor(connected)};"></div>
                                 <p class="m-0" style="font-size: 1rem;">
-                                    <span style="color: var(--app-green-color)"> {{ translator.translate("PROFILE.HEADER.STATUS." + state.status[0].connected)}} </span>
+                                    <span style="color: ${this.getStatusColor(connected)}"> ${this.translator.translate('PROFILE.HEADER.STATUS.' + connected)} </span>
                                 </p>
                         </div>
                     </div>
-                `}
                 </div>
             </div>
         `;

@@ -20,7 +20,6 @@ export default Component ({
 class ProfilePage extends WebComponent {
 
     init() {
-        this.state = { isLoading: true };
         if (this.isMePage) {
             UserService.getMyInfo().then(({ id }) => this.setUserData(id));
         } else {
@@ -30,9 +29,7 @@ class ProfilePage extends WebComponent {
     }
 
     setUserData(id) {
-        UserService.getById(id).then(x => new Promise(
-            resolve => setTimeout(() => resolve(x), 2000)
-        )).then(user => this.setState({
+        UserService.getById(id).then(user => this.setState({
             id: user.id,
             username: user.username,
             email: user.email,
@@ -51,9 +48,7 @@ class ProfilePage extends WebComponent {
                 timePlayed: user.time_played,
                 maxWinStreak: user.max_streak
             },
-            isLoading: false,
-        })
-        );
+        }));
     }
 
     get isMePage() {
@@ -69,9 +64,11 @@ class ProfilePage extends WebComponent {
                         [username]="state.username ?? ''"
                         [profilePicture]="state.profileImg"
                         [banner]="state.banner"
-                        [isLoading]="state.isLoading"
+                        [connected]="state.isConnected"
+                        [position]="state.position"
+                        [points]="state.punctuation"
                     ></profile-header>
-                    <profile-stats [stats]="state.stats" [isLoading]="state.isLoading"></profile-stats>
+                    <profile-stats [stats]="state.stats"></profile-stats>
                 </div>
                 <div class="w-100 mx-auto my-3 pb-4 profile-container">
                     <div class="mt-4">
