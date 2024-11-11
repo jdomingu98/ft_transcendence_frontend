@@ -34,12 +34,7 @@ class MainSidebar extends WebComponent {
                 iconClasses: 'bi bi-graph-up-arrow',
                 sectionName: '{{ translator.translate("SIDEBAR.RANKING") }}',
                 url: 'rank'
-            }, /*{
-                sidebarElementId: 'history',
-                iconClasses: 'bi bi-clock-history',
-                sectionName: '{{ translator.translate("SIDEBAR.HISTORY") }}',
-                url: 'history'
-            },*/ {
+            }, {
                 sidebarElementId: 'settings',
                 iconClasses: 'bi bi-gear',
                 sectionName: '{{ translator.translate("SIDEBAR.SETTINGS") }}',
@@ -58,7 +53,6 @@ class MainSidebar extends WebComponent {
                 {path: '/app/tournament', component: 'tournament-page'},
                 {path: '/app/friendship-request', component: 'friendship-page'},
                 {path: '/app/rank', component: 'ranking-page'},
-                {path: '/app/history', component: 'history-page'},
                 {path: '/app/settings', component: 'settings-page'},
                 {path: '/app/privacy-policy', component: 'privacy-policy'},
                 {path: '/app/legal-notice', component: 'legal-notice'},

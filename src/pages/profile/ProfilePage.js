@@ -82,7 +82,7 @@ class ProfilePage extends WebComponent {
                 </div>
                 <div class="w-100 mx-auto my-3 pb-4 profile-container">
                     <div class="mt-4">
-                        <profile-history></profile-history>
+                        ${ this.state.id ? '<profile-history [userId]="state.id"></profile-history>' : ''}
                     </div>
                 </div>
             </div>
