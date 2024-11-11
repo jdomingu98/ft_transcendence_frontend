@@ -38,6 +38,10 @@ canvas {
     padding: 0;
 }
 
+.player-icon{
+    width: 80%;
+}
+
 .player-icon img {
     width: 64px;
     height: 64px;
@@ -46,7 +50,7 @@ canvas {
 }
 
 .player-icon span {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -55,11 +59,11 @@ canvas {
     font-size: 3rem;
     color: #FFFFFF;
     font-weight: bold;
-    width: 20rem;
+    width: 30rem;
 }
 
 .score {
-    width: 80px;
+    width: 90px;
     font-size: 4.5rem;
     opacity: 0.85;
     text-align: center;
@@ -79,12 +83,34 @@ canvas {
     font-size: 35px;
 }
 
-.btn-game i {
-    margin-left: 5px;
+.bi-play-fill{
+    margin-left: 4px;
 }
 
 .btn-game:hover{
     background-color: var(--app-secondary-bg-color);
+}
+
+.golden-goal {
+    display: none;
+    color: #FFD700;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideInOut 2s ease-in-out forwards;
+}
+
+.golden-goal span {
+    font-size: 75px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    background-image: linear-gradient(45deg, #cbb431, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 2px rgba(155, 150, 0, 0.5);
 }
 
 
@@ -106,5 +132,23 @@ canvas {
         width: 40px;
         height: 40px;
         font-size: 30px;
+    }
+    .score-board{
+        width: 20rem;
+    }
+}
+
+@keyframes slideInOut {
+    0% {
+        transform: translate(-50%, -50%) translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(100%);
+        opacity: 0;
     }
 }
