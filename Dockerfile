@@ -11,4 +11,6 @@ COPY . /app/
 RUN npm install -g pnpm && pnpm install
 
 # Build the frontend
-CMD ["pnpm", "run", "dev", "--host"]
+RUN pnpm build
+
+CMD ["pnpm", "preview", "--host"]
