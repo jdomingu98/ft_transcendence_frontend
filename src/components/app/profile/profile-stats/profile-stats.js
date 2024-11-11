@@ -66,7 +66,7 @@ class ProfileStats extends WebComponent {
                     ${ (stat.statValue ?? 0) > 2 ? `<div class="stat">
                         <h3>${stat.statName}</h3>
                         <div class="d-flex position-relative">
-                            <img src="/src/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
+                            <img src="/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
                             <p class="position-absolute text-black win-streak">${stat.statValue ?? 0}</p>
                         </div>
                     </div>

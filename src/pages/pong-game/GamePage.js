@@ -287,7 +287,7 @@ class GamePage extends WebComponent {
                     </div>
                     <div class="d-flex justify-content-between align-items-center p-0 info-board">
                         <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
-                            <img src="/src/resources/devs/cmorales.jpg" alt="Player 1">
+                            <img src="/resources/devs/cmorales.jpg" alt="Player 1">
                             <span class="text-white text-uppercase mt-3">Player 1</span>
                         </div>
                         <div class="info-mid">
@@ -295,7 +295,7 @@ class GamePage extends WebComponent {
                         </div>
                         <div class="player-icon d-flex justify-content-center align-items-center gap-4 mx-lg-5 mx-3">
                             <span class="text-white text-uppercase mt-3">Player 2</span>
-                            <img src="/src/resources/devs/atrujill.jpg" alt="Player 2">
+                            <img src="/resources/devs/atrujill.jpg" alt="Player 2">
                         </div>
                     </div>
                     <div class="d-flex flex-r d-flex score-board">
