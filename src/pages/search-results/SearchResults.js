@@ -10,7 +10,7 @@ class SearchResults extends WebComponent {
     init() {
         this.state = { users: [] };
         const searchTerm = Router.getQuery().username || '';
-        FetchService.getByUsername(searchTerm)
+        FetchService.getUsers({ username: searchTerm })
             .then(response => this.setState({ users: response }));
     }
 

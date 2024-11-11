@@ -1,9 +1,7 @@
 import WebComponent, { Component } from '#WebComponent';
+import GameService from '#services/GameService';
 
 import css from './profile-history.css?inline';
-
-const currentPage = 1;
-const maxPages = 50;
 
 export default Component ({
     tagName: 'profile-history',
@@ -13,47 +11,44 @@ export default Component ({
 class ProfileHistory extends WebComponent {
     init() {
         this.state = {
-            matches: [{
-                result: 'VICTORY',
-                against: 'aTRuJiLl',
-                earned: '329 pts',
-                time: '1min 30s'
-            }, {
-                result: 'DEFEAT',
-                against: 'castor-afanoso',
-                earned: '-87 pts',
-                time: '5min'
-            }, {
-                result: 'DEFEAT',
-                against: '-----',
-                earned: '-101 pts',
-                time: '4min 1s'
-            }, {
-                result: 'DRAW',
-                against: '-----',
-                earned: '0 pts',
-                time: '5min'
-            }, {
-                result: 'VICTORY',
-                against: 'cMoraleS',
-                earned: '94 pts',
-                time: '4min 42 s'
-            }]
+            matches: [],
+            maxPages: 1,
         };
+        this.setPage(1);
+    }
+
+    getMatches(page) {
+
+        const userId = this.getAttribute('userId');
+        GameService.getMatchHistory(userId, page).then(page => this.setState({
+            maxPages: Math.ceil(page.count / page.results.numItems),
+            matches: page.results.data
+        }));
+    }
+
+    setPage(page) {
+        if (page > 0 && page <= this.state.maxPages) {
+            this.currentPage = page;
+            this.getMatches(page);
+        }
     }
 
     mapMatchesResults() {
-        return this.state.matches.map( match =>
-            `
-                <tr class="${match.result.toLowerCase()}">
-                    <td class="text-uppercase fw-bold">
-                        {{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS." + '${match.result}') }}
-                    </td>
-                    <td>${match.against}</td>
-                    <td>${match.earned}</td>
-                    <td>${match.time}</td>
-                </tr>
-            `).join('');
+        return this.state.matches.map(match => `
+            <tr class="victory">
+                <td class="text-uppercase fw-bold">
+                    {{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS." + 'VICTORY') }}
+                </td>
+                <td>${match.user_b}</td>
+                <td>${42}</td>
+                <td>${match.time_played}</td>
+            </tr>
+        `).join('');
+    }
+
+    bind() {
+        this.subscribe('#prev-page', 'click', () => this.setPage(this.currentPage - 1));
+        this.subscribe('#next-page', 'click', () => this.setPage(this.currentPage + 1));
     }
 
     render() {
@@ -75,15 +70,15 @@ class ProfileHistory extends WebComponent {
                 </tbody>
             </table>
             <div class="d-flex align-items-center justify-content-evenly text-white mt-5 pagination">
-                <span class="pagination-button">
+                <span id="prev-page" class="pagination-button">
                     {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.PREVIOUS") }}
                 </span>
                 <div>
-                    <span>${currentPage}</span>
+                    <span>{{ currentPage }}</span>
                     <span>{{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.OF") }}</span>
-                    <span> ${maxPages}</span>
+                    <span>{{ state.maxPages }}</span>
                 </div>
-                <span class="pagination-button">
+                <span id="next-page" class="pagination-button">
                     {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.NEXT") }}
                 </span>
             </div>
