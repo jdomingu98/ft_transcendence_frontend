@@ -20,7 +20,7 @@ export default class Paddle {
         this.color = color || '#8D8DDA';
         this.border_radius = 8;
         // Const used to calculate initial velocity.
-        this.elementVelocity = 5.5;
+        this.elementVelocity = 6;
         this.velocity = { x: 0, y: calculateSpeed(gameAreaWidth, this.elementVelocity) };
         this.goals_stopped = 0;
         this.score = 0;
