@@ -18,7 +18,7 @@ export default class Ball {
         this.color = '#8DBEDA';
         this.gameAreaWidth = gameAreaWidth;
         // Const used to calculate initial velocity.
-        this.elementVelocity = 8.4;
+        this.elementVelocity = 8;
         this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity), y: 0 };
         this.initialSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
         this.speed = this.initialSpeed;
@@ -33,6 +33,10 @@ export default class Ball {
 
     set_angle(angle) {
         this.maxAngle = angle;
+    }
+
+    set_color_ball(color){
+        this.color = color;
     }
 
     /**
