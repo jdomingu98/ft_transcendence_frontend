@@ -1,12 +1,11 @@
 import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG } from '#const';
 
 import WebComponent, { Component } from '#WebComponent';
+import FriendService from '#services/FriendService';
+import { SnackbarService } from '#services/SnackbarService';
 import { UserStatus } from '../../../../const';
 import css from './profile-header.css?inline';
 
-
-let isFriendRequested = false;
-let isFriend = true;
 
 export default Component ({
     tagName: 'profile-header',
@@ -23,29 +22,31 @@ class ProfileHeader extends WebComponent {
 
     bind() {
         this.subscribe('#heart', 'click', () => {
+            const id = this.getAttribute('id');
             const heartIcon = this._getDOM().getElementById('heart');
-            if (!isFriend && !isFriendRequested) {
-
-                heartIcon.classList.add('friend-icon');
-                //Update enum in database
-                isFriendRequested = true;
-            } else if (isFriendRequested) {
-                heartIcon.classList.remove('friend-icon');
-                //Update enum in database
-                isFriendRequested = false;
+            if (!this.isFriend && !this.hasRequestedFriendship) {
+                FriendService.requestFriendship(id).then(() => {
+                    this.hasRequestedFriendship = true;
+                    heartIcon.classList.add('friend-icon');
+                });
+            } else if (this.hasRequestedFriendship) {
+                FriendService.cancelFriendshipRequest(id).then(() => {
+                    heartIcon.classList.remove('friend-icon');
+                    this.hasRequestedFriendship = false;
+                });
             } else {
-                //Delete friend
-                heartIcon.classList.add('hidden');
-                heartIcon.classList.remove('friend-icon');
-                setTimeout(() => {
-                    heartIcon.classList.remove('bi-heart-fill');
-                    heartIcon.classList.add('bi-heart');
+                FriendService.deleteFriendship(id).then(() => {
+                    this.isFriend = false;
+                    this.hasRequestedFriendship = false;
+                    heartIcon.classList.add('hidden');
+                    heartIcon.classList.remove('friend-icon');
+                    setTimeout(() => {
+                        heartIcon.classList.remove('bi-heart-fill');
+                        heartIcon.classList.add('bi-heart');
 
-                    heartIcon.classList.remove('hidden');
-                }, 300);
-                //Update enum in database
-                isFriend = false;
-                isFriendRequested = false;
+                        heartIcon.classList.remove('hidden');
+                    }, 300);
+                });
             }
         });
     }
@@ -57,6 +58,8 @@ class ProfileHeader extends WebComponent {
         const connected = this.getAttribute('connected') ? UserStatus.CONNECTED : UserStatus.DISCONNECTED;
         const position = this.getAttribute('position') ?? '';
         const points = this.getAttribute('points') ?? '';
+        this.isFriend = this.getAttribute('isFriend');
+        this.hasRequestedFriendship = this.getAttribute('hasRequestedFriendship');
 
         return `
             <div class="d-flex align-items-center profile-header text-white" style="background-image: url(${templateBanner})">
@@ -65,7 +68,7 @@ class ProfileHeader extends WebComponent {
                         <img src='${templatePicture}' class="rounded-circle mx-3 object-fit-cover" style="width: 100px; height: 100px;" alt="User Image">
                         ${ !this.myProfile ? `
                                 <div class="position-absolute top-0" style="left:65%; font-size: 1.2rem; cursor: pointer;">
-                                    ${ isFriend ? '<i id="heart" class="bi bi-heart-fill friend p-1"></i>' : '<i id="heart" class=" friend bi bi-heart p-1"></i>'}
+                                    ${ this.isFriend ? '<i id="heart" class="bi bi-heart-fill friend p-1"></i>' : `<i id="heart" class="friend bi bi-heart p-1 ${this.hasRequestedFriendship ? 'friend-icon' : ''}"></i>`}
                                 </div>
                             ` : ''}
                     </div>

@@ -40,6 +40,8 @@ class ProfilePage extends WebComponent {
             language: user.language,
             punctuation: user.punctuation,
             position: user.position,
+            isFriend: user.is_friend,
+            hasRequestedFriendship: user.has_requested_friendship,
             stats: {
                 goalsScored: user.num_goals_scored,
                 goalsAgainst: user.num_goals_against,
@@ -67,6 +69,9 @@ class ProfilePage extends WebComponent {
                         [connected]="state.isConnected"
                         [position]="state.position"
                         [points]="state.punctuation"
+                        [isFriend]="state.isFriend"
+                        [id]="state.id"
+                        [hasRequestedFriendship]="state.hasRequestedFriendship"
                     ></profile-header>
                     <profile-stats [stats]="state.stats"></profile-stats>
                 </div>
