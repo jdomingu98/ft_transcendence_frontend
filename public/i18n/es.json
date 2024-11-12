@@ -1,5 +1,9 @@
 {
   "SNACKBAR": {
+    "OAUTH_REDIRECT": {
+      "TITLE": "Inicio de sesión con 42 Network",
+      "DESC": "Ud. se ha conectado exitosamente"
+    },
     "AUTH_MODAL": {
       "REGISTER": {
         "TITLE": "¡Bienvenido!",
@@ -21,6 +25,46 @@
     "OTP_MODAL": {
       "TITLE": "OTP Verificado",
       "DESC": "Redirigiendo a tu perfil, por favor espera un momento..."
+    },
+    "SETTINGS": {
+      "USER_MANAGEMENT_DONE": {
+          "TITLE": "Perfil Actualizado",
+          "DESC": "Tu perfil ha sido actualizado correctamente"
+      },
+      "USER_MANAGEMENT_ERROR": {
+          "TITLE": "Error en la Actualización del Perfil",
+          "DESC": "Ocurrió un error al actualizar tu perfil"
+      },
+      "CHANGE_PASSWORD_DONE": {
+          "TITLE": "Contraseña Actualizada",
+          "DESC": "Tu contraseña ha sido actualizada correctamente"
+      },
+      "TWO_FACTOR_AUTH_ACTIVATION": {
+          "TITLE": "Autenticación en dos pasos Activada",
+          "DESC": "Tu cuenta ahora está protegida con autenticación en dos pasos"
+      },
+      "TWO_FACTOR_AUTH_DEACTIVATION": {
+          "TITLE": "Autenticación en dos pasos Desactivada",
+          "DESC": "Tu cuenta ya no está protegida con autenticación en dos pasos"
+      },
+      "TWO_FACTOR_AUTH_ERROR": {
+          "TITLE": "Error en la Autenticación en dos pasos",
+          "DESC": "Ocurrió un error al actualizar los ajustes de autenticación en dos pasos"
+      },
+      "DELETE_ACCOUNT_DONE": {
+          "TITLE": "Cuenta Eliminada",
+          "DESC": "¡Esperamos verte de nuevo pronto!"
+      },
+      "DELETE_ACCOUNT_ERROR": {
+          "TITLE": "Error al Eliminar la Cuenta",
+          "DESC": "Ocurrió un error al eliminar tu cuenta"
+      }
+    },
+    "LOCAL_MATCH":{
+      "ERROR_SENDING_DATA": {
+        "TITLE": "Error al enviar los datos",
+        "DESC": "Ocurrió un error al enviar los datos de la partida"
+      }
     }
   },
   "LANDING": {
@@ -63,7 +107,6 @@
       "DISCOVER": "Conocer gente nueva",
       "REGISTER": "Registrarse",
       "REGISTER_NOW": "Regístrate ahora",
-      "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Empezar",
       "LOGIN": "Entrar",
       "LOGIN_NOW": "Entrar ahora",
@@ -259,9 +302,7 @@
       "POINTS": "Puntos: ",
       "STATUS": {
         "CONNECTED": "Disponible",
-        "DISCONNECTED": "No disponible",
-        "SEARCHING": "Buscando partida",
-        "PLAYING": "Jugando partida"
+        "DISCONNECTED": "No disponible"
       }
     },
     "STATS": {
@@ -349,5 +390,59 @@
     "INVALID_TOKEN": "Token no válido",
     "EXPIRED_TOKEN": "Token expirado",
     "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
+  },
+  "SETTINGS": {
+    "SECTIONS": {
+      "USER_MANAGEMENT": "Gestión de Usuario",
+      "CHANGE_PASSWORD": "Cambiar Contraseña",
+      "TWO_FACTOR_AUTH": "Autenticación en dos pasos",
+      "ABOUT": "Acerca de Transcendence",
+      "DELETE_ACCOUNT": "Eliminar Cuenta"
+    },
+    "USER_MANAGEMENT": {
+      "USERNAME_PHOLDER": "Tu nuevo nombre de usuario",
+      "EMAIL_PHOLDER": "Tu nueva dirección de correo electrónico",
+      "PROFILE_PICTURE": "Imagen de Perfil",
+      "PROFILE_PICTURE_PHOLDER": "Subir imagen de perfil",
+      "BACKGROUND_IMG": "Imagen de Fondo",
+      "BACKGROUND_IMG_PHOLDER": "Subir imagen de fondo",
+      "NO_FILE_SELECTED": "Ningún archivo seleccionado",
+      "SELECTED_FILE": "Archivo seleccionado: ",
+      "INVALID_IMG_TYPE": "Por favor, selecciona un archivo de imagen válido",
+      "PROFILE_VISIBILITY": "Visibilidad del Perfil",
+      "PUBLIC": "Público: Todos los usuarios pueden ver tu información de perfil",
+      "PRIVATE": "Privado: Solo tus amigos pueden ver tu información de perfil",
+      "ANONYMOUS": "Anónimo: Tu información de perfil está oculta a todos los usuarios",
+      "LANGUAGE": "Idioma Predeterminado",
+      "SAVE": "Actualizar tus preferencias"
+    },
+    "CHANGE_PASSWORD": {
+      "DISCLAIMER": "Si has iniciado sesión con 42 Network, puedes establecer una contraseña de tu elección e iniciar sesión normalmente la próxima vez sin autenticación OAuth",
+      "NEW_PASSWORD": "Nueva Contraseña",
+      "NEW_PASSWORD_PHOLDER": "Tu nueva contraseña",
+      "CONFIRM_NEW_PASSWORD": "Confirmar Nueva Contraseña",
+      "CONFIRM_NEW_PASSWORD_PHOLDER": "Confirma tu nueva contraseña",
+      "SAVE": "Actualizar Contraseña"
+    },
+    "TWO_FACTOR_AUTH": {
+      "FIRST_PARAGRAPH": "Recomendamos encarecidamente activar el método de autenticación en dos pasos para proteger aún más tu cuenta.",
+      "SECOND_PARAGRAPH": "Al hacer clic en el siguiente botón, puedes activar o desactivar este paso adicional de seguridad. La solicitud de cambio se aplicará instantáneamente.",
+      "THIRD_PARAGRAPH": "En caso de activación, se utilizará el correo electrónico proporcionado en el formulario de registro para enviar los códigos de seguridad.",
+      "ACTIVATE": "Activar Autenticación en dos pasos",
+      "DEACTIVATE": "Desactivar Autenticación en dos pasos"
+    },
+    "ABOUT": {
+      "FIRST_PARAGRAPH": "Por favor, siéntete libre de revisar cualquier documento de este sitio web.",
+      "SECOND_PARAGRAPH": "Es importante que leas estos documentos, ya que explican qué datos personales se utilizan y dónde, cuándo y cómo se gestionan.",
+      "THIRD_PARAGRAPH": "Puedes verlos haciendo clic en los siguientes enlaces:",
+      "FOURTH_PARAGRAPH": "Si después de leer tienes dudas, no dudes en enviar un correo electrónico a la dirección que aparece en la sección de Política de Privacidad."
+    },
+    "DELETE_ACCOUNT": {
+      "FIRST_PARAGRAPH": "Lamentamos si algo no fue de tu agrado.",
+      "SECOND_PARAGRAPH": "Antes de abandonar el sitio, ten en cuenta que necesitarás registrarte de nuevo para acceder al sitio, ya que todos tus datos serán eliminados.",
+      "THIRD_PARAGRAPH": "Esperamos verte pronto en el futuro,",
+      "TEAM": "El equipo de Transcendence",
+      "DELETE": "Eliminar Cuenta Permanentemente"
+    }
   }
 }

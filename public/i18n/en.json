@@ -1,5 +1,9 @@
 {
   "SNACKBAR": {
+    "OAUTH_REDIRECT": {
+      "TITLE": "Login with 42 Network",
+      "DESC": "You have successfully logged in"
+    },
     "AUTH_MODAL": {
       "REGISTER": {
         "TITLE": "Welcome!",
@@ -21,6 +25,46 @@
     "OTP_MODAL": {
       "TITLE": "OTP Verified",
       "DESC": "Redirecting to your profile, please wait a moment..."
+    },
+    "SETTINGS": {
+      "USER_MANAGEMENT_DONE": {
+        "TITLE": "Profile Updated",
+        "DESC": "Your profile has been updated successfully"
+      },
+      "USER_MANAGEMENT_ERROR": {
+        "TITLE": "Profile Update Failed",
+        "DESC": "An error occurred while updating your profile"
+      },
+      "CHANGE_PASSWORD_DONE": {
+        "TITLE": "Password Updated",
+        "DESC": "Your password has been updated successfully"
+      },
+      "TWO_FACTOR_AUTH_ACTIVATION": {
+        "TITLE": "Two-Factor Authentication Activated",
+        "DESC": "Your account is now protected with two-factor authentication"
+      },
+      "TWO_FACTOR_AUTH_DEACTIVATION": {
+        "TITLE": "Two-Factor Authentication Deactivated",
+        "DESC": "Your account is no longer protected with two-factor authentication"
+      },
+      "TWO_FACTOR_AUTH_ERROR": {
+        "TITLE": "Two-Factor Authentication Error",
+        "DESC": "An error occurred while updating your two-factor authentication settings"
+      },
+      "DELETE_ACCOUNT_DONE": {
+        "TITLE": "Account Deleted",
+        "DESC": "We hope to see you again soon!"
+      },
+      "DELETE_ACCOUNT_ERROR": {
+        "TITLE": "Account Deletion Failed",
+        "DESC": "An error occurred while deleting your account"
+      }
+    },
+    "LOCAL_MATCH":{
+      "ERROR_SENDING_DATA": {
+        "TITLE": "Error Sending Data",
+        "DESC": "An error occurred while sending the match data"
+      }
     }
   },
   "LANDING": {
@@ -63,7 +107,6 @@
       "DISCOVER": "Meet new people",
       "REGISTER": "Register",
       "REGISTER_NOW": "Register now",
-      "42_ACCOUNT": "42 Network",
       "GET_STARTED": "Get Started",
       "LOGIN": "Log in",
       "LOGIN_NOW": "Log in now",
@@ -259,9 +302,7 @@
       "POINTS": "Points: ",
       "STATUS": {
         "CONNECTED": "Connected",
-        "DISCONNECTED": "Disconnected",
-        "SEARCHING": "Searching Match",
-        "PLAYING": "Playing Match"
+        "DISCONNECTED": "Disconnected"
       }
     },
     "STATS": {
@@ -349,5 +390,59 @@
     "INVALID_TOKEN": "Invalid token",
     "EXPIRED_TOKEN": "Token expired",
     "OTP_CODE": "Incorrect code inserted. Please try again"
+  },
+  "SETTINGS": {
+    "SECTIONS": {
+      "USER_MANAGEMENT": "User Management",
+      "CHANGE_PASSWORD": "Change Password",
+      "TWO_FACTOR_AUTH": "Two-Factor Authentication",
+      "ABOUT": "About Transcendence",
+      "DELETE_ACCOUNT": "Delete Account"
+    },
+    "USER_MANAGEMENT": {
+      "USERNAME_PHOLDER": "Your new username",
+      "EMAIL_PHOLDER": "Your new email address",
+      "PROFILE_PICTURE": "Profile Image",
+      "PROFILE_PICTURE_PHOLDER": "Upload profile image",
+      "BACKGROUND_IMG": "Background Image",
+      "BACKGROUND_IMG_PHOLDER": "Upload background image",
+      "NO_FILE_SELECTED": "No file selected",
+      "SELECTED_FILE": "Selected file: ",
+      "INVALID_IMG_TYPE": "Please select a valid image file",
+      "PROFILE_VISIBILITY": "Profile Visibility",
+      "PUBLIC": "Public: All users can see your profile information",
+      "PRIVATE": "Private: Only your friends can see your profile information",
+      "ANONYMOUS": "Anonymous: Your profile information is hidden from all users",
+      "LANGUAGE": "Default Language",
+      "SAVE": "Update your preferences"
+    },
+    "CHANGE_PASSWORD": {
+      "DISCLAIMER": "If you logged in with 42 Network, you can set a password of your choice and log in normally next time without OAuth authentication",
+      "NEW_PASSWORD": "New Password",
+      "NEW_PASSWORD_PHOLDER": "Your new password",
+      "CONFIRM_NEW_PASSWORD": "Confirm New Password",
+      "CONFIRM_NEW_PASSWORD_PHOLDER": "Confirm your new password",
+      "SAVE": "Update Password"
+    },
+    "TWO_FACTOR_AUTH": {
+      "FIRST_PARAGRAPH": "We strongly recommend you to activate the two-factor authenticacion method to protect your account even further.",
+      "SECOND_PARAGRAPH": "By clicking on the following button, you can activate or deactivate this extra step of your account security. The change request will be applied instantly.",
+      "THIRD_PARAGRAPH": "In case of activation, the email provided in the registration form will be used to send the security codes.",
+      "ACTIVATE": "Activate Two-Factor Authentication",
+      "DEACTIVATE": "Deactivate Two-Factor Authentication"
+    },
+    "ABOUT": {
+      "FIRST_PARAGRAPH": "Please, feel free to check any document of this website.",
+      "SECOND_PARAGRAPH": "It's important to you to read those because they explained what personal data are used and where, when and how are they managed.",
+      "THIRD_PARAGRAPH": "You can see them by clicking the following links:",
+      "FOURTH_PARAGRAPH": "If after reading you still have doubts, feel free to send an email at the direction listed in the Privacy Policy section"
+    },
+    "DELETE_ACCOUNT": {
+      "FIRST_PARAGRAPH": "We are sorry if something wasn’t to your liking.",
+      "SECOND_PARAGRAPH": "Before you leave the site, please note that you will need to re-register to access the site again, as all your details will be deleted.",
+      "THIRD_PARAGRAPH": "Hope we will see you soon in the future,",
+      "TEAM": "The Transcendence team",
+      "DELETE": "Delete Account Permanently"
+    }
   }
 }

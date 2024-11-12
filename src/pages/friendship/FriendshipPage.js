@@ -15,19 +15,19 @@ class FriendshipPage extends WebComponent {
             friendsData: [{
                 id: 1,
                 username: 'jdomingu',
-                profilePicture: '/src/resources/devs/jdomingu.png',
+                profilePicture: '/resources/devs/jdomingu.png',
             }, {
                 id: 2,
                 username: 'aruzafa-',
-                profilePicture: '/src/resources/devs/aruzafa-.jpg',
+                profilePicture: '/resources/devs/aruzafa-.jpg',
             }, {
                 id: 3,
                 username: 'atrujill_42',
-                profilePicture: '/src/resources/devs/atrujill.jpg',
+                profilePicture: '/resources/devs/atrujill.jpg',
             }, {
                 id: 4,
                 username: 'cmorales',
-                profilePicture: '/src/resources/devs/cmorales.jpg',
+                profilePicture: '/resources/devs/cmorales.jpg',
             }],
             dragEvent: {
                 startX: 0,

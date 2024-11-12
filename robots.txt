@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /game
+Disallow: /error
+Disallow: /reset-password
+Disallow: /redirect
+Disallow: /app
+
+Allow: /
+Allow: /privacy-policy
+Allow: /legal-notice
+Allow: /terms-conditions
+Allow: /new-game
+Allow: /new-tournament
+Allow: /app/rank
+Allow: /app/new-game
+Allow: /app/new-tournament
+Allow: /app/privacy-policy
+Allow: /app/legal-notice
+Allow: /app/terms-conditions
+
+Sitemap: https://yourdomain.com/sitemap.xml

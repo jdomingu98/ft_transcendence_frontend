@@ -12,9 +12,9 @@ class LandingNavBar extends WebComponent {
 
     render() {
         return `
-            <nav class="nav align-items-center justify-content-space-between my-5 text-uppercase fw-bold text-center">
+            <nav class="nav d-flex align-items-center justify-content-around my-5 text-uppercase fw-bold text-center">
                 <router-link
-                    class="nav-link link-light text-decoration-none col-4"
+                    class="nav-link link-light text-decoration-none"
                     style="font-size:24px; z-index: 1;"
                     rel="noreferrer"
                     href="/"
@@ -22,7 +22,7 @@ class LandingNavBar extends WebComponent {
                     Transcendence
                 </router-link>
                 <router-link
-                    class="nav-link link-light text-decoration-none col-2"
+                    class="nav-link link-light text-decoration-none"
                     rel="noreferrer"
                     href="/game"
                     style="font-size: 20px;z-index: 1;"
@@ -30,17 +30,21 @@ class LandingNavBar extends WebComponent {
                     {{ translator.translate("LANDING.NAVBAR.PLAY") }}
                 </router-link>
                 <router-link
-                    class="nav-link link-light text-decoration-none col-2"
+                    class="nav-link link-light text-decoration-none"
                     rel="noreferrer"
                     href="/tournament"
-                    style="font-size: 20px;z-index: 1;"
+                    style="font-size: 20px; z-index: 1;"
                 >
                     {{ translator.translate("LANDING.NAVBAR.TOURNAMENTS") }}
                 </router-link>
-                <language-selector class="col-2" w="140px" h="35px"></language-selector>
-                <primary-button w="165px" h="45px">
-                    {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
-                </primary-button>
+                <div style="z-index: 1">
+                    <language-selector w="140px" h="35px"></language-selector>
+                </div>
+                <div style="z-index: 1">
+                    <primary-button w="165px" h="45px">
+                        {{ translator.translate("LANDING.NAVBAR.LOGIN") }}
+                    </primary-button>
+                </div>
             </nav>
         `;
     }
