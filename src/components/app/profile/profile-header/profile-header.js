@@ -1,11 +1,8 @@
-import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG } from '#const';
+import { DEFAULT_BANNER_IMG, DEFAULT_PROFILE_IMG, UserStatus } from '#const';
 
 import WebComponent, { Component } from '#WebComponent';
 import FriendService from '#services/FriendService';
-import { SnackbarService } from '#services/SnackbarService';
-import { UserStatus } from '../../../../const';
 import css from './profile-header.css?inline';
-
 
 export default Component ({
     tagName: 'profile-header',

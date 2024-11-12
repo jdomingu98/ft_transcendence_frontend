@@ -1,6 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
+import { DEFAULT_PROFILE_IMG } from '#const';
 import UserService from '#services/UserService';
-import { DEFAULT_PROFILE_IMG } from '../../../const';
 
 export default Component ({
     tagName: 'profile-friendship',
