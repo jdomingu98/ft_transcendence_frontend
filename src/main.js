@@ -33,6 +33,7 @@ class AppRoot extends WebComponent {
                     { path: '/reset-password', component: 'reset-password' },
                     { path: '/redirect', component: 'oauth-redirect' },
                     { path: '/game', component: 'game-page' },
+                    { path: '/tournament', component: 'game-page' },
                     { path: '/error', component: 'error-page' },
                 ]">
             </app-router>

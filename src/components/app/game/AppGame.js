@@ -26,6 +26,12 @@ export default Component({
 },
 class AppGame extends WebComponent {
 
+    init() {
+        this.state = {
+            isTournament: window.location.pathname.includes('tournament'),
+        };
+    }
+
     get btnPause() {
         return this._getDOM().querySelector('.pause');
     }
@@ -320,6 +326,7 @@ class AppGame extends WebComponent {
     render() {
         const player = this.getRandomPlayer();
         return `
+            '${this.state.isTournament ? '<tournament-registration-modal></tournament-registration-modal>' : '<local-match-registration-modal></local-match-registration-modal>'}
             <div class="d-flex justify-content-center align-items-center">
                 <div class="pongtainer">
                     ${this.getHeader(player)}
