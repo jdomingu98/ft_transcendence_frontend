@@ -16,6 +16,10 @@ class LocalMatchRegistrationModal extends WebComponent {
         };
     }
 
+    get modal() {
+        return this._getDOM().querySelector('#localMatchRegistrationModal');
+    }
+
     cleanInputs(errorMessage) {
         const inputs = this._getDOM().querySelectorAll('input');
         inputs.forEach(input => input.classList.remove('input-error'));
@@ -35,10 +39,8 @@ class LocalMatchRegistrationModal extends WebComponent {
     }
 
     startGame() {
-        const playerOneInput = this._getDOM().getElementById('player-one');
-        const playerTwoInput = this._getDOM().getElementById('player-two');
-        const playerOne = playerOneInput?.value.trim();
-        const playerTwo = playerTwoInput?.value.trim();
+        const playerOne = this.state.playerOne;
+        const playerTwo = this.state.playerTwo;
         const errorMessage = this._getDOM().querySelector('.error-message');
 
         this.cleanInputs(errorMessage);
@@ -53,21 +55,35 @@ class LocalMatchRegistrationModal extends WebComponent {
             return;
         }
 
-        GameService.checkPlayersData({player_one: playerOne, player_two: playerTwo})
+        /*GameService.checkPlayersData({player_one: playerOne, player_two: playerTwo})
             .then(() => this.emit('START_LOCAL_MATCH', { playerOne, playerTwo }))
-            .catch( e => this.markAsError(e.error[0]));
+            .catch( e => this.markAsError(e.error[0]));*/
+    }
+
+    closeModal() {
+        this.modal.close();
     }
 
     bind() {
         this.subscribe('#player-one', 'input', ({target}) => this.setState({...this.state, playerOne: target?.value.trim()}));
         this.subscribe('#player-two', 'input', ({target}) => this.setState({...this.state, playerTwo: target?.value.trim()}));
         this.subscribe('button', 'click', () => this.startGame());
+        this.subscribe('#localMatchRegistrationModal', 'close', () =>
+            this.emit('START_LOCAL_MATCH', {
+                playerOne: this.state.playerOne,
+                playerTwo: this.state.playerTwo
+            })
+        );
+    }
+
+    afterViewInit() {
+        this.modal.showModal();
     }
 
     render() {
         return `
             <div class="game-body">
-                <dialog open id="localMatchRegistrationModal" class="game-modal">
+                <dialog id="localMatchRegistrationModal" class="game-modal">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW LOCAL MATCH</h3>
