@@ -29,7 +29,11 @@ class AppGame extends WebComponent {
     init() {
         this.state = {
             isTournament: window.location.pathname.includes('tournament'),
+            user: {},
+            playerOne: '',
+            playerTwo: null
         };
+        UserService.getMyInfo().then(user => this.setState({ ...this.state, user, playerOne: user.username }));
     }
 
     get btnPause() {
@@ -277,10 +281,11 @@ class AppGame extends WebComponent {
      */
     afterViewInit() {
         this.canvas = this._getDOM().querySelector('.pongCanvas');
+
         if (this.canvas) {
             this.score = this._getDOM().querySelectorAll('.score');
             this.timerInterval = null;
-            this.isPause = false;
+            this.isPause = true;
             this.remainingTime = INITIAL_REMAINING_TIME;
             this.lastTime = 0;
             this.startDate = new Date();
@@ -301,19 +306,21 @@ class AppGame extends WebComponent {
     }
 
     getHeader(player) {
-        return `<div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1">
-            <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
-                <img src="/src/resources/devs/cmorales.jpg" alt="Player 1">
-                <span class="text-white text-uppercase mt-3">Player 1</span>
+        return `
+            <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1 text-white">
+                <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
+                    <img [src]="state.user.profile_img" alt="Player 1 image">
+                    <span class="mt-3">${ this.state.playerOne }</span>
+                </div>
+                <div class="info-mid">
+                    <span id="timer-marker">05:00</span>
+                </div>
+                <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
+                    <span class="mt-3">${this.state?.playerTwo ?? player.name}</span>
+                    <img src="${player.src}" alt="Player 2 image">
+                </div>
             </div>
-            <div class="info-mid">
-                <span class="text-white text-uppercase" id="timer-marker">05:00</span>
-            </div>
-            <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
-                <span class="text-white text-uppercase mt-3">${player.name}</span>
-                <img src="${player.src}" alt="Player 2">
-            </div>
-        </div>`;
+        `;
     }
 
     bind() {
@@ -321,12 +328,18 @@ class AppGame extends WebComponent {
         this.subscribe(window, 'keydown', e => this.keysPressed.set(e.keyCode, true));
         this.subscribe(window, 'keyup', e => this.keysPressed.set(e.keyCode, false));
         this.subscribe(window, 'resize', () => this.updateElements());
+        this.subscribe('local-match-registration-modal', 'START_LOCAL_MATCH',
+            ({ detail: { playerOne, playerTwo } }) => {
+                this.setState({ ...this.state, playerOne, playerTwo });
+                this.isPause = false;
+                this._getDOM().querySelector('local-match-registration-modal')?.closeModal();
+            });
     }
 
     render() {
         const player = this.getRandomPlayer();
         return `
-            '${this.state.isTournament ? '<tournament-registration-modal></tournament-registration-modal>' : '<local-match-registration-modal></local-match-registration-modal>'}
+            '${this.state.isTournament ? '<tournament-registration-modal [userId]="state.user?.id" [username]="state.user?.username"></tournament-registration-modal>' : '<local-match-registration-modal [userId]="state.user?.id" [username]="state.user?.username"></local-match-registration-modal>'}
             <div class="d-flex justify-content-center align-items-center">
                 <div class="pongtainer">
                     ${this.getHeader(player)}
