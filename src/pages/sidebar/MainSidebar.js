@@ -56,14 +56,14 @@ class MainSidebar extends WebComponent {
                 {path: '/app/profile/:id', component: 'profile-page'},
                 {path: '/app/search', component: 'search-results'},
                 {path: '/app/game', component: 'pong-sidebar'},
-                {path: '/app/tournament', component: 'tournament-page'},
+                {path: '/app/tournament', component: 'pong-sidebar'},
                 {path: '/app/friendship-request', component: 'friendship-page'},
                 {path: '/app/rank', component: 'ranking-page'},
                 {path: '/app/history', component: 'history-page'},
                 {path: '/app/settings', component: 'settings-page'},
                 {path: '/app/privacy-policy', component: 'privacy-policy'},
                 {path: '/app/legal-notice', component: 'legal-notice'},
-                {path: '/app/terms-conditions', component: 'terms-conditions'}
+                {path: '/app/terms-conditions', component: 'terms-conditions'},
             ],
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()
