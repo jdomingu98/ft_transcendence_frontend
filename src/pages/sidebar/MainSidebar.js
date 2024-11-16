@@ -35,12 +35,7 @@ class MainSidebar extends WebComponent {
                 iconClasses: 'bi bi-graph-up-arrow',
                 sectionName: '{{ translator.translate("SIDEBAR.RANKING") }}',
                 url: 'rank'
-            }, /*{
-                sidebarElementId: 'history',
-                iconClasses: 'bi bi-clock-history',
-                sectionName: '{{ translator.translate("SIDEBAR.HISTORY") }}',
-                url: 'history'
-            },*/ {
+            }, {
                 sidebarElementId: 'settings',
                 iconClasses: 'bi bi-gear',
                 sectionName: '{{ translator.translate("SIDEBAR.SETTINGS") }}',
@@ -52,18 +47,17 @@ class MainSidebar extends WebComponent {
                 url: ''
             }],
             routes: [
-                {path: '/app/me', component: 'profile-page'},
-                {path: '/app/profile/:id', component: 'profile-page'},
-                {path: '/app/search', component: 'search-results'},
-                {path: '/app/game', component: 'pong-sidebar'},
-                {path: '/app/tournament', component: 'pong-sidebar'},
-                {path: '/app/friendship-request', component: 'friendship-page'},
-                {path: '/app/rank', component: 'ranking-page'},
-                {path: '/app/history', component: 'history-page'},
-                {path: '/app/settings', component: 'settings-page'},
-                {path: '/app/privacy-policy', component: 'privacy-policy'},
-                {path: '/app/legal-notice', component: 'legal-notice'},
-                {path: '/app/terms-conditions', component: 'terms-conditions'},
+                { path: '/app/friendship-request', component: 'friendship-page' },
+                { path: '/app/game', component: 'pong-sidebar' },
+                { path: '/app/legal-notice', component: 'legal-notice' },
+                { path: '/app/me', component: 'profile-page' },
+                { path: '/app/privacy-policy', component: 'privacy-policy' },
+                { path: '/app/profile/:id', component: 'profile-page' },
+                { path: '/app/rank', component: 'ranking-page' },
+                { path: '/app/search', component: 'search-results' },
+                { path: '/app/settings', component: 'settings-page' },
+                { path: '/app/terms-conditions', component: 'terms-conditions' },
+                { path: '/app/tournament', component: 'pong-sidebar' },
             ],
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()

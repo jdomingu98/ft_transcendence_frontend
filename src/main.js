@@ -26,15 +26,16 @@ class AppRoot extends WebComponent {
             <app-router
                 [routes]="[
                     { path: '/', component: 'landing-page' },
-                    { path: '/privacy-policy', component: 'privacy-policy' },
-                    { path: '/legal-notice', component: 'legal-notice' },
-                    { path: '/terms-conditions', component: 'terms-conditions' },
                     { path: '/app', component: 'main-sidebar'},
-                    { path: '/reset-password', component: 'reset-password' },
-                    { path: '/redirect', component: 'oauth-redirect' },
-                    { path: '/game', component: 'pong-game' },
-                    { path: '/tournament', component: 'pong-game' },
                     { path: '/error', component: 'error-page' },
+                    { path: '/game', component: 'pong-page' },
+                    { path: '/legal-notice', component: 'legal-notice' },
+                    { path: '/privacy-policy', component: 'privacy-policy' },
+                    { path: '/redirect', component: 'oauth-redirect' },
+                    { path: '/reset-password', component: 'reset-password' },
+                    { path: '/terms-conditions', component: 'terms-conditions' },
+                    { path: '/tournament', component: 'pong-page' },
+                    { path: '/test', component: 'winner-modal' },
                 ]">
             </app-router>
         `;
