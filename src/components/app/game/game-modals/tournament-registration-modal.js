@@ -8,17 +8,33 @@ export default Component({
 },
 class TournamentRegistrationModal extends WebComponent {
 
+    userId = this.getAttribute('userId');
+    username = this.getAttribute('username') ?? '';
+    playerList = this.getAttribute('playerList') ?? [];
+    name = '';
+
     init() {
         this.state = {
-            userId: this.getAttribute('userId'),
-            username: this.getAttribute('username') ?? '',
-            name: '',
-            playerList: [],
+            playerList: this.getAttribute('playerList') ?? [],
+            isOpen: true
         };
+    }
 
-        if (this.state.username) {
-            this.state.playerList.push(this.state.username);
-        }
+    get modal() {
+        return this._getDOM().getElementById('tournamentRegistrationModal');
+    }
+
+    closeModal() {
+        this.modal.classList.remove('open');
+        if (this.state.isOpen)
+            this.setState({...this.state, isOpen: false});
+        console.log('Tournament registration modal closed');
+    }
+
+    showModal() {
+        this.modal.classList.add('open');
+        if (!this.state.isOpen)
+            this.setState({...this.state, isOpen: true});
     }
 
     cleanInputs(errorMessage) {
@@ -28,101 +44,101 @@ class TournamentRegistrationModal extends WebComponent {
         errorMessage.classList.add('hidden');
     }
 
-    openModal() {
-        const modal = this._getDOM().getElementById('tournamentRegistrationModal');
-        modal.showModal();
-    }
-
-    hasDuplicates(list) {
-        const uniqueItems = new Set(list);
-        return uniqueItems.size !== list.length;
+    hasDuplicates() {
+        const uniqueItems = new Set(this.state.playerList);
+        return uniqueItems.size !== this.state.playerList.length;
     };
 
     isPowerOfTwo() {
-        const number = this.state.playerList.length;
-        return number >= 2 && number <= 32 && (number & (number - 1)) === 0;
+        const length = this.state.playerList.length;
+        return length >= 2 && length <= 32 && (length & (length - 1)) === 0;
     }
 
-    markAsError(message) {
-        const playerListDiv = this._getDOM().getElementById('player-list-container');
+    markAsError(field, message) {
         const errorMessage = this._getDOM().querySelector('.error-message');
 
         errorMessage.textContent = message;
         errorMessage.classList.remove('hidden');
-        playerListDiv.classList.add('input-error');
+        field.classList.add('input-error');
     }
 
     startTournament() {
         const playerListDiv = this._getDOM().getElementById('player-list-container');
+        const nameInput = this._getDOM().getElementById('tournament-name');
         const errorMessage = this._getDOM().querySelector('.error-message');
 
         playerListDiv.classList.remove('input-error');
+        nameInput.classList.remove('input-error');
         errorMessage.textContent = '';
         errorMessage.classList.add('hidden');
 
-        if (!this.state.name || this.state.name.length <= 0 || this.state.name.length > 30) {
-            this.markAsError('Please fill in the tournament name');
+        if (!this.name || this.name.length <= 0 || this.name.length > 30) {
+            this.markAsError(nameInput, 'Please fill correctly the tournament name');
             return;
         }
 
         if (this.hasDuplicates()) {
-            this.markAsError('Player aliases must be different');
+            this.markAsError(playerListDiv, 'Player aliases must be different');
             return;
         }
 
         if (!this.isPowerOfTwo() || this.state.playerList.length < 2 || this.state.playerList.length > 32) {
-            this.markAsError('The number of players must be a power of between 2 and 32');
+            this.markAsError(playerListDiv, 'The number of players must be a power of between 2 and 32');
             return;
         }
 
-        const { name, playerList, userId } = this.state;
-
-        GameService.createTournament({ name, players: playerList, user_id: userId })
-            .then(({players}) => this.emit('START_TOURNAMENT', players))
-            .catch(e => e && this.markAsError(e.error[0]));
+        GameService.createTournament({ name: this.name, players: this.state.playerList, user_id: this.userId })
+            .then(({players, id}) => {
+                this.emit('START_TOURNAMENT', {name: this.name, players, tournamentId: id});
+                console.log('Tournament created successfully');
+                this.closeModal();
+            })
+            .catch(e => e && this.markAsError(playerListDiv, e.error[0]));
     }
 
     addPlayer() {
         const playerListInput = this._getDOM().getElementById('player-list-input');
         const playerName = playerListInput?.value.trim();
-        const listElem = this._getDOM().getElementById('player-list');
 
         if (!playerName || playerName.length < 3 || playerName.length > 20) return;
-        this.setState({...this.state, playerList: this.state.playerList.push(playerName)});
+        this.state.playerList.push(playerName);
         playerListInput.value = '';
 
-        const li = document.createElement('li');
-        li.textContent = playerName;
-        li.id = playerName + '-' + this.state.playerList.length;
-        const deleteIcon = document.createElement('i');
-        deleteIcon.classList.add('bi', 'bi-x', 'me-4', 'fw-bolder');
-        deleteIcon.addEventListener('click', () => this.deletePlayer(li.id));
-        li.appendChild(deleteIcon);
-        listElem.appendChild(li);
+        this.setState({
+            ...this.state,
+            playerList: [...this.state.playerList] // Crear una nueva referencia para el array
+        });
     }
 
     deletePlayer(id) {
-        const playerContainer = this._getDOM().getElementById('player-list');
-        const players = [...this._getDOM().querySelectorAll('li')];
-        const playerToDelete = players.find(player => player.id === id);
-        const playerIndex = players.indexOf(playerToDelete);
+        const playerIndex = this.state.playerList.indexOf(id);
+        this.state.playerList.splice(playerIndex, 1);
+    }
 
-        if (playerToDelete) {
-            playerContainer.removeChild(playerToDelete);
-            this.setState({...this.state, playerList: this.state.playerList.splice(playerIndex, 1)});
-        }
+    mapPlayerList() {
+        return `
+        <ul id="player-list" style="list-style: none;">
+            ${this.state.playerList?.map((player, index) => this.userId && index === 0 ?
+        `<li>${player}</li>` :
+        `<li>${player}<i id="${index}" class="bi bi-x me-4 fw-bolder delete-icon"></i></li>`).join('')}
+        </ul>
+    `;
     }
 
     bind() {
-        this.subscribe('#tournament-name', 'input', ({ target }) => this.setState({...this.state, name: target?.value.trim()}));
+        this.subscribe('#tournament-name', 'input', ({ target }) => this.name = target.value?.trim());
+        this.subscribeAll('delete-icon', 'click', ({ target }) => this.deletePlayer(target.id));
         this.subscribe('#add-player', 'click', () => this.addPlayer());
         this.subscribe('#start', 'click', () => this.startTournament());
+        this.subscribeAll('player-list-container', 'change', () => this.mapPlayerList());
+        if (this.modal && this.state.isOpen)
+            this.showModal();
     }
 
     render() {
         return `
             <div class="game-body">
-                <dialog open id="tournamentRegistrationModal" class="game-modal">
+                <div id="tournamentRegistrationModal" class="game-modal">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW TOURNAMENT</h3>
@@ -132,7 +148,7 @@ class TournamentRegistrationModal extends WebComponent {
                             <input type="text" id="tournament-name" maxlength="30" placeholder="Tournament name" required>
                         </div>
                         <div class="my-4" style="width: 85%;">
-                            <h4>PLAYERS</h4>
+                            <h4>PARTICIPANTS</h4>
                             <div class="w-100 d-flex justify-content-space-evenly align-items-center" style="height: 40px">
                                 <input type="text" id="player-list-input" minlength="3" maxlength="20" placeholder="Add new player">
                                 <button id="add-player" class="primary-btn-alt ms-2 text-center" style="width: 80px;">
@@ -141,13 +157,11 @@ class TournamentRegistrationModal extends WebComponent {
                             </div>
                         </div>
                         <div id="player-list-container" class="app-textarea" style="width: 85%;">
-                            <ul id="player-list" style="list-style: none;">
-                                ${this.state.username ? `<li>${this.state.username}</li>` : ''}
-                            </ul>
+                            ${this.mapPlayerList()}
                         </div>
-                        <button id="start" class="primary-btn mt-4" ${this.isPowerOfTwo ? 'disabled': ''} style="width: 85%;">Start tournament</button>
+                        <button id="start" class="primary-btn mt-4" ${this.isPowerOfTwo() ? '' : 'disabled'} style="width: 85%;">Start tournament</button>
                     </div>
-                </dialog>
+                </div>
             </div>
         `;
     }

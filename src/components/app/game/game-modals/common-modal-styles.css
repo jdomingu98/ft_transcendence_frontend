@@ -57,7 +57,7 @@
     visibility: hidden;
 }
 
-dialog {
+/*dialog {
     transition: opacity .3s ease,
         display .3s ease allow-discrete;
     opacity: 0;
@@ -70,6 +70,17 @@ dialog[open] {
     @starting-style {
         opacity: 0;
     }
+}*/
+
+#localMatchRegistrationModal, #tournamentRegistrationModal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#localMatchRegistrationModal.open, #tournamentRegistrationModal.open {
+    opacity: 1;
+    visibility: visible;
 }
 
 .primary-btn {
@@ -122,6 +133,10 @@ button {
     font-weight: 500;
     border-radius: 20px;
     text-transform: uppercase;
+}
+
+button[disabled] {
+    cursor: not-allowed;
 }
 
 input {

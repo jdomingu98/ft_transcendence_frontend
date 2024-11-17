@@ -1,5 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
-import GameService from '#services/GameService';
+//import GameService from '#services/GameService';
 import css from './common-modal-styles.css?inline';
 
 export default Component({
@@ -8,11 +8,13 @@ export default Component({
 },
 class LocalMatchRegistrationModal extends WebComponent {
 
+    userId = this.getAttribute('userId');
+    playerOne = this.getAttribute('playerOne') ?? '';
+
     init() {
         this.state = {
-            userId: this.getAttribute('userId'),
-            playerOne: this.getAttribute('username') ?? '',
             playerTwo: '',
+            isOpen: true
         };
     }
 
@@ -39,18 +41,17 @@ class LocalMatchRegistrationModal extends WebComponent {
     }
 
     startGame() {
-        const playerOne = this.state.playerOne;
         const playerTwo = this.state.playerTwo;
         const errorMessage = this._getDOM().querySelector('.error-message');
 
         this.cleanInputs(errorMessage);
 
-        if (!playerOne || !playerTwo || playerOne.length < 3 || playerTwo.length < 3) {
+        if (!this.playerOne || !playerTwo || this.playerOne.length < 3 || playerTwo.length < 3) {
             this.markAsError('Please fill in correctly both player aliases');
             return;
         }
 
-        if (playerOne === playerTwo) {
+        if (this.playerOne === playerTwo) {
             this.markAsError('Player aliases must be different');
             return;
         }
@@ -58,39 +59,42 @@ class LocalMatchRegistrationModal extends WebComponent {
         /*GameService.checkPlayersData({player_one: playerOne, player_two: playerTwo})
             .then(() => this.emit('START_LOCAL_MATCH', { playerOne, playerTwo }))
             .catch( e => this.markAsError(e.error[0]));*/
+
+        this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo });
+        this.closeModal();
     }
 
     closeModal() {
-        this.modal.close();
+        this.modal.classList.remove('open');
+        if (this.state.isOpen)
+            this.setState({...this.state, isOpen: false});
+    }
+
+    showModal() {
+        this.modal.classList.add('open');
+        if (!this.state.isOpen)
+            this.setState({...this.state, isOpen: true});
     }
 
     bind() {
-        this.subscribe('#player-one', 'input', ({target}) => this.setState({...this.state, playerOne: target?.value.trim()}));
+        this.subscribe('#player-one', 'input', ({target}) => this.playerOne = target?.value.trim());
         this.subscribe('#player-two', 'input', ({target}) => this.setState({...this.state, playerTwo: target?.value.trim()}));
         this.subscribe('button', 'click', () => this.startGame());
-        this.subscribe('#localMatchRegistrationModal', 'close', () =>
-            this.emit('START_LOCAL_MATCH', {
-                playerOne: this.state.playerOne,
-                playerTwo: this.state.playerTwo
-            })
-        );
-    }
-
-    afterViewInit() {
-        this.modal.showModal();
+        if (this.modal && this.state.isOpen)
+            this.showModal();
     }
 
     render() {
         return `
             <div class="game-body">
-                <dialog id="localMatchRegistrationModal" class="game-modal">
+                <div id="localMatchRegistrationModal" class="game-modal">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW LOCAL MATCH</h3>
                         <p class="error-message hidden"></p>
                         <div class="my-4" style="width: 85%;">
                             <h4>FIRST PLAYER ALIAS</h4>
-                            <input type="text" id="player-one" minlength="3" maxlength="20" ${this.state.userId ? 'disabled' : ''} [value]="state.playerOne" placeholder="Alias 1" required>
+                            <input type="text" id="player-one" minlength="3" maxlength="20" ${this.userId ? 'disabled' : ''} [value]="playerOne" placeholder="Alias 1" required>
                         </div>
                         <div class="my-4" style="width: 85%;">
                             <h4>SECOND PLAYER ALIAS</h4>
@@ -98,7 +102,7 @@ class LocalMatchRegistrationModal extends WebComponent {
                         </div>
                         <button class="primary-btn mt-4" style="width: 85%;">Start game</button>
                     </div>
-                </dialog>
+                </div>
             </div>
         `;
     }
