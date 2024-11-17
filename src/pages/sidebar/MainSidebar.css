@@ -13,7 +13,7 @@
     position: fixed;
     padding: 10px;
     transition: all .4s ease;
-    z-index: 1;
+    z-index: 2;
 }
 
 .profile-picture {

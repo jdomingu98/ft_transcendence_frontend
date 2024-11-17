@@ -233,6 +233,8 @@ class AppGame extends WebComponent {
      */
     finishGame() {
         this.togglePause(true);
+        const winner = this.paddle1.score > this.paddle2.score ? this.playerOne : this.playerTwo;
+        this.emit('FINISH_GAME', { winner });
         if (localStorage.getItem('access_token')) {
             UserService.getMyInfo()
                 .then(({ id, username }) => GameService.saveMatch(this.getData(id, username)))
@@ -327,7 +329,6 @@ class AppGame extends WebComponent {
 
     render() {
         const [player1, player2] = this.getRandomPlayers();
-        console.log(this.playerOne, this.playerTwo);
         return `
             <div class="d-flex justify-content-center align-items-center">
                 <div class="pongtainer">
