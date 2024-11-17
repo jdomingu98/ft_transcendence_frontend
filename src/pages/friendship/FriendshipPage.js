@@ -1,6 +1,6 @@
+import { DECISION_THRESHOLD, DEFAULT_PROFILE_IMG } from '#const';
 import WebComponent, { Component } from '#WebComponent';
-import { DECISION_THRESHOLD } from '#const';
-//import NavigatorService from '#services/NavigatorService';
+import FriendService from '#services/FriendService';
 
 import css from './FriendshipPage.css?inline';
 
@@ -11,24 +11,12 @@ export default Component ({
 class FriendshipPage extends WebComponent {
 
     init() {
+
+        FriendService.getFriendRequests().then(friendsData => this.setState({...this.state, friendsData }));
+
         this.state = {
-            friendsData: [{
-                id: 1,
-                username: 'jdomingu',
-                profilePicture: '/resources/devs/jdomingu.png',
-            }, {
-                id: 2,
-                username: 'aruzafa-',
-                profilePicture: '/resources/devs/aruzafa-.jpg',
-            }, {
-                id: 3,
-                username: 'atrujill_42',
-                profilePicture: '/resources/devs/atrujill.jpg',
-            }, {
-                id: 4,
-                username: 'cmorales',
-                profilePicture: '/resources/devs/cmorales.jpg',
-            }],
+            /** id?, username, profile_img */
+            friendsData: [],
             dragEvent: {
                 startX: 0,
                 actualCard: null,
@@ -41,7 +29,7 @@ class FriendshipPage extends WebComponent {
     mapFriendsToArticles() {
         return this.state.friendsData.map( friend => `
             <article>
-                <img src="${friend.profilePicture}" alt="${friend.username} profile picture" />
+                <img src="${friend.profilePicture ?? DEFAULT_PROFILE_IMG}" alt="${friend.username} profile picture" />
                 <h2>${friend.username}</h2>
                 <div class="choice reject text-uppercase">{{ translator.translate("FRIENDSHIP.REJECT") }}</div>
                 <div class="choice accept text-uppercase">{{ translator.translate("FRIENDSHIP.ACCEPT") }}</div>
@@ -174,7 +162,8 @@ class FriendshipPage extends WebComponent {
             <div class="friendship-container">
                 <div class="shadow">
                     <aside>
-                        <section>
+                        <h2 class="text-white mt-3 mb-5"> <!--{{ translator.translate('FRIENDSHIP.TITLE') }}--> Your friendship pending requests </h2>
+                        <section class="h-100">
                             <div class="card-background"></div>
                             <div class="cards">
                                 ${ this.mapFriendsToArticles() }
