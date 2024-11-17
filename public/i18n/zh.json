@@ -314,25 +314,30 @@
       "WINRATE": "中奖率", 
       "STREAK": "最大连胜"
     },
-    "FRIENDS_LIST_TITLE": "好友列表",
+    "FRIENDS_LIST": {
+      "TITLE": "好友列表",
+      "EMPTY": "很难说出口，但看起来你还没有朋友..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "比赛记录",
-      "TABLE_HEAD": {
-        "RESULT": "结果",
-        "OPPONENT": "对手",
-        "EARNED": "已赚取",
-        "TIME": "时间"
+      "DETAILS": {
+        "GOALS_SCORED": "进球数：",
+        "GOALS_AGAINST": "失球数：",
+        "GOALS_STOPPED": "扑救数：",
+        "GOALS_STOPPED_RIVAL": "被拦下的进球：",
+        "GAME_TIME": "比赛时间：",
+        "POINTS_EARNED": "获得积分："
       },
       "RESULT_STATUS": {
-        "VICTORY": "胜利",
-        "DEFEAT": "失败",
-        "DRAW": "平局"
+        "VICTORY": "胜利对",
+        "DEFEAT": "失败对"
       },
       "PAGINATION": {
         "PREVIOUS": "< 上一页",
         "OF": "的",
         "NEXT": "下一页 >"
-      }
+      },
+      "EMPTY": "没有比赛记录"
     }
   },
   "FRIENDSHIP": {
