@@ -336,9 +336,10 @@
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "Tus solicitudes de amistad pendientes",
     "ACCEPT": "Aceptar",
     "REJECT": "Rechazar",
-    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad...<br/>Vuelve más tarde"
+    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad... Vuelve más tarde"
   },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",

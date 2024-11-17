@@ -1,7 +1,7 @@
 .friendship-container {
     display: grid;
     place-content: center;
-    max-height: 100vh;
+    max-height: 80vh;
     overflow: hidden;
     user-select: none;
     padding-top: 64px;

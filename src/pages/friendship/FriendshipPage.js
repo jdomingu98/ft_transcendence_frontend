@@ -159,15 +159,15 @@ class FriendshipPage extends WebComponent {
 
     render() {
         return `
+            <h2 class="text-white my-3"> {{ translator.translate('FRIENDSHIP.TITLE') }} </h2>
             <div class="friendship-container">
                 <div class="shadow">
                     <aside>
-                        <h2 class="text-white mt-3 mb-5"> <!--{{ translator.translate('FRIENDSHIP.TITLE') }}--> Your friendship pending requests </h2>
                         <section class="h-100">
                             <div class="card-background"></div>
                             <div class="cards">
                                 ${ this.mapFriendsToArticles() }
-                                <span> ${ this.translator.translate('FRIENDSHIP.NO_MORE_REQUESTS') } </span>
+                                <span> {{ translator.translate('FRIENDSHIP.NO_MORE_REQUESTS') }} </span>
                             </div>
                         </section>
                     </aside>
