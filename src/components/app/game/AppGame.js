@@ -26,15 +26,11 @@ export default Component({
 },
 class AppGame extends WebComponent {
 
-    init() {
-        this.state = {
-            isTournament: window.location.pathname.includes('tournament'),
-            user: {},
-            playerOne: '',
-            playerTwo: null
-        };
-        UserService.getMyInfo().then(user => this.setState({ ...this.state, user, playerOne: user.username }));
-    }
+    userId = this.getAttribute('userId');
+    playerOne = this.getAttribute('playerOne');
+    playerTwo = this.getAttribute('playerTwo');
+    profileImg = this.getAttribute('profileImg');
+    isPaused = this.getAttribute('isPaused');
 
     get btnPause() {
         return this._getDOM().querySelector('.pause');
@@ -177,10 +173,10 @@ class AppGame extends WebComponent {
                     // Update the timer display.
                     this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                 } else {
-                    if(this.paddle1.score === this.paddle2.score){
+                    if (this.paddle1.score === this.paddle2.score)
                         this.golden_goal();
-                    }
-                    else this.finishGame();
+                    else
+                        this.finishGame();
                 }
             }
         }, 1000);
@@ -194,12 +190,11 @@ class AppGame extends WebComponent {
      * @description Moves the paddle up or down based on the keys pressed and smooths the movement based on deltaTime.
      */
     move(paddle, upKey, downKey, deltaTime) {
-        if (this.keysPressed.get(upKey)) {
+        if (this.keysPressed.get(upKey))
             paddle.move(-1, this.canvas.height, deltaTime);
-        }
-        if (this.keysPressed.get(downKey)) {
+
+        if (this.keysPressed.get(downKey))
             paddle.move(1, this.canvas.height, deltaTime);
-        }
     }
 
     /**
@@ -295,29 +290,29 @@ class AppGame extends WebComponent {
         }
     }
 
-    getRandomPlayer() {
+    getRandomPlayers() {
         const images = [
             {src: '/src/resources/players/image0.png', name: 'Crazy dev'},
             {src: '/src/resources/players/image1.png', name: 'Awesome grandma'},
             {src: '/src/resources/players/image2.png', name: 'Jonathan'},
             {src: '/src/resources/players/image3.png', name: 'Fat cat'},
         ];
-        return images[Math.floor(Math.random() * images.length)];
+        return images.sort(() => Math.random() - 0.5).slice(0, 2);
     }
 
-    getHeader(player) {
+    getHeader(player1, player2) {
         return `
             <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1 text-white">
                 <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
-                    <img [src]="state.user.profile_img" alt="Player 1 image">
-                    <span class="mt-3">${ this.state.playerOne }</span>
+                    <img src="${this.profileImg ?? player1.src}" alt="Player 1 image">
+                    <span class="mt-3">${ this.playerOne ?? player1.name }</span>
                 </div>
                 <div class="info-mid">
                     <span id="timer-marker">05:00</span>
                 </div>
                 <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
-                    <span class="mt-3">${this.state?.playerTwo ?? player.name}</span>
-                    <img src="${player.src}" alt="Player 2 image">
+                    <span class="mt-3">${ this.playerTwo ?? player2.name }</span>
+                    <img src="${player2.src}" alt="Player 2 image">
                 </div>
             </div>
         `;
@@ -328,21 +323,15 @@ class AppGame extends WebComponent {
         this.subscribe(window, 'keydown', e => this.keysPressed.set(e.keyCode, true));
         this.subscribe(window, 'keyup', e => this.keysPressed.set(e.keyCode, false));
         this.subscribe(window, 'resize', () => this.updateElements());
-        this.subscribe('local-match-registration-modal', 'START_LOCAL_MATCH',
-            ({ detail: { playerOne, playerTwo } }) => {
-                this.setState({ ...this.state, playerOne, playerTwo });
-                this.isPause = false;
-                this._getDOM().querySelector('local-match-registration-modal')?.closeModal();
-            });
     }
 
     render() {
-        const player = this.getRandomPlayer();
+        const [player1, player2] = this.getRandomPlayers();
+        console.log(this.playerOne, this.playerTwo);
         return `
-            '${this.state.isTournament ? '<tournament-registration-modal [userId]="state.user?.id" [username]="state.user?.username"></tournament-registration-modal>' : '<local-match-registration-modal [userId]="state.user?.id" [username]="state.user?.username"></local-match-registration-modal>'}
             <div class="d-flex justify-content-center align-items-center">
                 <div class="pongtainer">
-                    ${this.getHeader(player)}
+                    ${this.getHeader(player1, player2)}
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal"><span>GOLDEN GOAL</span></div>
