@@ -22,6 +22,13 @@ const LANGUAGES = [
     { language: 'zh', flag:  '🇨🇳', url: '/i18n/zh.json', name: '简体中文' }
 ];
 
+const LOCALE_LANG = {
+    es: 'es-ES',
+    en: 'en-US',
+    fr: 'fr-FR',
+    zh: 'zh-CN'
+};
+
 const DECISION_THRESHOLD = 300;
 
 const VISIBILITY = {
@@ -46,6 +53,7 @@ export {
     DEFAULT_PROFILE_IMG,
     DEFAULT_SIDEBAR_PROFILE_IMG,
     LANGUAGES,
+    LOCALE_LANG,
     VISIBILITY,
     UserStatus,
 };
