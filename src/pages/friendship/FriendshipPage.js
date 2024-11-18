@@ -2,6 +2,9 @@ import WebComponent, { Component } from '#WebComponent';
 import { DECISION_THRESHOLD } from '#const';
 //import NavigatorService from '#services/NavigatorService';
 
+document.querySelector('meta[name="description"]').content = 'Accept or reject friend requests by swapping them left or right.';
+
+
 import css from './FriendshipPage.css?inline';
 
 export default Component ({

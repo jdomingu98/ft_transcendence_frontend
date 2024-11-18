@@ -2,6 +2,8 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './LegalDocs.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Privacy policy of the application.';
+
 export default Component ({
     tagName: 'privacy-policy',
     styleCSS: css

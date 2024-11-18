@@ -7,6 +7,8 @@ import UserService from '#services/UserService';
 
 import css from './MainSidebar.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Play games, view your ranking, and manage your account.';
+
 export default Component ({
     tagName: 'main-sidebar',
     styleCSS: css

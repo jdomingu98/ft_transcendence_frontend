@@ -3,6 +3,10 @@ import WebComponent, { Component } from '#WebComponent';
 import NavigatorService from '#services/NavigatorService';
 import css from './LandingPage.css?inline';
 
+document.querySelector('meta[name="description"]').content =
+    `Discover our landing page, where you can register, discover features, and explore the leaderboard.
+    Join us and start your journey!`;
+
 export default Component ({
     tagName: 'landing-page',
     styleCSS: css
@@ -19,18 +23,6 @@ class LandingPage extends WebComponent {
         otpModal.openModal(username);
     }
 
-    setMetaDescription() {
-        let metaDescription = document.querySelector('meta[name="description"]');
-
-        if (!metaDescription) {
-            metaDescription = document.createElement('meta');
-            metaDescription.name = 'description';
-            document.head.appendChild(metaDescription);
-        }
-
-        metaDescription.content = 'Discover our landing page, where you can register, discover features, and explore the leaderboard. Join us and start your journey!';
-    }
-
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
@@ -39,8 +31,6 @@ class LandingPage extends WebComponent {
         this.subscribe('#game-modes primary-button', 'click', () => NavigatorService.goToGame());
         this.subscribe('#game-modes secondary-button', 'click', () => NavigatorService.goToTournament());
         this.subscribe('#meet-people', 'click', () => this.showModal('REGISTER'));
-
-        this.setMetaDescription();
     }
 
     render() {

@@ -1,6 +1,8 @@
 import WebComponent, { Component, Router } from '#WebComponent';
 import NavigatorService from '#services/NavigatorService.js';
 
+document.querySelector('meta[name="description"]').content = 'An error occurred. Please try again later.';
+
 export default Component ({
     tagName: 'error-page',
     styleCSS: `

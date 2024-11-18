@@ -3,6 +3,8 @@ import WebComponent, { Component } from '#WebComponent';
 import GameService from '#services/GameService';
 import UserService from '#services/UserService';
 
+document.querySelector('meta[name="description"]').content = 'Play the classic game of Pong. Move your paddle up and down to hit the ball and score points.';
+
 export default Component({
     tagName: 'pong-sidebar'
 },
