@@ -9,7 +9,7 @@ class LandingFooter extends WebComponent {
     render() {
         return `
             <footer class="text-capitalize pt-5"
-                    style="font-family: var(--app-secondary-text-font);font-size: 14px;"
+                    style="font-family: var(--app-secondary-text-font); font-size: 0.85rem; background-color: var(--app-primary-bg-color)"
             >
                 <div class="col-12 d-flex justify-content-space-between align-items-center text-center text-white">
                     <span class="col-3">{{ translator.translate("LANDING.FOOTER.COPYRIGHT")}}</span>

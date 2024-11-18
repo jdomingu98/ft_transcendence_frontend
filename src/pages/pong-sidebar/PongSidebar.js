@@ -8,8 +8,8 @@ export default Component({
 },
 class PongSidebar extends WebComponent {
 
-    get localMatchRegistrationModal() {
-        return this._getDOM().querySelector('local-match-registration-modal');
+    get winnerModal() {
+        return this._getDOM().querySelector('winner-modal');
     }
 
 
@@ -29,7 +29,9 @@ class PongSidebar extends WebComponent {
                 haveWinner: false
             },
             playerOne: null,
-            playerTwo: null
+            playerTwo: null,
+            winnerName: null,
+            isMatchOver: false
         };
         UserService.getMyInfo().then(user => this.setState({
             ...this.state,
@@ -78,6 +80,20 @@ class PongSidebar extends WebComponent {
                 });
         }
         );
+
+        this.subscribe('app-game', 'FINISH_GAME', ({ detail: {winner} }) => {
+            this.setState({
+                ...this.state,
+                inPause: true,
+                isMatchOver: true,
+                winnerName: winner,
+                tournament: {
+                    ...this.state.tournament,
+                    haveWinner: true,
+                }
+            });
+            this.winnerModal.showModal();
+        });
     }
 
     render() {
@@ -90,7 +106,13 @@ class PongSidebar extends WebComponent {
                 </tournament-registration-modal>` : `<local-match-registration-modal
                     [userId]="state.user?.id"
                     [playerOne]="state.user?.username">
-                </local-match-registration-modal>`}'
+                </local-match-registration-modal>`}
+                <winner-modal
+                    [isTournamentLastRound]="state.isTournament && state.tournament.haveWinner"
+                    [isSimpleMatchOver]="!state.isTournament && state.isMatchOver"
+                    [tournamentName]="state.name"
+                    [winner]="state.winnerName">
+                </winner-modal>
                 <!-- Si no pongo la condicion no se pasa playerTwo -->
                 ${ this.state.playerOne && this.state.playerTwo ? `<app-game
                     [isPaused]="state.inPause"

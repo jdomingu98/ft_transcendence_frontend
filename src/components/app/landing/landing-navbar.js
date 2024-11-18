@@ -12,7 +12,8 @@ class LandingNavBar extends WebComponent {
 
     render() {
         return `
-            <nav class="nav d-flex align-items-center justify-content-around my-5 text-uppercase fw-bold text-center">
+            <nav class="nav d-flex align-items-center justify-content-around py-5 text-uppercase fw-bold text-center"
+                style="background-color: var(--app-primary-bg-color)">
                 <router-link
                     class="nav-link link-light text-decoration-none"
                     style="font-size:24px; z-index: 1;"

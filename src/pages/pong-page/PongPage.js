@@ -1,3 +1,4 @@
+import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
 
 export default Component({
@@ -6,7 +7,9 @@ export default Component({
 class PongPage extends WebComponent {
     render() {
         return `
-           <app-game></app-game>
+            <landing-navbar></landing-navbar>
+            <app-game></app-game>
+            <landing-footer></landing-footer>
         `;
     }
 });
