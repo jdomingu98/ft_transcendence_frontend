@@ -65,7 +65,7 @@ class LandingDevCards extends WebComponent {
     developersToHTML() {
         return this.state.devsInfo.map( dev =>
             `
-                <div class="col d-flex px-0 my-5 justify-content-center">
+                <div class="col d-flex px-0 my-5 justify-content-center" style="z-index:1;">
                     <div class="card mt-4 border-0 card-content text-uppercase">
                         <div class="mx-auto rounded-circle profile" style="width:${DEFAULT_IMG_DIMENSION}; height:${ DEFAULT_IMG_DIMENSION}; background-image: url(${dev.src})"></div>
                         <div class="card-body">

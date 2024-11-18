@@ -58,7 +58,7 @@ class LandingPage extends WebComponent {
 
                     <landing-navbar class="col-12 p-0"></landing-navbar>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5" style="z-index:1;">
                         <div class="col-5">
                             <h1-text>{{ translator.translate('LANDING.PLAY.TITLE') }}</h1-text>
                             <div class="mt-3 col-7">
@@ -72,7 +72,7 @@ class LandingPage extends WebComponent {
                         <img src="/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-6" style="width:551px; height:443px">
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5" style="z-index:1;">
                         <img loading="lazy" src="/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" style="width: 565px; height: 508px">
                         <div class="col-5">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.DISCOVER.HEADER') }}</sub-header-text>
@@ -84,7 +84,7 @@ class LandingPage extends WebComponent {
                         </div>
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5" style="z-index:1;">
                         <div class="col-5">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.LEADER_BOARD.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.LEADER_BOARD.TITLE') }}</h2-text>
@@ -98,7 +98,7 @@ class LandingPage extends WebComponent {
 
                     <landing-dev-cards></landing-dev-cards>
 
-                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;">
+                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;" style="z-index:1;">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
                             <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
                             <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>
