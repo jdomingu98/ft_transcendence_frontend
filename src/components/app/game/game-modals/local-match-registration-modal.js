@@ -1,5 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
-//import GameService from '#services/GameService';
+import GameService from '#services/GameService';
 import css from './common-modal-styles.css?inline';
 
 export default Component({
@@ -56,9 +56,9 @@ class LocalMatchRegistrationModal extends WebComponent {
             return;
         }
 
-        /*GameService.checkPlayersData({player_one: playerOne, player_two: playerTwo})
-            .then(() => this.emit('START_LOCAL_MATCH', { playerOne, playerTwo }))
-            .catch( e => this.markAsError(e.error[0]));*/
+        GameService.validateMatch({player_one: this.playerOne, player_two: playerTwo})
+            .then(() => this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo }))
+            .catch( e => this.markAsError(e.error[0]));
 
         this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo });
         this.closeModal();
