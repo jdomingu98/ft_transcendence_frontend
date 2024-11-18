@@ -1,5 +1,6 @@
 import '/src/components/app/landing';
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 import css from './LandingPage.css?inline';
 
 export default Component ({
@@ -35,6 +36,9 @@ class LandingPage extends WebComponent {
         this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
+        this.subscribe('#game-modes primary-button', 'click', () => NavigatorService.goToGame());
+        this.subscribe('#game-modes secondary-button', 'click', () => NavigatorService.goToTournament());
+        this.subscribe('#meet-people', 'click', () => this.showModal('REGISTER'));
 
         this.setMetaDescription();
     }
@@ -60,7 +64,7 @@ class LandingPage extends WebComponent {
                             <div class="mt-3 col-7">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.PLAY.SUBTITLE') }}</p>
                             </div>
-                            <div class="col col-11 d-flex mt-4 gap-3">
+                            <div id="game-modes" class="col col-11 d-flex mt-4 gap-3">
                                 <primary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.LOCAL_MODE") }}</primary-button>
                                 <secondary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.CREATE_TOURNAMENT") }}</secondary-button>
                             </div>
@@ -76,7 +80,7 @@ class LandingPage extends WebComponent {
                             <div class="my-4 col-8">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.DISCOVER.SUBTITLE') }}</p>
                             </div>
-                            <primary-button w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
+                            <primary-button id="meet-people" w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
                         </div>
                     </section>
 
