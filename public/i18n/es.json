@@ -314,25 +314,30 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
-    "FRIENDS_LIST_TITLE": "Lista de Amigos",
+    "FRIENDS_LIST": {
+      "TITLE": "Lista de Amigos",
+      "EMPTY": "Es dificil decir esto, pero parece que no tienes amigos..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "Historial de Partidas",
-      "TABLE_HEAD": {
-        "RESULT": "Resultado",
-        "OPPONENT": "Oponente",
-        "EARNED": "Ganado",
-        "TIME": "Tiempo"
+      "DETAILS": {
+        "GOALS_SCORED": "Goles Marcados: ",
+        "GOALS_AGAINST": "Goles Recibidos: ",
+        "GOALS_STOPPED": "Goles Parados: ",
+        "GOALS_STOPPED_RIVAL": "Goles Parados por ",
+        "GAME_TIME": "Tiempo de Juego: ",
+        "POINTS_EARNED": "Puntos Conseguidos: "
       },
       "RESULT_STATUS": {
-        "VICTORY": "Victoria",
-        "DEFEAT": "Derrota",
-        "DRAW": "Empate"
+        "VICTORY": "Victoria VS",
+        "DEFEAT": "Derrota VS"
       },
       "PAGINATION": {
         "PREVIOUS": "< Anterior",
         "OF": "de",
         "NEXT": "Siguiente >"
-      }
+      },
+      "EMPTY": "No existe registro de partidas"
     }
   },
   "FRIENDSHIP": {

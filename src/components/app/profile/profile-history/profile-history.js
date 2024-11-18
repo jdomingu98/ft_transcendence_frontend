@@ -1,5 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
 import GameService from '#services/GameService';
+import { LOCALE_LANG } from '#const';
 
 import css from './profile-history.css?inline';
 
@@ -18,11 +19,16 @@ class ProfileHistory extends WebComponent {
     }
 
     getMatches(page) {
-
         const userId = this.getAttribute('userId');
         GameService.getMatchHistory(userId, page).then(page => this.setState({
+            ...this.state,
             maxPages: Math.ceil(page.count / page.results.numItems),
-            matches: page.results.data
+            matches: page.results.data.map(match => ({
+                ...match,
+                result: match.num_goals_scored > match.num_goals_against
+                    ? 'victory'
+                    : 'defeat'
+            }))
         }));
     }
 
@@ -33,16 +39,57 @@ class ProfileHistory extends WebComponent {
         }
     }
 
-    mapMatchesResults() {
+    formatDate(date) {
+        const language = localStorage.getItem('lang');
+
+        if (!date) return date.toISOString();
+        let formattedDate = new Intl.DateTimeFormat(LOCALE_LANG[language] , {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+        }).format(date);
+
+        formattedDate = formattedDate.replace(',', '');
+        formattedDate = formattedDate.replace(/\b(\d)\b/g, '0$1');
+        return formattedDate;
+    }
+
+    mapMatchResults() {
         return this.state.matches.map(match => `
-            <tr class="victory">
-                <td class="text-uppercase fw-bold">
-                    {{ translator.translate("PROFILE.MATCH_HISTORY.RESULT_STATUS." + 'VICTORY') }}
-                </td>
-                <td>${match.user_b}</td>
-                <td>${42}</td>
-                <td>${match.time_played}</td>
-            </tr>
+            <details class="text-white">
+                <summary class="d-flex justify-content-between align-items-center py-3 px-5">
+                    <p class="${match.result} d-flex align-items-center gap-3 text-uppercase" style="font-size: 1.2rem">
+                        {{ translator.translate('PROFILE.MATCH_HISTORY.RESULT_STATUS.${match.result.toUpperCase()}') }}
+                        <span class="text-white fw-semibold text-normal" style="font-size: 1rem;">${match.user_b}</span>
+                    </p>
+                    <p class="fst-italic date">${this.formatDate(new Date(match.start_date))}</p>
+                </summary>
+                <div class="p-3 container">
+                    <div class="px-5 row row-cols-2 g-3 justify-content-center fs-5">
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.GOALS_SCORED') } ${match.num_goals_scored}</p>
+                        </div>
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.GOALS_AGAINST') } ${match.num_goals_against}</p>
+                        </div>
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.GOALS_STOPPED') } ${match.num_goals_stopped_a}</p>
+                        </div>
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.GOALS_STOPPED_RIVAL') } ${match.user_b}: ${match.num_goals_stopped_b}</p>
+                        </div>
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.GAME_TIME') } ${match.time_played}</p>
+                        </div>
+                        <div class="col">
+                            <p>${ this.translator.translate('PROFILE.MATCH_HISTORY.DETAILS.POINTS_EARNED') } ${match.result === 'victory' ? '+10' : '-5'}</p>
+                        </div>
+                    </div>
+                </div>           
+            </details>
         `).join('');
     }
 
@@ -56,20 +103,16 @@ class ProfileHistory extends WebComponent {
             <div class="container p-3">
                 <h4 class="mb-4 fw-bold text-white">{{ translator.translate("PROFILE.MATCH_HISTORY.TITLE") }}</h4>
             </div>
-            <table class="w-100 mb-2 text-center" style="border-collapse: separate;">
-                <thead>
-                    <tr>
-                        <th>{{ translator.translate("PROFILE.MATCH_HISTORY.TABLE_HEAD.RESULT") }}</th>
-                        <th>{{ translator.translate("PROFILE.MATCH_HISTORY.TABLE_HEAD.OPPONENT") }}</th>
-                        <th>{{ translator.translate("PROFILE.MATCH_HISTORY.TABLE_HEAD.EARNED") }}</th>
-                        <th>{{ translator.translate("PROFILE.MATCH_HISTORY.TABLE_HEAD.TIME") }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${ this.mapMatchesResults() }
-                </tbody>
-            </table>
-            <div class="d-flex align-items-center justify-content-evenly text-white mt-5 pagination">
+            <div class="d-flex flex-column align-items-center gap-4">
+                ${ this.state.matches.length > 0 ? this.mapMatchResults() : `
+                        <div class="col-md-12 text-center">
+                            <h5 class="text-white">
+                                {{ translator.translate("PROFILE.MATCH_HISTORY.EMPTY") }}
+                            </h5>
+                        </div>
+                    `}
+            </div>
+            ${ this.state.matches.length > 0 ? `<div class="d-flex align-items-center justify-content-evenly text-white mt-5 pagination">
                 <span id="prev-page" class="pagination-button">
                     {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.PREVIOUS") }}
                 </span>
@@ -81,7 +124,7 @@ class ProfileHistory extends WebComponent {
                 <span id="next-page" class="pagination-button">
                     {{ translator.translate("PROFILE.MATCH_HISTORY.PAGINATION.NEXT") }}
                 </span>
-            </div>
+            </div>` : ''}
         `;
     }
 });

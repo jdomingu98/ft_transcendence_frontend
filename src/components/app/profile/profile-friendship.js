@@ -63,12 +63,12 @@ class ProfileFriendship extends WebComponent {
     render() {
         return `
             <div class="container p-3">
-                <h4 class="fw-bold text-white mb-4">{{ translator.translate("PROFILE.FRIENDS_LIST_TITLE") }}</h4>
+                <h4 class="fw-bold text-white mb-4">{{ translator.translate("PROFILE.FRIENDS_LIST.TITLE") }}</h4>
                 <div class="row">
                     ${this.state.friendList.length > 0 ? this.makeFriendshipGrid() : `
                         <div class="col-md-12 text-center">
                             <h5 class="text-white">
-                                {{ translator.translate("PROFILE.FRIENDS_LIST_EMPTY") }}
+                                {{ translator.translate("PROFILE.FRIENDS_LIST.EMPTY") }}
                             </h5>
                         </div>
                     `}

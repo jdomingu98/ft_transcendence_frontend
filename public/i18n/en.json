@@ -314,25 +314,30 @@
       "WINRATE": "Win Rate", 
       "STREAK": "Max Win Streak"
     },
-    "FRIENDS_LIST_TITLE": "Friends List",
+    "FRIENDS_LIST": {
+      "TITLE": "Friends List",
+      "EMPTY": "It's hard to say this, but it seems you don't have any friends..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "Match History",
-      "TABLE_HEAD": {
-        "RESULT": "Result",
-        "OPPONENT": "Opponent",
-        "EARNED": "Earned",
-        "TIME": "Time"
+      "DETAILS": {
+        "GOALS_SCORED": "Goals Scored: ",
+        "GOALS_AGAINST": "Goals Against: ",
+        "GOALS_STOPPED": "Goals Stopped: ",
+        "GOALS_STOPPED_RIVAL": "Goals Stopped by ",
+        "GAME_TIME": "Game Time: ",
+        "POINTS_EARNED": "Points Earned: "
       },
       "RESULT_STATUS": {
-        "VICTORY": "Victory",
-        "DEFEAT": "Defeat",
-        "DRAW": "Draw"
+        "VICTORY": "Victory VS",
+        "DEFEAT": "Defeat VS"
       },
       "PAGINATION": {
         "PREVIOUS": "< Previous",
         "OF": "of",
         "NEXT": "Next >"
-      }
+      },
+      "EMPTY": "There are no match records"
     }
   },
   "FRIENDSHIP": {
