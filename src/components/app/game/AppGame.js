@@ -237,7 +237,7 @@ class AppGame extends WebComponent {
         this.emit('FINISH_GAME', { winner });
         if (localStorage.getItem('access_token')) {
             UserService.getMyInfo()
-                .then(({ id, username }) => GameService.saveMatch(this.getData(id, username)))
+                .then(({ id, username }) => GameService.storeMatch(this.getData(id, username)))
                 .catch(() => SnackbarService.addToast({
                     title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
                     body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')

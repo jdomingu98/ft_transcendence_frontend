@@ -1,6 +1,6 @@
 import WebComponent, { Component } from '#WebComponent';
-import GameService from '#services/GameService';
 import { LOCALE_LANG } from '#const';
+import UserService from '#services/UserService';
 
 import css from './profile-history.css?inline';
 
@@ -20,7 +20,7 @@ class ProfileHistory extends WebComponent {
 
     getMatches(page) {
         const userId = this.getAttribute('userId');
-        GameService.getMatchHistory(userId, page).then(page => this.setState({
+        UserService.getMatchHistory(userId, page).then(page => this.setState({
             ...this.state,
             maxPages: Math.ceil(page.count / page.results.numItems),
             matches: page.results.data.map(match => ({
