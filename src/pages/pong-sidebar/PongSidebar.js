@@ -47,45 +47,43 @@ class PongSidebar extends WebComponent {
             ({ detail: { playerOne, playerTwo } }) => {
                 this.setState({ ...this.state, playerOne, playerTwo, inPause: false });
             });
-        this.subscribe('tournament-registration-modal', 'START_TOURNAMENT',
-            ({ detail: { name, playerList, id } }) => {
-                console.log('Tournament started', name, playerList);
-                this.setState({
-                    ...this.state,
-                    inPause: false,
-                    playerOne: playerList[0],
-                    playerTwo: playerList[1],
-                    tournament: {
-                        ...this.state.tournament,
-                        id,
-                        name,
-                        playerList
-                    }
-                });
+        this.subscribe('tournament-registration-modal', 'START_TOURNAMENT', ({ detail }) => {
+            this.setState({
+                ...this.state,
+                inPause: false,
+                playerOne: detail.players[0],
+                playerTwo: detail.players[1],
+                tournament: {
+                    ...this.state.tournament,
+                    id: detail.tournamentId,
+                    name: detail.name,
+                    playerList: detail.players
+                }
+            });
 
-                GameService.getTournamentInfo(id)
-                    .then(({ currentRound, currentOrder, totalOrder, totalRounds, players }) => {
-                        this.setState({
-                            ...this.state,
-                            tournament: {
-                                ...this.state.tournament,
-                                playerList: players,
-                                currentRound,
-                                currentOrder,
-                                totalOrder,
-                                totalRounds,
-                                haveWinner: currentRound > totalRounds
-                            }
-                        });
+            GameService.getTournamentInfo(detail.tournamentId)
+                .then(({ current_round, current_order_round, total_order_round, total_round, players }) => {
+                    this.setState({
+                        ...this.state,
+                        tournament: {
+                            ...this.state.tournament,
+                            playerList: players,
+                            currentRound: current_round,
+                            currentOrder: current_order_round,
+                            totalOrder: total_order_round,
+                            totalRounds: total_round,
+                            haveWinner: current_round > total_round
+                        }
                     });
-            }
+                });
+        }
         );
     }
 
     render() {
         return `
             <section style="height: calc(100vh - 40px);">
-                '${this.state.isTournament ? `<tournament-registration-modal
+                ${this.state.isTournament ? `<tournament-registration-modal
                     [userId]="state.user?.id"
                     [username]="state.user?.username"
                     [playerList]="state.tournament.playerList">

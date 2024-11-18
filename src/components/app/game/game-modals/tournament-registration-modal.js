@@ -28,7 +28,6 @@ class TournamentRegistrationModal extends WebComponent {
         this.modal.classList.remove('open');
         if (this.state.isOpen)
             this.setState({...this.state, isOpen: false});
-        console.log('Tournament registration modal closed');
     }
 
     showModal() {
@@ -88,9 +87,8 @@ class TournamentRegistrationModal extends WebComponent {
         }
 
         GameService.createTournament({ name: this.name, players: this.state.playerList, user_id: this.userId })
-            .then(({players, id}) => {
-                this.emit('START_TOURNAMENT', {name: this.name, players, tournamentId: id});
-                console.log('Tournament created successfully');
+            .then(tournament => {
+                this.emit('START_TOURNAMENT', {name: this.name, players: tournament.players, tournamentId: tournament.id});
                 this.closeModal();
             })
             .catch(e => e && this.markAsError(playerListDiv, e.error[0]));
