@@ -1,10 +1,9 @@
 .friendship-container {
-    display: grid;
-    place-content: center;
-    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     user-select: none;
-    padding-top: 64px;
 }
 
 .card-background {
@@ -20,8 +19,9 @@
 }
 
 aside {
-    width: 1280px;
-    height: 720px;
+    width: 90%;
+    height: 100%;
+    aspect-ratio: 16/9;
     display: flex;
     position: relative;
 }

@@ -27,9 +27,9 @@ class FriendshipPage extends WebComponent {
     }
 
     mapFriendsToArticles() {
-        return this.state.friendsData.map( friend => `
+        return this.state.friendsData?.map( friend => `
             <article>
-                <img src="${friend.profilePicture ?? DEFAULT_PROFILE_IMG}" alt="${friend.username} profile picture" />
+                <img src="${friend.profile_img ?? DEFAULT_PROFILE_IMG}" alt="${friend.username} profile picture" />
                 <h2>${friend.username}</h2>
                 <div class="choice reject text-uppercase">{{ translator.translate("FRIENDSHIP.REJECT") }}</div>
                 <div class="choice accept text-uppercase">{{ translator.translate("FRIENDSHIP.ACCEPT") }}</div>
@@ -119,13 +119,19 @@ class FriendshipPage extends WebComponent {
                 const username = actualCard.querySelector('h2').textContent;
                 const currentIndex = this.state.friendsData.findIndex(friend => friend.username === username);
                 if (currentIndex !== -1) {
-                    this.setState({
-                        ...this.state,
-                        friendsData: [
-                            ...this.state.friendsData.slice(0, currentIndex),
-                            ...this.state.friendsData.slice(currentIndex + 1)
-                        ]
-                    });
+                    const friendshipResolution = isRightChoice
+                        ? FriendService.acceptFriendship
+                        : FriendService.deleteFriendship;
+                    friendshipResolution(this.state.friendsData[currentIndex].id)
+                        .then(() => {
+                            this.setState({
+                                ...this.state,
+                                friendsData: [
+                                    ...this.state.friendsData.slice(0, currentIndex),
+                                    ...this.state.friendsData.slice(currentIndex + 1)
+                                ]
+                            });
+                        });
                 }
                 actualCard.remove();
             });
@@ -160,18 +166,14 @@ class FriendshipPage extends WebComponent {
     render() {
         return `
             <h2 class="text-white my-3"> {{ translator.translate('FRIENDSHIP.TITLE') }} </h2>
-            <div class="friendship-container">
-                <div class="shadow">
-                    <aside>
-                        <section class="h-100">
-                            <div class="card-background"></div>
-                            <div class="cards">
-                                ${ this.mapFriendsToArticles() }
-                                <span> {{ translator.translate('FRIENDSHIP.NO_MORE_REQUESTS') }} </span>
-                            </div>
-                        </section>
-                    </aside>
-                </div>
+            <div class="friendship-container pt-3">
+                <aside class="shadow">
+                    <div class="card-background"></div>
+                    <div class="cards">
+                        ${ this.mapFriendsToArticles() }
+                        <span> {{ translator.translate('FRIENDSHIP.NO_MORE_REQUESTS') }} </span>
+                    </div>
+                </aside>
             </div>
         `;
     }
