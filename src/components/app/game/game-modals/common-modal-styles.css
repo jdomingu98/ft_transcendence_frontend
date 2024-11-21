@@ -21,6 +21,7 @@
     z-index: 1000;
     background-color: var(--app-secondary-bg-color);
     border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(218, 183, 141, 0.5);
 }
 
 .game-modal::backdrop {
