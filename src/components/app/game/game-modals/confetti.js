@@ -1,19 +1,30 @@
 
 export default class Confetti {
 
-    constructor(canvas) {
+    constructor() {
         this.colors = ['#FFC107', '#FF5722', '#8BC34A', '#03A9F4', '#E91E63', '#9C27B0'];
         this.particles = [];
-        this.isModalOpen = true;
+        this.animationFrame = null;
+        this.isRunning = false;
+    }
+
+    setCanvas(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
-        this.animationFrame = null;
         this.#resizeCanvas();
         window.addEventListener('resize', () => this.#resizeCanvas());
     }
 
+    getRunning() {
+        return this.isRunning;
+    }
+
+    setRunning(isRunning) {
+        this.isRunning = isRunning;
+    }
+
     #createParticles() {
-        if (!this.isModalOpen || this.particles.length > 700) return;
+        if (!this.isRunning || this.particles.length > 700) return;
 
         for (let i = 0; i < 3; i++) {
             this.particles.push({
@@ -50,13 +61,13 @@ export default class Confetti {
 
     runConfetti() {
         if (this.animationFrame) return;
-
+        this.isRunning = true;
         const animate = () => {
             this.#createParticles();
             this.#updateParticles();
 
             // Stop animation when there is no particles or modal is closed
-            if (this.particles.length === 0 && !this.isModalOpen) {
+            if (this.particles.length === 0) {
                 this.animationFrame = null;
                 return;
             }
@@ -69,9 +80,5 @@ export default class Confetti {
     #resizeCanvas() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-    }
-
-    setModalState(isOpen) {
-        this.isModalOpen = isOpen;
     }
 }

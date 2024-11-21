@@ -20,17 +20,35 @@ const MAX_PADDLE_HEIGHT = 285;
 const INITIAL_REMAINING_TIME = 300;
 const MAX_GOALS = 7;
 
-export default Component({
+export default Component ({
     tagName: 'app-game',
     styleCSS: css
 },
 class AppGame extends WebComponent {
 
-    userId = this.getAttribute('userId');
-    playerOne = this.getAttribute('playerOne');
-    playerTwo = this.getAttribute('playerTwo');
-    profileImg = this.getAttribute('profileImg');
-    isPaused = this.getAttribute('isPaused');
+    init() {
+        this.state = {
+            players: this.getRandomPlayers(),
+        };
+    }
+
+    getRandomPlayers() {
+        const images = [
+            {src: '/src/resources/players/image0.png', name: 'Crazy dev'},
+            {src: '/src/resources/players/image1.png', name: 'Awesome grandma'},
+            {src: '/src/resources/players/image2.png', name: 'Jonathan'},
+            {src: '/src/resources/players/image3.png', name: 'Fat cat'},
+        ];
+        return images.sort(() => Math.random() - 0.5).slice(0, 2);
+    }
+
+    get playerOne() {
+        return this.getAttribute('playerOne') ?? this.state.players[0].name;
+    }
+
+    get playerTwo() {
+        return this.getAttribute('playerTwo') ?? this.state.players[1].name;
+    }
 
     get btnPause() {
         return this._getDOM().querySelector('.pause');
@@ -232,8 +250,8 @@ class AppGame extends WebComponent {
      * @description Ends the game, clearing the timer interval and displaying the final score.
      */
     finishGame() {
-        this.togglePause(true);
         const winner = this.paddle1.score > this.paddle2.score ? this.playerOne : this.playerTwo;
+        this.togglePause(true);
         this.emit('FINISH_GAME', { winner });
         if (localStorage.getItem('access_token')) {
             UserService.getMyInfo()
@@ -292,29 +310,19 @@ class AppGame extends WebComponent {
         }
     }
 
-    getRandomPlayers() {
-        const images = [
-            {src: '/src/resources/players/image0.png', name: 'Crazy dev'},
-            {src: '/src/resources/players/image1.png', name: 'Awesome grandma'},
-            {src: '/src/resources/players/image2.png', name: 'Jonathan'},
-            {src: '/src/resources/players/image3.png', name: 'Fat cat'},
-        ];
-        return images.sort(() => Math.random() - 0.5).slice(0, 2);
-    }
-
-    getHeader(player1, player2) {
+    getHeader(playerOneName, playerOneImg, playerTwoName, playerTwoImg) {
         return `
             <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1 text-white">
                 <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
-                    <img src="${this.profileImg ?? player1.src}" alt="Player 1 image">
-                    <span class="mt-3">${ this.playerOne ?? player1.name }</span>
+                    <img src="${playerOneImg}" alt="Player 1 image">
+                    <span class="mt-3">${playerOneName}</span>
                 </div>
                 <div class="info-mid">
                     <span id="timer-marker">05:00</span>
                 </div>
                 <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
-                    <span class="mt-3">${ this.playerTwo ?? player2.name }</span>
-                    <img src="${player2.src}" alt="Player 2 image">
+                    <span class="mt-3">${playerTwoName}</span>
+                    <img src="${playerTwoImg}" alt="Player 2 image">
                 </div>
             </div>
         `;
@@ -328,18 +336,29 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        const [player1, player2] = this.getRandomPlayers();
+
+        //const userId = this.getAttribute('userId');
+        const playerOne = this.getAttribute('playerOne') ?? this.state.players[0].name;
+        const playerTwo = this.getAttribute('playerTwo') ?? this.state.players[1].name;
+        const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
+        //const isPaused = this.getAttribute('isPaused');
         return `
             <div class="d-flex justify-content-center align-items-center">
                 <div class="pongtainer">
-                    ${this.getHeader(player1, player2)}
+                    ${ this.getHeader(playerOne, profileImg, playerTwo, this.state.players[1].src) }
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
-                        <div class="golden-goal"><span>GOLDEN GOAL</span></div>
+                        <div class="golden-goal">
+                            <span>GOLDEN GOAL</span>
+                        </div>
                         <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
                             <span class="score" id="score-1">0</span>
-                            <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden"><i class="bi bi-pause"></i></button>
-                            <button class="position-absolute top-50 start-50 translate-middle btn-game play"><i class="bi bi-play-fill"></i></button>
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden">
+                                <i class="bi bi-pause"></i>
+                            </button>
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game play">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
                             <span class="score" id="score-2">0</span>
                         </div>
                         <canvas class="pongCanvas" width="1920" height="1080"></canvas>

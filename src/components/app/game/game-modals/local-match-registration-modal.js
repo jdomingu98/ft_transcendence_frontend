@@ -13,13 +13,9 @@ class LocalMatchRegistrationModal extends WebComponent {
 
     init() {
         this.state = {
+            open: this.getAttribute('open') ?? true,
             playerTwo: '',
-            isOpen: true
         };
-    }
-
-    get modal() {
-        return this._getDOM().querySelector('#localMatchRegistrationModal');
     }
 
     cleanInputs(errorMessage) {
@@ -56,38 +52,24 @@ class LocalMatchRegistrationModal extends WebComponent {
             return;
         }
 
-        GameService.validateMatch({player_one: this.playerOne, player_two: playerTwo})
-            .then(() => this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo }))
+        GameService.validateMatch({id: this.userId, user_a: this.playerOne, user_b: playerTwo})
+            .then(() => {
+                this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo });
+            })
             .catch( e => this.markAsError(e.error[0]));
-
-        this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo });
-        this.closeModal();
-    }
-
-    closeModal() {
-        this.modal.classList.remove('open');
-        if (this.state.isOpen)
-            this.setState({...this.state, isOpen: false});
-    }
-
-    showModal() {
-        this.modal.classList.add('open');
-        if (!this.state.isOpen)
-            this.setState({...this.state, isOpen: true});
+        this.state.open = false;
     }
 
     bind() {
-        this.subscribe('#player-one', 'input', ({target}) => this.playerOne = target?.value.trim());
-        this.subscribe('#player-two', 'input', ({target}) => this.setState({...this.state, playerTwo: target?.value.trim()}));
+        this.subscribe('#player-one', 'input', ({target}) => this.playerOne = target.value.trim());
+        this.subscribe('#player-two', 'input', ({target}) => this.setState({...this.state, playerTwo: target.value.trim()}));
         this.subscribe('button', 'click', () => this.startGame());
-        if (this.modal && this.state.isOpen)
-            this.showModal();
     }
 
     render() {
         return `
             <div class="game-body">
-                <div id="localMatchRegistrationModal" class="game-modal">
+                <div id="localMatchRegistrationModal" class="game-modal ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW LOCAL MATCH</h3>

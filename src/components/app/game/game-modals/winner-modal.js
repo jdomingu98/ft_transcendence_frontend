@@ -8,54 +8,37 @@ export default Component({
 },
 class WinnerModal extends WebComponent {
 
-    confetti = null;
+    confetti = new Confetti();
     isTournamentLastRound = this.getAttribute('isTournamentLastRound');
-    isSimpleMatchOver = this.getAttribute('isSimpleMatchOver');
-    tournamentName = this.getAttribute('tournamentName');
-    winner = this.getAttribute('winner');
 
     init() {
         this.state = {
-            isOpen: false,
+            open: this.getAttribute('finishGame') ?? false,
         };
     }
 
-    get modal() {
-        return this._getDOM().getElementById('winnerModal');
-    }
-
-    closeModal() {
-        this.modal.classList.remove('open');
-        if (this.state.isOpen)
-            this.setState({...this.state, isOpen: false});
-    }
-
-    showModal() {
-        this.modal.classList.add('open');
-        console.log(this.modal.classList);
-        if (!this.state.isOpen) {
-            this.setState({...this.state, isOpen: true});
-            if (this.isTournamentLastRound || this.isSimpleMatchOver /*&& stopConfetti*/)
-                this.confetti.runConfetti();
-        }
-    }
-
-    get canvas() {
-        return this._getDOM().getElementById('confettiCanvas');
+    get winner() {
+        return this.getAttribute('winner');
     }
 
     bind() {
         this.subscribe('button', 'click', () => {
-            this.confetti.setModalState(false);
-            this.closeModal();
+            this.confetti.setRunning(false);
+            this.setState({
+                ...this.state,
+                open: false
+            });
+            setTimeout(() => window.location.reload(), 7000);
         });
     }
 
     afterViewInit() {
-        this.confetti = new Confetti(this.canvas);
+        const canvas = this._getDOM().getElementById('confettiCanvas');
+        this.confetti.setCanvas(canvas);
+        this.confetti.runConfetti();
     }
 
-    getTournamentFinishedRender() {
+    getTournamentFinishedRender(name) {
         return `
             <div class="container text-white text-uppercase" style="letter-spacing: 0.05em">
                 <div class="my-3">
@@ -64,9 +47,9 @@ class WinnerModal extends WebComponent {
                 </div>
                 <h4 class="mt-4" style="font-size: 1.4rem">🎉🎉 CONGRATULATIONS! 🎉🎉</h4>
                 <div class="my-5 d-flex align-items-center justify-content-center rounded-pill winner-block">
-                    <p>{{ winner }}</p>
+                    <p>${this.winner}</p>
                 </div>
-                <p class="mb-4 fw-semibold text-center">You are the winner of the ${this.tournamentName} tournament!</p>
+                <p class="mb-4 fw-semibold text-center">You are the winner of the ${name} tournament!</p>
                 <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">Create new tournament</button>
             </div>
         `;
@@ -81,7 +64,7 @@ class WinnerModal extends WebComponent {
                 </div>
                 <h4 class="mt-4" style="font-size: 1.4rem">🎉🎉 CONGRATULATIONS! 🎉🎉</h4>
                 <div class="my-5 d-flex align-items-center justify-content-center rounded-pill winner-block">
-                    <p>{{ winner }}</p>
+                    <p>${this.winner}</p>
                 </div>
                 <p class="mb-4 fw-semibold">You are the winner of the match!</p>
                 <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">Play again</button>
@@ -90,10 +73,11 @@ class WinnerModal extends WebComponent {
     }
 
     render() {
+        const tournamentName = this.getAttribute('name');
         return `
             <div class="game-body">
-                <div id="winnerModal" class="game-modal">
-                    ${ this.isTournamentLastRound ? this.getTournamentFinishedRender() : this.getMatchFinishedRender() }
+                <div id="winnerModal" class="game-modal ${this.state.open ? 'open' : ''}">
+                    ${ this.isTournamentLastRound ? this.getTournamentFinishedRender(tournamentName) : this.getMatchFinishedRender() }
                 </div>
                 <canvas id="confettiCanvas" width="${window.innerWidth}" height="${window.innerHeight}"></canvas>
             </div>

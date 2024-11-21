@@ -10,35 +10,35 @@ export default Component({
 },
 class PongSidebar extends WebComponent {
 
-    get winnerModal() {
-        return this._getDOM().querySelector('winner-modal');
-    }
-
-
     init() {
         this.state = {
             isTournament: window.location.pathname.includes('tournament'),
-            inPause: true,
+            isPaused: true,
+            isRegistrationOpen: true,
             user: {},
-            tournament:  {
+            tournament: {
                 id: 0,
                 name: '',
                 playerList: [],
                 currentRound: 1,
                 currentOrder: 1,
                 totalOrder: 1,
-                totalRounds: 1,
-                haveWinner: false
+                totalRound: 1,
             },
-            playerOne: null,
-            playerTwo: null,
-            winnerName: null,
-            isMatchOver: false
+            match: {
+                playerOne: null,
+                playerTwo: null,
+                winner: '',
+                isMatchOver: false,
+            }
         };
         UserService.getMyInfo().then(user => this.setState({
             ...this.state,
             user,
-            playerOne: user.username,
+            match: {
+                ...this.state.match,
+                playerOne: user.username
+            },
             tournament: {
                 ...this.state.tournament,
                 playerList: [user.username]
@@ -47,21 +47,34 @@ class PongSidebar extends WebComponent {
     }
 
     bind() {
-        this.subscribe('local-match-registration-modal', 'START_LOCAL_MATCH',
-            ({ detail: { playerOne, playerTwo } }) => {
-                this.setState({ ...this.state, playerOne, playerTwo, inPause: false });
+        this.subscribe('local-match-registration-modal', 'START_LOCAL_MATCH', ({detail}) => {
+            this.setState({
+                ...this.state,
+                isPaused: false,
+                isRegistrationOpen: false,
+                match: {
+                    ...this.state.match,
+                    playerOne: detail.playerOne,
+                    playerTwo: detail.playerTwo
+                }
             });
+        });
+
         this.subscribe('tournament-registration-modal', 'START_TOURNAMENT', ({ detail }) => {
             this.setState({
                 ...this.state,
                 inPause: false,
-                playerOne: detail.players[0],
-                playerTwo: detail.players[1],
+                isRegistrationOpen: false,
                 tournament: {
                     ...this.state.tournament,
                     id: detail.tournamentId,
                     name: detail.name,
                     playerList: detail.players
+                },
+                match: {
+                    ...this.state.match,
+                    playerOne: detail.players[0],
+                    playerTwo: detail.players[1]
                 }
             });
 
@@ -73,28 +86,33 @@ class PongSidebar extends WebComponent {
                             ...this.state.tournament,
                             playerList: players,
                             currentRound: current_round,
-                            currentOrder: current_order_round,
-                            totalOrder: total_order_round,
-                            totalRounds: total_round,
-                            haveWinner: current_round > total_round
-                        }
+                            currentOrder: current_order_round, //0...total_order_round
+                            totalOrder: total_order_round, //current_round / 2
+                            totalRound: total_round,
+                        },
+                        /*match: {
+                            ...this.state.match,
+                            playerOne: players[current_order_round],
+                            playerTwo: players[current_order_round + 1]
+                        }*/
                     });
                 });
         }
         );
 
-        this.subscribe('app-game', 'FINISH_GAME', ({ detail: {winner} }) => {
+        this.subscribe('app-game', 'FINISH_GAME', ({ detail }) => {
             this.setState({
                 ...this.state,
-                inPause: true,
-                isMatchOver: true,
-                winnerName: winner,
+                isPaused: true,
+                match: {
+                    isMatchOver: true,
+                    winner: detail.winner,
+                },
                 tournament: {
                     ...this.state.tournament,
-                    haveWinner: true,
+                    currentOrder: this.state.tournament.currentOrder + 1
                 }
             });
-            this.winnerModal.showModal();
         });
     }
 
@@ -102,26 +120,28 @@ class PongSidebar extends WebComponent {
         return `
             <section style="height: calc(100vh - 40px);">
                 ${this.state.isTournament ? `<tournament-registration-modal
-                    [userId]="state.user?.id"
-                    [username]="state.user?.username"
-                    [playerList]="state.tournament.playerList">
+                    open="${this.state.isRegistrationOpen}"
+                    userId="${this.state.user?.id}"
+                    username="${this.state.user?.username}">
                 </tournament-registration-modal>` : `<local-match-registration-modal
-                    [userId]="state.user?.id"
-                    [playerOne]="state.user?.username">
+                    open="${this.state.isRegistrationOpen}"
+                    userId="${this.state.user?.id}"
+                    playerOne="${this.state.user?.username}">
                 </local-match-registration-modal>`}
+                ${this.state.match.isMatchOver ? `
                 <winner-modal
-                    [isTournamentLastRound]="state.isTournament && state.tournament.haveWinner"
-                    [isSimpleMatchOver]="!state.isTournament && state.isMatchOver"
-                    [tournamentName]="state.name"
-                    [winner]="state.winnerName">
-                </winner-modal>
-                <!-- Si no pongo la condicion no se pasa playerTwo -->
-                ${ this.state.playerOne && this.state.playerTwo ? `<app-game
-                    [isPaused]="state.inPause"
-                    [userId]="state.user?.id"
-                    [playerOne]="state.playerOne"
-                    [playerTwo]="state.playerTwo"
-                    [profileImg]="state.user?.profile_img"></app-game>` : '' }
+                    finishGame="${this.state.isMatchOver}"
+                    isTournamentLastRound="${this.state.tournament.currentRound >= this.state.tournament.totalRound && this.state.match.isMatchOver}"
+                    name="${this.state.tournament.name}"
+                    winner="${this.state.match.winner}"
+                > </winner-modal>` : ''}
+                <app-game
+                    isPaused=${this.state.inPaused}"
+                    userId=${this.state.user?.id}
+                    playerOne=${this.state.match.playerOne}
+                    playerTwo=${this.state.match.playerTwo}
+                    profileImg=${this.state.user?.profile_img}>
+                </app-game>
             </section>
         `;
     }

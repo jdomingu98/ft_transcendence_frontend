@@ -9,31 +9,12 @@ export default Component({
 class TournamentRegistrationModal extends WebComponent {
 
     userId = this.getAttribute('userId');
-    username = this.getAttribute('username') ?? '';
-    playerList = this.getAttribute('playerList') ?? [];
-    name = '';
 
     init() {
         this.state = {
-            playerList: this.getAttribute('playerList') ?? [],
-            isOpen: true
+            open: this.getAttribute('open') ?? true,
+            playerList: [],
         };
-    }
-
-    get modal() {
-        return this._getDOM().getElementById('tournamentRegistrationModal');
-    }
-
-    closeModal() {
-        this.modal.classList.remove('open');
-        if (this.state.isOpen)
-            this.setState({...this.state, isOpen: false});
-    }
-
-    showModal() {
-        this.modal.classList.add('open');
-        if (!this.state.isOpen)
-            this.setState({...this.state, isOpen: true});
     }
 
     cleanInputs(errorMessage) {
@@ -65,6 +46,7 @@ class TournamentRegistrationModal extends WebComponent {
         const playerListDiv = this._getDOM().getElementById('player-list-container');
         const nameInput = this._getDOM().getElementById('tournament-name');
         const errorMessage = this._getDOM().querySelector('.error-message');
+        const players = this.state.playerList;
 
         playerListDiv.classList.remove('input-error');
         nameInput.classList.remove('input-error');
@@ -81,62 +63,72 @@ class TournamentRegistrationModal extends WebComponent {
             return;
         }
 
-        if (!this.isPowerOfTwo() || this.state.playerList.length < 2 || this.state.playerList.length > 32) {
+        if (!this.isPowerOfTwo() || players.length < 2 || players.length > 32) {
             this.markAsError(playerListDiv, 'The number of players must be a power of between 2 and 32');
             return;
         }
 
-        GameService.createTournament({ name: this.name, players: this.state.playerList, user_id: this.userId })
+        GameService.createTournament({ name: this.name, players, user_id: this.userId })
             .then(tournament => {
                 this.emit('START_TOURNAMENT', {name: this.name, players: tournament.players, tournamentId: tournament.id});
-                this.closeModal();
+                this.setState({ ...this.state, open: false });
             })
             .catch(e => e && this.markAsError(playerListDiv, e.error[0]));
     }
 
     addPlayer() {
-        const playerListInput = this._getDOM().getElementById('player-list-input');
-        const playerName = playerListInput?.value.trim();
+        const playerListField = this._getDOM().getElementById('player-list-input');
+        const playerName = playerListField?.value.trim();
 
         if (!playerName || playerName.length < 3 || playerName.length > 20) return;
-        this.state.playerList.push(playerName);
-        playerListInput.value = '';
 
         this.setState({
             ...this.state,
-            playerList: [...this.state.playerList] // Crear una nueva referencia para el array
+            playerList: [...this.state.playerList, playerName]
         });
+        playerListField.value = '';
     }
 
     deletePlayer(id) {
-        const playerIndex = this.state.playerList.indexOf(id);
-        this.state.playerList.splice(playerIndex, 1);
+        const updatedList = [...this.state.playerList];
+        updatedList.splice(id, 1);
+        this.setState({
+            ...this.state,
+            playerList: updatedList
+        });
     }
 
     mapPlayerList() {
         return `
-        <ul id="player-list" style="list-style: none;">
-            ${this.state.playerList?.map((player, index) => this.userId && index === 0 ?
-        `<li>${player}</li>` :
-        `<li>${player}<i id="${index}" class="bi bi-x me-4 fw-bolder delete-icon"></i></li>`).join('')}
-        </ul>
-    `;
+            <ul id="player-list" style="list-style: none;">
+                ${this.state.playerList?.map((player, index) => `
+                <li>
+                    ${player}
+                    ${this.userId && index === 0 ? '' : `<i id="${index}" class="delete-icon bi bi-x me-4 fw-bolder"></i>` }
+                </li>`).join('')}
+            </ul>
+        `;
     }
 
     bind() {
         this.subscribe('#tournament-name', 'input', ({ target }) => this.name = target.value?.trim());
-        this.subscribeAll('delete-icon', 'click', ({ target }) => this.deletePlayer(target.id));
         this.subscribe('#add-player', 'click', () => this.addPlayer());
+        this.subscribeAll('.delete-icon', 'click', ({ target }) => this.deletePlayer(target.id, ));
         this.subscribe('#start', 'click', () => this.startTournament());
-        this.subscribeAll('player-list-container', 'change', () => this.mapPlayerList());
-        if (this.modal && this.state.isOpen)
-            this.showModal();
     }
 
     render() {
+        const username = this.getAttribute('username') ?? '';
+        const isUsernameInList = this.state.playerList.find(player => player === username);
+        if (username && !isUsernameInList) {
+            this.setState({
+                ...this.state,
+                playerList: [...this.state.playerList, username]
+            });
+        }
         return `
             <div class="game-body">
-                <div id="tournamentRegistrationModal" class="game-modal">
+                <div id="tournamentRegistrationModal" class="game-modal ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW TOURNAMENT</h3>
