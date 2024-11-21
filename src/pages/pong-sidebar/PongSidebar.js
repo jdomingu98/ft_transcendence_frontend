@@ -24,6 +24,7 @@ class PongSidebar extends WebComponent {
                 currentOrder: 1,
                 totalOrder: 1,
                 totalRound: 1,
+                isTournamentOver: false
             },
             match: {
                 playerOne: null,
@@ -101,6 +102,15 @@ class PongSidebar extends WebComponent {
         );
 
         this.subscribe('app-game', 'FINISH_GAME', ({ detail }) => {
+            let newCurrentOrder = this.state.tournament.currentOrder + 1;
+            let newCurrentRound = this.state.tournament.currentRound;
+            let newTotalOrder = this.state.tournament.totalOrder;
+            if (newCurrentOrder > this.state.tournament.totalOrder) {
+                newCurrentOrder = 1;
+                //Delete losers
+                newTotalOrder = this.state.tournament.playerList.length / 2;
+                newCurrentRound = this.state.tournament.currentRound + 1;
+            }
             this.setState({
                 ...this.state,
                 isPaused: true,
@@ -110,7 +120,10 @@ class PongSidebar extends WebComponent {
                 },
                 tournament: {
                     ...this.state.tournament,
-                    currentOrder: this.state.tournament.currentOrder + 1
+                    currentOrder: newCurrentOrder,
+                    currentRound: newCurrentRound,
+                    totalOrder: newTotalOrder,
+                    isTournamentOver: newCurrentRound > this.state.tournament.totalRound
                 }
             });
         });
@@ -130,8 +143,8 @@ class PongSidebar extends WebComponent {
                 </local-match-registration-modal>`}
                 ${this.state.match.isMatchOver ? `
                 <winner-modal
-                    finishGame="${this.state.isMatchOver}"
-                    isTournamentLastRound="${this.state.tournament.currentRound >= this.state.tournament.totalRound && this.state.match.isMatchOver}"
+                    finishGame="${!this.state.isTournament && this.state.isMatchOver}"
+                    isTournamentLastRound="${this.state.isTournament && this.state.tournament.isTournamentOver}"
                     name="${this.state.tournament.name}"
                     winner="${this.state.match.winner}"
                 > </winner-modal>` : ''}

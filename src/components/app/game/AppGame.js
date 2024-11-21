@@ -1,4 +1,3 @@
-import '/src/components/app/profile';
 import WebComponent, { Component } from '#WebComponent';
 import {ballPaddleCollision,drawFieldLine, timerDisplay} from './PongUtils';
 import Ball from './Ball';
