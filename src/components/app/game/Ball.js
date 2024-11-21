@@ -1,4 +1,4 @@
-import { calculateSpeed } from './PongUtils';
+import { calculateSpeed, Sounds } from './PongUtils';
 
 export default class Ball {
     /**
@@ -54,8 +54,10 @@ export default class Ball {
         this.y += this.velocity.y * deltaTime;
 
         // Reverse Y velocity if hitting top or bottom wall.
-        if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0))
+        if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0)) {
             this.velocity.y *= -1;
+            Sounds.makeGoSound();
+        }
     };
 
     /**

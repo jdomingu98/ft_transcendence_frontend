@@ -44,6 +44,7 @@ export function ballPaddleCollision(ball, paddle) {
         ball.velocity.x < 0) {
         // Increment the goals stopped by the paddle.
         paddle.goals_stopped++;
+        Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, 1);
     }
 
@@ -53,6 +54,7 @@ export function ballPaddleCollision(ball, paddle) {
         ball.y - ball.radius < paddle.y + paddle.height &&
         ball.velocity.x > 0) {
         paddle.goals_stopped++;
+        Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, -1);
     }
 }
@@ -99,4 +101,16 @@ export function timerDisplay(remainingTime) {
 export function calculateSpeed(canvasWidth, pongObjectVelocity) {
     const referenceWidth = 20;
     return (canvasWidth / referenceWidth) * pongObjectVelocity;
+}
+
+export class Sounds {
+    static GO_SOUND = '/sounds/go';
+
+    static currentGo = 0;
+
+    static makeGoSound() {
+        const audio = new Audio(`${Sounds.GO_SOUND}${Sounds.currentGo}.mp3`);
+        Sounds.currentGo = (Sounds.currentGo + 1) % 4;
+        audio.play();
+    }
 }
