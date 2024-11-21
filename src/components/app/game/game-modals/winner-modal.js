@@ -35,7 +35,8 @@ class WinnerModal extends WebComponent {
     afterViewInit() {
         const canvas = this._getDOM().getElementById('confettiCanvas');
         this.confetti.setCanvas(canvas);
-        this.confetti.runConfetti();
+        if (this.isTournamentLastRound || this.state.open)
+            this.confetti.runConfetti();
     }
 
     getTournamentFinishedRender(name) {
