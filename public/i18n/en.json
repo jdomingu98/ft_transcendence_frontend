@@ -341,9 +341,10 @@
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "Your friendship pending requests",
     "ACCEPT": "Accept",
     "REJECT": "Reject",
-    "NO_MORE_REQUESTS": "There are no more friend requests...<br/>Come back later"
+    "NO_MORE_REQUESTS": "There are no more friend requests... Come back later"
   },
   "LEADERBOARD": {
     "TITLE": "Top 10 Pong Players",
