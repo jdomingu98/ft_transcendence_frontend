@@ -12,12 +12,13 @@ const KEY_ARROW_UP = 38;
 const KEY_ARROW_DOWN = 40;
 const KEY_W = 87;
 const KEY_S = 83;
+const KEY_SPACE = 32;
 
 const MIN_PADDLE_WIDTH = 35;
 const MAX_PADDLE_WIDTH = 45;
 const MIN_PADDLE_HEIGHT = 240;
 const MAX_PADDLE_HEIGHT = 285;
-const INITIAL_REMAINING_TIME = 300;
+const INITIAL_REMAINING_TIME = 300; // seconds
 const MAX_GOALS = 7;
 
 export default Component ({
@@ -331,7 +332,10 @@ class AppGame extends WebComponent {
     bind() {
         this.subscribeAll('.btn-game', 'click', () => this.togglePause(!this.isPause));
         this.subscribe(window, 'keydown', e => this.keysPressed.set(e.keyCode, true));
-        this.subscribe(window, 'keyup', e => this.keysPressed.set(e.keyCode, false));
+        this.subscribe(window, 'keyup', e => {
+            this.keysPressed.set(e.keyCode, false);
+            if (e.keyCode === KEY_SPACE) this.togglePause(!this.isPause);
+        });
         this.subscribe(window, 'resize', () => this.updateElements());
     }
 
@@ -343,7 +347,7 @@ class AppGame extends WebComponent {
         const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
         //const isPaused = this.getAttribute('isPaused');
         return `
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
                     ${ this.getHeader(playerOne, profileImg, playerTwo, this.state.players[1].src) }
                     <div class="position-relative">

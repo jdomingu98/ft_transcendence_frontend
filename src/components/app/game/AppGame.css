@@ -93,6 +93,7 @@ canvas {
 
 .golden-goal {
     display: none;
+    visibility: hidden;
     color: #FFD700;
     position: absolute;
     top: 30%;
@@ -143,12 +144,16 @@ canvas {
         transform: translate(-50%, -50%) translateX(-100%);
         opacity: 0;
     }
+
     50% {
         transform: translate(-50%, -50%) translateX(0);
         opacity: 1;
+        visibility: visible;
     }
+
     100% {
         transform: translate(-50%, -50%) translateX(100%);
         opacity: 0;
+        visibility: hidden;
     }
 }
