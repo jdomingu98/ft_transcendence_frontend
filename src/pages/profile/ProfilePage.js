@@ -21,9 +21,9 @@ export default Component ({
 class ProfilePage extends WebComponent {
 
     init() {
-        if (this.isMePage) {
+        if (this.isMePage)
             UserService.getMyInfo().then(({ id }) => this.setUserData(id));
-        } else {
+        else {
             const id = window.location.pathname.split('/').pop();
             this.setUserData(id);
         }

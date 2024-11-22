@@ -15,10 +15,11 @@ class SettingsUserManagement extends WebComponent {
 
     init() {
         this.state = {
-            user: this.getMyInfo(),
+            user: {},
             profileFile: null,
             bannerFile: null,
         };
+        this.getMyInfo();
     }
 
     getMyInfo() {
@@ -137,7 +138,8 @@ class SettingsUserManagement extends WebComponent {
                     <profile-header
                         [username]="state.user.username"
                         profilePicture="${ profilePicture }"
-                        banner="${ banner }">
+                        banner="${ banner }"
+                        [connected]="state.user.is_connected">
                     </profile-header>
                 </div>
                 <div class="mb-5">
