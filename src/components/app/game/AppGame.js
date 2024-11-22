@@ -74,10 +74,9 @@ class AppGame extends WebComponent {
      * @description Initializes the paddles and ball with their respective positions and dimensions.
      */
     createElements() {
-        const ballRadius = 20;
         this.paddle1 = new Paddle(this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width);
         this.paddle2 = new Paddle(this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width, '#ABD9D9');
-        this.ball = new Ball(this.canvas.width / 2, this.canvas.height / 2, ballRadius, this.canvas.width, this.canvas.clientWidth);
+        this.ball = new Ball(this.canvas);
     }
 
     /**
@@ -98,8 +97,6 @@ class AppGame extends WebComponent {
         this.setDataElements();
         this.paddle1.set(this.paddleWidth, this.paddleHeight, this.paddlePosX, this.paddlePosY);
         this.paddle2.set(this.paddleWidth, this.paddleHeight, this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY);
-        // Adjust the ball's angle based on the canvas width.
-        this.canvas.clientWidth > 650 ? this.ball.set_angle(50) : this.ball.set_angle(20);
         this.paint();
     }
 
@@ -111,7 +108,7 @@ class AppGame extends WebComponent {
         drawFieldLine(this.ctx, this.canvas.width, this.canvas.height);
         this.paddle1.render(this.ctx);
         this.paddle2.render(this.ctx);
-        this.ball.render(this.ctx, this.canvas.clientWidth);
+        this.ball.render();
     }
 
     /**
@@ -146,14 +143,14 @@ class AppGame extends WebComponent {
             scoringPaddle = this.paddle1;
             scoringElement = '#score-1';
             direction = 1;
-        } else if (this.ball.x - this.ball.radius <= 0) {
+        } else if (this.ball.x - this.ball.getRadius() <= 0) {
             scoringPaddle = this.paddle2;
             scoringElement = '#score-2';
             direction = -1;
         } else {
             return;
         }
-        this.ball.respawnBall(this.canvas.width, this.canvas.height, direction);
+        this.ball.respawnBall(direction);
         scoringPaddle.score++;
         if(scoringPaddle.score >= MAX_GOALS) this.finishGame();
         this._getDOM().querySelector(scoringElement).innerHTML = scoringPaddle.score;
@@ -168,7 +165,7 @@ class AppGame extends WebComponent {
         Sounds.makeGoldenGoalSound();
         Sounds.makeBackgroundMusicQuicker();
         this._getDOM().querySelector('.golden-goal').style.display = 'inline-block';
-        this.ball.set_color_ball('#FFD700');
+        this.ball.setColor('#FFD700');
         const max_goals_draw = this.paddle1.score;
         this.checkGoldenGoal(max_goals_draw);
     }
@@ -283,7 +280,7 @@ class AppGame extends WebComponent {
         this.upScore();
         this.move(this.paddle1, KEY_W, KEY_S, deltaTime);
         this.move(this.paddle2, KEY_ARROW_UP, KEY_ARROW_DOWN, deltaTime);
-        this.ball.move(this.canvas.height, deltaTime);
+        this.ball.move(deltaTime);
         ballPaddleCollision(this.ball, this.paddle1);
         ballPaddleCollision(this.ball, this.paddle2);
     }

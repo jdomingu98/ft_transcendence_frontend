@@ -16,17 +16,17 @@ function gradeToRadians(angle) {
  */
 
 function paddleBouncedBall(ball, paddle, sign) {
-    //Normalize the distance from the center of the paddle to the point of impact.
+    // Normalize the distance from the center of the paddle to the point of impact.
     const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.height / 2);
-    let angle = (ball.maxAngle * dy);
-    angle = gradeToRadians(angle);
-
-    if (sign === -1)
-        ball.velocity.x = -Math.abs(ball.speed * Math.cos(angle));
-    else
-        ball.velocity.x = Math.abs(ball.speed * Math.cos(angle));
-
-    ball.velocity.y = ball.speed * Math.sin(angle);
+    const angle = gradeToRadians(ball.getMaxAngle() * dy);
+    console.log(angle);
+    console.log(ball.getSpeed());
+    console.log(Math.abs(ball.getSpeed() * Math.cos(angle)));
+    console.log(ball.getSpeed() * Math.sin(angle));
+    ball.setVelocity({
+        x: sign * Math.abs(ball.getSpeed() * Math.cos(angle)),
+        y: ball.getSpeed() * Math.sin(angle),
+    });
     ball.increaseSpeed();
 }
 
@@ -37,22 +37,23 @@ function paddleBouncedBall(ball, paddle, sign) {
  */
 
 export function ballPaddleCollision(ball, paddle) {
-    if (ball.x - ball.radius < paddle.x + paddle.width &&
-        ball.x - ball.radius > paddle.x &&
-        ball.y + ball.radius > paddle.y &&
-        ball.y - ball.radius < paddle.y + paddle.height &&
-        ball.velocity.x < 0) {
+    const radius = ball.getRadius();
+    if (ball.x - radius < paddle.x + paddle.width &&
+        ball.x - radius > paddle.x &&
+        ball.y + radius > paddle.y &&
+        ball.y - radius < paddle.y + paddle.height &&
+        ball.getVelocity().x < 0) {
         // Increment the goals stopped by the paddle.
         paddle.goals_stopped++;
         Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, 1);
     }
 
-    if (ball.x + ball.radius > paddle.x &&
-        ball.x + ball.radius < paddle.x + paddle.width &&
-        ball.y + ball.radius > paddle.y &&
-        ball.y - ball.radius < paddle.y + paddle.height &&
-        ball.velocity.x > 0) {
+    if (ball.x + radius > paddle.x &&
+        ball.x + radius < paddle.x + paddle.width &&
+        ball.y + radius > paddle.y &&
+        ball.y - radius < paddle.y + paddle.height &&
+        ball.getVelocity().x > 0) {
         paddle.goals_stopped++;
         Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, -1);

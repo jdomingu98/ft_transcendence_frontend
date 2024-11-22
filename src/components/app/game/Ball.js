@@ -1,124 +1,167 @@
-import { calculateSpeed, Sounds } from './PongUtils';
+import { Sounds, calculateSpeed } from './PongUtils';
+
+const DEFAULT_COLOR = '#8DBEDA';
+const DEFAULT_RADIUS = 20;
+const SPEED_MULTIPLIER = 1.05;
+const SPEED_BOOST = 0.3;
 
 export default class Ball {
+    x;
+    y;
+
+    #canvas = null;
+    #color = DEFAULT_COLOR;
+    #radius = DEFAULT_RADIUS;
+    #initialSpeed;
+    #speed;
+    #velocity;
+    #MAX_SPEED;
+
     /**
      * Constructs a new Ball instance.
-     * @param {number} x - X coordinate of the ball on the canvas.
-     * @param {number} y - Y coordinate of the ball on the canvas.
-     * @param {number} radius - Radius of the ball, determining its size on the canvas.
-     * @param {number} gameAreaWidth - Width of the game area, used to calculate the initial speed.
-     * @param {number} canvasWidth - Width of the canvas to set the max angle.
+     * @param {HTMLCanvasElement} canvas - The canvas element to render the ball on.
      */
+    constructor(canvas) {
+        this.#canvas = canvas;
 
-    constructor(x, y, radius, gameAreaWidth, canvasWidth) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.maxAngle = canvasWidth > 650 ? 50 : 25;
-        this.color = '#8DBEDA';
-        this.gameAreaWidth = gameAreaWidth;
-        // Const used to calculate initial velocity.
-        this.elementVelocity = 8;
-        this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity), y: 0 };
-        this.initialSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
-        this.speed = this.initialSpeed;
-        this.speedMultiplier = 1.05;
-        this.maxSpeed = this.initialSpeed * 2;
+        this.x = this.#canvas.width / 2;
+        this.y = this.#canvas.height / 2;
+        this.#initialSpeed = this.#getInitialSpeed();
+        this.#speed = this.#initialSpeed;
+        this.#velocity = { x: this.#initialSpeed, y: 0 };
+        this.#MAX_SPEED = this.#initialSpeed * 2;
     }
 
-    /**
-     * @param {number} angle - Angle in degrees applied to the ball's movement.
-     * @description Sets the angle of the ball's movement.
-     */
+    /*************************************************
+     *              Getters and setters              *
+     *************************************************/
 
-    set_angle(angle) {
-        this.maxAngle = angle;
+    /**
+     * Calculates the maximum angle the ball can have based on the canvas width.
+     * @returns {number} The maximum angle the ball can have based on the canvas width.
+     */
+    getMaxAngle() {
+        return this.#canvas.clientWidth > 650 ? 50 : 20;
     }
 
-    set_color_ball(color){
-        this.color = color;
+    setColor(color) {
+        this.#color = color;
     }
 
-    /**
-     * @param {number} wall_height - Height of the canvas to check for collisions.
-     * @param {number} deltaTime - Time passed since the last frame, used to smooth movement.
-     * @description Updates the ball's position based on its velocity.
-     */
-
-    move(wall_height, deltaTime) {
-        const bottom = this.y + this.radius;
-        const top = this.y - this.radius;
-
-        // Update position based on velocity and delta time.
-        this.x += this.velocity.x * deltaTime;
-        this.y += this.velocity.y * deltaTime;
-
-        // Reverse Y velocity if hitting top or bottom wall.
-        if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0)) {
-            this.velocity.y *= -1;
-            Sounds.makeGoSound();
-        }
-    };
-
-    /**
-     * @param {number} width - Width of the canvas.
-     * @param {number} height - Height of the canvas.
-     * @param {number} direction - Direction the ball should move in (1 for right, -1 for left).
-     * @description Respawns the ball at the center of the canvas and resets its speed.
-     */
-
-    respawnBall(width, height, direction) {
-        this.x = width / 2;
-        this.y = height / 2;
-        this.speed = this.initialSpeed;
-        this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity) * direction, y: 0 };
+    getRadius() {
+        return this.#radius;
     }
 
-    /**
-     * @description Increases the speed of the ball on paddle bounce, using the multiplier and a fixed boost, capped at maxSpeed.
-     */
-
-    increaseSpeed() {
-        //Const used to increase speed faster.
-        const boost = 0.3;
-        this.speed = Math.min(this.speed * this.speedMultiplier + boost, this.maxSpeed);
+    getSpeed() {
+        return this.#speed;
     }
 
-    /**
-     * @param {CanvasRenderingContext2D} ctx - The canvas context where the ball is drawn.
-     * @param {number} width - Width of the canvas to determine rendering scale.
-     * @description Draws the ball on the canvas with shadow effects and scales for different resolutions.
-     */
+    getVelocity() {
+        return this.#velocity;
+    }
 
-    render(ctx, width) {
-        // Determine scaleX based on canvas width for optimal ball appearance.
+    setVelocity(velocity) {
+        this.#velocity = velocity;
+    }
+
+    /*************************************************
+     *                 Public methods                *
+     *************************************************/
+
+    render() {
+        const ctx = this.#getContext();
+        const width = this.#canvas.clientWidth;
+
         const scaleX = width < 410 ? 1.9 : (width < 600 ? 1.3 : 1);
         const scaleY = 1;
 
         ctx.save();
         ctx.scale(scaleX, scaleY);
 
-        // Draw ball with shadow effect.
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.303)';
-        ctx.shadowBlur = 6;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 1;
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x / scaleX, this.y / scaleY, this.radius, 0, Math.PI * 2);
-        ctx.fill();
+        // First shadow.
+        this.#setShadow('rgba(0, 0, 0, 0.303)', 6, 2, 1);
+        this.#drawBall(this.x / scaleX, this.y / scaleY);
 
-        // Add lighter shadow effect on ball.
-        ctx.shadowColor = 'rgba(255, 255, 255, 0.2)';
-        ctx.shadowBlur = 8;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 1;
-        ctx.beginPath();
-        ctx.arc(this.x / scaleX, this.y / scaleY, this.radius, 0, Math.PI * 2);
-        ctx.fill();
+        // Second shadow.
+        this.#setShadow('rgba(255, 255, 255, 0.2)', 8, 2, 1);
+        this.#drawBall(this.x / scaleX, this.y / scaleY);
 
-        // Remove shadows and restore canvas context.
-        ctx.shadowColor = 'transparent';
+        // Reset shadow.
+        this.#setShadow('transparent', 0, 0, 0);
         ctx.restore();
+    }
+
+    move(deltaTime) {
+        this.x += this.#velocity.x * deltaTime;
+        this.y += this.#velocity.y * deltaTime;
+
+        if (this.#hasCollidedWithWall()) {
+            this.#velocity.y *= -1;
+            Sounds.makeGoSound();
+        }
+    }
+
+    increaseSpeed() {
+        this.#speed = Math.min(this.#speed * SPEED_MULTIPLIER + SPEED_BOOST, this.#MAX_SPEED);
+    }
+
+    respawnBall(direction) {
+        this.x = this.#canvas.width / 2;
+        this.y = this.#canvas.height / 2;
+        this.#speed = this.#initialSpeed;
+        this.#velocity = {
+            x: this.#getInitialSpeed() * direction,
+            y: 0,
+        };
+    }
+
+    /*************************************************
+     *                Private methods                *
+     *************************************************/
+
+    /**
+     * Getter for the ball's context.
+     * @returns {CanvasRenderingContext2D} The 2D rendering context of the canvas.
+     */
+    #getContext() {
+        return this.#canvas.getContext('2d');
+    }
+
+    /**
+     * Sets the shadow properties for the ball.
+     * @param {string} color - The color of the shadow.
+     * @param {number} blur - The blur radius of the shadow.
+     * @param {number} offsetX - The horizontal offset of the shadow.
+     * @param {number} offsetY - The vertical offset of the shadow.
+     */
+    #setShadow(color, blur, offsetX, offsetY) {
+        const context = this.#getContext();
+        context.shadowColor = color;
+        context.shadowBlur = blur;
+        context.shadowOffsetX = offsetX;
+        context.shadowOffsetY = offsetY;
+    }
+
+    /**
+     * Draws the ball on the canvas.
+     * @param {number} x - The x-coordinate of the ball.
+     * @param {number} y - The y-coordinate of the ball.
+     */
+    #drawBall(x, y) {
+        const context = this.#getContext();
+        context.fillStyle = this.#color;
+        context.beginPath();
+        context.arc(x, y, this.#radius, 0, Math.PI * 2);
+        context.fill();
+    }
+
+    #hasCollidedWithWall() {
+        const borderTop = this.y - this.#radius;
+        const borderBottom = this.y + this.#radius;
+        return (borderTop <= 0 && this.#velocity.y < 0) || (borderBottom >= this.#canvas.height && this.#velocity.y > 0);
+    }
+
+    #getInitialSpeed() {
+        return calculateSpeed(this.#canvas.width, 8);
     }
 }
