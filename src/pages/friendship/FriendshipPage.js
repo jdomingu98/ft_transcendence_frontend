@@ -2,6 +2,9 @@ import { DECISION_THRESHOLD, DEFAULT_PROFILE_IMG } from '#const';
 import WebComponent, { Component } from '#WebComponent';
 import FriendService from '#services/FriendService';
 
+document.querySelector('meta[name="description"]').content = 'Accept or reject friend requests by swapping them left or right.';
+
+
 import css from './FriendshipPage.css?inline';
 
 export default Component ({

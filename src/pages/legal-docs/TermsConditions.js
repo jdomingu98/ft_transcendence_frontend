@@ -2,6 +2,8 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './LegalDocs.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Terms and conditions of the application.';
+
 export default Component ({
     tagName: 'terms-conditions',
     styleCSS: css

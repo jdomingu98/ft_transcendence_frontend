@@ -5,6 +5,8 @@ import UserService from '#services/UserService';
 
 import css from './RankingPage.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'See the top 10 players and your position.';
+
 export default Component ({
     tagName: 'ranking-page',
     styleCSS: css

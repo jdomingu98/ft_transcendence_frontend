@@ -44,6 +44,7 @@ export function ballPaddleCollision(ball, paddle) {
         ball.velocity.x < 0) {
         // Increment the goals stopped by the paddle.
         paddle.goals_stopped++;
+        Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, 1);
     }
 
@@ -53,6 +54,7 @@ export function ballPaddleCollision(ball, paddle) {
         ball.y - ball.radius < paddle.y + paddle.height &&
         ball.velocity.x > 0) {
         paddle.goals_stopped++;
+        Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, -1);
     }
 }
@@ -99,4 +101,52 @@ export function timerDisplay(remainingTime) {
 export function calculateSpeed(canvasWidth, pongObjectVelocity) {
     const referenceWidth = 20;
     return (canvasWidth / referenceWidth) * pongObjectVelocity;
+}
+
+export class Sounds {
+    static GO_SOUND = [
+        new Audio('/sounds/go0.mp3'),
+        new Audio('/sounds/go1.mp3'),
+        new Audio('/sounds/go2.mp3'),
+        new Audio('/sounds/go3.mp3'),
+    ];
+
+    static GAME_BACKGROUND = (() => {
+        const gameBackground = new Audio('/sounds/game-background.mp3');
+        gameBackground.volume = 0.5;
+        gameBackground.loop = true;
+        return gameBackground;
+    })();
+
+    static GAME_END = new Audio('/sounds/game-end.mp3');
+
+    static GOLDEN_GOAL = new Audio('/sounds/game-golden-goal.mp3');
+
+    static currentGo = 0;
+
+    static makeGoSound() {
+        const audio = Sounds.GO_SOUND[Sounds.currentGo];
+        Sounds.currentGo = (Sounds.currentGo + 1) % 4;
+        audio.play();
+    }
+
+    static startBackgroundMusic() {
+        Sounds.GAME_BACKGROUND.play();
+    }
+
+    static stopBackgroundMusic() {
+        Sounds.GAME_BACKGROUND.pause();
+    }
+
+    static makeBackgroundMusicQuicker() {
+        Sounds.GAME_BACKGROUND.playbackRate = 1.2;
+    }
+
+    static makeGoldenGoalSound() {
+        Sounds.GOLDEN_GOAL.play();
+    }
+
+    static makeGameEndSound() {
+        Sounds.GAME_END.play();
+    }
 }

@@ -1,3 +1,4 @@
+import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
 import AuthService from '#services/AuthService';
 import { DEFAULT_SIDEBAR_PROFILE_IMG } from '#const';
@@ -5,6 +6,8 @@ import NavigatorService from '#services/NavigatorService';
 import UserService from '#services/UserService';
 
 import css from './MainSidebar.css?inline';
+
+document.querySelector('meta[name="description"]').content = 'Play games, view your ranking, and manage your account.';
 
 export default Component ({
     tagName: 'main-sidebar',
@@ -46,17 +49,17 @@ class MainSidebar extends WebComponent {
                 url: ''
             }],
             routes: [
-                {path: '/app/me', component: 'profile-page'},
-                {path: '/app/profile/:id', component: 'profile-page'},
-                {path: '/app/search', component: 'search-results'},
-                {path: '/app/game', component: 'game-page'},
-                {path: '/app/tournament', component: 'tournament-page'},
-                {path: '/app/friendship-request', component: 'friendship-page'},
-                {path: '/app/rank', component: 'ranking-page'},
-                {path: '/app/settings', component: 'settings-page'},
-                {path: '/app/privacy-policy', component: 'privacy-policy'},
-                {path: '/app/legal-notice', component: 'legal-notice'},
-                {path: '/app/terms-conditions', component: 'terms-conditions'}
+                { path: '/app/friendship-request', component: 'friendship-page' },
+                { path: '/app/game', component: 'pong-sidebar' },
+                { path: '/app/legal-notice', component: 'legal-notice' },
+                { path: '/app/me', component: 'profile-page' },
+                { path: '/app/privacy-policy', component: 'privacy-policy' },
+                { path: '/app/profile/:id', component: 'profile-page' },
+                { path: '/app/rank', component: 'ranking-page' },
+                { path: '/app/search', component: 'search-results' },
+                { path: '/app/settings', component: 'settings-page' },
+                { path: '/app/terms-conditions', component: 'terms-conditions' },
+                { path: '/app/tournament', component: 'pong-sidebar' },
             ],
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()
@@ -67,6 +70,7 @@ class MainSidebar extends WebComponent {
         UserService.getMyInfo()
             .then(({ profile_img }) => this.setState({ ...this.state, profile_img: profile_img ?? DEFAULT_SIDEBAR_PROFILE_IMG }));
     }
+
     mapSidebarLinksToDiv() {
         return this.state.sidebarLinks.map( link =>
             `

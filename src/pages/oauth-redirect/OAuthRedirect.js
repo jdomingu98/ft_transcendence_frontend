@@ -4,6 +4,8 @@ import NavigatorService from '#services/NavigatorService';
 import { SnackbarService } from '#services/SnackbarService.js';
 import css from './OAuthRedirect.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'OAuth redirect page. Please wait...';
+
 export default Component({
     tagName: 'oauth-redirect',
     styleCSS: css,

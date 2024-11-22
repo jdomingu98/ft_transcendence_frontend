@@ -2,6 +2,7 @@ import '/src/components/app/profile';
 import WebComponent, { Component } from '#WebComponent';
 import UserService from '#services/UserService';
 
+document.querySelector('meta[name="description"]').content = 'View your profile information, stats, and friends.';
 
 export default Component ({
     tagName: 'profile-page',

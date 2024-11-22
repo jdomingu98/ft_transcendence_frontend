@@ -1,6 +1,11 @@
 import '/src/components/app/landing';
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 import css from './LandingPage.css?inline';
+
+document.querySelector('meta[name="description"]').content =
+    `Discover our landing page, where you can register, discover features, and explore the leaderboard.
+    Join us and start your journey!`;
 
 export default Component ({
     tagName: 'landing-page',
@@ -18,25 +23,14 @@ class LandingPage extends WebComponent {
         otpModal.openModal(username);
     }
 
-    setMetaDescription() {
-        let metaDescription = document.querySelector('meta[name="description"]');
-
-        if (!metaDescription) {
-            metaDescription = document.createElement('meta');
-            metaDescription.name = 'description';
-            document.head.appendChild(metaDescription);
-        }
-
-        metaDescription.content = 'Discover our landing page, where you can register, discover features, and explore the leaderboard. Join us and start your journey!';
-    }
-
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
         this.subscribe('#landing-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('#call-action-register-modal', 'click', () => this.showModal('REGISTER'));
         this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
-
-        this.setMetaDescription();
+        this.subscribe('#game-modes primary-button', 'click', () => NavigatorService.goToGame());
+        this.subscribe('#game-modes secondary-button', 'click', () => NavigatorService.goToTournament());
+        this.subscribe('#meet-people', 'click', () => this.showModal('REGISTER'));
     }
 
     render() {
@@ -54,13 +48,13 @@ class LandingPage extends WebComponent {
 
                     <landing-navbar class="col-12 p-0"></landing-navbar>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5" style="z-index:1;">
                         <div class="col-5">
                             <h1-text>{{ translator.translate('LANDING.PLAY.TITLE') }}</h1-text>
                             <div class="mt-3 col-7">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.PLAY.SUBTITLE') }}</p>
                             </div>
-                            <div class="col col-11 d-flex mt-4 gap-3">
+                            <div id="game-modes" class="col col-11 d-flex mt-4 gap-3">
                                 <primary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.LOCAL_MODE") }}</primary-button>
                                 <secondary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.CREATE_TOURNAMENT") }}</secondary-button>
                             </div>
@@ -68,7 +62,7 @@ class LandingPage extends WebComponent {
                         <img src="/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-6" style="width:551px; height:443px">
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5" style="z-index:1;">
                         <img loading="lazy" src="/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" style="width: 565px; height: 508px">
                         <div class="col-5">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.DISCOVER.HEADER') }}</sub-header-text>
@@ -76,11 +70,11 @@ class LandingPage extends WebComponent {
                             <div class="my-4 col-8">
                                 <p class="landing-body-text">{{ translator.translate('LANDING.DISCOVER.SUBTITLE') }}</p>
                             </div>
-                            <primary-button w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
+                            <primary-button id="meet-people" w="346px" h="76px">${ this.translator.translate('LANDING.BUTTONS.DISCOVER') }</primary-button>
                         </div>
                     </section>
 
-                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5">
+                    <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5" style="z-index:1;">
                         <div class="col-5">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.LEADER_BOARD.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.LEADER_BOARD.TITLE') }}</h2-text>
@@ -94,7 +88,7 @@ class LandingPage extends WebComponent {
 
                     <landing-dev-cards></landing-dev-cards>
 
-                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;">
+                    <section class="col d-flex text-center my-5" style="background: var(--app-landing-footer-gradient); border-radius: 30px; height: 30rem;" style="z-index:1;">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center gap-5">
                             <sub-header-text color="black">${ this.translator.translate('LANDING.GET_STARTED.HEADER') }</sub-header-text>
                             <h2-text>${ this.translator.translate('LANDING.GET_STARTED.TITLE') }</h2-text>

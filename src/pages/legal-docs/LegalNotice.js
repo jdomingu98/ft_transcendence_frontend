@@ -2,6 +2,8 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './LegalDocs.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Legal notice of the application.';
+
 export default Component ({
     tagName: 'legal-notice',
     styleCSS: css

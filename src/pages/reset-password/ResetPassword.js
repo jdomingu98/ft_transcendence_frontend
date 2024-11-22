@@ -5,6 +5,8 @@ import { SnackbarService } from '#services/SnackbarService';
 
 import css from './ResetPassword.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Reset your credentials by entering a new secret password. ';
+
 export default Component ({
     tagName: 'reset-password',
     styleCSS: css

@@ -1,4 +1,4 @@
-import { calculateSpeed } from './PongUtils';
+import { calculateSpeed, Sounds } from './PongUtils';
 
 export default class Ball {
     /**
@@ -18,7 +18,7 @@ export default class Ball {
         this.color = '#8DBEDA';
         this.gameAreaWidth = gameAreaWidth;
         // Const used to calculate initial velocity.
-        this.elementVelocity = 8.4;
+        this.elementVelocity = 8;
         this.velocity = { x: calculateSpeed(this.gameAreaWidth, this.elementVelocity), y: 0 };
         this.initialSpeed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
         this.speed = this.initialSpeed;
@@ -33,6 +33,10 @@ export default class Ball {
 
     set_angle(angle) {
         this.maxAngle = angle;
+    }
+
+    set_color_ball(color){
+        this.color = color;
     }
 
     /**
@@ -50,8 +54,10 @@ export default class Ball {
         this.y += this.velocity.y * deltaTime;
 
         // Reverse Y velocity if hitting top or bottom wall.
-        if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0))
+        if((bottom > wall_height && this.velocity.y > 0) || (top < 0 && this.velocity.y < 0)) {
             this.velocity.y *= -1;
+            Sounds.makeGoSound();
+        }
     };
 
     /**
