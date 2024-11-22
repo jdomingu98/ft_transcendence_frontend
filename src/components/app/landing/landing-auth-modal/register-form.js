@@ -110,6 +110,8 @@ class RegisterForm extends WebComponent {
                 .forEach(key => {
                     if (key === 'password')
                         this.markInputAsError(errorFieldsMap[key], e.password[0], {isPasswordField: true, id: 'password'});
+                    else if (key === 'repeat_password')
+                        this.markInputAsError(errorFieldsMap[key], e.repeat_password[0], {isPasswordField: true, id: 'password_repeat'});
                     else if (key === 'username' || key === 'email')
                         this.markInputAsError(errorFieldsMap[key], e[key][0]);
                 });
