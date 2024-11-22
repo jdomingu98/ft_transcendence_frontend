@@ -1,5 +1,6 @@
 import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 
 document.querySelector('meta[name="description"]').content = 'Play the classic game of Pong. Move your paddle up and down to hit the ball and score points.';
 
@@ -7,6 +8,13 @@ export default Component({
     tagName: 'pong-page',
 },
 class PongPage extends WebComponent {
+
+    init() {
+        this.state = {
+            accessToken: localStorage.getItem('access_token'),
+            isTournament: window.location.pathname.includes('tournament')
+        };
+    }
 
     showModal(section) {
         const modal = this._getDOM().querySelector('landing-auth-modal');
@@ -24,6 +32,8 @@ class PongPage extends WebComponent {
     }
 
     render() {
+        if (this.state.accessToken)
+            NavigatorService.goToSidebarElementPage( this.state.isTournament ? 'tournament': 'game');
         return `
             <landing-auth-modal></landing-auth-modal>
             <landing-otp-modal></landing-otp-modal>
