@@ -9,6 +9,7 @@ export default Component({
 class TournamentRegistrationModal extends WebComponent {
 
     userId = this.getAttribute('userId');
+    accessToken = localStorage.getItem('access_token');
 
     init() {
         this.state = {
@@ -128,7 +129,7 @@ class TournamentRegistrationModal extends WebComponent {
         }
         return `
             <div class="game-body">
-                <div id="tournamentRegistrationModal" class="game-modal ${this.state.open ? 'open' : ''}">
+                <div id="tournamentRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW TOURNAMENT</h3>

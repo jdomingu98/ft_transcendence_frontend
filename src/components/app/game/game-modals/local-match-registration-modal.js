@@ -10,6 +10,7 @@ class LocalMatchRegistrationModal extends WebComponent {
 
     userId = this.getAttribute('userId');
     playerOne = this.getAttribute('playerOne') ?? '';
+    accessToken = localStorage.getItem('access_token');
 
     init() {
         this.state = {
@@ -69,7 +70,7 @@ class LocalMatchRegistrationModal extends WebComponent {
     render() {
         return `
             <div class="game-body">
-                <div id="localMatchRegistrationModal" class="game-modal ${this.state.open ? 'open' : ''}">
+                <div id="localMatchRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>NEW LOCAL MATCH</h3>

@@ -10,6 +10,7 @@ class WinnerModal extends WebComponent {
 
     confetti = new Confetti();
     isTournamentLastRound = this.getAttribute('isTournamentLastRound');
+    accessToken = localStorage.getItem('access_token');
 
     init() {
         this.state = {
@@ -77,7 +78,7 @@ class WinnerModal extends WebComponent {
         const tournamentName = this.getAttribute('name');
         return `
             <div class="game-body">
-                <div id="winnerModal" class="game-modal ${this.state.open ? 'open' : ''}">
+                <div id="winnerModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
                     ${ this.isTournamentLastRound ? this.getTournamentFinishedRender(tournamentName) : this.getMatchFinishedRender() }
                 </div>
                 <canvas id="confettiCanvas" width="${window.innerWidth}" height="${window.innerHeight}"></canvas>
