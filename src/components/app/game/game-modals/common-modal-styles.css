@@ -21,11 +21,11 @@
     z-index: 1000;
     background-color: var(--app-secondary-bg-color);
     border-radius: 20px;
-    box-shadow: 0 0 10px 5px rgba(218, 183, 141, 0.5);
+    box-shadow: 0 0 15px 8px rgba(218, 183, 141, 0.5);
 }
 
-.game-modal::backdrop {
-    background: rgba(0, 0, 0, 0.6);
+.move-left {
+    left: 50%;
 }
 
 .container {
@@ -58,28 +58,13 @@
     visibility: hidden;
 }
 
-/*dialog {
-    transition: opacity .3s ease,
-        display .3s ease allow-discrete;
-    opacity: 0;
-}
-
-dialog[open] {
-    opacity: 1;
-    transition: opacity .3s ease-in-out;
-
-    @starting-style {
-        opacity: 0;
-    }
-}*/
-
-#localMatchRegistrationModal, #tournamentRegistrationModal, #winnerModal {
+#localMatchRegistrationModal, #tournamentRegistrationModal, #winnerModal, #roundModal {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-#localMatchRegistrationModal.open, #tournamentRegistrationModal.open, #winnerModal.open {
+#localMatchRegistrationModal.open, #tournamentRegistrationModal.open, #winnerModal.open, #roundModal.open {
     opacity: 1;
     visibility: visible;
 }
@@ -192,3 +177,54 @@ canvas {
     pointer-events: none;
     z-index: 1;
 }
+
+.background-rectangle {
+    background-color: var(--app-primary-color);
+    z-index: 0;
+    height: 50px;
+    border-radius: 10px;
+    width: 85%;
+}
+
+.shadow {
+    box-shadow: 0 0 15px 7px rgba(255, 255, 0, 0.5) !important;
+}
+
+.left-half {
+    background-color: var(--app-primary-color);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    z-index: 1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.right-half {
+    background-color: var(--app-secondary-color);
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.left-half,
+.right-half {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    place-items: center;
+}
+
+
