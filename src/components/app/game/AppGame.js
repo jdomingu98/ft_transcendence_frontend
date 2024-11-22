@@ -1,5 +1,5 @@
 import WebComponent, { Component } from '#WebComponent';
-import {ballPaddleCollision,drawFieldLine, timerDisplay} from './PongUtils';
+import {ballPaddleCollision,drawFieldLine, Sounds, timerDisplay} from './PongUtils';
 import Ball from './Ball';
 import GameService from '#services/GameService';
 import Paddle from './Paddle';
@@ -42,6 +42,10 @@ class AppGame extends WebComponent {
         return images.sort(() => Math.random() - 0.5).slice(0, 2);
     }
 
+    timerInterval = null;
+
+    stopGameLoop = false;
+
     get playerOne() {
         return this.getAttribute('playerOne') ?? this.state.players[0].name;
     }
@@ -60,6 +64,10 @@ class AppGame extends WebComponent {
 
     get backgroundPause() {
         return this._getDOM().querySelector('.background-pause');
+    }
+
+    get isStopped() {
+        return this.getAttribute('isStopped');
     }
 
     /**
@@ -111,19 +119,18 @@ class AppGame extends WebComponent {
      * @description Resumes the game, hides the pause background, and changes the pause state.
      */
     togglePause(pause) {
-        this.pause = pause;
-        if (this.isPause) {
-            this.score.forEach(score => score.style.opacity = 0.85);
-            this.isPause = false;
-            this.btnPause.classList.add('hidden');
-            this.backgroundPause.classList.add('hidden');
-            this.btnPlay.classList.remove('hidden');
-        } else {
+        if (pause) {
             this.score.forEach(score => score.style.opacity = 0.5);
             this.isPause = true;
             this.btnPause.classList.remove('hidden');
             this.backgroundPause.classList.remove('hidden');
             this.btnPlay.classList.add('hidden');
+        } else {
+            this.score.forEach(score => score.style.opacity = 0.85);
+            this.isPause = false;
+            this.btnPause.classList.add('hidden');
+            this.backgroundPause.classList.add('hidden');
+            this.btnPlay.classList.remove('hidden');
         }
     }
 
@@ -157,23 +164,23 @@ class AppGame extends WebComponent {
     /**
      *@description Fucntion that starts the golden goal mode.
      */
-    golden_goal(){
-        clearInterval(this.timerInterval);
-        const golden_goal_title = this._getDOM().querySelector('.golden-goal');
-        const max_goals_draw = this.paddle1.score;
-        golden_goal_title.style.display = 'inline-block';
+    goldenGoal() {
+        Sounds.makeGoldenGoalSound();
+        Sounds.makeBackgroundMusicQuicker();
+        this._getDOM().querySelector('.golden-goal').style.display = 'inline-block';
         this.ball.set_color_ball('#FFD700');
+        const max_goals_draw = this.paddle1.score;
         this.checkGoldenGoal(max_goals_draw);
     }
 
     /**
      * @description Function that checks if the game is in golden goal mode.
-     * @param {number} goals_draw - The number of goals scored when the match was a draw.
+     * @param {number} goalsDraw - The number of goals scored when the match was a draw.
      */
-    checkGoldenGoal(goals_draw) {
-        this.goldenGoalInterval = setInterval(() => {
-            if (this.paddle1.score > goals_draw || this.paddle2.score > goals_draw) {
-                clearInterval(this.goldenGoalInterval);
+    checkGoldenGoal(goalsDraw) {
+        const goldenGoalInterval = setInterval(() => {
+            if (this.paddle1.score > goalsDraw || this.paddle2.score > goalsDraw) {
+                clearInterval(goldenGoalInterval);
                 this.finishGame();
             }
         }, 100);
@@ -184,20 +191,23 @@ class AppGame extends WebComponent {
      * @description Starts the timer for the game, decrementing the time every second and updating the display.
      */
     startTimer() {
-        this.timerInterval = setInterval(() => {
-            if (!this.isPause) {
-                if (this.remainingTime > 0) {
-                    this.remainingTime--;
-                    // Update the timer display.
-                    this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
-                } else {
-                    if (this.paddle1.score === this.paddle2.score)
-                        this.golden_goal();
-                    else
-                        this.finishGame();
+        if (!this.timerInterval) {
+            this.timerInterval = setInterval(() => {
+                if (!this.isPause) {
+                    if (this.remainingTime > 0) {
+                        this.remainingTime--;
+                        // Update the timer display.
+                        this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
+                    } else {
+                        clearInterval(this.timerInterval);
+                        if (this.paddle1.score === this.paddle2.score)
+                            this.goldenGoal();
+                        else
+                            this.finishGame();
+                    }
                 }
-            }
-        }, 1000);
+            }, 1000);
+        }
     }
 
     /**
@@ -250,6 +260,8 @@ class AppGame extends WebComponent {
      * @description Ends the game, clearing the timer interval and displaying the final score.
      */
     finishGame() {
+        Sounds.stopBackgroundMusic();
+        Sounds.makeGameEndSound();
         const winner = this.paddle1.score > this.paddle2.score ? this.playerOne : this.playerTwo;
         this.togglePause(true);
         this.emit('FINISH_GAME', { winner });
@@ -288,18 +300,14 @@ class AppGame extends WebComponent {
             this.gameMovement(deltaTime);
             this.paint();
         }
-        requestAnimationFrame((time) => this.gameLoop(time));
+        if (!this.stopGameLoop)
+            requestAnimationFrame((time) => this.gameLoop(time));
     }
 
-    /**
-     * @description Initializes the game after the DOM is ready: sets up the game.
-     */
     afterViewInit() {
         this.canvas = this._getDOM().querySelector('.pongCanvas');
-
         if (this.canvas) {
             this.score = this._getDOM().querySelectorAll('.score');
-            this.timerInterval = null;
             this.isPause = true;
             this.remainingTime = INITIAL_REMAINING_TIME;
             this.lastTime = 0;
@@ -327,24 +335,40 @@ class AppGame extends WebComponent {
             </div>
         `;
     }
-
     bind() {
-        this.subscribeAll('.btn-game', 'click', () => this.togglePause(!this.isPause));
-        this.subscribe(window, 'keydown', e => this.keysPressed.set(e.keyCode, true));
+        this.subscribeAll('.btn-game', 'click', () => {
+            if (this.isStopped) return;
+            this.togglePause(!this.isPause);
+        });
+        this.subscribe(window, 'keydown', e => {
+            if (this.isStopped) return;
+            this.keysPressed.set(e.keyCode, true);
+        });
         this.subscribe(window, 'keyup', e => {
+            if (this.isStopped) return;
             this.keysPressed.set(e.keyCode, false);
             if (e.keyCode === KEY_SPACE) this.togglePause(!this.isPause);
         });
-        this.subscribe(window, 'resize', () => this.updateElements());
+        this.subscribe(window, 'resize', () => {
+            if (this.isStopped) return;
+            this.updateElements();
+        });
+    }
+
+    onDestroy() {
+        this.keysPressed.clear();
+        if (this.timerInterval)
+            clearInterval(this.timerInterval);
+        this.timerInterval = null;
+        this.stopGameLoop = true;
+        Sounds.stopBackgroundMusic();
     }
 
     render() {
-
         //const userId = this.getAttribute('userId');
         const playerOne = this.getAttribute('playerOne') ?? this.state.players[0].name;
         const playerTwo = this.getAttribute('playerTwo') ?? this.state.players[1].name;
         const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
-        //const isPaused = this.getAttribute('isPaused');
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">

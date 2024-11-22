@@ -2,6 +2,7 @@ import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
 import GameService from '#services/GameService';
 import UserService from '#services/UserService';
+import { Sounds } from '../../components/app/game/PongUtils';
 
 document.querySelector('meta[name="description"]').content = 'Play the classic game of Pong. Move your paddle up and down to hit the ball and score points.';
 
@@ -13,7 +14,7 @@ class PongSidebar extends WebComponent {
     init() {
         this.state = {
             isTournament: window.location.pathname.includes('tournament'),
-            isPaused: true,
+            stop: true,
             isRegistrationOpen: true,
             user: {},
             tournament: {
@@ -49,9 +50,10 @@ class PongSidebar extends WebComponent {
 
     bind() {
         this.subscribe('local-match-registration-modal', 'START_LOCAL_MATCH', ({detail}) => {
+            Sounds.startBackgroundMusic();
             this.setState({
                 ...this.state,
-                isPaused: false,
+                stop: false,
                 isRegistrationOpen: false,
                 match: {
                     ...this.state.match,
@@ -62,9 +64,10 @@ class PongSidebar extends WebComponent {
         });
 
         this.subscribe('tournament-registration-modal', 'START_TOURNAMENT', ({ detail }) => {
+            Sounds.startBackgroundMusic();
             this.setState({
                 ...this.state,
-                inPause: false,
+                stop: false,
                 isRegistrationOpen: false,
                 tournament: {
                     ...this.state.tournament,
@@ -113,7 +116,7 @@ class PongSidebar extends WebComponent {
             }
             this.setState({
                 ...this.state,
-                isPaused: true,
+                stop: true,
                 match: {
                     isMatchOver: true,
                     winner: detail.winner,
@@ -149,11 +152,11 @@ class PongSidebar extends WebComponent {
                     winner="${this.state.match.winner}"
                 > </winner-modal>` : ''}
                 <app-game
-                    isPaused=${this.state.inPaused}"
-                    userId=${this.state.user?.id}
-                    playerOne=${this.state.match.playerOne}
-                    playerTwo=${this.state.match.playerTwo}
-                    profileImg=${this.state.user?.profile_img}>
+                    [isStopped]="state.stop"
+                    userId="${this.state.user?.id}"
+                    playerOne="${this.state.match.playerOne}"
+                    playerTwo="${this.state.match.playerTwo}"
+                    profileImg="${this.state.user?.profile_img}">
                 </app-game>
             </section>
         `;

@@ -104,13 +104,49 @@ export function calculateSpeed(canvasWidth, pongObjectVelocity) {
 }
 
 export class Sounds {
-    static GO_SOUND = '/sounds/go';
+    static GO_SOUND = [
+        new Audio('/sounds/go0.mp3'),
+        new Audio('/sounds/go1.mp3'),
+        new Audio('/sounds/go2.mp3'),
+        new Audio('/sounds/go3.mp3'),
+    ];
+
+    static GAME_BACKGROUND = (() => {
+        const gameBackground = new Audio('/sounds/game-background.mp3');
+        gameBackground.volume = 0.5;
+        gameBackground.loop = true;
+        return gameBackground;
+    })();
+
+    static GAME_END = new Audio('/sounds/game-end.mp3');
+
+    static GOLDEN_GOAL = new Audio('/sounds/game-golden-goal.mp3');
 
     static currentGo = 0;
 
     static makeGoSound() {
-        const audio = new Audio(`${Sounds.GO_SOUND}${Sounds.currentGo}.mp3`);
+        const audio = Sounds.GO_SOUND[Sounds.currentGo];
         Sounds.currentGo = (Sounds.currentGo + 1) % 4;
         audio.play();
+    }
+
+    static startBackgroundMusic() {
+        Sounds.GAME_BACKGROUND.play();
+    }
+
+    static stopBackgroundMusic() {
+        Sounds.GAME_BACKGROUND.pause();
+    }
+
+    static makeBackgroundMusicQuicker() {
+        Sounds.GAME_BACKGROUND.playbackRate = 1.2;
+    }
+
+    static makeGoldenGoalSound() {
+        Sounds.GOLDEN_GOAL.play();
+    }
+
+    static makeGameEndSound() {
+        Sounds.GAME_END.play();
     }
 }
