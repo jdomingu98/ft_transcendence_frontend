@@ -42,7 +42,7 @@
     left: 0;
     width: 50%;
     height: 100%;
-    background: #13124F;
+    background: var(--app-secondary-bg-color);
     z-index: 2000;
     transition: 0.5s;
     transition-delay: 0.5s;
@@ -67,7 +67,7 @@
     justify-content: center;
     align-items: center;
     transition: 0.5s;
-    background: #13124F;
+    background: var(--app-secondary-bg-color);
 }
 
 .form.signinform {
