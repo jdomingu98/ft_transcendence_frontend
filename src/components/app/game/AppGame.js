@@ -1,5 +1,5 @@
+import { Sounds, ballPaddleCollision, drawFieldLine, timerDisplay} from './PongUtils';
 import WebComponent, { Component } from '#WebComponent';
-import {ballPaddleCollision,drawFieldLine, Sounds, timerDisplay} from './PongUtils';
 import Ball from './Ball';
 import GameService from '#services/GameService';
 import Paddle from './Paddle';
@@ -370,7 +370,7 @@ class AppGame extends WebComponent {
         const playerTwo = this.getAttribute('playerTwo') ?? this.state.players[1].name;
         const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
         return `
-            <div class="d-flex justify-content-center align-items-center overflow-hidden">
+            <div class="d-flex justify-content-center align-items-center overflow-hidden" style="background-color: var(--app-primary-bg-color)">
                 <div class="pongtainer">
                     ${ this.getHeader(playerOne, profileImg, playerTwo, this.state.players[1].src) }
                     <div class="position-relative">
