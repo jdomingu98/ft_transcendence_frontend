@@ -395,7 +395,8 @@
     },
     "INVALID_TOKEN": "Token invalide",
     "EXPIRED_TOKEN": "Token expiré",
-    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer"
+    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer",
+    "OTP_CODE_EMPTY": "Veuillez insérer le code envoyé à votre email"
   },
   "SETTINGS": {
     "SECTIONS": {

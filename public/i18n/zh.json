@@ -395,7 +395,8 @@
     },
     "INVALID_TOKEN": "无效的令牌",
     "EXPIRED_TOKEN": "令牌已过期",
-    "OTP_CODE": "插入的代码不正确。请再试一次"
+    "OTP_CODE": "插入的代码不正确。请再试一次",
+    "OTP_CODE_EMPTY": "请输入发送到您邮箱的验证码"
   },
   "SETTINGS": {
     "SECTIONS": {
