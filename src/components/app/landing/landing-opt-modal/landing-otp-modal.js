@@ -37,7 +37,7 @@ class LandingOtpModal extends WebComponent {
                 });
                 localStorage.setItem('access_token', response.access_token);
                 localStorage.setItem('refresh_token', response.refresh_token);
-                setTimeout(() => NavigatorService.goToHome(), 1000);
+                setTimeout(() => NavigatorService.goToHome(), 3000);
             }).catch(e => {
                 errorMessageElement.classList.remove('hidden');
                 errorMessageElement.textContent = e.error;
