@@ -1,21 +1,18 @@
-import { Sounds, ballPaddleCollision, drawFieldLine, timerDisplay} from './PongUtils';
+import { Game, PaddleTypes } from './models/Game';
+import { Sounds, timerDisplay} from './PongUtils';
 import WebComponent, { Component } from '#WebComponent';
-import { getPaddleHeight, getPaddleInitialPosX, getPaddleInitialPosY, getPaddleWidth } from './models/Paddle';
-import Ball from './models/Ball';
+import { BallDirection } from './models/Ball';
 import GameService from '#services/GameService';
-import Paddle from './models/Paddle';
-import { SnackbarService } from '#services/SnackbarService.js';
-import UserService from '#services/UserService.js';
+import { SnackbarService } from '#services/SnackbarService';
 import css from './AppGame.css?inline';
 
-const KEY_ARROW_UP = 38;
-const KEY_ARROW_DOWN = 40;
-const KEY_W = 87;
-const KEY_S = 83;
+export const KEY_ARROW_UP = 38;
+export const KEY_ARROW_DOWN = 40;
+export const KEY_W = 87;
+export const KEY_S = 83;
 const KEY_SPACE = 32;
 
 const INITIAL_REMAINING_TIME = 5; // seconds
-const MAX_GOALS = 7;
 
 export default Component ({
     tagName: 'app-game',
@@ -43,14 +40,16 @@ class AppGame extends WebComponent {
 
     stopGameLoop = false;
 
-    isGoldenGoal = false;
-
     get playerOne() {
         return this.getAttribute('playerOne') ?? this.state.players[0].name;
     }
 
     get playerTwo() {
         return this.getAttribute('playerTwo') ?? this.state.players[1].name;
+    }
+
+    get userId() {
+        return this.getAttribute('userId');
     }
 
     get btnPause() {
@@ -67,65 +66,6 @@ class AppGame extends WebComponent {
 
     get isStopped() {
         return this.getAttribute('isStopped');
-    }
-
-    /**
-     * @description Initializes the paddles and ball with their respective positions and dimensions.
-     */
-    createElements() {
-        const paddleWidth = getPaddleWidth(this.canvas);
-        const paddleHeight = getPaddleHeight(this.canvas);
-        const paddleInitialPosX = getPaddleInitialPosX(this.canvas);
-        const paddleInitialPosY = getPaddleInitialPosY(this.canvas);
-        this.paddle1 = new Paddle(
-            this.canvas,
-            paddleInitialPosX,
-            paddleInitialPosY,
-            paddleWidth,
-            paddleHeight,
-            '#8D8DDA',
-        );
-        this.paddle2 = new Paddle(
-            this.canvas,
-            this.canvas.width - paddleWidth - paddleInitialPosX,
-            paddleInitialPosY,
-            paddleWidth,
-            paddleHeight,
-            '#ABD9D9',
-        );
-        this.ball = new Ball(this.canvas);
-    }
-
-    /**
-     * @description Recalculates the positions and dimensions of the paddles and ball, and redraws the game field.
-     */
-    updateElements() {
-        const paddleWidth = getPaddleWidth(this.canvas);
-        const paddleHeight = getPaddleHeight(this.canvas);
-        const paddleInitialPosX = getPaddleInitialPosX(this.canvas);
-        const paddleInitialPosY = getPaddleInitialPosY(this.canvas);
-
-        this.paddle1.setWidth(paddleWidth);
-        this.paddle1.setHeight(paddleHeight);
-        this.paddle1.setX(paddleInitialPosX);
-        this.paddle1.setY(paddleInitialPosY);
-
-        this.paddle2.setWidth(paddleWidth);
-        this.paddle2.setHeight(paddleHeight);
-        this.paddle2.setX(this.canvas.width - paddleWidth - paddleInitialPosX);
-        this.paddle2.setY(paddleInitialPosY);
-        this.paint();
-    }
-
-    /**
-     * @description Clears the canvas and redraws the game field, paddles, and ball at their current positions.
-     */
-    paint() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        drawFieldLine(this.ctx, this.canvas.width, this.canvas.height);
-        this.paddle1.render();
-        this.paddle2.render();
-        this.ball.render();
     }
 
     /**
@@ -148,44 +88,13 @@ class AppGame extends WebComponent {
         }
     }
 
-
-    /**
-     * @description Checks if the ball has crossed the boundaries of the field, assigns the score to the appropriate paddle,
-     * and respawns the ball at the center.
-     */
-    upScore() {
-        let scoringPaddle, scoringElement, direction;
-
-        if (this.ball.x >= this.canvas.width) {
-            scoringPaddle = this.paddle1;
-            scoringElement = '#score-1';
-            direction = 1;
-        } else if (this.ball.x - this.ball.getRadius() <= 0) {
-            scoringPaddle = this.paddle2;
-            scoringElement = '#score-2';
-            direction = -1;
-        } else {
-            return;
-        }
-        this.ball.respawnBall(direction);
-        scoringPaddle.increaseScore();
-        this._getDOM().querySelector(scoringElement).innerHTML = scoringPaddle.getScore();
-        if (scoringPaddle.getScore() >= MAX_GOALS || this.isGoldenGoal) this.finishGame();
-        this.paddle1.reset();
-        this.paddle2.reset();
-    }
-
     /**
      * Starts the Golden Goal mode.
      */
-    goldenGoal() {
-        Sounds.makeGoldenGoalSound();
-        Sounds.makeBackgroundMusicQuicker();
+    setGoldenGoalMode() {
+        this.game.setGoldenGoal();
         this._getDOM().querySelector('.golden-goal').style.display = 'inline-block';
-        this.ball.setColor('#FFD700');
-        this.isGoldenGoal = true;
     }
-
 
     /**
      * @description Starts the timer for the game, decrementing the time every second and updating the display.
@@ -200,29 +109,12 @@ class AppGame extends WebComponent {
                         this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                     } else {
                         clearInterval(this.timerInterval);
-                        if (this.paddle1.getScore() === this.paddle2.getScore())
-                            this.goldenGoal();
-                        else
-                            this.finishGame();
+                        if (this.game.isTie()) this.setGoldenGoalMode();
+                        else this.finishGame();
                     }
                 }
             }, 1000);
         }
-    }
-
-    /**
-     * @param {Paddle} paddle - The paddle to move (either paddle1 or paddle2).
-     * @param {number} upKey - The key code for moving the paddle up.
-     * @param {number} downKey - The key code for moving the paddle down.
-     * @param {number} deltaTime - The time difference between frames to smooth the movement.
-     * @description Moves the paddle up or down based on the keys pressed and smooths the movement based on deltaTime.
-     */
-    move(paddle, upKey, downKey, deltaTime) {
-        if (this.keysPressed.get(upKey))
-            paddle.move(-1, deltaTime);
-
-        if (this.keysPressed.get(downKey))
-            paddle.move(1, deltaTime);
     }
 
     /**
@@ -232,16 +124,16 @@ class AppGame extends WebComponent {
      * @description Creates a data object with the game information to send to the server.
      */
     getData(id, username) {
-        const startDate = this.startDate.toISOString().slice(0, 19);
+        const paddle = this.game.getPaddles();
         return ({
             user: id,
             user_a: username,
-            user_b: 'Pepe',
-            num_goals_scored: this.paddle1.getScore(),
-            num_goals_against: this.paddle2.getScore(),
-            num_goals_stopped_a: this.paddle1.getGoalsStopped(),
-            num_goals_stopped_b: this.paddle2.getGoalsStopped(),
-            start_date: startDate,
+            user_b: this.playerTwo,
+            num_goals_scored: paddle.left.getScore(),
+            num_goals_against: paddle.right.getScore(),
+            num_goals_stopped_a: paddle.left.getGoalsStopped(),
+            num_goals_stopped_b: paddle.right.getGoalsStopped(),
+            start_date: this.game.getStartDate().toISOString().slice(0, 19),
             time_played: INITIAL_REMAINING_TIME - this.remainingTime
         });
     }
@@ -252,21 +144,18 @@ class AppGame extends WebComponent {
     initGame() {
         this.ctx = this.canvas.getContext('2d');
         this.keysPressed = new Map();
-        this.createElements();
+        this.game = new Game(this.canvas);
     }
 
     /**
      * @description Ends the game, clearing the timer interval and displaying the final score.
      */
     finishGame() {
-        Sounds.stopBackgroundMusic();
-        Sounds.makeGameEndSound();
-        const winner = this.paddle1.getScore() > this.paddle2.getScore() ? this.playerOne : this.playerTwo;
+        const winner = this.game.finishGame() === PaddleTypes.LEFT ? this.playerOne : this.playerTwo;
         this.togglePause(true);
         this.emit('FINISH_GAME', { winner });
         if (localStorage.getItem('access_token')) {
-            UserService.getMyInfo()
-                .then(({ id, username }) => GameService.storeMatch(this.getData(id, username)))
+            GameService.storeMatch(this.getData(this.userId, this.playerOne))
                 .catch(() => SnackbarService.addToast({
                     title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
                     body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')
@@ -279,12 +168,13 @@ class AppGame extends WebComponent {
      * @description Handles the core game logic, including updating the score, moving paddles, and checking for collisions.
      */
     gameMovement(deltaTime) {
-        this.upScore();
-        this.move(this.paddle1, KEY_W, KEY_S, deltaTime);
-        this.move(this.paddle2, KEY_ARROW_UP, KEY_ARROW_DOWN, deltaTime);
-        this.ball.move(deltaTime);
-        ballPaddleCollision(this.ball, this.paddle1);
-        ballPaddleCollision(this.ball, this.paddle2);
+        const scoring = this.game.checkScore();
+        if (scoring) {
+            const scoringElement = scoring.position === BallDirection.RIGHT ? '#score-1' : '#score-2';
+            this._getDOM().querySelector(scoringElement).innerHTML = scoring.paddle.getScore();
+            if (this.game.hasFinished()) this.finishGame();
+        }
+        this.game.move(deltaTime, this.keysPressed);
     }
 
     /**
@@ -297,10 +187,9 @@ class AppGame extends WebComponent {
         this.lastTime = time;
         if (!this.isPause) {
             this.gameMovement(deltaTime);
-            this.paint();
+            this.game.render();
         }
-        if (!this.stopGameLoop)
-            requestAnimationFrame((time) => this.gameLoop(time));
+        requestAnimationFrame((time) => this.stopGameLoop || this.gameLoop(time));
     }
 
     afterViewInit() {
@@ -310,25 +199,24 @@ class AppGame extends WebComponent {
             this.isPause = true;
             this.remainingTime = INITIAL_REMAINING_TIME;
             this.lastTime = 0;
-            this.startDate = new Date();
             this.initGame();
             this.startTimer();
-            requestAnimationFrame((time) => this.gameLoop(time));
+            requestAnimationFrame(time => this.gameLoop(time));
         }
     }
 
-    getHeader(playerOneName, playerOneImg, playerTwoName, playerTwoImg) {
+    getHeader(playerOneImg, playerTwoImg) {
         return `
             <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1 text-white">
                 <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
                     <img src="${playerOneImg}" alt="Player 1 image">
-                    <span class="mt-3">${playerOneName}</span>
+                    <span class="mt-3">${this.playerOne}</span>
                 </div>
                 <div class="info-mid">
                     <span id="timer-marker">05:00</span>
                 </div>
                 <div class="player-icon d-flex justify-content-end align-items-center gap-4 mx-lg-5 mx-3">
-                    <span class="mt-3">${playerTwoName}</span>
+                    <span class="mt-3">${this.playerTwo}</span>
                     <img src="${playerTwoImg}" alt="Player 2 image">
                 </div>
             </div>
@@ -350,7 +238,8 @@ class AppGame extends WebComponent {
         });
         this.subscribe(window, 'resize', () => {
             if (this.isStopped) return;
-            this.updateElements();
+            this.game.resetPaddles();
+            this.game.render();
         });
     }
 
@@ -364,14 +253,11 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        //const userId = this.getAttribute('userId');
-        const playerOne = this.getAttribute('playerOne') ?? this.state.players[0].name;
-        const playerTwo = this.getAttribute('playerTwo') ?? this.state.players[1].name;
         const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden" style="background-color: var(--app-primary-bg-color)">
                 <div class="pongtainer">
-                    ${ this.getHeader(playerOne, profileImg, playerTwo, this.state.players[1].src) }
+                    ${ this.getHeader(profileImg, this.state.players[1].src) }
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal">

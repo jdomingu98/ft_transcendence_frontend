@@ -6,6 +6,12 @@ const DEFAULT_RADIUS = 20;
 const SPEED_MULTIPLIER = 1.05;
 const SPEED_BOOST = 0.3;
 
+
+export const BallDirection = {
+    LEFT: -1,
+    RIGHT: 1,
+};
+
 export default class Ball extends CanvasObject {
     x;
     y;
@@ -109,8 +115,9 @@ export default class Ball extends CanvasObject {
         this.x = this.getCanvas().width / 2;
         this.y = this.getCanvas().height / 2;
         this.#speed = this.#initialSpeed;
+        const sign = direction === BallDirection.LEFT ? -1 : 1;
         this.#velocity = {
-            x: this.#getInitialSpeed() * direction,
+            x: this.#getInitialSpeed() * sign,
             y: 0,
         };
     }

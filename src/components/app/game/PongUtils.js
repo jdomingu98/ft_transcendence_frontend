@@ -4,56 +4,8 @@
  * @description Converts an angle from degrees to radians.
  */
 
-function gradeToRadians(angle) {
+export function gradeToRadians(angle) {
     return angle * (Math.PI / 180);
-}
-
-/**
- * @param {Object} ball - Instance of the Ball class representing the ball.
- * @param {Object} paddle - Instance of the Paddle class representing the paddle.
- * @param {number} sign - Indicates the direction of velocity on the X-axis; 1 for right paddle, -1 for left paddle.
- * @description Calculates and updates the ball's velocity when it bounces off the paddle, adjusting direction and angle based on the point of impact.
- */
-
-function paddleBouncedBall(ball, paddle, sign) {
-    // Normalize the distance from the center of the paddle to the point of impact.
-    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.getHeight() / 2);
-    const angle = gradeToRadians(ball.getMaxAngle() * dy);
-    ball.setVelocity({
-        x: sign * Math.abs(ball.getSpeed() * Math.cos(angle)),
-        y: ball.getSpeed() * Math.sin(angle),
-    });
-    ball.increaseSpeed();
-}
-
-/**
- * @param {Object} ball - Instance of the Ball class representing the ball.
- * @param {Object} paddle - Instance of the Paddle class representing the paddle.
- * @description Checks for a collision between the ball and the paddle. If a collision occurs adjust the ball's direction.
- */
-
-export function ballPaddleCollision(ball, paddle) {
-    const radius = ball.getRadius();
-    if (ball.x - radius < paddle.position.x + paddle.getWidth() &&
-        ball.x - radius > paddle.position.x &&
-        ball.y + radius > paddle.position.y &&
-        ball.y - radius < paddle.position.y + paddle.getHeight() &&
-        ball.getVelocity().x < 0) {
-        // Increment the goals stopped by the paddle.
-        paddle.goals_stopped++;
-        Sounds.makeGoSound();
-        paddleBouncedBall(ball, paddle, 1);
-    }
-
-    if (ball.x + radius > paddle.position.x
-        && ball.x + radius < paddle.position.x + paddle.getWidth()
-        && ball.y + radius > paddle.position.y
-        && ball.y - radius < paddle.position.y + paddle.getHeight()
-        && ball.getVelocity().x > 0) {
-        paddle.increaseGoalsStopped();
-        Sounds.makeGoSound();
-        paddleBouncedBall(ball, paddle, -1);
-    }
 }
 
 /**
@@ -62,7 +14,6 @@ export function ballPaddleCollision(ball, paddle) {
  * @param {number} height - Height of the canvas.
  * @description Draws a line at the center of the game field.
  */
-
 export function drawFieldLine(ctx, width, height) {
     ctx.strokeStyle = '#FFFFFF';
     ctx.lineWidth = 10;
