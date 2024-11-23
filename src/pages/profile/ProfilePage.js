@@ -37,28 +37,30 @@ class ProfilePage extends WebComponent {
     }
 
     setUserData(id) {
-        UserService.getById(id).then(user => this.setState({
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            profileImg: user.profile_img,
-            banner: user.banner,
-            visibility: user.visibility,
-            isConnected: user.is_connected,
-            language: user.language,
-            punctuation: user.punctuation,
-            position: user.position,
-            isFriend: user.is_friend,
-            hasRequestedFriendship: user.has_requested_friendship,
-            stats: {
-                goalsScored: user.num_goals_scored,
-                goalsAgainst: user.num_goals_against,
-                goalsStopped: user.num_goals_stopped,
-                soloWr: user.win_rate,
-                timePlayed: user.time_played,
-                maxWinStreak: user.max_streak
-            },
-        }));
+        UserService.getById(id)
+            .then(user => this.setState({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                profileImg: user.profile_img,
+                banner: user.banner,
+                visibility: user.visibility,
+                isConnected: user.is_connected,
+                language: user.language,
+                punctuation: user.punctuation,
+                position: user.position,
+                isFriend: user.is_friend,
+                hasRequestedFriendship: user.has_requested_friendship,
+                stats: {
+                    goalsScored: user.num_goals_scored,
+                    goalsAgainst: user.num_goals_against,
+                    goalsStopped: user.num_goals_stopped,
+                    soloWr: user.win_rate,
+                    timePlayed: user.time_played,
+                    maxWinStreak: user.max_streak
+                },
+            }))
+            .catch(() => NavigatorService.goToHome());
     }
 
     get isMePage() {
