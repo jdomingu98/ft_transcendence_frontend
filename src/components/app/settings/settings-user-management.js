@@ -92,15 +92,19 @@ class SettingsUserManagement extends WebComponent {
                     this.getMyInfo();
                     this._getDOM().querySelector('#profile-filename').textContent = this.translator.translate('SETTINGS.USER_MANAGEMENT.NO_FILE_SELECTED');
                     this._getDOM().querySelector('#banner-filename').textContent = this.translator.translate('SETTINGS.USER_MANAGEMENT.NO_FILE_SELECTED');
-                    SnackbarService.addToast({
-                        title: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_DONE.TITLE'),
-                        body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_DONE.DESC')
-                    });
+                    setTimeout(() => {
+                        SnackbarService.addToast({
+                            title: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_DONE.TITLE'),
+                            body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_DONE.DESC')
+                        });
+                    }, 3000);
                 }).catch( e => {
-                    SnackbarService.addToast({
-                        title: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.TITLE'),
-                        body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.DESC'),
-                    });
+                    setTimeout(() => {
+                        SnackbarService.addToast({
+                            title: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.TITLE'),
+                            body: this.translator.translate('SNACKBAR.SETTINGS.USER_MANAGEMENT_ERROR.DESC'),
+                        });
+                    }, 3000);
                     if (e?.username) {
                         const input = this._getDOM().getElementById('username-settings');
                         const errorMessage = this._getDOM().querySelector('#username-settings + .error-message');

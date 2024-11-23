@@ -30,22 +30,28 @@ class SettingsTwoFactorAuth extends WebComponent {
             .then(() => {
                 this.setState({...this.state, user: { ...this.state.user, two_factor_enabled: !this.state.user.two_factor_enabled } });
                 if (this.state.user.two_factor_enabled) {
-                    SnackbarService.addToast({
-                        title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.TITLE'),
-                        body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.DESC')
-                    });
+                    setTimeout(() => {
+                        SnackbarService.addToast({
+                            title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.TITLE'),
+                            body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ACTIVATION.DESC')
+                        });
+                    }, 3000);
                 } else {
-                    SnackbarService.addToast({
-                        title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.TITLE'),
-                        body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.DESC')
-                    });
+                    setTimeout(() => {
+                        SnackbarService.addToast({
+                            title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.TITLE'),
+                            body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_DEACTIVATION.DESC')
+                        });
+                    }, 3000);
                 }
             })
             .catch(() => {
-                SnackbarService.addToast({
-                    title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.TITLE'),
-                    body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.DESC')
-                });
+                setTimeout(() => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.TWO_FACTOR_AUTH_ERROR.DESC')
+                    });
+                }, 3000);
             });
     }
 
