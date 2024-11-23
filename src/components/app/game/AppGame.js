@@ -12,7 +12,7 @@ export const KEY_W = 87;
 export const KEY_S = 83;
 const KEY_SPACE = 32;
 
-const INITIAL_REMAINING_TIME = 5; // seconds
+const INITIAL_REMAINING_TIME = 300; // seconds
 
 export default Component ({
     tagName: 'app-game',
