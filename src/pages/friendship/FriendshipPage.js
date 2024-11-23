@@ -27,7 +27,7 @@ class FriendshipPage extends WebComponent {
                 pullDeltaX: 0,
             },
         };
-        FriendService.getFriendRequests().then(friendsData => this.setState({...this.state, friendsData }));
+        FriendService.getFriendRequests().then(friendsData => this.setState({...this.state, friendsData: friendsData.reverse() }));
     }
 
     mapFriendsToArticles() {
