@@ -1,15 +1,15 @@
-import { Sounds, calculateSpeed } from './PongUtils';
+import { Sounds, calculateSpeed } from '../PongUtils';
+import { CanvasObject } from './CanvasRenderizable';
 
 const DEFAULT_COLOR = '#8DBEDA';
 const DEFAULT_RADIUS = 20;
 const SPEED_MULTIPLIER = 1.05;
 const SPEED_BOOST = 0.3;
 
-export default class Ball {
+export default class Ball extends CanvasObject {
     x;
     y;
 
-    #canvas = null;
     #color = DEFAULT_COLOR;
     #radius = DEFAULT_RADIUS;
     #initialSpeed;
@@ -22,10 +22,10 @@ export default class Ball {
      * @param {HTMLCanvasElement} canvas - The canvas element to render the ball on.
      */
     constructor(canvas) {
-        this.#canvas = canvas;
+        super(canvas);
 
-        this.x = this.#canvas.width / 2;
-        this.y = this.#canvas.height / 2;
+        this.x = this.getCanvas().width / 2;
+        this.y = this.getCanvas().height / 2;
         this.#initialSpeed = this.#getInitialSpeed();
         this.#speed = this.#initialSpeed;
         this.#velocity = { x: this.#initialSpeed, y: 0 };
@@ -41,7 +41,7 @@ export default class Ball {
      * @returns {number} The maximum angle the ball can have based on the canvas width.
      */
     getMaxAngle() {
-        return this.#canvas.clientWidth > 650 ? 50 : 20;
+        return this.getCanvas().clientWidth > 650 ? 50 : 20;
     }
 
     setColor(color) {
@@ -69,8 +69,8 @@ export default class Ball {
      *************************************************/
 
     render() {
-        const ctx = this.#getContext();
-        const width = this.#canvas.clientWidth;
+        const ctx = this.getContext();
+        const width = this.getCanvas().clientWidth;
 
         const scaleX = width < 410 ? 1.9 : (width < 600 ? 1.3 : 1);
         const scaleY = 1;
@@ -106,8 +106,8 @@ export default class Ball {
     }
 
     respawnBall(direction) {
-        this.x = this.#canvas.width / 2;
-        this.y = this.#canvas.height / 2;
+        this.x = this.getCanvas().width / 2;
+        this.y = this.getCanvas().height / 2;
         this.#speed = this.#initialSpeed;
         this.#velocity = {
             x: this.#getInitialSpeed() * direction,
@@ -120,14 +120,6 @@ export default class Ball {
      *************************************************/
 
     /**
-     * Getter for the ball's context.
-     * @returns {CanvasRenderingContext2D} The 2D rendering context of the canvas.
-     */
-    #getContext() {
-        return this.#canvas.getContext('2d');
-    }
-
-    /**
      * Sets the shadow properties for the ball.
      * @param {string} color - The color of the shadow.
      * @param {number} blur - The blur radius of the shadow.
@@ -135,7 +127,7 @@ export default class Ball {
      * @param {number} offsetY - The vertical offset of the shadow.
      */
     #setShadow(color, blur, offsetX, offsetY) {
-        const context = this.#getContext();
+        const context = this.getContext();
         context.shadowColor = color;
         context.shadowBlur = blur;
         context.shadowOffsetX = offsetX;
@@ -148,7 +140,7 @@ export default class Ball {
      * @param {number} y - The y-coordinate of the ball.
      */
     #drawBall(x, y) {
-        const context = this.#getContext();
+        const context = this.getContext();
         context.fillStyle = this.#color;
         context.beginPath();
         context.arc(x, y, this.#radius, 0, Math.PI * 2);
@@ -158,10 +150,10 @@ export default class Ball {
     #hasCollidedWithWall() {
         const borderTop = this.y - this.#radius;
         const borderBottom = this.y + this.#radius;
-        return (borderTop <= 0 && this.#velocity.y < 0) || (borderBottom >= this.#canvas.height && this.#velocity.y > 0);
+        return (borderTop <= 0 && this.#velocity.y < 0) || (borderBottom >= this.getCanvas().height && this.#velocity.y > 0);
     }
 
     #getInitialSpeed() {
-        return calculateSpeed(this.#canvas.width, 8);
+        return calculateSpeed(this.getCanvas().width, 8);
     }
 }

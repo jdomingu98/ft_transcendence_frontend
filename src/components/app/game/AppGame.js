@@ -1,8 +1,9 @@
 import { Sounds, ballPaddleCollision, drawFieldLine, timerDisplay} from './PongUtils';
 import WebComponent, { Component } from '#WebComponent';
-import Ball from './Ball';
+import { getPaddleHeight, getPaddleInitialPosX, getPaddleInitialPosY, getPaddleWidth } from './models/Paddle';
+import Ball from './models/Ball';
 import GameService from '#services/GameService';
-import Paddle from './Paddle';
+import Paddle from './models/Paddle';
 import { SnackbarService } from '#services/SnackbarService.js';
 import UserService from '#services/UserService.js';
 import css from './AppGame.css?inline';
@@ -13,11 +14,7 @@ const KEY_W = 87;
 const KEY_S = 83;
 const KEY_SPACE = 32;
 
-const MIN_PADDLE_WIDTH = 35;
-const MAX_PADDLE_WIDTH = 45;
-const MIN_PADDLE_HEIGHT = 240;
-const MAX_PADDLE_HEIGHT = 285;
-const INITIAL_REMAINING_TIME = 300; // seconds
+const INITIAL_REMAINING_TIME = 5; // seconds
 const MAX_GOALS = 7;
 
 export default Component ({
@@ -45,6 +42,8 @@ class AppGame extends WebComponent {
     timerInterval = null;
 
     stopGameLoop = false;
+
+    isGoldenGoal = false;
 
     get playerOne() {
         return this.getAttribute('playerOne') ?? this.state.players[0].name;
@@ -74,29 +73,47 @@ class AppGame extends WebComponent {
      * @description Initializes the paddles and ball with their respective positions and dimensions.
      */
     createElements() {
-        this.paddle1 = new Paddle(this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width);
-        this.paddle2 = new Paddle(this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY, this.paddleWidth, this.paddleHeight, this.canvas.width, '#ABD9D9');
+        const paddleWidth = getPaddleWidth(this.canvas);
+        const paddleHeight = getPaddleHeight(this.canvas);
+        const paddleInitialPosX = getPaddleInitialPosX(this.canvas);
+        const paddleInitialPosY = getPaddleInitialPosY(this.canvas);
+        this.paddle1 = new Paddle(
+            this.canvas,
+            paddleInitialPosX,
+            paddleInitialPosY,
+            paddleWidth,
+            paddleHeight,
+            '#8D8DDA',
+        );
+        this.paddle2 = new Paddle(
+            this.canvas,
+            this.canvas.width - paddleWidth - paddleInitialPosX,
+            paddleInitialPosY,
+            paddleWidth,
+            paddleHeight,
+            '#ABD9D9',
+        );
         this.ball = new Ball(this.canvas);
-    }
-
-    /**
-     * @description Adjusts the dimensions and positions of the paddles based on the current canvas size.
-     * Ensures that paddles don't exceed certain minimum and maximum sizes.
-     */
-    setDataElements() {
-        this.paddleWidth = Math.max(MIN_PADDLE_WIDTH, Math.min(this.canvas.clientWidth * 0.016, MAX_PADDLE_WIDTH));
-        this.paddleHeight = Math.max(MIN_PADDLE_HEIGHT, Math.min(this.canvas.clientHeight * 0.5, MAX_PADDLE_HEIGHT));
-        this.paddlePosX = this.canvas.width * 0.05;
-        this.paddlePosY = (this.canvas.height - this.paddleHeight) / 2;
     }
 
     /**
      * @description Recalculates the positions and dimensions of the paddles and ball, and redraws the game field.
      */
     updateElements() {
-        this.setDataElements();
-        this.paddle1.set(this.paddleWidth, this.paddleHeight, this.paddlePosX, this.paddlePosY);
-        this.paddle2.set(this.paddleWidth, this.paddleHeight, this.canvas.width - this.paddleWidth - this.paddlePosX, this.paddlePosY);
+        const paddleWidth = getPaddleWidth(this.canvas);
+        const paddleHeight = getPaddleHeight(this.canvas);
+        const paddleInitialPosX = getPaddleInitialPosX(this.canvas);
+        const paddleInitialPosY = getPaddleInitialPosY(this.canvas);
+
+        this.paddle1.setWidth(paddleWidth);
+        this.paddle1.setHeight(paddleHeight);
+        this.paddle1.setX(paddleInitialPosX);
+        this.paddle1.setY(paddleInitialPosY);
+
+        this.paddle2.setWidth(paddleWidth);
+        this.paddle2.setHeight(paddleHeight);
+        this.paddle2.setX(this.canvas.width - paddleWidth - paddleInitialPosX);
+        this.paddle2.setY(paddleInitialPosY);
         this.paint();
     }
 
@@ -106,8 +123,8 @@ class AppGame extends WebComponent {
     paint() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         drawFieldLine(this.ctx, this.canvas.width, this.canvas.height);
-        this.paddle1.render(this.ctx);
-        this.paddle2.render(this.ctx);
+        this.paddle1.render();
+        this.paddle2.render();
         this.ball.render();
     }
 
@@ -151,36 +168,22 @@ class AppGame extends WebComponent {
             return;
         }
         this.ball.respawnBall(direction);
-        scoringPaddle.score++;
-        if(scoringPaddle.score >= MAX_GOALS) this.finishGame();
-        this._getDOM().querySelector(scoringElement).innerHTML = scoringPaddle.score;
+        scoringPaddle.increaseScore();
+        this._getDOM().querySelector(scoringElement).innerHTML = scoringPaddle.getScore();
+        if (scoringPaddle.getScore() >= MAX_GOALS || this.isGoldenGoal) this.finishGame();
         this.paddle1.reset();
         this.paddle2.reset();
     }
 
     /**
-     *@description Fucntion that starts the golden goal mode.
+     * Starts the Golden Goal mode.
      */
     goldenGoal() {
         Sounds.makeGoldenGoalSound();
         Sounds.makeBackgroundMusicQuicker();
         this._getDOM().querySelector('.golden-goal').style.display = 'inline-block';
         this.ball.setColor('#FFD700');
-        const max_goals_draw = this.paddle1.score;
-        this.checkGoldenGoal(max_goals_draw);
-    }
-
-    /**
-     * @description Function that checks if the game is in golden goal mode.
-     * @param {number} goalsDraw - The number of goals scored when the match was a draw.
-     */
-    checkGoldenGoal(goalsDraw) {
-        const goldenGoalInterval = setInterval(() => {
-            if (this.paddle1.score > goalsDraw || this.paddle2.score > goalsDraw) {
-                clearInterval(goldenGoalInterval);
-                this.finishGame();
-            }
-        }, 100);
+        this.isGoldenGoal = true;
     }
 
 
@@ -197,7 +200,7 @@ class AppGame extends WebComponent {
                         this._getDOM().querySelector('#timer-marker').textContent = timerDisplay(this.remainingTime);
                     } else {
                         clearInterval(this.timerInterval);
-                        if (this.paddle1.score === this.paddle2.score)
+                        if (this.paddle1.getScore() === this.paddle2.getScore())
                             this.goldenGoal();
                         else
                             this.finishGame();
@@ -216,10 +219,10 @@ class AppGame extends WebComponent {
      */
     move(paddle, upKey, downKey, deltaTime) {
         if (this.keysPressed.get(upKey))
-            paddle.move(-1, this.canvas.height, deltaTime);
+            paddle.move(-1, deltaTime);
 
         if (this.keysPressed.get(downKey))
-            paddle.move(1, this.canvas.height, deltaTime);
+            paddle.move(1, deltaTime);
     }
 
     /**
@@ -234,10 +237,10 @@ class AppGame extends WebComponent {
             user: id,
             user_a: username,
             user_b: 'Pepe',
-            num_goals_scored: this.paddle1.score,
-            num_goals_against: this.paddle2.score,
-            num_goals_stopped_a: this.paddle1.goals_stopped,
-            num_goals_stopped_b: this.paddle2.goals_stopped,
+            num_goals_scored: this.paddle1.getScore(),
+            num_goals_against: this.paddle2.getScore(),
+            num_goals_stopped_a: this.paddle1.getGoalsStopped(),
+            num_goals_stopped_b: this.paddle2.getGoalsStopped(),
             start_date: startDate,
             time_played: INITIAL_REMAINING_TIME - this.remainingTime
         });
@@ -249,7 +252,6 @@ class AppGame extends WebComponent {
     initGame() {
         this.ctx = this.canvas.getContext('2d');
         this.keysPressed = new Map();
-        this.setDataElements();
         this.createElements();
     }
 
@@ -259,7 +261,7 @@ class AppGame extends WebComponent {
     finishGame() {
         Sounds.stopBackgroundMusic();
         Sounds.makeGameEndSound();
-        const winner = this.paddle1.score > this.paddle2.score ? this.playerOne : this.playerTwo;
+        const winner = this.paddle1.getScore() > this.paddle2.getScore() ? this.playerOne : this.playerTwo;
         this.togglePause(true);
         this.emit('FINISH_GAME', { winner });
         if (localStorage.getItem('access_token')) {

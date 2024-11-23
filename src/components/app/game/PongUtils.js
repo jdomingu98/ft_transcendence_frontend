@@ -17,12 +17,8 @@ function gradeToRadians(angle) {
 
 function paddleBouncedBall(ball, paddle, sign) {
     // Normalize the distance from the center of the paddle to the point of impact.
-    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.height / 2);
+    const dy = (ball.y - paddle.getCenterPaddle().y) / (paddle.getHeight() / 2);
     const angle = gradeToRadians(ball.getMaxAngle() * dy);
-    console.log(angle);
-    console.log(ball.getSpeed());
-    console.log(Math.abs(ball.getSpeed() * Math.cos(angle)));
-    console.log(ball.getSpeed() * Math.sin(angle));
     ball.setVelocity({
         x: sign * Math.abs(ball.getSpeed() * Math.cos(angle)),
         y: ball.getSpeed() * Math.sin(angle),
@@ -38,10 +34,10 @@ function paddleBouncedBall(ball, paddle, sign) {
 
 export function ballPaddleCollision(ball, paddle) {
     const radius = ball.getRadius();
-    if (ball.x - radius < paddle.x + paddle.width &&
-        ball.x - radius > paddle.x &&
-        ball.y + radius > paddle.y &&
-        ball.y - radius < paddle.y + paddle.height &&
+    if (ball.x - radius < paddle.position.x + paddle.getWidth() &&
+        ball.x - radius > paddle.position.x &&
+        ball.y + radius > paddle.position.y &&
+        ball.y - radius < paddle.position.y + paddle.getHeight() &&
         ball.getVelocity().x < 0) {
         // Increment the goals stopped by the paddle.
         paddle.goals_stopped++;
@@ -49,12 +45,12 @@ export function ballPaddleCollision(ball, paddle) {
         paddleBouncedBall(ball, paddle, 1);
     }
 
-    if (ball.x + radius > paddle.x &&
-        ball.x + radius < paddle.x + paddle.width &&
-        ball.y + radius > paddle.y &&
-        ball.y - radius < paddle.y + paddle.height &&
-        ball.getVelocity().x > 0) {
-        paddle.goals_stopped++;
+    if (ball.x + radius > paddle.position.x
+        && ball.x + radius < paddle.position.x + paddle.getWidth()
+        && ball.y + radius > paddle.position.y
+        && ball.y - radius < paddle.position.y + paddle.getHeight()
+        && ball.getVelocity().x > 0) {
+        paddle.increaseGoalsStopped();
         Sounds.makeGoSound();
         paddleBouncedBall(ball, paddle, -1);
     }
