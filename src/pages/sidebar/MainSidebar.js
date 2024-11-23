@@ -64,6 +64,9 @@ class MainSidebar extends WebComponent {
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()
         };
+        const validSidebarUrl = this.state.sidebarLinks.find(({ sidebarElementId }) => sidebarElementId === this.state.selectedDefaultOption);
+        if (window.location.pathname === '/app' || !validSidebarUrl)
+            NavigatorService.goToHome();
     }
 
     getProfileImage() {
