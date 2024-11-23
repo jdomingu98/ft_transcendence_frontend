@@ -1,11 +1,9 @@
 import { DECISION_THRESHOLD, DEFAULT_PROFILE_IMG } from '#const';
 import WebComponent, { Component } from '#WebComponent';
 import FriendService from '#services/FriendService';
+import css from './FriendshipPage.css?inline';
 
 document.querySelector('meta[name="description"]').content = 'Accept or reject friend requests by swapping them left or right.';
-
-
-import css from './FriendshipPage.css?inline';
 
 export default Component ({
     tagName: 'friendship-page',
@@ -13,12 +11,14 @@ export default Component ({
 },
 class FriendshipPage extends WebComponent {
 
+    constructor() {
+        super();
+        this.onMoveBound = this.onMove.bind(this);
+        this.onEndBound = this.onEnd.bind(this);
+    }
+
     init() {
-
-        FriendService.getFriendRequests().then(friendsData => this.setState({...this.state, friendsData }));
-
         this.state = {
-            /** id?, username, profile_img */
             friendsData: [],
             dragEvent: {
                 startX: 0,
@@ -27,6 +27,7 @@ class FriendshipPage extends WebComponent {
                 pullDeltaX: 0,
             },
         };
+        FriendService.getFriendRequests().then(friendsData => this.setState({...this.state, friendsData }));
     }
 
     mapFriendsToArticles() {
@@ -53,12 +54,12 @@ class FriendshipPage extends WebComponent {
             startX: event.pageX
         }});
 
-        // listen the mouse movements
-        document.addEventListener('mousemove', this.onMove.bind(this));
-        document.addEventListener('mouseup', this.onEnd.bind(this));
+        document.addEventListener('mousemove', this.onMoveBound);
+        document.addEventListener('mouseup', this.onEndBound);
     }
 
-    onMove(event) {
+    onMove = (event) => {
+
         // current position of mouse
         const { startX, actualCard } = this.state.dragEvent;
 
@@ -67,7 +68,6 @@ class FriendshipPage extends WebComponent {
         const currentX = event.pageX;
         const pullDeltaX = currentX - startX;
 
-        // the distance between the initial and current position
         this.setState({ ...this.state, dragEvent: {
             ...this.state.dragEvent,
             pullDeltaX,
@@ -82,7 +82,6 @@ class FriendshipPage extends WebComponent {
         // apply the transformation to the card
         actualCard.style.transform = `translateX(${this.state.dragEvent.pullDeltaX}px)`;
 
-        // change the cursor to grabbing
         actualCard.style.cursor = 'grabbing';
 
         // change opacity of the choice info
@@ -99,71 +98,81 @@ class FriendshipPage extends WebComponent {
 
         choiceElement.style.opacity = opacity;
         hideElement.style.opacity = 0;
-    }
+    };
 
-    onEnd() {
-
+    onEnd = () => {
         const { actualCard, pullDeltaX } = this.state.dragEvent;
 
         if (!actualCard) return;
 
-        // remove the event listeners
-        document.removeEventListener('mousemove', this.onMove.bind(this));
-        document.removeEventListener('mouseup', this.onEnd.bind(this));
-
-        // saber si el usuario tomo una decisión
         const isDecisionMade = Math.abs(pullDeltaX) >= DECISION_THRESHOLD;
         if (isDecisionMade) {
             const isRightChoice = pullDeltaX >= 0;
 
-            // add class according to the decision
             actualCard.classList.add(isRightChoice ? 'go-right' : 'go-left');
-            actualCard.addEventListener('transitionend', () => {
+            actualCard.addEventListener('transitionend', e => {
+                if (e.target !== actualCard || e.propertyName !== 'transform') return;
+
                 const username = actualCard.querySelector('h2').textContent;
-                const currentIndex = this.state.friendsData.findIndex(friend => friend.username === username);
-                if (currentIndex !== -1) {
-                    const friendshipResolution = isRightChoice
-                        ? FriendService.acceptFriendship
-                        : FriendService.deleteFriendship;
-                    friendshipResolution(this.state.friendsData[currentIndex].id)
-                        .then(() => {
-                            this.setState({
-                                ...this.state,
-                                friendsData: [
-                                    ...this.state.friendsData.slice(0, currentIndex),
-                                    ...this.state.friendsData.slice(currentIndex + 1)
-                                ]
-                            });
+                const friend = this.state.friendsData.find(friend => friend.username === username);
+
+                if (!friend) return;
+                const index = this.state.friendsData.indexOf(friend);
+                const friendshipResolution = isRightChoice
+                    ? FriendService.acceptFriendship
+                    : FriendService.deleteFriendship;
+
+                friendshipResolution(friend.id)
+                    .then(() => {
+                        actualCard.removeAttribute('style');
+                        actualCard.classList.remove('reset');
+                        actualCard.querySelectorAll('.choice').forEach(element => element.style.opacity = 0);
+                        this.setState({
+                            ...this.state,
+                            friendsData: [
+                                ...this.state.friendsData.slice(0, index),
+                                ...this.state.friendsData.slice(index + 1)
+                            ],
+                            dragEvent: {
+                                pullDeltaX: 0,
+                                startX: 0,
+                                actualCard: null,
+                                isAnimating: false
+                            }
                         });
-                }
-                actualCard.remove();
+                        actualCard.remove();
+                    });
             });
         } else {
             actualCard.classList.add('reset');
             actualCard.classList.remove('go-right', 'go-left');
             actualCard.querySelectorAll('.choice').forEach(choice => choice.style.opacity = 0);
+
+            actualCard.addEventListener('transitionend', e => {
+                if (e.target !== actualCard || e.propertyName !== 'transform') return;
+                actualCard.removeAttribute('style');
+                actualCard.classList.remove('reset');
+                this.setState({
+                    ...this.state,
+                    dragEvent: {
+                        pullDeltaX: 0,
+                        startX: 0,
+                        actualCard: null,
+                        isAnimating: false
+                    }
+                });
+            });
         }
 
-        // reset the variables
-        actualCard.addEventListener('transitionend', () => {
-            actualCard.removeAttribute('style');
-            actualCard.classList.remove('reset');
-            this.setState({ ...this.state, dragEvent: {
-                pullDeltaX: 0,
-                startX: 0,
-                actualCard: null,
-                isAnimating: false
-            }});
-        });
-
-        // reset the choice info opacity
-        actualCard
-            .querySelectorAll('.choice')
-            .forEach(element => element.style.opacity = 0);
-    }
+        document.removeEventListener('mousemove', this.onMoveBound);
+        document.removeEventListener('mouseup', this.onEndBound);
+    };
 
     afterViewInit() {
-        this.subscribeAll('article', 'mousedown', e => this.startDrag(e));
+        this.subscribeAll('div.cards', 'mousedown', e => {
+            if (e.target.closest('article'))
+                this.startDrag(e);
+        });
     }
 
     render() {
