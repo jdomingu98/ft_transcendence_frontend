@@ -223,10 +223,13 @@ class AppGame extends WebComponent {
         `;
     }
     bind() {
-        this.subscribeAll('.btn-game', 'click', () => {
+        this.subscribeAll('.btn-game', 'click', e => {
+            e.preventDefault();
             if (this.isStopped) return;
             this.togglePause(!this.isPause);
         });
+        this.subscribeAll('.btn-game', 'mousedown', e => e.preventDefault());
+
         this.subscribe(window, 'keydown', e => {
             if (this.isStopped) return;
             this.keysPressed.set(e.keyCode, true);
