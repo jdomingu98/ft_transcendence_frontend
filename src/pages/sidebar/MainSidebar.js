@@ -64,9 +64,17 @@ class MainSidebar extends WebComponent {
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()
         };
-        const validSidebarUrl = this.state.sidebarLinks.find(({ sidebarElementId }) => sidebarElementId === this.state.selectedDefaultOption);
-        if (window.location.pathname === '/app' || !validSidebarUrl)
+        if (this.invalidAppRoutes)
             NavigatorService.goToHome();
+    }
+
+    get invalidAppRoutes() {
+        const validSidebarUrl = this.state.routes.find( ({path}) => {
+            const pathSplit = path.split('/');
+            const windowPath = window.location.pathname.split('/');
+            return pathSplit[2] === windowPath[2] && pathSplit.length === windowPath.length;
+        });
+        return !validSidebarUrl;
     }
 
     getProfileImage() {
@@ -113,7 +121,7 @@ class MainSidebar extends WebComponent {
     }
 
     afterViewInit() {
-        const defaultOption = this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`);
+        const defaultOption = this.state.selectedDefaultOption === '' ? null : this._getDOM().querySelector(`#${this.state.selectedDefaultOption}`);
 
         if (defaultOption)
             defaultOption.classList.add('selected');
