@@ -258,7 +258,7 @@ class AppGame extends WebComponent {
     render() {
         const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
         return `
-            <div class="d-flex justify-content-center align-items-center overflow-hidden" style="background-color: var(--app-primary-bg-color)">
+            <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
                     ${ this.getHeader(profileImg, this.state.players[1].src) }
                     <div class="position-relative">
