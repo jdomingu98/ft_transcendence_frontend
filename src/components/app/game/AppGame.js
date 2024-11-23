@@ -12,7 +12,7 @@ export const KEY_W = 87;
 export const KEY_S = 83;
 const KEY_SPACE = 32;
 
-const INITIAL_REMAINING_TIME = 300; // seconds
+const INITIAL_REMAINING_TIME = 5; // seconds
 
 export default Component ({
     tagName: 'app-game',
@@ -157,13 +157,35 @@ class AppGame extends WebComponent {
     finishGame() {
         const winner = this.game.finishGame() === PaddleTypes.LEFT ? this.playerOne : this.playerTwo;
         this.togglePause(true);
-        this.emit('FINISH_GAME', { winner });
+        const paddles = this.game.getPaddles();
+
         if (localStorage.getItem('access_token')) {
             GameService.storeMatch(this.getData(this.userId, this.playerOne))
+                .then(tournamentResults => {
+                    this.emit('FINISH_GAME', {
+                        winner,
+                        playerOne: this.playerOne,
+                        playerTwo: this.playerTwo,
+                        numGoalsScored: paddles.left.getScore(),
+                        numGoalsAgainst: paddles.right.getScore(),
+                        tournament: {
+                            nextPlayerA: tournamentResults.user_a,
+                            nextPlayerB: tournamentResults.user_b,
+                        }
+                    });
+                })
                 .catch(() => SnackbarService.addToast({
                     title: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.TITLE'),
                     body: this.translator.translate('SNACKBAR.LOCAL_MATCH.ERROR_SENDING_DATA.DESC')
                 }));
+        } else {
+            this.emit('FINISH_GAME', {
+                winner,
+                playerOne: this.playerOne,
+                playerTwo: this.playerTwo,
+                numGoalsScored: paddles.left.getScore(),
+                numGoalsAgainst: paddles.right.getScore(),
+            });
         }
     }
 
@@ -260,9 +282,9 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        const profileImg = this.getAttribute('profileImg') /*?? this.state.players[0].src*/;
-        const userIsPlayerOne = this.username === this.playerOne;
-        const userIsPlayerTwo = this.username === this.playerTwo;
+        const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
+        const numGoalsAgainst = this.getAttribute('numGoalsAgainst') ?? 0;
+        const numGoalsScored = this.getAttribute('numGoalsScored') ?? 0;
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
@@ -273,14 +295,14 @@ class AppGame extends WebComponent {
                             <span>GOLDEN GOAL</span>
                         </div>
                         <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
-                            <span class="score" id="score-1">0</span>
+                            <span class="score" id="score-1">${numGoalsScored}</span>
                             <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden">
                                 <i class="bi bi-pause"></i>
                             </button>
                             <button class="position-absolute top-50 start-50 translate-middle btn-game play">
                                 <i class="bi bi-play-fill"></i>
                             </button>
-                            <span class="score" id="score-2">0</span>
+                            <span class="score" id="score-2">${numGoalsAgainst}</span>
                         </div>
                         <canvas class="pongCanvas" width="1920" height="1080"></canvas>
                     </div>

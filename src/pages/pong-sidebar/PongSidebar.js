@@ -78,7 +78,9 @@ class PongSidebar extends WebComponent {
                 match: {
                     ...this.state.match,
                     playerOne: detail.players[0],
-                    playerTwo: detail.players[1]
+                    playerTwo: detail.players[1],
+                    numGoalsAgainst: 0,
+                    numGoalsScored: 0
                 }
             });
 
@@ -120,6 +122,10 @@ class PongSidebar extends WebComponent {
                 match: {
                     isMatchOver: true,
                     winner: detail.winner,
+                    playerOne: detail.playerOne,
+                    playerTwo: detail.player,
+                    numGoalsScored: detail.numGoalsScored,
+                    numGoalsAgainst: detail.numGoalsAgainst,
                 },
                 tournament: {
                     ...this.state.tournament,
@@ -129,6 +135,22 @@ class PongSidebar extends WebComponent {
                     isTournamentOver: newCurrentRound > this.state.tournament.totalRound
                 }
             });
+
+            setTimeout(() => {
+                console.log(detail);
+                this.setState({
+                    ...this.state,
+                    stop: false,
+                    match: {
+                        ...this.state.match,
+                        isMatchOver: false,
+                        playerOne: detail.tournament.nextPlayerA,
+                        playerTwo: detail.tournament.nextPlayerB,
+                        numGoalsScored: 0,
+                        numGoalsAgainst: 0,
+                    }
+                });
+            }, 1000);
         });
     }
 
@@ -153,11 +175,13 @@ class PongSidebar extends WebComponent {
                 > </winner-modal>` : ''}
                 <app-game
                     [isStopped]="state.stop"
-                    userId="${this.state.user?.id}"
-                    username="${this.state.user?.username}"
-                    playerOne="${this.state.match.playerOne}"
-                    playerTwo="${this.state.match.playerTwo}"
-                    profileImg="${this.state.user?.profile_img}">
+                    [userId]="state.user?.id"
+                    [playerOne]="state.match.playerOne"
+                    [playerTwo]="state.match.playerTwo"
+                    [profileImg]="state.user?.profile_img"
+                    [numGoalsScored]="state.match.numGoalsScored"
+                    [numGoalsAgainst]="state.match.numGoalsAgainst"
+                    >
                 </app-game>
             </section>
         `;
