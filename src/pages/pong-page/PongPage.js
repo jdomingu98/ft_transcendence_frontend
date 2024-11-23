@@ -35,11 +35,14 @@ class PongPage extends WebComponent {
         if (this.state.accessToken)
             NavigatorService.goToSidebarElementPage( this.state.isTournament ? 'tournament': 'game');
         return `
-            <landing-auth-modal></landing-auth-modal>
-            <landing-otp-modal></landing-otp-modal>
-            <landing-navbar></landing-navbar>
-            <app-game></app-game>
-            <landing-footer></landing-footer>
+            <div class="h-100 w-100" style="max-height: 100vh">
+                <landing-auth-modal></landing-auth-modal>
+                <landing-otp-modal></landing-otp-modal>
+                <landing-navbar></landing-navbar>
+                <section style="background-color: var(--app-primary-bg-color)">
+                    <app-game></app-game>
+                </section>
+            </div>
         `;
     }
 });
