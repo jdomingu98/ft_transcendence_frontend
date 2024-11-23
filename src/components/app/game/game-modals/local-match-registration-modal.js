@@ -56,9 +56,9 @@ class LocalMatchRegistrationModal extends WebComponent {
         GameService.validateMatch({id: this.userId, user_a: this.playerOne, user_b: playerTwo})
             .then(() => {
                 this.emit('START_LOCAL_MATCH', { playerOne: this.playerOne, playerTwo });
+                this.state.open = false;
             })
             .catch( e => this.markAsError(e.error[0]));
-        this.state.open = false;
     }
 
     bind() {
