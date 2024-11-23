@@ -154,6 +154,7 @@ class PongSidebar extends WebComponent {
                 <app-game
                     [isStopped]="state.stop"
                     userId="${this.state.user?.id}"
+                    username="${this.state.user?.username}"
                     playerOne="${this.state.match.playerOne}"
                     playerTwo="${this.state.match.playerTwo}"
                     profileImg="${this.state.user?.profile_img}">

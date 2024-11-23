@@ -52,6 +52,10 @@ class AppGame extends WebComponent {
         return this.getAttribute('userId');
     }
 
+    get username() {
+        return this.getAttribute('username');
+    }
+
     get btnPause() {
         return this._getDOM().querySelector('.pause');
     }
@@ -256,11 +260,13 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
+        const profileImg = this.getAttribute('profileImg') /*?? this.state.players[0].src*/;
+        const userIsPlayerOne = this.username === this.playerOne;
+        const userIsPlayerTwo = this.username === this.playerTwo;
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
-                    ${ this.getHeader(profileImg, this.state.players[1].src) }
+                    ${ this.getHeader( userIsPlayerOne ? profileImg : this.state.players[0].src, userIsPlayerTwo ? profileImg : this.state.players[1].src)}
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal">
