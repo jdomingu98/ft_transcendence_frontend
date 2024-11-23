@@ -1,5 +1,6 @@
 import '/src/components/app/profile';
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 import UserService from '#services/UserService';
 
 document.querySelector('meta[name="description"]').content = 'View your profile information, stats, and friends.';
@@ -21,12 +22,18 @@ export default Component ({
 class ProfilePage extends WebComponent {
 
     init() {
-        if (this.isMePage)
-            UserService.getMyInfo().then(({ id }) => this.setUserData(id));
-        else {
-            const id = window.location.pathname.split('/').pop();
+        UserService.getMyInfo().then(({ id: meId }) => {
+            let id = meId;
+            if (!this.isMePage) {
+                const urlId = window.location.pathname.split('/').pop();
+                if (Number(urlId) === meId) {
+                    NavigatorService.goToHome();
+                    return;
+                }
+                id = urlId;
+            }
             this.setUserData(id);
-        }
+        });
     }
 
     setUserData(id) {
