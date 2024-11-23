@@ -33,6 +33,7 @@ export class Game extends CanvasObject {
         this.#ball = new Ball(this.getCanvas());
         this.resetPaddles();
         this.#startDate = new Date();
+        this.render();
     }
 
     /*************************************************
