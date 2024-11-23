@@ -1,4 +1,4 @@
-import { DECISION_THRESHOLD, DEFAULT_PROFILE_IMG } from '#const';
+import { DECISION_THRESHOLD, DEFAULT_PROFILE_IMG_SWIPE } from '#const';
 import WebComponent, { Component } from '#WebComponent';
 import FriendService from '#services/FriendService';
 import css from './FriendshipPage.css?inline';
@@ -33,7 +33,7 @@ class FriendshipPage extends WebComponent {
     mapFriendsToArticles() {
         return this.state.friendsData?.map( friend => `
             <article>
-                <img src="${friend.profile_img ?? DEFAULT_PROFILE_IMG}" alt="${friend.username} profile picture" />
+                <img src="${friend.profile_img ?? DEFAULT_PROFILE_IMG_SWIPE}" alt="${friend.username} profile picture" style="aspect-ratio: 16/9"/>
                 <h2>${friend.username}</h2>
                 <div class="choice reject text-uppercase">{{ translator.translate("FRIENDSHIP.REJECT") }}</div>
                 <div class="choice accept text-uppercase">{{ translator.translate("FRIENDSHIP.ACCEPT") }}</div>

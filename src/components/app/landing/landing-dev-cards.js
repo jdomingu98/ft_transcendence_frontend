@@ -1,5 +1,4 @@
 import WebComponent, { Component } from '#WebComponent';
-import { DEFAULT_IMG_DIMENSION } from '#const';
 
 export default Component ({
     tagName: 'landing-dev-cards',
@@ -67,7 +66,7 @@ class LandingDevCards extends WebComponent {
             `
                 <div class="col d-flex px-0 my-5 justify-content-center" style="z-index:1;">
                     <div class="card mt-4 border-0 card-content text-uppercase">
-                        <div class="mx-auto rounded-circle profile" style="width:${DEFAULT_IMG_DIMENSION}; height:${ DEFAULT_IMG_DIMENSION}; background-image: url(${dev.src})"></div>
+                        <div class="mx-auto rounded-circle profile" style="width:100px;  aspect-ratio: 1/1; background-image: url(${dev.src})"></div>
                         <div class="card-body">
                             <p class="dev-name fw-bolder mb-4 text-center" style="color: var(--app-secondary-color)">${dev.name}</p>
                             <div class="d-flex row justify-content-center align-items-center" style="height: 90%;">
