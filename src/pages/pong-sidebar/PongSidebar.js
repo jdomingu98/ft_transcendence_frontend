@@ -137,7 +137,6 @@ class PongSidebar extends WebComponent {
             });
 
             setTimeout(() => {
-                console.log(detail);
                 this.setState({
                     ...this.state,
                     stop: false,
@@ -176,6 +175,7 @@ class PongSidebar extends WebComponent {
                 <app-game
                     [isStopped]="state.stop"
                     [userId]="state.user?.id"
+                    [username]="state.user?.username"
                     [playerOne]="state.match.playerOne"
                     [playerTwo]="state.match.playerTwo"
                     [profileImg]="state.user?.profile_img"

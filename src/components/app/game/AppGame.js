@@ -12,7 +12,7 @@ export const KEY_W = 87;
 export const KEY_S = 83;
 const KEY_SPACE = 32;
 
-const INITIAL_REMAINING_TIME = 5; // seconds
+const INITIAL_REMAINING_TIME = 300; // seconds
 
 export default Component ({
     tagName: 'app-game',
@@ -282,13 +282,15 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        const profileImg = this.getAttribute('profileImg') ?? this.state.players[0].src;
+        const profileImg = this.getAttribute('profileImg');
+        const leftImg = (this.username === this.playerOne) && profileImg ? profileImg : this.state.players[0].src;
+        const rightImg = (this.username === this.playerTwo) && profileImg ? profileImg : this.state.players[1].src;
         const numGoalsAgainst = this.getAttribute('numGoalsAgainst') ?? 0;
         const numGoalsScored = this.getAttribute('numGoalsScored') ?? 0;
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
-                    ${ this.getHeader( userIsPlayerOne ? profileImg : this.state.players[0].src, userIsPlayerTwo ? profileImg : this.state.players[1].src)}
+                    ${ this.getHeader(leftImg, rightImg)}
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal">
