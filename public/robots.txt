@@ -18,4 +18,4 @@ Allow: /app/privacy-policy
 Allow: /app/legal-notice
 Allow: /app/terms-conditions
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://localhost:8443/sitemap.xml
