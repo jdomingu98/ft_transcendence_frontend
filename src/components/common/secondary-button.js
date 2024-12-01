@@ -17,9 +17,9 @@ class SecondaryButton extends WebComponent {
             <button
                 class="btn btn-secondary bg-transparent rounded-pill"
                 style="width: ${width}; height: ${height}; border: 2px solid ${color};"
-                aria-label="${buttonText}"
             >
-                <sub-header-text>${buttonText}<sub-header-text>
+                <p  class="text-uppercase fw-semibold m-0 text-white"
+                    style="letter-spacing: 0.1em; font-size:1.2rem">${buttonText}</p>
             </button>
         `;
     }

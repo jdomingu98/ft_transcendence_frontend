@@ -16,13 +16,11 @@ class PrimaryButton extends WebComponent {
         const txt_color = this.getAttribute('txt-color') || 'white';
 
         return `
-            <button
-                id="${id}"
+            <button ${id ? `id=${id}` : ''}
                 class="btn btn-primary px-0 border-0 fw-semibold text-uppercase rounded-pill"
-                style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em;"
-                aria-label="${buttonText}"
-            >
-                <sub-header-text color="${txt_color}">${buttonText}</sub-header-text>
+                style="width:${width}; height:${height}; background-color: ${color}; letter-spacing: 0.1em;">
+                    <p class="text-uppercase fw-semibold m-0"
+                        style="letter-spacing: 0.1em; color: ${txt_color}; font-size:1.2rem">${buttonText}</p>
             </button>
         `;
     }
