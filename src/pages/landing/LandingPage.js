@@ -81,7 +81,7 @@ class LandingPage extends WebComponent {
                             <div class="my-4 col-9">
                                 <p class="landing-body-text">${ this.translator.translate('LANDING.LEADER_BOARD.SUBTITLE') }</p>
                             </div>
-                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}<primary-button>
+                            <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}</primary-button>
                         </div>
                         <img loading="lazy" src="/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-6" style="width:450px; height:460px">
                     </section>
