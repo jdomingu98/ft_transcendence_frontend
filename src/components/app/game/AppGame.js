@@ -1,7 +1,6 @@
 import { Game, PaddleTypes } from './models/Game';
 import { Sounds, timerDisplay} from './PongUtils';
 import WebComponent, { Component } from '#WebComponent';
-import { BallDirection } from './models/Ball';
 import GameService from '#services/GameService';
 import { SnackbarService } from '#services/SnackbarService';
 import css from './AppGame.css?inline';
@@ -196,7 +195,7 @@ class AppGame extends WebComponent {
     gameMovement(deltaTime) {
         const scoring = this.game.checkScore();
         if (scoring) {
-            const scoringElement = scoring.position === BallDirection.RIGHT ? '#score-1' : '#score-2';
+            const scoringElement = scoring.position === PaddleTypes.RIGHT ? '#score-2' : '#score-1';
             this._getDOM().querySelector(scoringElement).innerHTML = scoring.paddle.getScore();
             if (this.game.hasFinished()) this.finishGame();
         }

@@ -86,10 +86,10 @@ export class Game extends CanvasObject {
         let scoringPaddle = null, direction = null;
 
         if (this.#ball.x >= this.getCanvas().width) {
-            scoringPaddle = this.#paddles.right;
+            scoringPaddle = this.#paddles.left;
             direction = BallDirection.RIGHT;
         } else if (this.#ball.x <= 0) {
-            scoringPaddle = this.#paddles.left;
+            scoringPaddle = this.#paddles.right;
             direction = BallDirection.LEFT;
         }
         if (scoringPaddle) {
@@ -98,7 +98,7 @@ export class Game extends CanvasObject {
             this.#paddles.left.reset();
             this.#paddles.right.reset();
             return {
-                position: direction === BallDirection.RIGHT ? PaddleTypes.RIGHT : PaddleTypes.LEFT,
+                position: direction === BallDirection.RIGHT ? PaddleTypes.LEFT : PaddleTypes.RIGHT,
                 paddle: scoringPaddle,
             };
         }
