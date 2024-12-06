@@ -211,7 +211,7 @@ export class Game extends CanvasObject {
 
     #getLeftPaddleConfig({ width, height, x, y }) {
         return {
-            x, y, width, height,
+            x, y: y + 0.1, width, height,
             color: '#8D8DDA',
             upKey: KEY_W,
             downKey: KEY_S,
@@ -221,7 +221,7 @@ export class Game extends CanvasObject {
     #getRightPaddleConfig({ width, height, x, y} ) {
         return {
             x: this.getCanvas().width - width - x,
-            y, width, height,
+            y: y - 0.1, width, height,
             color: '#ABD9D9',
             upKey: KEY_ARROW_UP,
             downKey: KEY_ARROW_DOWN,
