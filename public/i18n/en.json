@@ -346,6 +346,54 @@
     "REJECT": "Reject",
     "NO_MORE_REQUESTS": "There are no more friend requests... Come back later"
   },
+  "GAME": {
+    "GOLDEN_GOAL": "Golden Goal",
+    "REGISTRATION_MODAL": {
+      "TITLE": "New local match",
+      "FIRST_ALIAS": {
+        "LABEL": "First player alias",
+        "PHOLDER": "Alias 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "Second player alias",
+        "PHOLDER": "Alias 2"
+      },
+      "BUTTON": "Start game"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "New tournament",
+      "NAME": {
+        "LABEL": "Name",
+        "PHOLDER": "Tournament name"
+      },
+      "PLAYERS": {
+        "LABEL": "Participants",
+        "PHOLDER": "Add new player"
+      },
+      "BUTTON": "Start tournament"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "Round ",
+      "SEMIFINALS": "Semifinals",
+      "FINALS": "Final Round",
+      "BUTTON": "Start next match"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 CONGRATULATIONS! 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "Match finished",
+      "DESC": "You are the winner of the match!",
+      "BUTTON": "Play again"
+    },
+    "TOURNAMENT": {
+      "TITLE": "Tournament finished",
+      "DESC": "You are the winner of the tournament!",
+      "BUTTON": "Create new tournament"
+    }
+  },
   "LEADERBOARD": {
     "TITLE": "Top 10 Pong Players",
     "POSITION": "Your current position",
@@ -385,7 +433,8 @@
       "NOT_VERIFIED": "User is not verified",
       "PASS_RESET": "No user or email matches the given input",
       "CHECKBOX": "You must accept the terms and conditions",
-      "NOT_FOUND": "User not found"
+      "NOT_FOUND": "User not found",
+      "INVALID": "One or more users are invalid. Please check them and try again"
     },
     "OAUTH": {
       "NO_CODE": "Oops, why are you here? 🤔",

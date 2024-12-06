@@ -35,10 +35,10 @@ class RoundModal extends WebComponent {
         const currentRound = this.state.tournament.current_round;
         const totalRound = this.state.tournament.total_round;
         if (currentRound === totalRound)
-            return 'Final Round';
+            return this.translator.translate('TOURNAMENT.ROUND_MODAL.FINALS');
         else if (currentRound === totalRound - 1)
-            return 'Semifinals';
-        return `Round ${currentRound}`;
+            return this.translator.translate('TOURNAMENT.ROUND_MODAL.SEMIFINALS');
+        return this.translator.translate('TOURNAMENT.ROUND_MODAL.TITLE') + currentRound;
     }
 
     mapRoundMatches() {
@@ -78,7 +78,7 @@ class RoundModal extends WebComponent {
                         <div class="grid-container mb-3" style="grid-template-columns: repeat(${columns}, 1fr)">
                             ${ this.mapRoundMatches() }
                         </div>
-                        <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">Start next match</button>
+                        <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">{{ translator.translate('TOURNAMENT.ROUND_MODAL.BUTTON')}}</button>
                     </div>
                 </div>
             </div>

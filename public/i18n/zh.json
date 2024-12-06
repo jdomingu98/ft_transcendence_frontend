@@ -346,6 +346,54 @@
     "REJECT": "拒绝",
     "NO_MORE_REQUESTS": "没有更多的好友请求了... 稍后再来"
   },
+  "GAME": {
+    "GOLDEN_GOAL": "金球",
+    "REGISTRATION_MODAL": {
+      "TITLE": "新的本地比赛",
+      "FIRST_ALIAS": {
+        "LABEL": "第一位玩家昵称",
+        "PHOLDER": "昵称 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "第二位玩家昵称",
+        "PHOLDER": "昵称 2"
+      },
+      "BUTTON": "开始比赛"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "新锦标赛",
+      "NAME": {
+        "LABEL": "名称",
+        "PHOLDER": "锦标赛名称"
+      },
+      "PLAYERS": {
+        "LABEL": "参赛者",
+        "PHOLDER": "添加新玩家"
+      },
+      "BUTTON": "开始锦标赛"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "轮次 ",
+      "SEMIFINALS": "半决赛",
+      "FINALS": "决赛",
+      "BUTTON": "开始下一场比赛"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 恭喜！ 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "比赛结束",
+      "DESC": "你是比赛的赢家！",
+      "BUTTON": "再玩一次"
+    },
+    "TOURNAMENT": {
+      "TITLE": "锦标赛结束",
+      "DESC": "你是锦标赛的赢家！",
+      "BUTTON": "创建新锦标赛"
+    }
+  },
   "LEADERBOARD": {
     "TITLE": "前 10 名乒乓球玩家",
     "POSITION": "你当前的位置",
@@ -385,7 +433,8 @@
       "NOT_VERIFIED": "用户未验证",
       "PASS_RESET": "没有与提供的输入匹配的用户或电子邮件",
       "CHECKBOX": "您必须接受条款和条件",
-      "NOT_FOUND": "用户未找到"
+      "NOT_FOUND": "用户未找到",
+      "INVALID": "一个或多个用户无效。请检查后重试"
     },
     "OAUTH": {
       "NO_CODE": "哎呀，你怎么会在这里？ 🤔",

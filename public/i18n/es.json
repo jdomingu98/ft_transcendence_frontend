@@ -346,6 +346,54 @@
     "REJECT": "Rechazar",
     "NO_MORE_REQUESTS": "No hay más solicitudes de amistad... Vuelve más tarde"
   },
+  "GAME": {
+    "GOLDEN_GOAL": "Gol de oro",
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nuevo partido local",
+      "FIRST_ALIAS": {
+        "LABEL": "Alias del primer jugador",
+        "PHOLDER": "Alias 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "Alias del segundo jugador",
+        "PHOLDER": "Alias 2"
+      },
+      "BUTTON": "Iniciar partida"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nuevo torneo",
+      "NAME": {
+        "LABEL": "Nombre",
+        "PHOLDER": "Nombre del torneo"
+      },
+      "PLAYERS": {
+        "LABEL": "Participantes",
+        "PHOLDER": "Añadir nuevo jugador"
+      },
+      "BUTTON": "Iniciar torneo"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "Ronda ",
+      "SEMIFINALS": "Semifinales",
+      "FINALS": "Ronda final",
+      "BUTTON": "Iniciar siguiente partido"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 ¡FELICIDADES! 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "Partida terminada",
+      "DESC": "¡Eres el ganador de la partida!",
+      "BUTTON": "Jugar de nuevo"
+    },
+    "TOURNAMENT": {
+      "TITLE": "Torneo terminado",
+      "DESC": "¡Eres el ganador del torneo!",
+      "BUTTON": "Crear nuevo torneo"
+    }
+  },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",
     "POSITION": "Tu posición actual",
@@ -385,7 +433,8 @@
       "NOT_VERIFIED": "El usuario no está verificado",
       "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
       "CHECKBOX": "Debes aceptar los términos y condiciones",
-      "NOT_FOUND": "Usuario no encontrado"
+      "NOT_FOUND": "Usuario no encontrado",
+      "INVALID": "Uno o más usuarios son inválidos. Por favor, revísalos y prueba de nuevo"
     },
     "OAUTH": {
       "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",

@@ -73,17 +73,17 @@ class LocalMatchRegistrationModal extends WebComponent {
                 <div id="localMatchRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
-                        <h3>NEW LOCAL MATCH</h3>
+                        <h3>{{ translator.translate('GAME.REGISTRATION_MODAL.TITLE') }}</h3>
                         <p class="error-message hidden"></p>
                         <div class="my-4" style="width: 85%;">
-                            <h4>FIRST PLAYER ALIAS</h4>
-                            <input type="text" id="player-one" minlength="3" maxlength="20" ${this.userId ? 'disabled' : ''} [value]="playerOne" placeholder="Alias 1" required>
+                            <h4>{{ translator.translate('GAME.REGISTRATION_MODAL.FIRST_ALIAS.LABEL') }}</h4>
+                            <input type="text" id="player-one" minlength="3" maxlength="20" ${this.userId ? 'disabled' : ''} [value]="playerOne" [placeholder]="translator.translate('GAME.REGISTRATION_MODAL.FIRST_ALIAS.PHOLDER')" required>
                         </div>
                         <div class="my-4" style="width: 85%;">
-                            <h4>SECOND PLAYER ALIAS</h4>
-                            <input type="text" id="player-two" minlength="3" maxlength="20" placeholder="Alias 2" required>
+                            <h4>{{ translator.translate('GAME.REGISTRATION_MODAL.SECOND_ALIAS.LABEL') }}</h4>
+                            <input type="text" id="player-two" minlength="3" maxlength="20" [placeholder]="translator.translate('GAME.REGISTRATION_MODAL.SECOND_ALIAS.PHOLDER')" required>
                         </div>
-                        <button class="primary-btn mt-4" style="width: 85%;">Start game</button>
+                        <button class="primary-btn mt-4" style="width: 85%;">{{ translator.translate('GAME.REGISTRATION_MODAL.BUTTON') }}</button>
                     </div>
                 </div>
             </div>

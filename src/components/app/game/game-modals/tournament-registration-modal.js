@@ -74,7 +74,7 @@ class TournamentRegistrationModal extends WebComponent {
                 this.emit('START_TOURNAMENT', {name: this.name, players: tournament.players, tournamentId: tournament.id});
                 this.setState({ ...this.state, open: false });
             })
-            .catch(e => e && this.markAsError(playerListDiv, e.error[0]));
+            .catch(e => e && this.markAsError(playerListDiv, this.translator.translate(e.error[0])));
     }
 
     addPlayer() {
@@ -132,16 +132,16 @@ class TournamentRegistrationModal extends WebComponent {
                 <div id="tournamentRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
-                        <h3>NEW TOURNAMENT</h3>
-                        <p class="error-message hidden"></p>
+                        <h3>{{ translator.translate('TOURNAMENT.REGISTRATION_MODAL.TITLE') }}</h3>
+                        <p class="error-message hidden mb-3"></p>
                         <div style="width: 85%;">
-                            <h4>NAME</h4>
-                            <input type="text" id="tournament-name" maxlength="30" placeholder="Tournament name" required>
+                            <h4>{{ translator.translate('TOURNAMENT.REGISTRATION_MODAL.NAME.LABEL') }}</h4>
+                            <input type="text" id="tournament-name" maxlength="30" [placeholder]="translator.translate('TOURNAMENT.REGISTRATION_MODAL.NAME.PHOLDER')" required>
                         </div>
                         <div class="my-4" style="width: 85%;">
-                            <h4>PARTICIPANTS</h4>
+                            <h4>{{ translator.translate('TOURNAMENT.REGISTRATION_MODAL.PLAYERS.LABEL') }}</h4>
                             <div class="w-100 d-flex justify-content-space-evenly align-items-center" style="height: 40px">
-                                <input type="text" id="player-list-input" minlength="3" maxlength="20" placeholder="Add new player">
+                                <input type="text" id="player-list-input" minlength="3" maxlength="20" [placeholder]="translator.translate('TOURNAMENT.REGISTRATION_MODAL.PLAYERS.PHOLDER')">
                                 <button id="add-player" class="primary-btn-alt ms-2 text-center" style="width: 80px;">
                                     <i class="bi bi-person-fill-add" style="font-size: 1rem;"></i>
                                 </button>
@@ -150,7 +150,7 @@ class TournamentRegistrationModal extends WebComponent {
                         <div id="player-list-container" class="app-textarea" style="width: 85%;">
                             ${this.mapPlayerList()}
                         </div>
-                        <button id="start" class="primary-btn mt-4" ${this.isPowerOfTwo() ? '' : 'disabled'} style="width: 85%;">Start tournament</button>
+                        <button id="start" class="primary-btn mt-4" ${this.isPowerOfTwo() ? '' : 'disabled'} style="width: 85%;">{{ translator.translate('TOURNAMENT.REGISTRATION_MODAL.BUTTON') }}</button>
                     </div>
                 </div>
             </div>

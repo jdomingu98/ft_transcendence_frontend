@@ -40,46 +40,32 @@ class WinnerModal extends WebComponent {
             this.confetti.runConfetti();
     }
 
-    getTournamentFinishedRender(name) {
+    getWinnerModalContent(type) {
         return `
             <div class="container text-white text-uppercase" style="letter-spacing: 0.05em">
                 <div class="my-3">
                     <h2 class="mb-3">TRANSCENDENCE</h2>
-                    <h3 class="mb-4">TOURNAMENT FINISHED</h3>
+                    <h3 class="mb-4">{{ translator.translate('WINNER_MODAL.${type}.TITLE') }}</h3>
                 </div>
-                <h4 class="mt-4" style="font-size: 1.4rem">🎉🎉 CONGRATULATIONS! 🎉🎉</h4>
+                <h4 class="mt-4" style="font-size: 1.4rem">{{ translator.translate('WINNER_MODAL.CONGRATULATIONS') }}</h4>
                 <div class="my-5 d-flex align-items-center justify-content-center rounded-pill winner-block">
                     <p>${this.winner}</p>
                 </div>
-                <p class="mb-4 fw-semibold text-center">You are the winner of the ${name} tournament!</p>
-                <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">Create new tournament</button>
-            </div>
-        `;
-    }
-
-    getMatchFinishedRender() {
-        return `
-            <div class="container text-white text-uppercase" style="letter-spacing: 0.05em">
-                <div class="my-3">
-                    <h2 class="mb-3">TRANSCENDENCE</h2>
-                    <h3 class="mb-4">MATCH FINISHED</h3>
-                </div>
-                <h4 class="mt-4" style="font-size: 1.4rem">🎉🎉 CONGRATULATIONS! 🎉🎉</h4>
-                <div class="my-5 d-flex align-items-center justify-content-center rounded-pill winner-block">
-                    <p>${this.winner}</p>
-                </div>
-                <p class="mb-4 fw-semibold">You are the winner of the match!</p>
-                <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">Play again</button>
+                <p class="mb-4 fw-semibold text-center">
+                    {{ translator.translate('WINNER_MODAL.${type}.DESC') }}
+                </p>
+                <button class="primary-btn-alt mt-4" style="width: 85%; height: 50px">
+                    {{ translator.translate('WINNER_MODAL.${type}.BUTTON') }}
+                </button>
             </div>
         `;
     }
 
     render() {
-        const tournamentName = this.getAttribute('name');
         return `
             <div class="game-body">
                 <div id="winnerModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
-                    ${ this.isTournamentLastRound ? this.getTournamentFinishedRender(tournamentName) : this.getMatchFinishedRender() }
+                    ${ this.getWinnerModalContent(this.isTournamentLastRound ? 'TOURNAMENT': 'LOCAL_MATCH') }
                 </div>
                 <canvas id="confettiCanvas" width="${window.innerWidth}" height="${window.innerHeight}"></canvas>
             </div>
