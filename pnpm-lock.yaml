@@ -30,6 +30,9 @@ importers:
       vite:
         specifier: ^5.2.0
         version: 5.2.12(sass@1.77.4)
+      vite-plugin-sitemap:
+        specifier: ^0.7.1
+        version: 0.7.1
 
 packages:
 
@@ -685,6 +688,9 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
+  vite-plugin-sitemap@0.7.1:
+    resolution: {integrity: sha512-4NRTkiWytLuAmcikckrLcLl9iYA20+5v6l8XshcOrzxH1WR8H0O3S6sTQYfjMrE8su/LG6Y0cTodvOdcOIxaLw==}
+
   vite@5.2.12:
     resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -1299,6 +1305,8 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  vite-plugin-sitemap@0.7.1: {}
 
   vite@5.2.12(sass@1.77.4):
     dependencies:
