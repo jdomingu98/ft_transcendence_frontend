@@ -28,10 +28,10 @@ class AppGame extends WebComponent {
 
     getRandomPlayers() {
         const images = [
-            {src: '/src/resources/players/image0.png', name: 'Crazy dev'},
-            {src: '/src/resources/players/image1.png', name: 'Awesome grandma'},
-            {src: '/src/resources/players/image2.png', name: 'Jonathan'},
-            {src: '/src/resources/players/image3.png', name: 'Fat cat'},
+            {src: '/resources/players/image0.webp', name: 'Crazy dev'},
+            {src: '/resources/players/image1.webp', name: 'Awesome grandma'},
+            {src: '/resources/players/image2.webp', name: 'Jonathan'},
+            {src: '/resources/players/image3.webp', name: 'Fat cat'},
         ];
         return images.sort(() => Math.random() - 0.5).slice(0, 2);
     }

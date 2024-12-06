@@ -38,22 +38,22 @@ class LandingDevCards extends WebComponent {
     init() {
         this.state = {
             devsInfo: [{
-                src: 'resources/devs/aruzafa-.jpg',
+                src: 'resources/devs/aruzafa-.webp',
                 name: 'aruzafa-',
                 firstRole: 'project manager',
                 secondRole: 'fullstack developer',
             }, {
-                src: 'resources/devs/atrujill.jpg',
+                src: 'resources/devs/atrujill.webp',
                 name: 'atrujill',
                 firstRole: 'backend developer',
                 secondRole: '',
             }, {
-                src: 'resources/devs/cmorales.jpg',
+                src: 'resources/devs/cmorales.webp',
                 name: 'cmorales',
                 firstRole: 'fullstack developer',
                 secondRole: '',
             }, {
-                src: 'resources/devs/jdomingu.png',
+                src: 'resources/devs/jdomingu.webp',
                 name: 'jdomingu',
                 firstRole: 'ux/ui designer',
                 secondRole: 'fullstack developer',
