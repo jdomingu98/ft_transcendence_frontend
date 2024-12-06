@@ -6,6 +6,7 @@ import './legal-docs/PrivacyPolicy';
 import './legal-docs/TermsConditions';
 import './oauth-redirect/OAuthRedirect';
 import './pong-page/PongPage';
+import './pong-tournament/PongTournament';
 import './pong-sidebar/PongSidebar';
 import './profile/ProfilePage';
 import './ranking/RankingPage';
