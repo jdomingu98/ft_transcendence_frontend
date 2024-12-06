@@ -86,8 +86,10 @@ export default class Paddle extends CanvasObject {
      * @param {number} deltaTime - Time difference to adjust movement for smooth animation.
      */
     move(direction, deltaTime) {
+        const windowScroll = window.scrollY;
         const newPosition = this.position.y + direction * this.#velocity.y * deltaTime;
         this.position.y = Math.max(0, Math.min(newPosition, this.getCanvas().height - this.#height));
+        window.scrollTo(0, windowScroll);
     }
 
     reset() {
@@ -98,9 +100,9 @@ export default class Paddle extends CanvasObject {
     increaseGoalsStopped() { this.#goalsStopped++; }
 
     static getGenericPaddleConfig(canvas) {
-        const paddleWidth = Math.max(MIN_PADDLE_WIDTH, Math.min(canvas.clientWidth * 0.016, MAX_PADDLE_WIDTH));
-        const paddleHeight = Math.max(MIN_PADDLE_HEIGHT, Math.min(canvas.clientHeight * 0.5, MAX_PADDLE_HEIGHT));
-        const paddleInitialPosX = canvas.clientWidth * 0.05;
+        const paddleWidth = Math.max(MIN_PADDLE_WIDTH, Math.min(canvas.width * 0.016, MAX_PADDLE_WIDTH));
+        const paddleHeight = Math.max(MIN_PADDLE_HEIGHT, Math.min(canvas.height * 0.5, MAX_PADDLE_HEIGHT));
+        const paddleInitialPosX = canvas.width * 0.05;
         const paddleInitialPosY = (canvas.height - paddleHeight) / 2;
         return {
             width: paddleWidth,
