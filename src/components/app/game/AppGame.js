@@ -293,7 +293,7 @@ class AppGame extends WebComponent {
                     <div class="position-relative">
                         <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal">
-                            <span>GOLDEN GOAL</span>
+                            <p>GOLDEN GOAL</p>
                         </div>
                         <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
                             <span class="score" id="score-1">${numGoalsScored}</span>
