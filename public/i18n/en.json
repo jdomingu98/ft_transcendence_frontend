@@ -434,7 +434,8 @@
       "PASS_RESET": "No user or email matches the given input",
       "CHECKBOX": "You must accept the terms and conditions",
       "NOT_FOUND": "User not found",
-      "INVALID": "One or more users are invalid. Please check them and try again"
+      "INVALID": "One or more users are invalid. Please check them and try again",
+      "SAME": "You can't match yourself. Please, get a friend to play with"
     },
     "OAUTH": {
       "NO_CODE": "Oops, why are you here? 🤔",
@@ -445,7 +446,13 @@
     "INVALID_TOKEN": "Invalid token",
     "EXPIRED_TOKEN": "Token expired",
     "OTP_CODE": "Incorrect code inserted. Please try again",
-    "OTP_CODE_EMPTY": "Please insert the code sent to your email"
+    "OTP_CODE_EMPTY": "Please insert the code sent to your email",
+    "FRIENDS": {
+      "YOURSELF": "You have too much ego, don't you?",
+      "FRIENDSHIP_EXISTS": "You are already friends with this user",
+      "FRIENDSHIP_NOT_FOUND": "Friendship not found",
+      "WAS_ACCEPTED": "Friendship request was already accepted"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {

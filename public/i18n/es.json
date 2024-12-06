@@ -434,7 +434,8 @@
       "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
       "CHECKBOX": "Debes aceptar los términos y condiciones",
       "NOT_FOUND": "Usuario no encontrado",
-      "INVALID": "Uno o más usuarios son inválidos. Por favor, revísalos y prueba de nuevo"
+      "INVALID": "Uno o más usuarios son inválidos. Por favor, revísalos y prueba de nuevo",
+      "SAME": "No puedes enfrentarte a ti mismo. Por favor, busca un amigo con quien jugar"
     },
     "OAUTH": {
       "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",
@@ -445,7 +446,13 @@
     "INVALID_TOKEN": "Token no válido",
     "EXPIRED_TOKEN": "Token expirado",
     "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo",
-    "OTP_CODE_EMPTY": "Por favor, introduce el código enviado a tu email"
+    "OTP_CODE_EMPTY": "Por favor, introduce el código enviado a tu email",
+    "FRIENDS": {
+      "YOURSELF": "Tienes demasiado ego, ¿verdad?",
+      "FRIENDSHIP_EXISTS": "Ya eres amigo de este usuario",
+      "FRIENDSHIP_NOT_FOUND": "Amistad no encontrada",
+      "WAS_ACCEPTED": "La solicitud de amistad ya fue aceptada"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {
