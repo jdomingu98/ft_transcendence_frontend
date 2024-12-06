@@ -1,6 +1,5 @@
 import '/src/components/app/game';
 import WebComponent, { Component } from '#WebComponent';
-import GameService from '#services/GameService';
 import { Sounds } from '/src/components/app/game/PongUtils';
 import UserService from '#services/UserService';
 
@@ -13,39 +12,17 @@ class PongSidebar extends WebComponent {
 
     init() {
         this.state = {
-            isTournament: window.location.pathname.includes('tournament'),
             stop: true,
             isRegistrationOpen: true,
             user: {},
-            tournament: {
-                id: 0,
-                name: '',
-                playerList: [],
-                currentRound: 1,
-                currentOrder: 1,
-                totalOrder: 1,
-                totalRound: 1,
-                isTournamentOver: false
-            },
-            match: {
-                playerOne: null,
-                playerTwo: null,
-                winner: '',
-                isMatchOver: false,
-            }
+            playerOne: null,
+            playerTwo: null,
+            winner: '',
+            isMatchOver: false,
+            numGoalsScored: 0,
+            numGoalsAgainst: 0,
         };
-        UserService.getMyInfo().then(user => this.setState({
-            ...this.state,
-            user,
-            match: {
-                ...this.state.match,
-                playerOne: user.username
-            },
-            tournament: {
-                ...this.state.tournament,
-                playerList: [user.username]
-            }})
-        );
+        UserService.getMyInfo().then(user => this.setState({ ...this.state, user, playerOne: user.username }));
     }
 
     bind() {
@@ -55,132 +32,45 @@ class PongSidebar extends WebComponent {
                 ...this.state,
                 stop: false,
                 isRegistrationOpen: false,
-                match: {
-                    ...this.state.match,
-                    playerOne: detail.playerOne,
-                    playerTwo: detail.playerTwo
-                }
+                playerOne: detail.playerOne,
+                playerTwo: detail.playerTwo,
             });
         });
 
-        this.subscribe('tournament-registration-modal', 'START_TOURNAMENT', ({ detail }) => {
-            Sounds.startBackgroundMusic();
-            this.setState({
-                ...this.state,
-                stop: false,
-                isRegistrationOpen: false,
-                tournament: {
-                    ...this.state.tournament,
-                    id: detail.tournamentId,
-                    name: detail.name,
-                    playerList: detail.players
-                },
-                match: {
-                    ...this.state.match,
-                    playerOne: detail.players[0],
-                    playerTwo: detail.players[1],
-                    numGoalsAgainst: 0,
-                    numGoalsScored: 0
-                }
-            });
-
-            GameService.getTournamentInfo(detail.tournamentId)
-                .then(({ current_round, current_order_round, total_order_round, total_round, players }) => {
-                    this.setState({
-                        ...this.state,
-                        tournament: {
-                            ...this.state.tournament,
-                            playerList: players,
-                            currentRound: current_round,
-                            currentOrder: current_order_round, //0...total_order_round
-                            totalOrder: total_order_round, //current_round / 2
-                            totalRound: total_round,
-                        },
-                        /*match: {
-                            ...this.state.match,
-                            playerOne: players[current_order_round],
-                            playerTwo: players[current_order_round + 1]
-                        }*/
-                    });
-                });
-        }
-        );
-
         this.subscribe('app-game', 'FINISH_GAME', ({ detail }) => {
-            let newCurrentOrder = this.state.tournament.currentOrder + 1;
-            let newCurrentRound = this.state.tournament.currentRound;
-            let newTotalOrder = this.state.tournament.totalOrder;
-            if (newCurrentOrder > this.state.tournament.totalOrder) {
-                newCurrentOrder = 1;
-                //Delete losers
-                newTotalOrder = this.state.tournament.playerList.length / 2;
-                newCurrentRound = this.state.tournament.currentRound + 1;
-            }
             this.setState({
                 ...this.state,
                 stop: true,
-                match: {
-                    isMatchOver: true,
-                    winner: detail.winner,
-                    playerOne: detail.playerOne,
-                    playerTwo: detail.player,
-                    numGoalsScored: detail.numGoalsScored,
-                    numGoalsAgainst: detail.numGoalsAgainst,
-                },
-                tournament: {
-                    ...this.state.tournament,
-                    currentOrder: newCurrentOrder,
-                    currentRound: newCurrentRound,
-                    totalOrder: newTotalOrder,
-                    isTournamentOver: newCurrentRound > this.state.tournament.totalRound
-                }
+                isMatchOver: true,
+                winner: detail.winner,
+                playerOne: detail.playerOne,
+                playerTwo: detail.player,
+                numGoalsScored: detail.numGoalsScored,
+                numGoalsAgainst: detail.numGoalsAgainst,
             });
-
-            setTimeout(() => {
-                this.setState({
-                    ...this.state,
-                    stop: false,
-                    match: {
-                        ...this.state.match,
-                        isMatchOver: false,
-                        playerOne: detail.tournament.nextPlayerA,
-                        playerTwo: detail.tournament.nextPlayerB,
-                        numGoalsScored: 0,
-                        numGoalsAgainst: 0,
-                    }
-                });
-            }, 1000);
         });
     }
 
     render() {
         return `
             <section style="height: calc(100vh - 40px);">
-                ${this.state.isTournament ? `<tournament-registration-modal
-                    open="${this.state.isRegistrationOpen}"
-                    userId="${this.state.user?.id}"
-                    username="${this.state.user?.username}">
-                </tournament-registration-modal>` : `<local-match-registration-modal
-                    open="${this.state.isRegistrationOpen}"
-                    userId="${this.state.user?.id}"
-                    playerOne="${this.state.user?.username}">
-                </local-match-registration-modal>`}
-                ${this.state.match.isMatchOver ? `
-                <winner-modal
-                    finishGame="${!this.state.isTournament && this.state.isMatchOver}"
-                    isTournamentLastRound="${this.state.isTournament && this.state.tournament.isTournamentOver}"
-                    name="${this.state.tournament.name}"
-                    winner="${this.state.match.winner}"
-                > </winner-modal>` : ''}
+                <local-match-registration-modal
+                    [open]="state.isRegistrationOpen"
+                    [userId]="state.user?.id"
+                    [playerOne]="state.user?.username">
+                </local-match-registration-modal>
+                ${this.state.isMatchOver ? `
+                    <winner-modal [finishGame]="state.isMatchOver" [winner]="state.winner"></winner-modal>
+                ` : ''}
                 <app-game
                     [isStopped]="state.stop"
                     [userId]="state.user?.id"
                     [username]="state.user?.username"
-                    [playerOne]="state.match.playerOne"
-                    [playerTwo]="state.match.playerTwo"
+                    [playerOne]="state.playerOne"
+                    [playerTwo]="state.playerTwo"
                     [profileImg]="state.user?.profile_img"
-                    [numGoalsScored]="state.match.numGoalsScored"
-                    [numGoalsAgainst]="state.match.numGoalsAgainst"
+                    [numGoalsScored]="state.numGoalsScored"
+                    [numGoalsAgainst]="state.numGoalsAgainst"
                     >
                 </app-game>
             </section>

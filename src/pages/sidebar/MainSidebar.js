@@ -59,7 +59,7 @@ class MainSidebar extends WebComponent {
                 { path: '/app/search', component: 'search-results' },
                 { path: '/app/settings', component: 'settings-page' },
                 { path: '/app/terms-conditions', component: 'terms-conditions' },
-                { path: '/app/tournament', component: 'pong-sidebar' },
+                { path: '/app/tournament', component: 'pong-tournament' },
             ],
             selectedDefaultOption: window.location.pathname.split('/')[2],
             profile_img: this.getProfileImage()
