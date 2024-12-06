@@ -22,8 +22,8 @@ class OAuthRedirect extends WebComponent {
                     localStorage.setItem('access_token', access_token);
                     localStorage.setItem('refresh_token', refresh_token);
                     SnackbarService.addToast({
-                        title: 'SNACKBAR.OAUTH_REDIRECT.TITLE',
-                        body: 'SNACKBAR.OAUTH_REDIRECT.DESC'
+                        title: this.translator.translate('SNACKBAR.OAUTH_REDIRECT.TITLE'),
+                        body: this.translator.translate('SNACKBAR.OAUTH_REDIRECT.DESC')
                     });
                     NavigatorService.goToHome();
                 })
