@@ -11,29 +11,24 @@ class RoundModal extends WebComponent {
     accessToken = localStorage.getItem('access_token');
 
     init() {
-        this.state = {
-            open: this.getAttribute('finishGame') ?? false,
-            tournament: {}
-        };
-
-        GameService.getTournamentInfo(this.tournamentId)
-            .then( tournament => this.setState({ ...this.state, tournament }));
+        GameService.getTournamentInfo(this.tournament.id).then(tournament => this.setState({
+            currentOrderRound: tournament.current_order_round - 1,
+            currentRound: tournament.current_round,
+            totalOrderRound: tournament.total_order_round,
+            totalRound: tournament.total_round,
+        }));
     }
 
-    get tournamentId() {
-        return this.getAttribute('tournamentId');
+    get tournament() {
+        return this.getAttribute('tournament');
     }
 
     bind() {
-        this.subscribe('button', 'click', () => {
-            this.setState({ ...this.state, open: false });
-            //Empezar siguiente partida
-        });
+        this.subscribe('button', 'click', () => this.emit('ROUND_MATCH_START', this.state));
     }
 
     getRoundLabel() {
-        const currentRound = this.state.tournament.current_round;
-        const totalRound = this.state.tournament.total_round;
+        const { currentRound, totalRound } = this.tournament;
         if (currentRound === totalRound)
             return this.translator.translate('TOURNAMENT.ROUND_MODAL.FINALS');
         else if (currentRound === totalRound - 1)
@@ -42,34 +37,28 @@ class RoundModal extends WebComponent {
     }
 
     mapRoundMatches() {
-        const divs = [];
-        const currentOrder = this.state.tournament.current_order_round;
-        let count = 0;
+        const { currentOrder, players } = this.tournament;
 
-        if (!this.state.tournament.players) return '';
-        for (let i = 0; i < this.state.tournament.players.length; i+=2) {
-            count++;
-            divs.push(
-                `<div class="position-relative mt-3 fw-semibold background-rectangle ${currentOrder === count ? 'shadow' : '' }">
+        if (!players) return '';
+        return this.#groupByPairs(players)
+            .map(({ even, odd }, i) => `<div class="position-relative mt-3 fw-semibold background-rectangle ${currentOrder === (i + 1) ? 'shadow' : '' }">
                     <div class="position-absolute top-0 start-0 h-100 left-half" style="width: 45%">
-                        <p class="ellipsis">${ this.state.tournament.players[i] }</p>
+                        <p class="ellipsis">${ even }</p>
                     </div>
                     <div class="position-absolute top-0 end-0 h-100 text-black right-half" style="width: 50%">
-                        <p class="ellipsis">${ this.state.tournament.players[i + 1] }</p>
+                        <p class="ellipsis">${ odd }</p>
                     </div>
-                </div>`
-            );
-        }
-        return divs.join('');
+                </div>`)
+            .join('');
     }
 
     render() {
-        const numElements = this.state.tournament.players?.length;
+        const numElements = this.state.players?.length;
         const columns = numElements ? Math.floor(Math.sqrt(numElements / 2)) : 1;
         const modalWidth = columns === 4 ? '70%' : columns === 2 ? '600px' : '450px';
         return `
             <div class="game-body">
-                <div id="roundModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}" style="max-width: ${modalWidth}">
+                <div id="roundModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} open" style="max-width: ${modalWidth}">
                     <div class="container text-white text-uppercase" style="letter-spacing: 0.05em">
                         <div class="my-3">
                             <h2 class="mb-3">TRANSCENDENCE</h2>
@@ -83,5 +72,11 @@ class RoundModal extends WebComponent {
                 </div>
             </div>
         `;
+    }
+
+    #groupByPairs(array) {
+        return array
+            .filter((_, i) => i % 2 === 0)
+            .map((even, i) => ({ even, odd: array[(i * 2) + 1] }));
     }
 });

@@ -13,8 +13,7 @@ class TournamentRegistrationModal extends WebComponent {
 
     init() {
         this.state = {
-            open: this.getAttribute('open') ?? true,
-            playerList: [],
+            players: [],
         };
     }
 
@@ -26,12 +25,12 @@ class TournamentRegistrationModal extends WebComponent {
     }
 
     hasDuplicates() {
-        const uniqueItems = new Set(this.state.playerList);
-        return uniqueItems.size !== this.state.playerList.length;
+        const uniqueItems = new Set(this.state.players);
+        return uniqueItems.size !== this.state.players.length;
     };
 
     isPowerOfTwo() {
-        const length = this.state.playerList.length;
+        const length = this.state.players.length;
         return length >= 2 && length <= 32 && (length & (length - 1)) === 0;
     }
 
@@ -47,7 +46,7 @@ class TournamentRegistrationModal extends WebComponent {
         const playerListDiv = this._getDOM().getElementById('player-list-container');
         const nameInput = this._getDOM().getElementById('tournament-name');
         const errorMessage = this._getDOM().querySelector('.error-message');
-        const players = this.state.playerList;
+        const players = this.state.players;
 
         playerListDiv.classList.remove('input-error');
         nameInput.classList.remove('input-error');
@@ -72,7 +71,6 @@ class TournamentRegistrationModal extends WebComponent {
         GameService.createTournament({ name: this.name, players, user_id: this.userId })
             .then(tournament => {
                 this.emit('START_TOURNAMENT', {name: this.name, players: tournament.players, tournamentId: tournament.id});
-                this.setState({ ...this.state, open: false });
             })
             .catch(e => e && this.markAsError(playerListDiv, this.translator.translate(e.error[0])));
     }
@@ -85,24 +83,24 @@ class TournamentRegistrationModal extends WebComponent {
 
         this.setState({
             ...this.state,
-            playerList: [...this.state.playerList, playerName]
+            players: [...this.state.players, playerName]
         });
         playerListField.value = '';
     }
 
     deletePlayer(id) {
-        const updatedList = [...this.state.playerList];
+        const updatedList = [...this.state.players];
         updatedList.splice(id, 1);
         this.setState({
             ...this.state,
-            playerList: updatedList
+            players: updatedList
         });
     }
 
     mapPlayerList() {
         return `
             <ul id="player-list" style="list-style: none;">
-                ${this.state.playerList?.map((player, index) => `
+                ${this.state.players?.map((player, index) => `
                 <li>
                     ${player}
                     ${this.userId && index === 0 ? '' : `<i id="${index}" class="delete-icon bi bi-x me-4 fw-bolder"></i>` }
@@ -120,16 +118,16 @@ class TournamentRegistrationModal extends WebComponent {
 
     render() {
         const username = this.getAttribute('username') ?? '';
-        const isUsernameInList = this.state.playerList.find(player => player === username);
+        const isUsernameInList = this.state.players.find(player => player === username);
         if (username && !isUsernameInList) {
             this.setState({
                 ...this.state,
-                playerList: [...this.state.playerList, username]
+                players: [...this.state.players, username]
             });
         }
         return `
             <div class="game-body">
-                <div id="tournamentRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} ${this.state.open ? 'open' : ''}">
+                <div id="tournamentRegistrationModal" class="game-modal ${!this.accessToken ? 'move-left' : ''} open">
                     <div class="container text-white">
                         <h2>TRANSCENDENCE</h2>
                         <h3>{{ translator.translate('TOURNAMENT.REGISTRATION_MODAL.TITLE') }}</h3>

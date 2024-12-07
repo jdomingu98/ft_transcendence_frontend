@@ -9,7 +9,7 @@ export const PaddleTypes = {
     RIGHT: 'right',
 };
 
-const MAX_GOALS = 7;
+const MAX_GOALS = 1;
 
 export class Game extends CanvasObject {
     /**

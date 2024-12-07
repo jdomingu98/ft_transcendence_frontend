@@ -21,6 +21,13 @@ class PongSidebar extends WebComponent {
             isMatchOver: false,
             numGoalsScored: 0,
             numGoalsAgainst: 0,
+            winnerModalConfig: {
+                label: {
+                    title: 'WINNER_MODAL.LOCAL_MATCH.TITLE',
+                    description: 'WINNER_MODAL.LOCAL_MATCH.DESC',
+                    button: 'WINNER_MODAL.LOCAL_MATCH.BUTTON',
+                }
+            }
         };
         UserService.getMyInfo().then(user => this.setState({ ...this.state, user, playerOne: user.username }));
     }
@@ -60,7 +67,7 @@ class PongSidebar extends WebComponent {
                     [playerOne]="state.user?.username">
                 </local-match-registration-modal>
                 ${this.state.isMatchOver ? `
-                    <winner-modal [finishGame]="state.isMatchOver" [winner]="state.winner"></winner-modal>
+                    <winner-modal [winner]="state.winner" [config]="state.winnerModalConfig"></winner-modal>
                 ` : ''}
                 <app-game
                     [isStopped]="state.stop"

@@ -128,6 +128,7 @@ class AppGame extends WebComponent {
      */
     getData(id, username) {
         const paddle = this.game.getPaddles();
+        const tournament = this.getAttribute('tournament');
         return ({
             user: id,
             user_a: username,
@@ -137,7 +138,10 @@ class AppGame extends WebComponent {
             num_goals_stopped_a: paddle.left.getGoalsStopped(),
             num_goals_stopped_b: paddle.right.getGoalsStopped(),
             start_date: this.game.getStartDate().toISOString().slice(0, 19),
-            time_played: INITIAL_REMAINING_TIME - this.remainingTime
+            time_played: INITIAL_REMAINING_TIME - this.remainingTime,
+            ...(tournament ? { tournament: tournament.id } : {}),
+            ...(tournament ? { num_order:  tournament.currentOrder } : {}),
+            ...(tournament ? { num_round:  tournament.currentRound } : {}),
         });
     }
 
