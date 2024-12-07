@@ -59,11 +59,11 @@ class LandingPage extends WebComponent {
                                 <secondary-button w="255px" h="75px">{{ translator.translate("LANDING.BUTTONS.CREATE_TOURNAMENT") }}</secondary-button>
                             </div>
                         </div>
-                        <img src="/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-6" style="width:551px; height:443px">
+                        <img src="/resources/landing/laptop.webp" alt="Landing top info section laptop" class="col-6" style="aspect-ratio: 1.24">
                     </section>
 
                     <section class="d-flex col-12 p-0 justify-content-evenly align-items-center my-5 gap-5" style="z-index:1;">
-                        <img loading="lazy" src="/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" style="width: 565px; height: 508px">
+                        <img loading="lazy" src="/resources/landing/mailbox.webp" alt="Landing middle info section mailbox" style="aspect-ratio: 1.11">
                         <div class="col-5">
                             <sub-header-text color="var(--app-secondary-color)">{{ translator.translate('LANDING.DISCOVER.HEADER') }}</sub-header-text>
                             <h2-text>{{ translator.translate('LANDING.DISCOVER.TITLE') }}</h2-text>
@@ -83,7 +83,7 @@ class LandingPage extends WebComponent {
                             </div>
                             <primary-button id="landing-register-modal" w="345px" h="80px">{{ translator.translate("LANDING.BUTTONS.REGISTER_NOW") }}</primary-button>
                         </div>
-                        <img loading="lazy" src="/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-6" style="width:450px; height:460px">
+                        <img loading="lazy" src="/resources/landing/mobile.webp" alt="Landing bottom info section mobile" class="col-6" style="aspect-ratio: 0.98">
                     </section>
 
                     <landing-dev-cards></landing-dev-cards>

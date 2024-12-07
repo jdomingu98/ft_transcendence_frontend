@@ -42,7 +42,7 @@ form button {
     font-size: 0.75em;
     letter-spacing: 0.2em;
     background-color: var(--app-secondary-color) !important;
-    font-weight: 800 !important;
+    font-weight: 700 !important;
     width: 85%;
 }
 
