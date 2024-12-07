@@ -19,7 +19,7 @@ class ResetPassword extends WebComponent {
             data: {
                 new_password: '',
                 repeat_new_password: '',
-                change_password_token: Router.getQuery().token || ''
+                change_password_token: Router.getQuery().k || ''
             }
         };
     }
@@ -32,15 +32,16 @@ class ResetPassword extends WebComponent {
     }
 
     updatePassword() {
+        this.cleanInputs();
         AuthService.changeRequestPassword(this.state.data)
             .then(() => {
                 SnackbarService.addToast({
                     title: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.TITLE'),
                     body: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.DESC')
                 });
+                setTimeout(() => NavigatorService.goToLandingPage(), 3000);
             })
             .catch( e => {
-                this.cleanInputs();
                 let input, errorMessage;
                 if (e?.new_password || e?.error) {
                     errorMessage = this._getDOM().querySelector('#password + .error-message');
@@ -61,9 +62,10 @@ class ResetPassword extends WebComponent {
     };
 
     bind() {
+        
         if (!this.state.data.change_password_token)
             NavigatorService.goToErrorPage();
-
+            
         this.subscribeAll('.togglePassword', 'click', e => {
             const input = e.target.closest('.password-container').querySelector('input');
             const icon = e.target.closest('.togglePassword').querySelector('i');
@@ -77,8 +79,6 @@ class ResetPassword extends WebComponent {
                 icon.classList.add('bi-eye');
             }
         });
-
-        this.subscribeAll('input[type="password"]', 'input', () => this.cleanInputs());
 
         this.subscribe('input[name="password-reset"]', 'input', e => {
             this.setState({ ...this.state, data: {...this.state.data, new_password: e.target.value.trim() } });
@@ -107,7 +107,7 @@ class ResetPassword extends WebComponent {
                                 </sub-header-text>
                             </div>
                             <div id="password" class="w-100 password-container">
-                                <input type="password" class="p-3" name="password-settings" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.NEW_PASSWORD_PHOLDER')" aria-label="Password input field">
+                                <input type="password" class="p-3" name="password-reset" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.NEW_PASSWORD_PHOLDER')" aria-label="Password input field">
                                 <span class="togglePassword">
                                     <i class='bi bi-eye'></i>
                                 </span>
@@ -121,7 +121,7 @@ class ResetPassword extends WebComponent {
                                 </sub-header-text>
                             </div>
                             <div id="confirm-password" class="w-100 password-container">
-                                <input type="password" class="p-3" name="confirm-password-settings" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.CONFIRM_NEW_PASSWORD_PHOLDER')" aria-label="Confirm password input field">
+                                <input type="password" class="p-3" name="confirm-password-reset" [placeholder]="translator.translate('SETTINGS.CHANGE_PASSWORD.CONFIRM_NEW_PASSWORD_PHOLDER')" aria-label="Confirm password input field">
                                 <span class="togglePassword">
                                     <i class='bi bi-eye'></i>
                                 </span>
