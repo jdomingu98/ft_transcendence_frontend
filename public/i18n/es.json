@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "Perfil Actualizado",
-          "DESC": "Tu perfil ha sido actualizado correctamente"
+        "TITLE": "Perfil Actualizado",
+        "DESC": "Tu perfil ha sido actualizado correctamente"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "Error en la Actualización del Perfil",
-          "DESC": "Ocurrió un error al actualizar tu perfil"
+        "TITLE": "Error en la Actualización del Perfil",
+        "DESC": "Ocurrió un error al actualizar tu perfil"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "Contraseña Actualizada",
-          "DESC": "Tu contraseña ha sido actualizada correctamente"
+        "TITLE": "Contraseña Actualizada",
+        "DESC": "Tu contraseña ha sido actualizada correctamente"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "Autenticación en dos pasos Activada",
-          "DESC": "Tu cuenta ahora está protegida con autenticación en dos pasos"
+        "TITLE": "Autenticación en dos pasos Activada",
+        "DESC": "Tu cuenta ahora está protegida con autenticación en dos pasos"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "Autenticación en dos pasos Desactivada",
-          "DESC": "Tu cuenta ya no está protegida con autenticación en dos pasos"
+        "TITLE": "Autenticación en dos pasos Desactivada",
+        "DESC": "Tu cuenta ya no está protegida con autenticación en dos pasos"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "Error en la Autenticación en dos pasos",
-          "DESC": "Ocurrió un error al actualizar los ajustes de autenticación en dos pasos"
+        "TITLE": "Error en la Autenticación en dos pasos",
+        "DESC": "Ocurrió un error al actualizar los ajustes de autenticación en dos pasos"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "Cuenta Eliminada",
-          "DESC": "¡Esperamos verte de nuevo pronto!"
+        "TITLE": "Cuenta Eliminada",
+        "DESC": "¡Esperamos verte de nuevo pronto!"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "Error al Eliminar la Cuenta",
-          "DESC": "Ocurrió un error al eliminar tu cuenta"
+        "TITLE": "Error al Eliminar la Cuenta",
+        "DESC": "Ocurrió un error al eliminar tu cuenta"
       }
     },
     "LOCAL_MATCH":{

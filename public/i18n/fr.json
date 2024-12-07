@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "Profil Mis à Jour",
-          "DESC": "Votre profil a été mis à jour avec succès"
+        "TITLE": "Profil Mis à Jour",
+        "DESC": "Votre profil a été mis à jour avec succès"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "Échec de la Mise à Jour du Profil",
-          "DESC": "Une erreur est survenue lors de la mise à jour de votre profil"
+        "TITLE": "Échec de la Mise à Jour du Profil",
+        "DESC": "Une erreur est survenue lors de la mise à jour de votre profil"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "Mot de Passe Mis à Jour",
-          "DESC": "Votre mot de passe a été mis à jour avec succès"
+        "TITLE": "Mot de Passe Mis à Jour",
+        "DESC": "Votre mot de passe a été mis à jour avec succès"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "Authentification à Deux Facteurs Activée",
-          "DESC": "Votre compte est maintenant protégé par une authentification à deux facteurs"
+        "TITLE": "Authentification à Deux Facteurs Activée",
+        "DESC": "Votre compte est maintenant protégé par une authentification à deux facteurs"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "Authentification à Deux Facteurs Désactivée",
-          "DESC": "Votre compte n'est plus protégé par une authentification à deux facteurs"
+        "TITLE": "Authentification à Deux Facteurs Désactivée",
+        "DESC": "Votre compte n'est plus protégé par une authentification à deux facteurs"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "Erreur d'Authentification à Deux Facteurs",
-          "DESC": "Une erreur est survenue lors de la mise à jour de vos paramètres d'authentification à deux facteurs"
+        "TITLE": "Erreur d'Authentification à Deux Facteurs",
+        "DESC": "Une erreur est survenue lors de la mise à jour de vos paramètres d'authentification à deux facteurs"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "Compte Supprimé",
-          "DESC": "Nous espérons vous revoir bientôt !"
+        "TITLE": "Compte Supprimé",
+        "DESC": "Nous espérons vous revoir bientôt !"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "Échec de la Suppression du Compte",
-          "DESC": "Une erreur est survenue lors de la suppression de votre compte"
+        "TITLE": "Échec de la Suppression du Compte",
+        "DESC": "Une erreur est survenue lors de la suppression de votre compte"
       }
     },
     "LOCAL_MATCH":{

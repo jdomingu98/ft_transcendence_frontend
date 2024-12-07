@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "资料已更新",
-          "DESC": "您的资料已成功更新"
+        "TITLE": "资料已更新",
+        "DESC": "您的资料已成功更新"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "资料更新失败",
-          "DESC": "更新您的资料时发生错误"
+        "TITLE": "资料更新失败",
+        "DESC": "更新您的资料时发生错误"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "密码已更新",
-          "DESC": "您的密码已成功更新"
+        "TITLE": "密码已更新",
+        "DESC": "您的密码已成功更新"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "双重身份验证已激活",
-          "DESC": "您的账户现在已使用双重身份验证保护"
+        "TITLE": "双重身份验证已激活",
+        "DESC": "您的账户现在已使用双重身份验证保护"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "双重身份验证已停用",
-          "DESC": "您的账户不再受双重身份验证保护"
+        "TITLE": "双重身份验证已停用",
+        "DESC": "您的账户不再受双重身份验证保护"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "双重身份验证错误",
-          "DESC": "更新双重身份验证设置时发生错误"
+        "TITLE": "双重身份验证错误",
+        "DESC": "更新双重身份验证设置时发生错误"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "账户已删除",
-          "DESC": "希望很快能再次见到您！"
+        "TITLE": "账户已删除",
+        "DESC": "希望很快能再次见到您！"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "删除账户失败",
-          "DESC": "删除您的账户时发生错误"
+        "TITLE": "删除账户失败",
+        "DESC": "删除您的账户时发生错误"
       }
     },
     "LOCAL_MATCH":{
