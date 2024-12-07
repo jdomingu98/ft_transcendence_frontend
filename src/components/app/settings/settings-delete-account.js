@@ -29,7 +29,7 @@ class SettingsDeleteAccount extends WebComponent {
                 setTimeout(() => {
                     SnackbarService.addToast({
                         title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.TITLE'),
-                        body: this.translator.translate('SNAKCBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
+                        body: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
                     });
                 }, 3000);
                 localStorage.removeItem('access_token');
