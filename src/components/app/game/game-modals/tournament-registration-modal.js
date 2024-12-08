@@ -54,17 +54,17 @@ class TournamentRegistrationModal extends WebComponent {
         errorMessage.classList.add('hidden');
 
         if (!this.name || this.name.length <= 0 || this.name.length > 30) {
-            this.markAsError(nameInput, 'ERROR.TOURNAMENT.INVALID_NAME');
+            this.markAsError(nameInput, this.translator.translate('ERROR.TOURNAMENT.INVALID_NAME'));
             return;
         }
 
         if (this.hasDuplicates()) {
-            this.markAsError(playerListDiv, 'ERROR.MATCH.EQUAL_NAMES');
+            this.markAsError(playerListDiv, this.translator.translate('ERROR.MATCH.EQUAL_NAMES'));
             return;
         }
 
         if (!this.isPowerOfTwo() || players.length < 2 || players.length > 32) {
-            this.markAsError(playerListDiv, 'ERROR.TOURNAMENT.WRONG_NUMBER_PLAYERS');
+            this.markAsError(playerListDiv, this.translator.translate('ERROR.TOURNAMENT.WRONG_NUMBER_PLAYERS'));
             return;
         }
 
