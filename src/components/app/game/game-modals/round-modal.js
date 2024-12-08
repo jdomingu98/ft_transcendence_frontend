@@ -28,7 +28,7 @@ class RoundModal extends WebComponent {
     }
 
     getRoundLabel() {
-        const { currentRound, totalRound } = this.tournament;
+        const { currentRound, totalRound } = this.state;
         if (currentRound === totalRound)
             return this.translator.translate('TOURNAMENT.ROUND_MODAL.FINALS');
         else if (currentRound === totalRound - 1)
@@ -53,7 +53,7 @@ class RoundModal extends WebComponent {
     }
 
     render() {
-        const numElements = this.state.players?.length;
+        const numElements = this.tournament.players?.length;
         const columns = numElements ? Math.floor(Math.sqrt(numElements / 2)) : 1;
         const modalWidth = columns === 4 ? '70%' : columns === 2 ? '600px' : '450px';
         return `
