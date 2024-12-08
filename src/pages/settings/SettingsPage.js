@@ -4,6 +4,8 @@ import WebComponent, { Component } from '#WebComponent';
 import UserService from '#services/UserService';
 import css from './SettingsPage.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Change your password, enable two-factor authentication, and much more.';
+
 export default Component ({
     tagName: 'settings-page',
     styleCSS: css

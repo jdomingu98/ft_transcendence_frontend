@@ -57,19 +57,27 @@ class ProfileStats extends WebComponent {
                                 <circle cx="30" cy="30" r="25" class="circle-bg" />
                                 <circle cx="30" cy="30" r="25" class="circle-progress" style="stroke-dashoffset: ${157 - (157 * (stat.statValue ?? 0)) / 100}" />
                             </svg>
-                            <p class="position-absolute text-white mb-2 solo-wr-value" style="font-size: 1.3rem">${stat.statValue ?? 0}</p>
+                            <p class="position-absolute text-white solo-wr-value" style="font-size: 1.3rem">${stat.statValue ?? 0}</p>
                         </div>
                     </div>
                 `;
             } else if (stat.statCode === 'streak') {
+                const streak = stat.statValue ?? 0;
                 return `
-                    ${ (stat.statValue ?? 0) > 2 ? `<div class="stat">
-                        <h3>${stat.statName}</h3>
-                        <div class="d-flex position-relative">
-                            <img src="/resources/fire.gif" alt="Fire GIF" class="my-0 mx-auto" style="width: 5rem"/>
-                            <p class="position-absolute text-black win-streak">${stat.statValue ?? 0}</p>
+                    ${ streak >= 2 ? `
+                        <div class="stat">
+                            <h3>${stat.statName}</h3>
+                            <div style="height: 80px; aspect-ratio: 2/1; position: relative;">
+                                <div class="w-100 h-100 d-flex">
+                                    <img src="/resources/fire.gif" alt="Max streak fire gif" 
+                                        class="position-absolute top-0 start-50 translate-middle-x w-50"/>
+                                    <p class="position-absolute bottom-0 text-black start-50 translate-middle-x text-center" 
+                                        style="font-size: ${streak >= 10 ? '1.4rem' : '1.75rem'}; z-index: 1;">
+                                            ${streak}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     ` : ''}
                 `;
             }

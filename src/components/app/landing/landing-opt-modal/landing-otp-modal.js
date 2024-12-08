@@ -18,31 +18,43 @@ class LandingOtpModal extends WebComponent {
         otpModal.showModal();
     }
 
-    bind() {
-        const codeInput = this._getDOM().getElementById('otp-code');
+    cleanInput() {
+        const input = this._getDOM().getElementById('otp-code');
         const errorMessageElement = this._getDOM().querySelector('.error-message');
 
-        this.subscribe('form input', 'input', () => {
-            codeInput.classList.remove('input-error');
-            errorMessageElement.classList.add('hidden');
-        });
+        input.classList.remove('input-error');
+        errorMessageElement.classList.add('hidden');
+        errorMessageElement.textContent = '';
+    }
 
+    markAsError(errorMessage) {
+        const input = this._getDOM().getElementById('otp-code');
+        const errorMessageElement = this._getDOM().querySelector('.error-message');
+
+        errorMessageElement.classList.remove('hidden');
+        errorMessageElement.textContent = this.translator.translate(errorMessage);
+        input.classList.add('input-error');
+    }
+
+    bind() {
         this.subscribe('form button', 'click', e => {
             e.preventDefault();
-            const code = codeInput.value.trim();
-            AuthService.verifyOTP({username: this.username, code}).then(response => {
-                SnackbarService.addToast({
-                    title: this.translator.translate('SNACKBAR.OTP_MODAL.TITLE'),
-                    body: this.translator.translate('SNACKBAR.OTP_MODAL.DESC')
-                });
-                localStorage.setItem('access_token', response.access_token);
-                localStorage.setItem('refresh_token', response.refresh_token);
-                setTimeout(() => NavigatorService.goToHome(), 1000);
-            }).catch(e => {
-                errorMessageElement.classList.remove('hidden');
-                errorMessageElement.textContent = e.error;
-                codeInput.classList.add('input-error');
-            });
+            this.cleanInput();
+            const code = this._getDOM().getElementById('otp-code')?.value.trim();
+            if (!code) {
+                this.markAsError('ERROR.OTP_CODE_EMPTY');
+                return;
+            }
+            AuthService.verifyOTP({username: this.username, code})
+                .then(response => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.OTP_MODAL.TITLE'),
+                        body: this.translator.translate('SNACKBAR.OTP_MODAL.DESC')
+                    });
+                    localStorage.setItem('access_token', response.access_token);
+                    localStorage.setItem('refresh_token', response.refresh_token);
+                    setTimeout(() => NavigatorService.goToHome(), 3000);
+                }).catch(e => this.markAsError(e.error[0]));
         });
     }
 

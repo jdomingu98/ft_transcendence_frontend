@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "资料已更新",
-          "DESC": "您的资料已成功更新"
+        "TITLE": "资料已更新",
+        "DESC": "您的资料已成功更新"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "资料更新失败",
-          "DESC": "更新您的资料时发生错误"
+        "TITLE": "资料更新失败",
+        "DESC": "更新您的资料时发生错误"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "密码已更新",
-          "DESC": "您的密码已成功更新"
+        "TITLE": "密码已更新",
+        "DESC": "您的密码已成功更新"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "双重身份验证已激活",
-          "DESC": "您的账户现在已使用双重身份验证保护"
+        "TITLE": "双重身份验证已激活",
+        "DESC": "您的账户现在已使用双重身份验证保护"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "双重身份验证已停用",
-          "DESC": "您的账户不再受双重身份验证保护"
+        "TITLE": "双重身份验证已停用",
+        "DESC": "您的账户不再受双重身份验证保护"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "双重身份验证错误",
-          "DESC": "更新双重身份验证设置时发生错误"
+        "TITLE": "双重身份验证错误",
+        "DESC": "更新双重身份验证设置时发生错误"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "账户已删除",
-          "DESC": "希望很快能再次见到您！"
+        "TITLE": "账户已删除",
+        "DESC": "希望很快能再次见到您！"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "删除账户失败",
-          "DESC": "删除您的账户时发生错误"
+        "TITLE": "删除账户失败",
+        "DESC": "删除您的账户时发生错误"
       }
     },
     "LOCAL_MATCH":{
@@ -80,7 +80,7 @@
     "DISCOVER": {
       "HEADER": "社交媒体",
       "TITLE": "发现人们并成为朋友",
-      "SUBTITLE": "向世界各地的游戏伙伴发送好友请求并聊天"
+      "SUBTITLE": "发送好友请求，与其他玩家成为朋友"
     },
     "LEADER_BOARD": {
       "HEADER": "全球竞争",
@@ -314,31 +314,85 @@
       "WINRATE": "中奖率", 
       "STREAK": "最大连胜"
     },
-    "FRIENDS_LIST_TITLE": "好友列表",
+    "FRIENDS_LIST": {
+      "TITLE": "好友列表",
+      "EMPTY": "很难说出口，但看起来你还没有朋友..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "比赛记录",
-      "TABLE_HEAD": {
-        "RESULT": "结果",
-        "OPPONENT": "对手",
-        "EARNED": "已赚取",
-        "TIME": "时间"
+      "DETAILS": {
+        "GOALS_SCORED": "进球数：",
+        "GOALS_AGAINST": "失球数：",
+        "GOALS_STOPPED": "扑救数：",
+        "GOALS_STOPPED_RIVAL": "被拦下的进球：",
+        "GAME_TIME": "比赛时间：",
+        "POINTS_EARNED": "获得积分："
       },
       "RESULT_STATUS": {
-        "VICTORY": "胜利",
-        "DEFEAT": "失败",
-        "DRAW": "平局"
+        "VICTORY": "胜利对",
+        "DEFEAT": "失败对"
       },
       "PAGINATION": {
         "PREVIOUS": "< 上一页",
         "OF": "的",
         "NEXT": "下一页 >"
-      }
+      },
+      "EMPTY": "没有比赛记录"
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "您的好友请求待处理",
     "ACCEPT": "接受",
     "REJECT": "拒绝",
-    "NO_MORE_REQUESTS": "没有更多的好友请求了...<br/>稍后再来"
+    "NO_MORE_REQUESTS": "没有更多的好友请求了... 稍后再来"
+  },
+  "GAME": {
+    "GOLDEN_GOAL": "金球",
+    "REGISTRATION_MODAL": {
+      "TITLE": "新的本地比赛",
+      "FIRST_ALIAS": {
+        "LABEL": "第一位玩家昵称",
+        "PHOLDER": "昵称 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "第二位玩家昵称",
+        "PHOLDER": "昵称 2"
+      },
+      "BUTTON": "开始比赛"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "新锦标赛",
+      "NAME": {
+        "LABEL": "名称",
+        "PHOLDER": "锦标赛名称"
+      },
+      "PLAYERS": {
+        "LABEL": "参赛者",
+        "PHOLDER": "添加新玩家"
+      },
+      "BUTTON": "开始锦标赛"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "轮次 ",
+      "SEMIFINALS": "半决赛",
+      "FINALS": "决赛",
+      "BUTTON": "开始下一场比赛"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 恭喜！ 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "比赛结束",
+      "DESC": "你是比赛的赢家！",
+      "BUTTON": "再玩一次"
+    },
+    "TOURNAMENT": {
+      "TITLE": "锦标赛结束",
+      "DESC": "你是锦标赛的赢家！",
+      "BUTTON": "创建新锦标赛"
+    }
   },
   "LEADERBOARD": {
     "TITLE": "前 10 名乒乓球玩家",
@@ -379,7 +433,9 @@
       "NOT_VERIFIED": "用户未验证",
       "PASS_RESET": "没有与提供的输入匹配的用户或电子邮件",
       "CHECKBOX": "您必须接受条款和条件",
-      "NOT_FOUND": "用户未找到"
+      "NOT_FOUND": "用户未找到",
+      "INVALID": "一个或多个用户无效。请检查后重试",
+      "SAME": "你不能和自己对战。请找一个朋友一起玩"
     },
     "OAUTH": {
       "NO_CODE": "哎呀，你怎么会在这里？ 🤔",
@@ -389,7 +445,22 @@
     },
     "INVALID_TOKEN": "无效的令牌",
     "EXPIRED_TOKEN": "令牌已过期",
-    "OTP_CODE": "插入的代码不正确。请再试一次"
+    "OTP_CODE": "插入的代码不正确。请再试一次",
+    "OTP_CODE_EMPTY": "请输入发送到您邮箱的验证码",
+    "FRIENDS": {
+      "YOURSELF": "你是不是有点太自恋了？",
+      "FRIENDSHIP_EXISTS": "你已经是这个用户的朋友了",
+      "FRIENDSHIP_NOT_FOUND": "未找到好友关系",
+      "WAS_ACCEPTED": "好友请求已被接受"
+    },
+    "MATCH": {
+      "INVALID": "请正确填写两个玩家的昵称",
+      "EQUAL_NAMES": "玩家的昵称必须不同"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "请正确填写锦标赛名称",
+      "WRONG_NUMBER_PLAYERS": "玩家数量必须是2到32之间的2的幂"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {

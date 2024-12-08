@@ -15,12 +15,17 @@
     -webkit-backdrop-filter: blur(6.3px);
 }
 
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .profile-info h2 {
     font-size: 24px;
 }
 
 .profile-info p {
-    margin-top: 5px;
     font-size: 14px;
 }
 

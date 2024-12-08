@@ -1,19 +1,21 @@
 
 const BUTTON_DEFAULT_MSG = 'Click me';
 
-const DEFAULT_DIMENSION_VALUE = 'auto';
-
-const DEFAULT_IMG_DIMENSION = '100px';
-
 const BUTTON_DEFAULT_PRIMARY_COLOR = 'var(--app-primary-color)';
 
 const BUTTON_DEFAULT_SECONDARY_COLOR = 'var(--app-secondary-color)';
 
-const DEFAULT_PROFILE_IMG = 'https://placehold.co/100/png';
+const DECISION_THRESHOLD = 300;
 
 const DEFAULT_BANNER_IMG = '/resources/default-banner.webp';
 
-const DEFAULT_SIDEBAR_PROFILE_IMG = 'https://placehold.co/50/png';
+const DEFAULT_DIMENSION_VALUE = 'auto';
+
+const DEFAULT_PROFILE_IMG = 'https://placehold.co/100/webp';
+
+const DEFAULT_PROFILE_IMG_SWIPE = 'https://placehold.co/500/webp';
+
+const DEFAULT_SIDEBAR_PROFILE_IMG = 'https://placehold.co/50/webp';
 
 const LANGUAGES = [
     { language: 'es', flag:  '🇪🇸', url: '/i18n/es.json', name: 'Español', default: true },
@@ -22,17 +24,22 @@ const LANGUAGES = [
     { language: 'zh', flag:  '🇨🇳', url: '/i18n/zh.json', name: '简体中文' }
 ];
 
-const DECISION_THRESHOLD = 300;
-
-const VISIBILITY = {
-    PUBLIC: 1,
-    PRIVATE: 2,
-    ANONYMOUS: 3
+const LOCALE_LANG = {
+    es: 'es-ES',
+    en: 'en-US',
+    fr: 'fr-FR',
+    zh: 'zh-CN'
 };
 
 const UserStatus = {
     CONNECTED: 'CONNECTED',
     DISCONNECTED: 'DISCONNECTED',
+};
+
+const VISIBILITY = {
+    PUBLIC: 1,
+    PRIVATE: 2,
+    ANONYMOUS: 3
 };
 
 export {
@@ -42,10 +49,11 @@ export {
     DECISION_THRESHOLD,
     DEFAULT_BANNER_IMG,
     DEFAULT_DIMENSION_VALUE,
-    DEFAULT_IMG_DIMENSION,
     DEFAULT_PROFILE_IMG,
+    DEFAULT_PROFILE_IMG_SWIPE,
     DEFAULT_SIDEBAR_PROFILE_IMG,
     LANGUAGES,
-    VISIBILITY,
+    LOCALE_LANG,
     UserStatus,
+    VISIBILITY,
 };

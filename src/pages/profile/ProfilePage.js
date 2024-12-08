@@ -1,7 +1,9 @@
 import '/src/components/app/profile';
 import WebComponent, { Component } from '#WebComponent';
+import NavigatorService from '#services/NavigatorService';
 import UserService from '#services/UserService';
 
+document.querySelector('meta[name="description"]').content = 'View your profile information, stats, and friends.';
 
 export default Component ({
     tagName: 'profile-page',
@@ -20,37 +22,45 @@ export default Component ({
 class ProfilePage extends WebComponent {
 
     init() {
-        if (this.isMePage) {
-            UserService.getMyInfo().then(({ id }) => this.setUserData(id));
-        } else {
-            const id = window.location.pathname.split('/').pop();
+        UserService.getMyInfo().then(({ id: meId }) => {
+            let id = meId;
+            if (!this.isMePage) {
+                const urlId = window.location.pathname.split('/').pop();
+                if (Number(urlId) === meId) {
+                    NavigatorService.goToHome();
+                    return;
+                }
+                id = urlId;
+            }
             this.setUserData(id);
-        }
+        });
     }
 
     setUserData(id) {
-        UserService.getById(id).then(user => this.setState({
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            profileImg: user.profile_img,
-            banner: user.banner,
-            visibility: user.visibility,
-            isConnected: user.is_connected,
-            language: user.language,
-            punctuation: user.punctuation,
-            position: user.position,
-            isFriend: user.is_friend,
-            hasRequestedFriendship: user.has_requested_friendship,
-            stats: {
-                goalsScored: user.num_goals_scored,
-                goalsAgainst: user.num_goals_against,
-                goalsStopped: user.num_goals_stopped,
-                soloWr: user.win_rate,
-                timePlayed: user.time_played,
-                maxWinStreak: user.max_streak
-            },
-        }));
+        UserService.getById(id)
+            .then(user => this.setState({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                profileImg: user.profile_img,
+                banner: user.banner,
+                visibility: user.visibility,
+                isConnected: user.is_connected,
+                language: user.language,
+                punctuation: user.punctuation,
+                position: user.position,
+                isFriend: user.is_friend,
+                hasRequestedFriendship: user.has_requested_friendship,
+                stats: {
+                    goalsScored: user.num_goals_scored,
+                    goalsAgainst: user.num_goals_against,
+                    goalsStopped: user.num_goals_stopped,
+                    soloWr: user.win_rate,
+                    timePlayed: user.time_played,
+                    maxWinStreak: user.max_streak
+                },
+            }))
+            .catch(() => NavigatorService.goToHome());
     }
 
     get isMePage() {

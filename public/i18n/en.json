@@ -80,7 +80,7 @@
     "DISCOVER": {
       "HEADER": "SOCIAL MEDIA",
       "TITLE": "Discover People And Become Friends",
-      "SUBTITLE": "Send friend requests and chat with people you play with from all over the world"
+      "SUBTITLE": "Send friend requests and become friends with other players"
     },
     "LEADER_BOARD": {
       "HEADER": "COMPETE WORLDWIDE",
@@ -314,31 +314,85 @@
       "WINRATE": "Win Rate", 
       "STREAK": "Max Win Streak"
     },
-    "FRIENDS_LIST_TITLE": "Friends List",
+    "FRIENDS_LIST": {
+      "TITLE": "Friends List",
+      "EMPTY": "It's hard to say this, but it seems you don't have any friends..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "Match History",
-      "TABLE_HEAD": {
-        "RESULT": "Result",
-        "OPPONENT": "Opponent",
-        "EARNED": "Earned",
-        "TIME": "Time"
+      "DETAILS": {
+        "GOALS_SCORED": "Goals Scored: ",
+        "GOALS_AGAINST": "Goals Against: ",
+        "GOALS_STOPPED": "Goals Stopped: ",
+        "GOALS_STOPPED_RIVAL": "Goals Stopped by ",
+        "GAME_TIME": "Game Time: ",
+        "POINTS_EARNED": "Points Earned: "
       },
       "RESULT_STATUS": {
-        "VICTORY": "Victory",
-        "DEFEAT": "Defeat",
-        "DRAW": "Draw"
+        "VICTORY": "Victory VS",
+        "DEFEAT": "Defeat VS"
       },
       "PAGINATION": {
         "PREVIOUS": "< Previous",
         "OF": "of",
         "NEXT": "Next >"
-      }
+      },
+      "EMPTY": "There are no match records"
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "Your friendship pending requests",
     "ACCEPT": "Accept",
     "REJECT": "Reject",
-    "NO_MORE_REQUESTS": "There are no more friend requests...<br/>Come back later"
+    "NO_MORE_REQUESTS": "There are no more friend requests... Come back later"
+  },
+  "GAME": {
+    "GOLDEN_GOAL": "Golden Goal",
+    "REGISTRATION_MODAL": {
+      "TITLE": "New local match",
+      "FIRST_ALIAS": {
+        "LABEL": "First player alias",
+        "PHOLDER": "Alias 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "Second player alias",
+        "PHOLDER": "Alias 2"
+      },
+      "BUTTON": "Start game"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "New tournament",
+      "NAME": {
+        "LABEL": "Name",
+        "PHOLDER": "Tournament name"
+      },
+      "PLAYERS": {
+        "LABEL": "Participants",
+        "PHOLDER": "Add new player"
+      },
+      "BUTTON": "Start tournament"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "Round ",
+      "SEMIFINALS": "Semifinals",
+      "FINALS": "Final Round",
+      "BUTTON": "Start next match"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 CONGRATULATIONS! 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "Match finished",
+      "DESC": "You are the winner of the match!",
+      "BUTTON": "Play again"
+    },
+    "TOURNAMENT": {
+      "TITLE": "Tournament finished",
+      "DESC": "You are the winner of the tournament!",
+      "BUTTON": "Create new tournament"
+    }
   },
   "LEADERBOARD": {
     "TITLE": "Top 10 Pong Players",
@@ -379,7 +433,9 @@
       "NOT_VERIFIED": "User is not verified",
       "PASS_RESET": "No user or email matches the given input",
       "CHECKBOX": "You must accept the terms and conditions",
-      "NOT_FOUND": "User not found"
+      "NOT_FOUND": "User not found",
+      "INVALID": "One or more users are invalid. Please check them and try again",
+      "SAME": "You can't match yourself. Please, get a friend to play with"
     },
     "OAUTH": {
       "NO_CODE": "Oops, why are you here? 🤔",
@@ -389,7 +445,22 @@
     },
     "INVALID_TOKEN": "Invalid token",
     "EXPIRED_TOKEN": "Token expired",
-    "OTP_CODE": "Incorrect code inserted. Please try again"
+    "OTP_CODE": "Incorrect code inserted. Please try again",
+    "OTP_CODE_EMPTY": "Please insert the code sent to your email",
+    "FRIENDS": {
+      "YOURSELF": "You have too much ego, don't you?",
+      "FRIENDSHIP_EXISTS": "You are already friends with this user",
+      "FRIENDSHIP_NOT_FOUND": "Friendship not found",
+      "WAS_ACCEPTED": "Friendship request was already accepted"
+    },
+    "MATCH": {
+      "INVALID": "Please fill in correctly both player aliases",
+      "EQUAL_NAMES": "Player aliases must be different"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "Please fill correctly the tournament name",
+      "WRONG_NUMBER_PLAYERS": "The number of players must be a power of between 2 and 32"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {

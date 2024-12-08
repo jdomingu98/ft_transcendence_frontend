@@ -1,0 +1,171 @@
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #13124F;
+    border-radius: 20px;
+    border: 4px solid #FFFFFF;
+    width: 100%;
+    min-height: 400px;
+}
+
+.pongtainer {
+    width: 80%;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.background-pause {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    display: grid;
+    place-items: center;
+}
+
+.info-mid span {
+    font-size: 60px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.player-icon{
+    width: 80%;
+}
+
+.player-icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.player-icon span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.score-board {
+    top: 4rem;
+    font-size: 3rem;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 30rem;
+}
+
+.score {
+    width: 90px;
+    font-size: 4.5rem;
+    opacity: 0.85;
+    text-align: center;
+}
+
+.btn-game {
+    border: 3px solid #ffffff81;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--app-primary-bg-color);
+    color: var(--app-secondary-color);
+    transition: all 0.3s;
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+}
+
+.bi-play-fill{
+    margin-left: 4px;
+}
+
+.btn-game:hover{
+    background-color: var(--app-secondary-bg-color);
+}
+
+.golden-goal {
+    display: none;
+    visibility: hidden;
+    color: #FFD700;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideInOut 2s ease-in-out forwards;
+}
+
+.golden-goal p {
+    font-size: 75px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    background-image: linear-gradient(45deg, #cbb431, #FFA500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 2px rgba(155, 150, 0, 0.5);
+    white-space: nowrap;
+}
+
+
+@media screen and (max-width: 1140px) {
+    .player-icon span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1068px) {
+    .info-mid span {
+        font-size: 40px;
+    }
+    .score-board span {
+        font-size: 40px;
+    }
+
+    .btn-game {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+    .score-board{
+        width: 20rem;
+    }
+
+    .golden-goal p{
+        font-size: 55px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+
+    .golden-goal p{
+        font-size: 35px;
+    }
+}
+
+@keyframes slideInOut {
+    0% {
+        transform: translate(-50%, -50%) translateX(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}

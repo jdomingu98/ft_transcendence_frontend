@@ -11,11 +11,23 @@ export default Component ({
 },
 class LoginForm extends WebComponent {
 
+    markAsError(errorMessage) {
+        const errorMessageElement = this._getDOM().querySelector('.error-message');
+        const inputs = this._getDOM().querySelectorAll('input:not([type="submit"])');
+        inputs.forEach(input => input.classList.add('input-error'));
+        errorMessageElement.textContent = this.translator.translate(errorMessage);
+        errorMessageElement.classList.remove('hidden');
+
+    }
+
     doLogin() {
         const username = this._getDOM().querySelector('#sigin-username').value.trim();
         const password = this._getDOM().querySelector('#signin-password').value.trim();
-        const errorMessageElement = this._getDOM().querySelector('.error-message');
-        const input = this._getDOM().querySelectorAll('input:not([type="submit"])');
+
+        if (!username || !password) {
+            this.markAsError('ERROR.USER.INVALID_LOGIN');
+            return;
+        }
 
         AuthService.login({username, password}).then(response => {
             const two_factor = response.two_factor_enabled;
@@ -34,13 +46,9 @@ class LoginForm extends WebComponent {
                     title: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.TITLE'),
                     body: this.translator.translate('SNACKBAR.AUTH_MODAL.LOGIN.DESC')
                 });
-                setTimeout(() => NavigatorService.goToHome(), 3000);
+                NavigatorService.goToHome();
             }
-        }).catch(e => {
-            input.forEach(input => input.classList.add('input-error'));
-            errorMessageElement.textContent = this.translator.translate(e.error[0]);
-            errorMessageElement.classList.remove('hidden');
-        });
+        }).catch(e => this.markAsError(e.error[0]));
     }
 
     bind() {

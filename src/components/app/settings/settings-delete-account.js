@@ -26,20 +26,24 @@ class SettingsDeleteAccount extends WebComponent {
     deleteUser() {
         UserService.delete(this.state.id)
             .then(() => {
-                SnackbarService.addToast({
-                    title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.TITLE'),
-                    body: this.translator.translate('SNAKCBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
-                });
+                setTimeout(() => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_DONE.DESC')
+                    });
+                }, 3000);
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
                 localStorage.removeItem('user');
                 NavigatorService.goToLandingPage();
             })
             .catch(() => {
-                SnackbarService.addToast({
-                    title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.TITLE'),
-                    body: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.DESC')
-                });
+                setTimeout(() => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.DELETE_ACCOUNT_ERROR.DESC')
+                    });
+                }, 3000);
             });
     }
 

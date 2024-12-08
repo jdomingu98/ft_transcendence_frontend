@@ -33,10 +33,12 @@ class SettingsChangePassword extends WebComponent {
     updatePassword() {
         AuthService.changePassword(this.state.data)
             .then(() => {
-                SnackbarService.addToast({
-                    title: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.TITLE'),
-                    body: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.DESC')
-                });
+                setTimeout(() => {
+                    SnackbarService.addToast({
+                        title: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.TITLE'),
+                        body: this.translator.translate('SNACKBAR.SETTINGS.CHANGE_PASSWORD_DONE.DESC')
+                    });
+                }, 3000);
             })
             .catch( e => {
                 this.cleanInputs();

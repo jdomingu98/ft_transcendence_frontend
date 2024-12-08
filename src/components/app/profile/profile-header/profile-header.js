@@ -9,6 +9,13 @@ export default Component ({
     styleCSS: css
 },
 class ProfileHeader extends WebComponent {
+
+    init() {
+        this.state = {
+            isSettingsPage: window.location.pathname.includes('settings')
+        };
+    }
+
     getStatusColor(status) {
         return status === UserStatus.CONNECTED ? 'var(--app-green-color)' : '#DDDDDD';
     }
@@ -40,7 +47,6 @@ class ProfileHeader extends WebComponent {
                     setTimeout(() => {
                         heartIcon.classList.remove('bi-heart-fill');
                         heartIcon.classList.add('bi-heart');
-
                         heartIcon.classList.remove('hidden');
                     }, 300);
                 });
@@ -70,19 +76,19 @@ class ProfileHeader extends WebComponent {
                             ` : ''}
                     </div>
                     <div class="profile-info">
-                   
                         <h2 class="mx-0 my-1">${templateUsername}</h2>
-                        <div class="d-flex col">
-                            <div class="mx-0 my-2 d-flex row gap-1">
-                                <p class="px-0">{{ translator.translate("PROFILE.HEADER.POSITION") }}
-                                    <span class="fw-bold">${position}</span>
-                                </p>
-                                <p class="px-0"> {{ translator.translate("PROFILE.HEADER.POINTS") }}
-                                    <span class="fw-bold">${points}</span>
-                                    {{ translator.translate("LEADERBOARD.PTS") }}
-                                </p>
-                            </div>
-                        </div>
+                        ${ !this.state.isSettingsPage ? `
+                            <div class="d-flex">
+                                <div class="mx-0 my-2 gap-1">
+                                    <p>{{ translator.translate("PROFILE.HEADER.POSITION") }}
+                                        <span class="fw-bold">${position}</span>
+                                    </p>
+                                    <p> {{ translator.translate("PROFILE.HEADER.POINTS") }}
+                                        <span class="fw-bold">${points}</span>
+                                        {{ translator.translate("LEADERBOARD.PTS") }}
+                                    </p>
+                                </div>
+                            </div>` : ''}
                         <div class="d-flex align-items-center mt-2" style="gap: 5px;">
                             <div class="rounded-circle " style="width:16px; height:16px; background-color:  ${this.getStatusColor(connected)};"></div>
                                 <p class="m-0" style="font-size: 1rem;">

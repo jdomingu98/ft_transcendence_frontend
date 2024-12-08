@@ -2,6 +2,8 @@ import WebComponent, { Component, Router } from '#WebComponent';
 import { DEFAULT_PROFILE_IMG } from '#const';
 import FetchService from '#services/UserService';
 
+document.querySelector('meta[name="description"]').content = 'Search for users by username and view their profiles and stats.';
+
 export default Component ({
     tagName: 'search-results'
 },

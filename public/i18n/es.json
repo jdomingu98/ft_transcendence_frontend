@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "Perfil Actualizado",
-          "DESC": "Tu perfil ha sido actualizado correctamente"
+        "TITLE": "Perfil Actualizado",
+        "DESC": "Tu perfil ha sido actualizado correctamente"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "Error en la Actualización del Perfil",
-          "DESC": "Ocurrió un error al actualizar tu perfil"
+        "TITLE": "Error en la Actualización del Perfil",
+        "DESC": "Ocurrió un error al actualizar tu perfil"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "Contraseña Actualizada",
-          "DESC": "Tu contraseña ha sido actualizada correctamente"
+        "TITLE": "Contraseña Actualizada",
+        "DESC": "Tu contraseña ha sido actualizada correctamente"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "Autenticación en dos pasos Activada",
-          "DESC": "Tu cuenta ahora está protegida con autenticación en dos pasos"
+        "TITLE": "Autenticación en dos pasos Activada",
+        "DESC": "Tu cuenta ahora está protegida con autenticación en dos pasos"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "Autenticación en dos pasos Desactivada",
-          "DESC": "Tu cuenta ya no está protegida con autenticación en dos pasos"
+        "TITLE": "Autenticación en dos pasos Desactivada",
+        "DESC": "Tu cuenta ya no está protegida con autenticación en dos pasos"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "Error en la Autenticación en dos pasos",
-          "DESC": "Ocurrió un error al actualizar los ajustes de autenticación en dos pasos"
+        "TITLE": "Error en la Autenticación en dos pasos",
+        "DESC": "Ocurrió un error al actualizar los ajustes de autenticación en dos pasos"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "Cuenta Eliminada",
-          "DESC": "¡Esperamos verte de nuevo pronto!"
+        "TITLE": "Cuenta Eliminada",
+        "DESC": "¡Esperamos verte de nuevo pronto!"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "Error al Eliminar la Cuenta",
-          "DESC": "Ocurrió un error al eliminar tu cuenta"
+        "TITLE": "Error al Eliminar la Cuenta",
+        "DESC": "Ocurrió un error al eliminar tu cuenta"
       }
     },
     "LOCAL_MATCH":{
@@ -80,7 +80,7 @@
     "DISCOVER": {
       "HEADER": "REDES SOCIALES",
       "TITLE": "Descubre Personas Y Haz Amigos",
-      "SUBTITLE": "Envía solicitudes de amistad y chatea con personas de todo el mundo con las que juegas"
+      "SUBTITLE": "Envía solicitudes de amistad y hazte amigo de otros jugadores"
     },
     "LEADER_BOARD": {
       "HEADER": "COMPITE A NIVEL MUNDIAL",
@@ -314,31 +314,85 @@
       "WINRATE": "Ratio de </br>Victorias", 
       "STREAK": "Max. Racha de </br>Victorias"
     },
-    "FRIENDS_LIST_TITLE": "Lista de Amigos",
+    "FRIENDS_LIST": {
+      "TITLE": "Lista de Amigos",
+      "EMPTY": "Es dificil decir esto, pero parece que no tienes amigos..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "Historial de Partidas",
-      "TABLE_HEAD": {
-        "RESULT": "Resultado",
-        "OPPONENT": "Oponente",
-        "EARNED": "Ganado",
-        "TIME": "Tiempo"
+      "DETAILS": {
+        "GOALS_SCORED": "Goles Marcados: ",
+        "GOALS_AGAINST": "Goles Recibidos: ",
+        "GOALS_STOPPED": "Goles Parados: ",
+        "GOALS_STOPPED_RIVAL": "Goles Parados por ",
+        "GAME_TIME": "Tiempo de Juego: ",
+        "POINTS_EARNED": "Puntos Conseguidos: "
       },
       "RESULT_STATUS": {
-        "VICTORY": "Victoria",
-        "DEFEAT": "Derrota",
-        "DRAW": "Empate"
+        "VICTORY": "Victoria VS",
+        "DEFEAT": "Derrota VS"
       },
       "PAGINATION": {
         "PREVIOUS": "< Anterior",
         "OF": "de",
         "NEXT": "Siguiente >"
-      }
+      },
+      "EMPTY": "No existe registro de partidas"
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "Tus solicitudes de amistad pendientes",
     "ACCEPT": "Aceptar",
     "REJECT": "Rechazar",
-    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad...<br/>Vuelve más tarde"
+    "NO_MORE_REQUESTS": "No hay más solicitudes de amistad... Vuelve más tarde"
+  },
+  "GAME": {
+    "GOLDEN_GOAL": "Gol de oro",
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nuevo partido local",
+      "FIRST_ALIAS": {
+        "LABEL": "Alias del primer jugador",
+        "PHOLDER": "Alias 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "Alias del segundo jugador",
+        "PHOLDER": "Alias 2"
+      },
+      "BUTTON": "Iniciar partida"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nuevo torneo",
+      "NAME": {
+        "LABEL": "Nombre",
+        "PHOLDER": "Nombre del torneo"
+      },
+      "PLAYERS": {
+        "LABEL": "Participantes",
+        "PHOLDER": "Añadir nuevo jugador"
+      },
+      "BUTTON": "Iniciar torneo"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "Ronda ",
+      "SEMIFINALS": "Semifinales",
+      "FINALS": "Ronda final",
+      "BUTTON": "Iniciar siguiente partido"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 ¡FELICIDADES! 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "Partida terminada",
+      "DESC": "¡Eres el ganador de la partida!",
+      "BUTTON": "Jugar de nuevo"
+    },
+    "TOURNAMENT": {
+      "TITLE": "Torneo terminado",
+      "DESC": "¡Eres el ganador del torneo!",
+      "BUTTON": "Crear nuevo torneo"
+    }
   },
   "LEADERBOARD": {
     "TITLE": "TOP 10 jugadores de Pong",
@@ -379,7 +433,9 @@
       "NOT_VERIFIED": "El usuario no está verificado",
       "PASS_RESET": "No hay ningún usuario o correo electrónico que coincida con el dato proporcionado",
       "CHECKBOX": "Debes aceptar los términos y condiciones",
-      "NOT_FOUND": "Usuario no encontrado"
+      "NOT_FOUND": "Usuario no encontrado",
+      "INVALID": "Uno o más usuarios son inválidos. Por favor, revísalos y prueba de nuevo",
+      "SAME": "No puedes enfrentarte a ti mismo. Por favor, busca un amigo con quien jugar"
     },
     "OAUTH": {
       "NO_CODE": "Uy, ¿pong qué estás aquí? 🤔",
@@ -389,7 +445,22 @@
     },
     "INVALID_TOKEN": "Token no válido",
     "EXPIRED_TOKEN": "Token expirado",
-    "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo"
+    "OTP_CODE": "Código incorrecto insertado. Por favor, inténtalo de nuevo",
+    "OTP_CODE_EMPTY": "Por favor, introduce el código enviado a tu email",
+    "FRIENDS": {
+      "YOURSELF": "Tienes demasiado ego, ¿verdad?",
+      "FRIENDSHIP_EXISTS": "Ya eres amigo de este usuario",
+      "FRIENDSHIP_NOT_FOUND": "Amistad no encontrada",
+      "WAS_ACCEPTED": "La solicitud de amistad ya fue aceptada"
+    },
+    "MATCH": {
+      "INVALID": "Por favor, rellena correctamente ambos alias de los jugadores",
+      "EQUAL_NAMES": "Los alias de los jugadores deben ser diferentes"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "Por favor, rellena correctamente el nombre del torneo",
+      "WRONG_NUMBER_PLAYERS": "El número de jugadores debe ser una potencia de 2 entre 2 y 32"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {

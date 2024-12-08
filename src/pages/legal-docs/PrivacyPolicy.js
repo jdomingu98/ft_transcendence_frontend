@@ -2,6 +2,8 @@ import WebComponent, { Component } from '#WebComponent';
 
 import css from './LegalDocs.css?inline';
 
+document.querySelector('meta[name="description"]').content = 'Privacy policy of the application.';
+
 export default Component ({
     tagName: 'privacy-policy',
     styleCSS: css
@@ -16,8 +18,26 @@ class PrivacyPolicy extends WebComponent {
         };
     }
 
+    showModal(section) {
+        const modal = this._getDOM().querySelector('landing-auth-modal');
+        modal.openModal(section);
+    }
+
+    showOTPModal(username) {
+        const otpModal = this._getDOM().querySelector('landing-otp-modal');
+        otpModal.openModal(username);
+    }
+
+    bind() {
+        this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
+    }
+
     render() {
         return `
+            ${this.state.shownNavbar ? `
+                <landing-auth-modal></landing-auth-modal>
+                <landing-otp-modal></landing-otp-modal>` : ''}
             <section class="position-relative container-fuild base">
                 ${this.state.shownNavbar ? `<div class="col-12 p-0 position-absolute rounded-circle lights top-light"></div>
                 <div class="col-12 p-0 position-absolute rounded-circle lights middle-left-light"></div>

@@ -28,36 +28,36 @@
     },
     "SETTINGS": {
       "USER_MANAGEMENT_DONE": {
-          "TITLE": "Profil Mis à Jour",
-          "DESC": "Votre profil a été mis à jour avec succès"
+        "TITLE": "Profil Mis à Jour",
+        "DESC": "Votre profil a été mis à jour avec succès"
       },
       "USER_MANAGEMENT_ERROR": {
-          "TITLE": "Échec de la Mise à Jour du Profil",
-          "DESC": "Une erreur est survenue lors de la mise à jour de votre profil"
+        "TITLE": "Échec de la Mise à Jour du Profil",
+        "DESC": "Une erreur est survenue lors de la mise à jour de votre profil"
       },
       "CHANGE_PASSWORD_DONE": {
-          "TITLE": "Mot de Passe Mis à Jour",
-          "DESC": "Votre mot de passe a été mis à jour avec succès"
+        "TITLE": "Mot de Passe Mis à Jour",
+        "DESC": "Votre mot de passe a été mis à jour avec succès"
       },
       "TWO_FACTOR_AUTH_ACTIVATION": {
-          "TITLE": "Authentification à Deux Facteurs Activée",
-          "DESC": "Votre compte est maintenant protégé par une authentification à deux facteurs"
+        "TITLE": "Authentification à Deux Facteurs Activée",
+        "DESC": "Votre compte est maintenant protégé par une authentification à deux facteurs"
       },
       "TWO_FACTOR_AUTH_DEACTIVATION": {
-          "TITLE": "Authentification à Deux Facteurs Désactivée",
-          "DESC": "Votre compte n'est plus protégé par une authentification à deux facteurs"
+        "TITLE": "Authentification à Deux Facteurs Désactivée",
+        "DESC": "Votre compte n'est plus protégé par une authentification à deux facteurs"
       },
       "TWO_FACTOR_AUTH_ERROR": {
-          "TITLE": "Erreur d'Authentification à Deux Facteurs",
-          "DESC": "Une erreur est survenue lors de la mise à jour de vos paramètres d'authentification à deux facteurs"
+        "TITLE": "Erreur d'Authentification à Deux Facteurs",
+        "DESC": "Une erreur est survenue lors de la mise à jour de vos paramètres d'authentification à deux facteurs"
       },
       "DELETE_ACCOUNT_DONE": {
-          "TITLE": "Compte Supprimé",
-          "DESC": "Nous espérons vous revoir bientôt !"
+        "TITLE": "Compte Supprimé",
+        "DESC": "Nous espérons vous revoir bientôt !"
       },
       "DELETE_ACCOUNT_ERROR": {
-          "TITLE": "Échec de la Suppression du Compte",
-          "DESC": "Une erreur est survenue lors de la suppression de votre compte"
+        "TITLE": "Échec de la Suppression du Compte",
+        "DESC": "Une erreur est survenue lors de la suppression de votre compte"
       }
     },
     "LOCAL_MATCH":{
@@ -80,7 +80,7 @@
     "DISCOVER": {
       "HEADER": "RÉSEAUX SOCIAUX",
       "TITLE": "Découvrez des gens et devenez amis",
-      "SUBTITLE": "Envoyez des demandes d'amis et discutez avec des personnes avec qui vous jouez du monde entier"
+      "SUBTITLE": "Envoyez des demandes d'amitié et devenez amis avec d'autres joueurs"
     },
     "LEADER_BOARD": {
       "HEADER": "COMPÉTITION MONDIALE",
@@ -314,31 +314,85 @@
       "WINRATE": "Taux de </br>Victoire", 
       "STREAK": "Série de </br>Victoires Maximale"
     },
-    "FRIENDS_LIST_TITLE": "Liste d'Amis",
+    "FRIENDS_LIST": {
+      "TITLE": "Liste d'Amis",
+      "EMPTY": "C'est difficile à dire, mais il semble que vous n'avez pas d'amis..."
+    },
     "MATCH_HISTORY": {
       "TITLE": "Historique des Matchs",
-      "TABLE_HEAD": {
-        "RESULT": "Résultat",
-        "OPPONENT": "Adversaire",
-        "EARNED": "Gagné",
-        "TIME": "Temps"
+      "DETAILS": {
+        "GOALS_SCORED": "Buts Marqués : ",
+        "GOALS_AGAINST": "Buts Encaissés : ",
+        "GOALS_STOPPED": "Buts Arrêtés : ",
+        "GOALS_STOPPED_RIVAL": "Buts Arrêtés par ",
+        "GAME_TIME": "Temps de Jeu : ",
+        "POINTS_EARNED": "Points Gagnés : "
       },
       "RESULT_STATUS": {
-        "VICTORY": "Victoire",
-        "DEFEAT": "Défaite",
-        "DRAW": "Nul"
+        "VICTORY": "Victoire VS",
+        "DEFEAT": "Défaite VS"
       },
       "PAGINATION": {
         "PREVIOUS": "< Précédent",
         "OF": "de",
         "NEXT": "Suivant >"
-      }
+      },
+      "EMPTY": "Il n'existe aucun enregistrement de match"
     }
   },
   "FRIENDSHIP": {
+    "TITLE": "Vos demandes d'amitié en attente",
     "ACCEPT": "Accepter",
     "REJECT": "Rejeter",
-    "NO_MORE_REQUESTS": "Il n'y a plus de demandes d'ami...<br/>Revenez plus tard"
+    "NO_MORE_REQUESTS": "Il n'y a plus de demandes d'ami... Revenez plus tard"
+  },
+  "GAME": {
+    "GOLDEN_GOAL": "But en or",
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nouveau match local",
+      "FIRST_ALIAS": {
+        "LABEL": "Alias du premier joueur",
+        "PHOLDER": "Alias 1"
+      },
+      "SECOND_ALIAS": {
+        "LABEL": "Alias du deuxième joueur",
+        "PHOLDER": "Alias 2"
+      },
+      "BUTTON": "Commencer la partie"
+    }
+  },
+  "TOURNAMENT": {
+    "REGISTRATION_MODAL": {
+      "TITLE": "Nouveau tournoi",
+      "NAME": {
+        "LABEL": "Nom",
+        "PHOLDER": "Nom du tournoi"
+      },
+      "PLAYERS": {
+        "LABEL": "Participants",
+        "PHOLDER": "Ajouter un nouveau joueur"
+      },
+      "BUTTON": "Commencer le tournoi"
+    },
+    "ROUND_MODAL": {
+      "TITLE": "Tour ",
+      "SEMIFINALS": "Demi-finales",
+      "FINALS": "Tour final",
+      "BUTTON": "Commencer le prochain match"
+    }
+  },
+  "WINNER_MODAL": {
+    "CONGRATULATIONS": "🎉🎉 FÉLICITATIONS ! 🎉🎉",
+    "LOCAL_MATCH": {
+      "TITLE": "Match terminé",
+      "DESC": "Vous êtes le gagnant de la partie !",
+      "BUTTON": "Rejouer"
+    },
+    "TOURNAMENT": {
+      "TITLE": "Tournoi terminé",
+      "DESC": "Vous êtes le gagnant du tournoi !",
+      "BUTTON": "Créer un nouveau tournoi"
+    }
   },
   "LEADERBOARD": {
     "TITLE": "Les 10 meilleurs joueurs de Pong",
@@ -379,7 +433,9 @@
       "NOT_VERIFIED": "L'utilisateur n'est pas vérifié",
       "PASS_RESET": "Aucun utilisateur ou email ne correspond aux informations fournies",
       "CHECKBOX": "Vous devez accepter les termes et conditions",
-      "NOT_FOUND": "Utilisateur non trouvé"
+      "NOT_FOUND": "Utilisateur non trouvé",
+      "INVALID": "Un ou plusieurs utilisateurs sont invalides. Veuillez les vérifier et réessayer",
+      "SAME": "Vous ne pouvez pas jouer contre vous-même. Veuillez trouver un ami pour jouer avec vous"
     },
     "OAUTH": {
       "NO_CODE": "Oups, pong-quoi es-tu ici? 🤔",
@@ -389,7 +445,22 @@
     },
     "INVALID_TOKEN": "Token invalide",
     "EXPIRED_TOKEN": "Token expiré",
-    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer"
+    "OTP_CODE": "Code incorrect inséré. Veuillez réessayer",
+    "OTP_CODE_EMPTY": "Veuillez insérer le code envoyé à votre email",
+    "FRIENDS": {
+      "YOURSELF": "Vous avez trop d'ego, n'est-ce pas ?",
+      "FRIENDSHIP_EXISTS": "Vous êtes déjà ami avec cet utilisateur",
+      "FRIENDSHIP_NOT_FOUND": "Amitié introuvable",
+      "WAS_ACCEPTED": "La demande d'amitié a déjà été acceptée"
+    },
+    "MATCH": {
+      "INVALID": "Veuillez remplir correctement les alias des deux joueurs",
+      "EQUAL_NAMES": "Les alias des joueurs doivent être différents"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "Veuillez remplir correctement le nom du tournoi",
+      "WRONG_NUMBER_PLAYERS": "Le nombre de joueurs doit être une puissance de 2 entre 2 et 32"
+    }
   },
   "SETTINGS": {
     "SECTIONS": {
