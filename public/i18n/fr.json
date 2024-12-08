@@ -452,6 +452,14 @@
       "FRIENDSHIP_EXISTS": "Vous êtes déjà ami avec cet utilisateur",
       "FRIENDSHIP_NOT_FOUND": "Amitié introuvable",
       "WAS_ACCEPTED": "La demande d'amitié a déjà été acceptée"
+    },
+    "MATCH": {
+      "INVALID": "Veuillez remplir correctement les alias des deux joueurs",
+      "EQUAL_NAMES": "Les alias des joueurs doivent être différents"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "Veuillez remplir correctement le nom du tournoi",
+      "WRONG_NUMBER_PLAYERS": "Le nombre de joueurs doit être une puissance de 2 entre 2 et 32"
     }
   },
   "SETTINGS": {

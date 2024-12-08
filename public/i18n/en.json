@@ -452,6 +452,14 @@
       "FRIENDSHIP_EXISTS": "You are already friends with this user",
       "FRIENDSHIP_NOT_FOUND": "Friendship not found",
       "WAS_ACCEPTED": "Friendship request was already accepted"
+    },
+    "MATCH": {
+      "INVALID": "Please fill in correctly both player aliases",
+      "EQUAL_NAMES": "Player aliases must be different"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "Please fill correctly the tournament name",
+      "WRONG_NUMBER_PLAYERS": "The number of players must be a power of between 2 and 32"
     }
   },
   "SETTINGS": {

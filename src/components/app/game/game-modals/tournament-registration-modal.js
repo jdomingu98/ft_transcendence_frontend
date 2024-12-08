@@ -54,17 +54,17 @@ class TournamentRegistrationModal extends WebComponent {
         errorMessage.classList.add('hidden');
 
         if (!this.name || this.name.length <= 0 || this.name.length > 30) {
-            this.markAsError(nameInput, 'Please fill correctly the tournament name');
+            this.markAsError(nameInput, 'ERROR.TOURNAMENT.INVALID_NAME');
             return;
         }
 
         if (this.hasDuplicates()) {
-            this.markAsError(playerListDiv, 'Player aliases must be different');
+            this.markAsError(playerListDiv, 'ERROR.MATCH.EQUAL_NAMES');
             return;
         }
 
         if (!this.isPowerOfTwo() || players.length < 2 || players.length > 32) {
-            this.markAsError(playerListDiv, 'The number of players must be a power of between 2 and 32');
+            this.markAsError(playerListDiv, 'ERROR.TOURNAMENT.WRONG_NUMBER_PLAYERS');
             return;
         }
 
