@@ -1,7 +1,7 @@
 import '/src/components/app/game';
-import { Sounds } from '/src/components/app/game/PongUtils';
 import WebComponent, { Component } from '#WebComponent';
 import NavigatorService from '#services/NavigatorService';
+import { Sounds } from '/src/components/app/game/PongUtils';
 
 document.querySelector('meta[name="description"]').content = 'Play the classic game of Pong. Move your paddle up and down to hit the ball and score points.';
 

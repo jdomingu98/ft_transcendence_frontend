@@ -62,10 +62,10 @@ class ResetPassword extends WebComponent {
     };
 
     bind() {
-        
+
         if (!this.state.data.change_password_token)
             NavigatorService.goToErrorPage();
-            
+
         this.subscribeAll('.togglePassword', 'click', e => {
             const input = e.target.closest('.password-container').querySelector('input');
             const icon = e.target.closest('.togglePassword').querySelector('i');
