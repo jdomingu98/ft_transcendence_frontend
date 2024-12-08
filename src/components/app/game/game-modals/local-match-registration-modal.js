@@ -44,12 +44,12 @@ class LocalMatchRegistrationModal extends WebComponent {
         this.cleanInputs(errorMessage);
 
         if (!this.playerOne || !playerTwo || this.playerOne.length < 3 || playerTwo.length < 3) {
-            this.markAsError('Please fill in correctly both player aliases');
+            this.markAsError('ERROR.MATCH.INVALID');
             return;
         }
 
         if (this.playerOne === playerTwo) {
-            this.markAsError('Player aliases must be different');
+            this.markAsError('ERROR.MATCH.EQUAL_NAMES');
             return;
         }
 

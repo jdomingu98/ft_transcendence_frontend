@@ -452,6 +452,14 @@
       "FRIENDSHIP_EXISTS": "你已经是这个用户的朋友了",
       "FRIENDSHIP_NOT_FOUND": "未找到好友关系",
       "WAS_ACCEPTED": "好友请求已被接受"
+    },
+    "MATCH": {
+      "INVALID": "请正确填写两个玩家的昵称",
+      "EQUAL_NAMES": "玩家的昵称必须不同"
+    },
+    "TOURNAMENT": {
+      "INVALID_NAME": "请正确填写锦标赛名称",
+      "WRONG_NUMBER_PLAYERS": "玩家数量必须是2到32之间的2的幂"
     }
   },
   "SETTINGS": {
