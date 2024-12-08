@@ -9,6 +9,8 @@ export default Component({
 class WinnerModal extends WebComponent {
     #confetti = null;
 
+    #timeout = null;
+
     init() {
         this.state = { open: true };
     }
@@ -17,7 +19,7 @@ class WinnerModal extends WebComponent {
         this.subscribe('button', 'click', () => {
             this.#confetti.stop();
             this.setState({ open: false });
-            setTimeout(() => window.location.reload(), 7000);
+            this.#timeout = setTimeout(() => window.location.reload(), 7000);
         });
     }
 
@@ -31,6 +33,7 @@ class WinnerModal extends WebComponent {
 
     onDestroy() {
         this.#confetti.cleanListeners();
+        clearTimeout(this.#timeout);
     }
 
     getContent() {
