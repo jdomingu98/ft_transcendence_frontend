@@ -34,7 +34,7 @@ class AppRoot extends WebComponent {
                     { path: '/redirect', component: 'oauth-redirect' },
                     { path: '/reset-password', component: 'reset-password' },
                     { path: '/terms-conditions', component: 'terms-conditions' },
-                    { path: '/tournament', component: 'pong-page' },
+                    { path: '/tournament', component: 'tournament-page' },
                 ]">
             </app-router>
         `;

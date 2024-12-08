@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /game
 Disallow: /error
 Disallow: /reset-password
 Disallow: /redirect
@@ -9,11 +8,11 @@ Allow: /
 Allow: /privacy-policy
 Allow: /legal-notice
 Allow: /terms-conditions
-Allow: /new-game
-Allow: /new-tournament
+Allow: /game
+Allow: /tournament
 Allow: /app/rank
-Allow: /app/new-game
-Allow: /app/new-tournament
+Allow: /app/game
+Allow: /app/tournament
 Allow: /app/privacy-policy
 Allow: /app/legal-notice
 Allow: /app/terms-conditions

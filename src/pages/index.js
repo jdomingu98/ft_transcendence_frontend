@@ -14,3 +14,4 @@ import './reset-password/ResetPassword';
 import './search-results/SearchResults';
 import './settings/SettingsPage';
 import './sidebar/MainSidebar';
+import './tournament-page/TournamentPage';
