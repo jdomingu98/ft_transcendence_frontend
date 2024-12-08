@@ -1,4 +1,5 @@
 import '/src/components/app/game';
+import { Sounds } from '/src/components/app/game/PongUtils';
 import WebComponent, { Component } from '#WebComponent';
 import NavigatorService from '#services/NavigatorService';
 
@@ -8,6 +9,8 @@ export default Component({
     tagName: 'pong-page',
 },
 class PongPage extends WebComponent {
+
+    #firstTimePaused = false
 
     init() {
         this.state = {
@@ -28,19 +31,31 @@ class PongPage extends WebComponent {
 
     bind() {
         this.subscribe('landing-navbar', 'OPEN_MODAL', () => this.showModal('LOGIN'));
-        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({detail}) => this.showOTPModal(detail));
+        this.subscribe('landing-auth-modal', 'OPEN_OTP', ({ detail }) => this.showOTPModal(detail));
+        this.subscribe('app-game', 'ON_PAUSE', ({ detail: paused }) => {
+            if (!paused && !this.#firstTimePaused) {
+                this.#firstTimePaused = true;
+                Sounds.startBackgroundMusic();
+            }
+        })
+    }
+
+    onDestroy() {
+        Sounds.stopBackgroundMusic();
     }
 
     render() {
         if (this.state.accessToken)
-            NavigatorService.goToSidebarElementPage( this.state.isTournament ? 'tournament': 'game');
+            NavigatorService.goToSidebarElementPage(this.state.isTournament ? 'tournament': 'game');
         return `
             <div class="h-100 w-100" style="max-height: 100vh">
                 <landing-auth-modal></landing-auth-modal>
                 <landing-otp-modal></landing-otp-modal>
                 <landing-navbar></landing-navbar>
-                <section style="background-color: var(--app-primary-bg-color)">
-                    <app-game></app-game>
+                <section class="d-flex justify-content-center align-items-center" style="background-color: var(--app-primary-bg-color)">
+                    <div style="max-width: 70%">
+                        <app-game [useRandomPlayers]="true"></app-game>
+                    </div>
                 </section>
             </div>
         `;

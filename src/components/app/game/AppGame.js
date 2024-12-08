@@ -40,11 +40,11 @@ class AppGame extends WebComponent {
     stopGameLoop = false;
 
     get playerOne() {
-        return this.getAttribute('playerOne') ?? this.state.players[0].name;
+        return this.getAttribute('playerOne') ?? (this.getAttribute('useRandomPlayers') ? this.state.players[0].name : '-');
     }
 
     get playerTwo() {
-        return this.getAttribute('playerTwo') ?? this.state.players[1].name;
+        return this.getAttribute('playerTwo') ?? (this.getAttribute('useRandomPlayers') ? this.state.players[1].name : '-');
     }
 
     get userId() {
@@ -89,6 +89,7 @@ class AppGame extends WebComponent {
             this.backgroundPause.classList.add('hidden');
             this.btnPlay.classList.remove('hidden');
         }
+        this.emit('ON_PAUSE', pause);
     }
 
     /**
@@ -234,7 +235,10 @@ class AppGame extends WebComponent {
         }
     }
 
-    getHeader(playerOneImg, playerTwoImg) {
+    getHeader() {
+        const profileImg = this.getAttribute('profileImg');
+        const playerOneImg = (this.username === this.playerOne) && profileImg ? profileImg : this.state.players[0].src;
+        const playerTwoImg = (this.username === this.playerTwo) && profileImg ? profileImg : this.state.players[1].src;
         return `
             <div class="d-flex justify-content-between align-items-center mb-3 mb-lg-1 text-white">
                 <div class="player-icon d-flex justify-content-start align-items-center gap-4 mx-lg-5 mx-3">
@@ -285,26 +289,23 @@ class AppGame extends WebComponent {
     }
 
     render() {
-        const profileImg = this.getAttribute('profileImg');
-        const leftImg = (this.username === this.playerOne) && profileImg ? profileImg : this.state.players[0].src;
-        const rightImg = (this.username === this.playerTwo) && profileImg ? profileImg : this.state.players[1].src;
         const numGoalsAgainst = this.getAttribute('numGoalsAgainst') ?? 0;
         const numGoalsScored = this.getAttribute('numGoalsScored') ?? 0;
         return `
             <div class="d-flex justify-content-center align-items-center overflow-hidden">
                 <div class="pongtainer">
-                    ${ this.getHeader(leftImg, rightImg)}
+                    ${ this.getHeader()}
                     <div class="position-relative">
-                        <div class="background-pause hidden position-absolute top-50 start-50 translate-middle"></div>
+                        <div class="background-pause position-absolute top-50 start-50 translate-middle"></div>
                         <div class="golden-goal">
                             <p>{{ translator.translate('GAME.GOLDEN_GOAL')}}</p>
                         </div>
                         <div class="d-flex justify-content-around align-items-center score-board position-absolute start-50 translate-middle">
                             <span class="score" id="score-1">${numGoalsScored}</span>
-                            <button class="position-absolute top-50 start-50 translate-middle btn-game pause hidden">
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game pause">
                                 <i class="bi bi-pause"></i>
                             </button>
-                            <button class="position-absolute top-50 start-50 translate-middle btn-game play">
+                            <button class="position-absolute top-50 start-50 translate-middle btn-game play hidden">
                                 <i class="bi bi-play-fill"></i>
                             </button>
                             <span class="score" id="score-2">${numGoalsAgainst}</span>
