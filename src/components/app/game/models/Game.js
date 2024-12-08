@@ -176,7 +176,7 @@ export class Game extends CanvasObject {
             this.#ball.y + radius > this.#paddles.left.position.y &&
             this.#ball.y - radius < this.#paddles.left.position.y + this.#paddles.left.getHeight() &&
             this.#ball.getVelocity().x < 0) {
-            this.#paddles.left.goals_stopped++;
+            this.#paddles.left.increaseGoalsStopped();
             Sounds.makeGoSound();
             this.#paddleBouncedBall(PaddleTypes.LEFT);
         }
